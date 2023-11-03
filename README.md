@@ -2,6 +2,8 @@ TODOs
 1. how enviroment directory should look like
 
 1. update dependecies
+2. save entity page for admin
+3. if user logged in without account show a dumb page
 2. install typescript?
 3. install material UI
 3. base user model
