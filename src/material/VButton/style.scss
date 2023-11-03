@@ -1,0 +1,12 @@
+.VButton.MuiButton-contained {
+  margin-top: 20px;
+  background-color: #1976d2;
+  color: #fff;
+  font-weight: 400;
+  font-size: 16px;
+  text-transform: none;
+
+  &:hover {
+    background-color: #4E9EEE;
+  }
+}

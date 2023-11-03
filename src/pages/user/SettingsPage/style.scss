@@ -1,0 +1,17 @@
+.SettingsPage {
+  width: 500px;
+  margin: auto;
+  margin-top: 20px;
+  &__wrapper {
+    border: 1px solid #eeeeee;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+  }
+  &__title {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.33;
+    margin-bottom: 20px;
+  }
+}

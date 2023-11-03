@@ -1,0 +1,12 @@
+.idea
+.vscode
+.DS_STORE
+environment/
+node_modules/
+build/
+dist/
+deploy/
+src/**/*.css
+src/**/*.css.map
+src/**/*.scssc
+coverage/

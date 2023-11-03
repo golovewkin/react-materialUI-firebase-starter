@@ -1,0 +1,19 @@
+.Nav {
+  background: #1A242F;
+
+  //todo set without hardcoded classes
+  .MuiListItemText-root {
+    span {
+      padding-top: 5px;
+      font-size: 12px;
+    }
+  }
+
+  .Mui-selected {
+    color: #fff;
+
+    .active {
+      color: #fff;
+    }
+  }
+}
