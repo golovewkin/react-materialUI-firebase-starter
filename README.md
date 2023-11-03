@@ -4,7 +4,6 @@ TODOs
 1. update dependecies
 2. save entity page for admin
 3. if user logged in without account show a dumb page
-2. install typescript?
 3. install material UI
 3. base user model
 4. base entity model
@@ -19,3 +18,8 @@ TODOs
 6. how to create a user?
 7. user sends request to create a user to admin, admin mail to env
 8. tests?
+
+
+
+What is inside
+React, material ui, firebase
