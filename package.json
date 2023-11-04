@@ -17,10 +17,8 @@
   },
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
-    "start": "npm run start:dev",
-    "start:dev": "sh -ac '. environment/.env.dev; PORT=4200 react-scripts start'",
+    "start": "npm run start:prod",
     "start:prod": "sh -ac '. environment/.env.prod; PORT=4200 react-scripts start'",
-    "build:dev": "sh -ac '. environment/.env.dev; react-scripts build'",
     "build:prod": "sh -ac '. environment/.env.prod; react-scripts build'",
     "build": "react-scripts build",
     "test": "react-scripts test",

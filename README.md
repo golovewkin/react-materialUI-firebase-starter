@@ -23,3 +23,10 @@ TODOs
 
 What is inside
 React, material ui, firebase
+
+Steps to launch the project:
+1. Create a firebase project
+2. get env and put env folder to the root
+3. run script to create an admin
+4. login and create a user
+5. get a captha token and put it to the env
