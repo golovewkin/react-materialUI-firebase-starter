@@ -16,7 +16,6 @@ export class EntityModel {
   validate(entity) {
     this.validateCustom(entity);
     if (!entity.id) throw new Error("no entity.id");
-    if (!entity.ownerId) throw new Error("no entity.ownerId");
     if (!entity.collection) throw new Error("no entity.collection");
   }
 

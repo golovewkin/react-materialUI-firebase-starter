@@ -1,5 +1,5 @@
 What is inside
-React 18, material ui, firebase auth, firebase firestore.
+React 18, material ui, firebase auth, firebase firestore with NO SERVER.
 
 What do you get:
 1. Admin panel
@@ -17,13 +17,7 @@ Steps to launch the project:
 2. Create a firebase project
 3. Create Auth project inside your firebase project and set providers (email and Google)
 4. Create web app in your firebase project and get credentials
-   1. Put your credentials in .env.production and put this file on the root
-      REACT_APP_FIREBASE_API_KEY=-----
-      REACT_APP_FIREBASE_AUTH_DOMAIN=----
-      REACT_APP_PROJECT_ID=----
-      REACT_APP_FIREBASE_STORAGE_BUCKET=----
-      REACT_APP_FIREBASE_API_ID=----
-      REACT_APP_FIREBASE_SENDER_ID=------
+   1. Put your credentials in .env.production.example and rename it to .env.production
    2. Create firestore database storage and 'users' collection
    3. Setup firestore rules --current
 5. Change title in index.html and favicons
@@ -33,6 +27,7 @@ Steps to launch the project:
 9. run script to create an admin
 10. npm start:prod
 11. Log in as an admin and create a user
+12. Deploy to Digital Ocean or a similar service
 
 
 TODO login via google and admin show users that are not in DB
