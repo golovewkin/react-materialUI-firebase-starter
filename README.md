@@ -16,7 +16,7 @@ Steps to launch the project:
 1. Create a firebase project
 2. Create Auth project inside your firebase project and set providers (email and Google)
 3. Create web app in your firebase project and get credentials
-   1. Put your credentials in .env.production and puut this file on the root
+   1. Put your credentials in .env.production and put this file on the root
       REACT_APP_FIREBASE_API_KEY=-----
       REACT_APP_FIREBASE_AUTH_DOMAIN=----
       REACT_APP_PROJECT_ID=----
@@ -26,12 +26,12 @@ Steps to launch the project:
    2. Create firestore database storage and 'users' collection
    3. Setup firestore rules --current
 4. Change title in index.html and favicons
-5. change name in package.json
-6. get a captcha token form Google and put it to the env
+5. Change name in package.json
+6. Get a captcha token form Google and put it to the env
 7. npm i
 8. run script to create an admin
 9. npm run TODO
-10. login as an admin and create a user
+10. Log in as an admin and create a user
 
 
 TODO login via google and admin show users that are not in DB
