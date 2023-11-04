@@ -1,35 +1,16 @@
-TODOs
-1. how enviroment directory should look like
-
-1. update dependecies
-2. save entity page for admin
-3. if user logged in without account show a dumb page
-3. install material UI
-3. base user model
-4. base entity model
-5. services for firebase
-6. split them by level
-7. deploy install with firebase console
-8. user can log in after admin approves
-9. captcha
-10. landing page
-7. admin panel
-8. base user
-6. how to create a user?
-7. user sends request to create a user to admin, admin mail to env
-8. tests?
-
-
-
 What is inside
-React, material ui, firebase auth, firebase firestore
+React, material ui, firebase auth, firebase firestore.
 
-  TODO add validation on Entity
-TODO login via google and admin show users that are not in DB
-TODO my contacts on the landing page
-create a model and extend this from EntityModel
-Use firestore
-setup rules
+What do you get:
+1. Admin panel with 1 user
+2. Mini Entity framework with ability to save to firebase
+3. Ability to create a an admin
+4. Ability to create a user as an admin
+5. 'Settings' and 'Home' page for users
+6. User management for admins
+7. Users can login via email or with a Google account
+8. Reset password functionality
+9. Landing page
 
 Steps to launch the project:
 1. Create a firebase project
@@ -42,12 +23,17 @@ Steps to launch the project:
       REACT_APP_FIREBASE_STORAGE_BUCKET=----
       REACT_APP_FIREBASE_API_ID=----
       REACT_APP_FIREBASE_SENDER_ID=------
-   2. Create firestore database storage
-
- --current
+   2. Create firestore database storage and 'users' collection
+   3. Setup firestore rules --current
 4. Change title in index.html and favicons
 5. change name in package.json
-6. npm i
-6. run script to create an admin
-7. login and create a user
-8. get a captcha token form Google and put it to the env
+6. get a captcha token form Google and put it to the env
+7. npm i
+8. run script to create an admin
+9. npm run TODO
+10. login as an admin and create a user
+
+
+TODO login via google and admin show users that are not in DB
+TODO my contacts on the landing page
+user sends request to create a user to admin, admin mail to env
