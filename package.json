@@ -21,7 +21,6 @@
 
     "start:prod": "sh -ac '. environment/.env.prod; PORT=3000 react-scripts start'",
     "start:prod-local": "sh -ac '. environment/.env.prod.local; PORT=3000 react-scripts start'",
-    "build:dev": "sh -ac '. environment/.env.dev; react-scripts build'",
     "build:prod": "sh -ac '. environment/.env.prod; react-scripts build'"
   },
   "eslintConfig": {

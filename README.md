@@ -31,7 +31,7 @@ Steps to launch the project:
 7. Get a captcha token form Google and put it to the env
 8. npm i
 9. run script to create an admin
-10. npm run TODO
+10. npm start:prod
 11. Log in as an admin and create a user
 
 
