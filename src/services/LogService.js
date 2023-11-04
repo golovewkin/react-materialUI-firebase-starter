@@ -1,6 +1,6 @@
-import {DataBaseService} from "./DataBaseService";
-import {classToObject} from "../helpers/util.helper";
-import {collections} from "../constants/collections";
+import { DataBaseService } from "./DataBaseService";
+import { classToObject } from "../helpers/util.helper";
+import { collections } from "../constants/collections";
 
 export class LogService {
   static showMessage;
@@ -9,15 +9,15 @@ export class LogService {
       console.error(description, entityOrError);
 
       //no need logging local dev errors
-      if (process.env.NODE_ENV === 'development') {
+      if (process.env.NODE_ENV === "development") {
         return;
       }
 
       entityOrError.metadata = `URL: ${window.location.href}; error:  ${description}`;
       entityOrError.createdAt = Date.now();
-      await DataBaseService.addDocumentWithoutId(classToObject(entityOrError), collections.errors);
+      // There could be your error saving
     } catch (e) {
-      console.error('save error error', e);
+      console.error("save error error", e);
     }
   }
 

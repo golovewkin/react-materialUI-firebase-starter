@@ -1,13 +1,13 @@
-import {Route, Switch} from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import LoginPage from "../pages/public/LoginPage/LoginPage";
 import React from "react";
 import ErrorPage from "../pages/public/ErrorPage";
 import CreateAccountPage from "../pages/public/CreateAccountPage/CreateAccountPage";
-import {urlsConst} from "../constants/urlsConst";
+import { urlsConst } from "../constants/urlsConst";
 import SettingsPage from "../pages/user/SettingsPage/SettingsPage";
 import ResetPassPage from "../pages/public/ResetPassPage/ResetPassPage";
 import GroupPage from "../pages/user/GroupPage/GroupPage";
-import GroupsPage from "../pages/user/Groups/GroupsPage";
+import GroupsPage from "../pages/user/Entities/EntitiesPage";
 
 export const getUserRoutes = (user) => {
   if (!user) {
@@ -23,7 +23,7 @@ export const getUserRoutes = (user) => {
           <LoginPage />
         </Route>
       </Switch>
-    )
+    );
   }
 
   return (
@@ -41,5 +41,5 @@ export const getUserRoutes = (user) => {
         <ErrorPage />
       </Route>
     </Switch>
-  )
-}
+  );
+};

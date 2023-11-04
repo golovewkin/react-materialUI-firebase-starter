@@ -1,13 +1,13 @@
 import React from "react";
-import DeleteIcon from "@material-ui/icons/Delete";
+import EditIcon from "@material-ui/icons/Edit";
 import IconButton from "@material-ui/core/IconButton";
 
-const VDeleteIcon = (props) => {
+const EditIcon = (props) => {
   return (
     <IconButton {...props}>
-      <DeleteIcon />
+      <EditIcon />
     </IconButton>
   );
 };
 
-export default VDeleteIcon;
+export default EditIcon;

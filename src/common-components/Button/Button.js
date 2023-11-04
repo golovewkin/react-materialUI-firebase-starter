@@ -1,12 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 import Button from "@material-ui/core/Button";
-import './style.scss'
+import "./style.scss";
 
-const VButton = ({children, onClick, disabled = false, style = {}, startIcon}) => {
-	return (
+const Button = ({
+  children,
+  onClick,
+  disabled = false,
+  style = {},
+  startIcon,
+}) => {
+  return (
     <Button
-      className='VButton'
+      className="VButton"
       style={style}
       onClick={onClick}
       disabled={disabled}
@@ -15,10 +21,10 @@ const VButton = ({children, onClick, disabled = false, style = {}, startIcon}) =
     >
       {children}
     </Button>
-  )
+  );
 };
 
-VButton.propTypes = {
+Button.propTypes = {
   children: PropTypes.node.isRequired,
   startIcon: PropTypes.node,
   style: PropTypes.object,
@@ -26,5 +32,4 @@ VButton.propTypes = {
   disabled: PropTypes.bool,
 };
 
-export default VButton;
-
+export default Button;

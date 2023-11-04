@@ -5,7 +5,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 
-const VSelect = ({ onChange, value, values }) => {
+const Select = ({ onChange, value, values }) => {
   return (
     <FormControl style={{ marginTop: 15 }}>
       <InputLabel id="VSelect">Group</InputLabel>
@@ -26,10 +26,10 @@ const VSelect = ({ onChange, value, values }) => {
   );
 };
 
-VSelect.propTypes = {
+Select.propTypes = {
   values: PropTypes.array.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
-export default VSelect;
+export default Select;

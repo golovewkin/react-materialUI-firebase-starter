@@ -3,9 +3,9 @@ import "./style.scss";
 import { AuthService } from "../../../services/AuthService";
 import { useHistory } from "react-router";
 import Avatar from "@material-ui/core/Avatar";
-import VAddIcon from "../../../material/icons/VAddIcon";
+import AddIcon from "../../../common-components/icons/AddIcon";
 import MainContext from "../../../contexts/main.context";
-import VOffIcon from "../../../material/icons/VOffIcon";
+import OffIcon from "../../../common-components/icons/OffIcon";
 
 const Header = () => {
   const history = useHistory();
@@ -22,9 +22,9 @@ const Header = () => {
         <span>{user.name}</span>
       </div>
       <div className="Header__user">
-        <VAddIcon onClick={() => showCreateWordPopup(user, () => {})} />
-        <VAddIcon onClick={() => showCreateGroupPopup(user)} />
-        <VOffIcon onClick={() => AuthService.signOut(history)} />
+        <AddIcon onClick={() => showCreateWordPopup(user, () => {})} />
+        <AddIcon onClick={() => showCreateGroupPopup(user)} />
+        <OffIcon onClick={() => AuthService.signOut(history)} />
       </div>
     </div>
   );

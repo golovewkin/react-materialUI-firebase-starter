@@ -5,7 +5,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import VButton from "../../material/VButton/VButton";
+import Button from "../../common-components/Button/Button";
 import { withErrorBoundary } from "../hoc/withErrorBoundary/withErrorBoundary";
 
 const ConfirmationPopup = ({ open, onClose, onSuccess }) => {
@@ -24,15 +24,15 @@ const ConfirmationPopup = ({ open, onClose, onSuccess }) => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <VButton onClick={onClose}>Cancel</VButton>
-          <VButton
+          <Button onClick={onClose}>Cancel</Button>
+          <Button
             onClick={() => {
               onSuccess();
               onClose();
             }}
           >
             Ok
-          </VButton>
+          </Button>
         </DialogActions>
       </Dialog>
     </div>

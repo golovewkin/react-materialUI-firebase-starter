@@ -22,7 +22,14 @@ TODOs
 
 
 What is inside
-React, material ui, firebase
+React, material ui, firebase auth, firebase firestore
+
+  TODO add validation on Entity
+TODO login via google and admin show users that are not in DB
+TODO my contacts on the landing page
+create a model and extend this from EntityModel
+Use firestore
+setup rules
 
 Steps to launch the project:
 1. Create a firebase project

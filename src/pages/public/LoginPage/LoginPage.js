@@ -1,21 +1,21 @@
-import React, {useState} from 'react';
-import {AuthService} from "../../../services/AuthService";
-import './style.scss'
-import VButton from "../../../material/VButton/VButton";
+import React, { useState } from "react";
+import { AuthService } from "../../../services/AuthService";
+import "./style.scss";
+import Button from "../../../common-components/Button/Button";
 import MainContext from "../../../contexts/main.context";
-import {commonConst} from "../../../constants/commonConst";
-import VTextField from "../../../material/VTextField";
-import {setFormState} from "../../../helpers/form.helper";
-import {LogService} from "../../../services/LogService";
-import {urlsConst} from "../../../constants/urlsConst";
-import VLink from "../../../material/VLink/VLink";
-import {validEmail, validPassword} from "../../../helpers/validator.helper";
+import { commonConst } from "../../../constants/commonConst";
+import TextField from "../../../common-components/TextField";
+import { setFormState } from "../../../helpers/form.helper";
+import { LogService } from "../../../services/LogService";
+import { urlsConst } from "../../../constants/urlsConst";
+import Link from "../../../common-components/Link/Link";
+import { validEmail, validPassword } from "../../../helpers/validator.helper";
 
 const LoginPage = () => {
   const { user } = React.useContext(MainContext);
   const [state, setState] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   const login = () => {
@@ -23,42 +23,44 @@ const LoginPage = () => {
   };
 
   const isDisabled = (state) => {
-  	try {
+    try {
       if (!validEmail(state.email)) return true;
       if (!validPassword(state.password)) return true;
       return false;
-  	} catch (e) {
-  		LogService.logError('isDisabled error', e);
-  		return true;
-  	}
+    } catch (e) {
+      LogService.logError("isDisabled error", e);
+      return true;
+    }
   };
 
   if (user) {
-    return <span>{commonConst.error}</span>
+    return <span>{commonConst.error}</span>;
   }
 
   return (
-    <div className='LoginPage'>
+    <div className="LoginPage">
       <div className="LoginPage__title">Sign in</div>
       <div className="LoginPage__wrapper">
-        <VTextField
-          onChange={(value) => setFormState('email', value, setState)}
+        <TextField
+          onChange={(value) => setFormState("email", value, setState)}
           value={state.email}
-          type='email'
-          label='email'
+          type="email"
+          label="email"
           error={!validEmail(state.email)}
         />
-        <VTextField
-          onChange={(value) => setFormState('password', value, setState)}
+        <TextField
+          onChange={(value) => setFormState("password", value, setState)}
           value={state.password}
-          type='password'
-          label='password'
+          type="password"
+          label="password"
           error={!validPassword(state.password)}
         />
-        <VButton disabled={isDisabled(state)} onClick={login}>Log in</VButton>
+        <Button disabled={isDisabled(state)} onClick={login}>
+          Log in
+        </Button>
         <div className="LoginPage__links">
-          <VLink to={urlsConst.resetPass} children='Forgot password?'/>
-          <VLink to={urlsConst.createAccount} children='Sign up'/>
+          <Link to={urlsConst.resetPass} children="Forgot password?" />
+          <Link to={urlsConst.createAccount} children="Sign up" />
         </div>
       </div>
     </div>
@@ -66,4 +68,3 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-

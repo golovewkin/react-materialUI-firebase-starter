@@ -2,7 +2,7 @@ import { DataBaseService } from "./DataBaseService";
 import { collections } from "../constants/collections";
 import { classToObject } from "../helpers/util.helper";
 
-export class GroupDBService {
+export class EntityDBService {
   static getUserGroups(user) {
     return DataBaseService.getDocumentsWhere(
       collections.groups,

@@ -3,9 +3,8 @@ import { collections } from "../constants/collections";
 import { classToObject, makeId } from "../helpers/util.helper";
 import { UserModel } from "../models/UserModel";
 import { LogService } from "./LogService";
-import { GroupModel } from "../models/GroupModel";
-import { GroupDBService } from "./GroupDBService";
-import HttpService from "./HTTPService";
+import { EntityDBService } from "./EntityDBService";
+
 
 export class UserDBService {
   static url = '/users/'
@@ -35,7 +34,7 @@ export class UserDBService {
           name: "Default",
           cannotDelete: true,
         });
-        await GroupDBService.createGroup(defaultGroup);
+        await EntityDBService.createGroup(defaultGroup);
         return newUser;
       }
     } catch (e) {

@@ -1,7 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import 'firebase/auth';
-import 'firebase/firestore'; //todo remove it
-import 'firebase/storage';
+import 'firebase/firestore';
 
 const config = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,

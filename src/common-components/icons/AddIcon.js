@@ -2,7 +2,7 @@ import React from "react";
 import AddIcon from "@material-ui/icons/Add";
 import IconButton from "@material-ui/core/IconButton";
 
-const VAddIcon = (props) => {
+const AddIcon = (props) => {
   return (
     <IconButton {...props}>
       <AddIcon />
@@ -10,4 +10,4 @@ const VAddIcon = (props) => {
   );
 };
 
-export default VAddIcon;
+export default AddIcon;

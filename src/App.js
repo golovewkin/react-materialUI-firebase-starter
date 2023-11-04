@@ -13,14 +13,8 @@ import { LogService } from "./services/LogService";
 import ErrorPopup from "./components/popups/ErrorPopup";
 import { UserDBService } from "./services/UserDBService";
 import Snackbar from "@material-ui/core/Snackbar";
-import { GroupDBService } from "./services/GroupDBService";
+import { EntityDBService } from "./services/EntityDBService";
 import ConfirmationPopup from "./components/popups/ConfirmationPopup";
-import WordEditPopup from "./components/popups/WordEditPopup/WordEditPopup";
-import GroupEditPopup from "./components/popups/GroupEditPopup/GroupEditPopup";
-import { GroupModel } from "./models/GroupModel";
-import { makeId } from "./helpers/util.helper";
-import { commonConst } from "./constants/commonConst";
-import { WordModel } from "./models/WordModel";
 
 const App = () => {
   const [popupState, setPopupState] = React.useState({
@@ -65,7 +59,7 @@ const App = () => {
       try {
         if (user) {
           const userData = await UserDBService.getUserByFirebaseId(user.uid);
-          const groups = await GroupDBService.getUserGroups(userData);
+          const groups = await EntityDBService.getUserGroups(userData);
           setState((oldState) => ({
             ...oldState,
             user: userData,
@@ -117,107 +111,6 @@ const App = () => {
     }));
   }, []);
 
-  const onRemoveGroup = React.useCallback((group) => {
-    setState((oldState) => {
-      const newGroups = [...oldState.groups];
-      const removedGroupIndex = newGroups.findIndex(
-        ({ id }) => id === group.id
-      );
-      newGroups.splice(removedGroupIndex, 1);
-      return { ...oldState, groups: newGroups };
-    });
-  }, []);
-
-  const onUpdateGroup = React.useCallback((editedGroup) => {
-    setState((oldState) => {
-      const newGroups = [...oldState.groups];
-      const index = newGroups.findIndex(({ id }) => id === editedGroup.id);
-      newGroups[index] = editedGroup;
-      return { ...oldState, groups: newGroups };
-    });
-  }, []);
-
-  const onCreateGroup = React.useCallback((newGroup) => {
-    setState((oldState) => {
-      const newGroups = [...oldState.groups];
-      newGroups.push(newGroup);
-      return { ...oldState, groups: newGroups };
-    });
-  }, []);
-
-  /// ------------ group edit ----------------------------------
-  const showCreateGroupPopup = React.useCallback(
-    (user) => {
-      const newGroup = new GroupModel({ id: makeId(), ownerId: user.id });
-      setPopupState((oldState) => ({
-        ...oldState,
-        groupEdit: true,
-        current: newGroup,
-        mode: commonConst.create,
-        onSuccess: onCreateGroup,
-      }));
-    },
-    [onCreateGroup]
-  );
-
-  const showEditGroupPopup = React.useCallback(
-    (group) => {
-      setPopupState((oldState) => ({
-        ...oldState,
-        groupEdit: true,
-        mode: commonConst.edit,
-        current: group,
-        onSuccess: onUpdateGroup,
-      }));
-    },
-    [onUpdateGroup]
-  );
-
-  const hideEditGroupPopup = React.useCallback(() => {
-    setPopupState((oldState) => ({
-      ...oldState,
-      groupEdit: false,
-      current: null,
-      mode: null,
-    }));
-  }, []);
-  /// ------------END group edit ----------------------------------
-
-  /// ------------ Word Creating ----------------------------------
-  const showCreateWordPopup = React.useCallback(
-    (user, onSuccess, word = "") => {
-      const newWord = new WordModel({ id: makeId(), ownerId: user.id, word });
-      setPopupState((oldState) => ({
-        ...oldState,
-        wordEdit: true,
-        current: newWord,
-        mode: commonConst.create,
-        onSuccess,
-      }));
-    },
-    []
-  );
-
-  const showEditWordPopup = React.useCallback((word, onSuccess) => {
-    setPopupState((oldState) => ({
-      ...oldState,
-      wordEdit: true,
-      mode: commonConst.edit,
-      current: word,
-      onSuccess,
-    }));
-  }, []);
-
-  const hideEditWordPopup = React.useCallback(() => {
-    setPopupState((oldState) => ({
-      ...oldState,
-      wordEdit: false,
-      current: null,
-      mode: null,
-    }));
-  }, []);
-  /// ------------END group edit ----------------------------------
-
   if (state.loading) {
     return <Loader />;
   }
@@ -227,15 +120,8 @@ const App = () => {
       value={{
         user: state.user,
         updateUser,
-        groups: state.groups,
         showSnack,
         showConfirmation,
-        showCreateGroupPopup,
-        showEditGroupPopup,
-        onRemoveGroup,
-        onUpdateGroup,
-        showCreateWordPopup,
-        showEditWordPopup,
       }}
     >
       <Router>
