@@ -42,11 +42,8 @@ Steps to launch the project:
       REACT_APP_FIREBASE_STORAGE_BUCKET=----
       REACT_APP_FIREBASE_API_ID=----
       REACT_APP_FIREBASE_SENDER_ID=------
-   2. Install firebase CLI 'npm install -g firebase-tools'
-   3. Follow the guide to deploy
-      firebase login
-      firebase init
-      firebase deploy
+   2. Create firestore database storage
+
 
 3. run script to create an admin
 4. login and create a user
