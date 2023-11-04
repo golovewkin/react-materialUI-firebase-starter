@@ -33,7 +33,22 @@ setup rules
 
 Steps to launch the project:
 1. Create a firebase project
-2. get env and put env folder to the root
+2. Create Auth project inside your firebase project and set providers (email and Google)
+3. Create a directory with the name 'environment'
+4. Create web app in your firebase project and get credentials
+   1. Put your credentials in environment/.env.prod
+      REACT_APP_FIREBASE_API_KEY=-----
+      REACT_APP_FIREBASE_AUTH_DOMAIN=----
+      REACT_APP_PROJECT_ID=----
+      REACT_APP_FIREBASE_STORAGE_BUCKET=----
+      REACT_APP_FIREBASE_API_ID=----
+      REACT_APP_FIREBASE_SENDER_ID=------
+   2. Install firebase CLI 'npm install -g firebase-tools'
+   3. Follow the guide to deploy
+      firebase login
+      firebase init
+      firebase deploy
+
 3. run script to create an admin
 4. login and create a user
 5. get a captha token and put it to the env
