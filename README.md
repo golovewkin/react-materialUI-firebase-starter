@@ -34,9 +34,8 @@ setup rules
 Steps to launch the project:
 1. Create a firebase project
 2. Create Auth project inside your firebase project and set providers (email and Google)
-3. Create a directory with the name 'environment'
 4. Create web app in your firebase project and get credentials
-   1. Put your credentials in environment/.env.prod
+   1. Put your credentials in .env.production and puut this file on the root
       REACT_APP_FIREBASE_API_KEY=-----
       REACT_APP_FIREBASE_AUTH_DOMAIN=----
       REACT_APP_PROJECT_ID=----
