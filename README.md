@@ -47,6 +47,7 @@ Steps to launch the project:
  --current
 4. Change title in index.html and favicons
 5. change name in package.json
+6. npm i
 6. run script to create an admin
 7. login and create a user
 8. get a captcha token form Google and put it to the env
