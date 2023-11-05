@@ -32,7 +32,6 @@ Steps to launch the project:
 
 react_flow_relay repository
 TODO login via google and admin show users that are not in DB
-TODO use ThemeProvider https://www.youtube.com/watch?v=I7dwJxGuGYQ
 TODO my contacts on the landing page
 TODO popup context
 TODO snack context
