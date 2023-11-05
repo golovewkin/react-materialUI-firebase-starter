@@ -1,5 +1,5 @@
 import { DataBaseService } from "./DataBaseService";
-import { collections } from "../constants/collections";
+import { collections } from "../../src/constants/collections";
 import { classToObject, makeId } from "../helpers/util.helper";
 import { UserModel } from "../models/UserModel";
 import { LogService } from "./LogService";

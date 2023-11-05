@@ -1,6 +1,6 @@
 import { DataBaseService } from "./DataBaseService";
 import { classToObject } from "../helpers/util.helper";
-import { collections } from "../constants/collections";
+import { collections } from "../../src/constants/collections";
 
 export class LogService {
   static showMessage;

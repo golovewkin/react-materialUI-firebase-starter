@@ -16,15 +16,17 @@ export class EntityModel {
   validate(entity) {
     this.validateCustom(entity);
     if (!entity.id) throw new Error("no entity.id");
+    if (!entity.ownerId) throw new Error("no entity.ownerId");
     if (!entity.collection) throw new Error("no entity.collection");
   }
 
   validateCustom(entity) {
-    console.log("validate something with entity", entity);
+    throw new Error('validate something in specific entity');
   }
 
-  save() {
+  create() {
     try {
+      this.validate(this);
     } catch (e) {
       LogService.showAndLogError("save entity error", e);
     }
@@ -32,6 +34,7 @@ export class EntityModel {
 
   update() {
     try {
+      this.validate(this);
     } catch (e) {
       LogService.showAndLogError("update entity error", e);
     }

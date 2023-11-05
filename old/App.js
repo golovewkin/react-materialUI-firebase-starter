@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import firebase from "./services/firebase";
-import MainContext from "./contexts/main.context";
-import { getUserRoutes } from "./helpers/routes.helper";
-import Header from "./components/layout/Header/Header";
-import Content from "./components/layout/Content/Content";
-import Nav from "./components/layout/Nav/Nav";
+import firebase from "../src/services/firebase";
+import MainContext from "../src/contexts/main.context";
+import { getUserRoutes } from "../src/helpers/routes.helper";
+import Header from "../src/components/layout/Header/Header";
+import Content from "../src/components/layout/Content/Content";
+import Nav from "../src/components/layout/Nav/Nav";
 import "./styles/global.scss";
 import "./App.scss";
-import Loader from "./components/utils/Loader";
-import { LogService } from "./services/LogService";
-import ErrorPopup from "./components/popups/ErrorPopup";
-import { UserDBService } from "./services/UserDBService";
+import Loader from "../src/components/utils/Loader";
+import { LogService } from "../src/services/LogService";
+import ErrorPopup from "../src/components/popups/ErrorPopup";
+import { UserDBService } from "../src/services/UserDBService";
 import Snackbar from "@material-ui/core/Snackbar";
-import { EntityDBService } from "./services/EntityDBService";
-import ConfirmationPopup from "./components/popups/ConfirmationPopup";
+import { EntityDBService } from "../src/services/EntityDBService";
+import ConfirmationPopup from "../src/components/popups/ConfirmationPopup";
 
 const App = () => {
   const [popupState, setPopupState] = React.useState({
