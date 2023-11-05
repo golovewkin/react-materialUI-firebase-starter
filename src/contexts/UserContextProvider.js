@@ -2,16 +2,16 @@ import React from "react";
 
 export const TemplateContext = React.createContext(null);
 
-export const TemplateContextProvider = ({initialTemplateValue, children}) => {
-  const [templateValue, setTemplateValue] = React.useState(initialTemplateValue);
+export const UserContextProvider = ({children}) => {
+  const [user, setUser] = React.useState(null);
 
   return <TemplateContext.Provider
-    value={{templateValue, setTemplateValue}}
+    value={{user, setUser}}
     children={children}
   />;
 }
 
-export const useTemplateContext = () => {
+export const useUserContext = () => {
   const contextValue = React.useContext(TemplateContext);
   if (!contextValue) {
     throw new Error("Tried to use template context from outside the provider");
