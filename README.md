@@ -10,7 +10,7 @@ What do you get:
 6. User management for admins
 7. Users can login via email or with a Google account
 8. Reset password functionality
-9. Landing page
+9. Landing page template
 
 Steps to launch the project:
 1. Clone the project
