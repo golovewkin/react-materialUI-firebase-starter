@@ -15,4 +15,10 @@ export class UserModel extends EntityModel {
     if (user.role !== userRolesConst.user)
       throw new Error("incorrect user role");
   }
+
+  create() {
+    // super.create();
+    // createUserWithEmailAndPassword
+    // then save it
+  }
 }
