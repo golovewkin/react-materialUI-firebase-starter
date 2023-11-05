@@ -30,7 +30,6 @@ Steps to launch the project:
 12. Deploy to Digital Ocean or a similar service
 
 
-react_flow_relay repository
 TODO login via google and admin show users that are not in DB
 TODO my contacts on the landing page
 TODO popup context
