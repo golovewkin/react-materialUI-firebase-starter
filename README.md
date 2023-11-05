@@ -4,7 +4,7 @@ React 18, material ui, firebase auth, firebase firestore with NO SERVER CODE AT 
 What you will get:
 1. Admin panel
 2. Mini Entity framework with ability to save to firebase
-3. Ability to create a an admin
+3. Ability to create an admin
 4. Ability to create a user as an admin
 5. 'Settings' and 'Home' page for users
 6. User management for admins
