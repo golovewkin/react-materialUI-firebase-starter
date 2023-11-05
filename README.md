@@ -1,7 +1,7 @@
 What is inside
-React 18, material ui, firebase auth, firebase firestore with NO SERVER.
+React 18, material ui, firebase auth, firebase firestore with NO SERVER CODE AT ALL.
 
-What do you get:
+What you will get:
 1. Admin panel
 2. Mini Entity framework with ability to save to firebase
 3. Ability to create a an admin
