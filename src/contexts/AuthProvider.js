@@ -2,13 +2,11 @@ import React from "react";
 import { auth } from "../services/firebase";
 import { UserDBService } from "../services/to_remove/UserDBService";
 import { LogService } from "../services/LogService";
-import { useNavigate } from "react-router-dom";
 
 const AuthContext = React.createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = React.useState(null);
-  const navigate = useNavigate();
 
   React.useEffect(() => {
     auth.onAuthStateChanged(async (userData) => {
