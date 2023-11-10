@@ -8,11 +8,15 @@ export class AdminModel extends EntityModel {
     this.name = user.name || "My first name";
     this.pic = user.pic || commonConst.noPicUser;
     this.role = userRolesConst.admin;
-    this.collection = 'users';
+    this.collection = "users";
   }
 
   validateCustom(user) {
-    if (user.role !== userRolesConst.admin)
+    if (user.role !== userRolesConst.admin) {
       throw new Error("incorrect user role");
+    }
+    if (user.firebaseId) {
+      throw new Error("no firebaseId");
+    }
   }
 }

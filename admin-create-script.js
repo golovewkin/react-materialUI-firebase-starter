@@ -1,5 +1,7 @@
 const admin = require("firebase-admin");
 const config = require("./config/config.json");
+const generator = require("generate-password");
+const { AdminModel } = require("./src/models/AdminModel");
 
 admin.initializeApp({
   credential: admin.credential.cert(config.firebase),
@@ -7,21 +9,24 @@ admin.initializeApp({
 
 const createUser = async (email) => {
   try {
-    console.log(email);
     if (!email) throw new Error("no email!");
-    // if (!password) throw new Error("no password!");
 
-    // todo generate password  https://www.npmjs.com/package/generate-password
-    const firebaseUser = await admin.auth().createUser({
-      email,
-      password: "romrrrroject!333",
+    const password = generator.generate({
+      length: 10,
     });
-    //
-    // const userData = {
-    //   firebaseId: firebaseUser.uid,
-    //   ownerId: adminId,
-    //   role: userRoles.user,
-    // };
+    // const firebaseUser = await admin.auth().createUser({
+    //   email,
+    //   password,
+    // });
+
+    const userData = new AdminModel({
+      name: "Admin",
+      firebaseId: "firebaseUser.uid",
+    });
+    await userData.create();
+    console.log(
+      `admin was created with:\n email:${email}\npassword:${password}`,
+    );
   } catch (e) {
     console.log("error", e);
   }

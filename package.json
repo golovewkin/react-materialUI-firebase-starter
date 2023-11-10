@@ -13,6 +13,7 @@
     "@testing-library/user-event": "^13.5.0",
     "firebase": "^10.5.2",
     "firebase-admin": "^11.11.0",
+    "generate-password": "^1.7.1",
     "nconf": "^0.12.1",
     "prettier": "^3.0.3",
     "react": "^18.2.0",
