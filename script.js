@@ -1,12 +1,22 @@
-const firebaseAdmin = require("firebase-admin");
-const createUser = async (email, password, role) => {
-  if (!email) throw new Error("no email!");
-  if (!password) throw new Error("no password!");
-  if (!role) throw new Error("no password!");
+const admin = require("firebase-admin");
 
-  const firebaseUser = await firebaseAdmin.auth().createUser({
-    email: body.email,
-    password: body.password,
+const config = require("../config/config");
+const serviceAccount = config.get("firebase:serviceAccount");
+const databaseURL = config.get("firebase:databaseURL");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL,
+});
+
+const createUser = async (email, password) => {
+  if (!email) throw new Error("no email!");
+  // if (!password) throw new Error("no password!");
+
+  // todo generate password  https://www.npmjs.com/package/generate-password
+  const firebaseUser = await admin.auth().createUser({
+    email,
+    password: "romrrrroject!333",
   });
 
   const userData = {
@@ -15,21 +25,3 @@ const createUser = async (email, password, role) => {
     role: userRoles.user,
   };
 };
-
-router.post("/captcha", async function (req, res) {
-  try {
-    const secret = config.get("captcha");
-    const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${req.body.token}`;
-    const response = await fetch(url, {
-      method: "post",
-    });
-    const json = await response.json();
-    if (!json.success) {
-      return res.sendStatus(401);
-    }
-    res.send({ user: json.score > 0.5 });
-  } catch (e) {
-    LogService.logError(e);
-    res.sendStatus(500);
-  }
-});
