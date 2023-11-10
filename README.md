@@ -30,7 +30,7 @@ Steps to launch the project:
 6. Change name in package.json
 7. Get a server config from firebase (Project settings -> server config)
 8. Put your credential to /config/config.json considering config.example.json as an example
-9. run script to create an admin
+9. run script to create an admin: node admin-create-script.js your email
 10. npm start
 11. Log in as an admin and create a user
 12. Setup your landing page
