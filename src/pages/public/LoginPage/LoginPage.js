@@ -9,7 +9,7 @@ import { validEmail, validPassword } from "../../../helpers/validator.helper";
 import { useAuth } from "../../../contexts/AuthProvider";
 
 const LoginPage = () => {
-  let auth = useAuth();
+  const auth = useAuth();
   const [state, setState] = useState({
     email: "",
     password: "",
@@ -20,6 +20,7 @@ const LoginPage = () => {
   };
 
   const isDisabled = useCallback((state) => {
+    return false;
     if (!validEmail(state.email)) return true;
     if (!validPassword(state.password)) return true;
     return false;

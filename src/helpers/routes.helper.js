@@ -12,7 +12,6 @@ import PublicContent from "../components/layout/PublicContent/PublicContent";
 import RequireNoUser from "../pages/RequireNoUser";
 
 export const getUserRoutes = (user) => {
-  console.log(user);
   if (!user) {
     return (
       <Routes>

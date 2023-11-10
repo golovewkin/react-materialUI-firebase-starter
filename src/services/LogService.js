@@ -1,6 +1,5 @@
 export class LogService {
-  static showMessage;
-  static async logError(description, entityOrError) {
+  static async log(description, entityOrError) {
     try {
       console.error(description, entityOrError);
 
@@ -15,12 +14,5 @@ export class LogService {
     } catch (e) {
       console.error("save error error", e);
     }
-  }
-
-  static showAndLogError(description, error) {
-    LogService.logError(...arguments);
-
-    const message = error && error.message ? error.message : description;
-    LogService.showMessage(message, true);
   }
 }

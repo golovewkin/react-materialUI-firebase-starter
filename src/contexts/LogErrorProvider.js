@@ -1,6 +1,4 @@
 import React, { useCallback } from "react";
-import { auth } from "../services/firebase";
-import { UserDBService } from "../services/to_remove/UserDBService";
 import { LogService } from "../services/LogService";
 import ErrorPopup from "../components/popups/ErrorPopup";
 
@@ -12,13 +10,13 @@ export const LogErrorProvider = ({ children }) => {
     message: "",
   });
 
-  const showMessage = useCallback((state) => {
-    LogService.logError(error);
-    setError({ message, open });
+  const showError = useCallback((message, error) => {
+    LogService.log(message, error);
+    setError({ message, open: true });
   }, []);
 
   return (
-    <LogErrorContext.Provider value={value}>
+    <LogErrorContext.Provider value={showError}>
       <ErrorPopup
         open={error.open}
         message={error.message}
@@ -31,7 +29,7 @@ export const LogErrorProvider = ({ children }) => {
 
 export const useLogError = () => {
   const contextValue = React.useContext(LogErrorContext);
-  if (LogErrorContext === undefined) {
+  if (!LogErrorContext) {
     throw new Error("Tried to use context from outside the provider");
   }
   return contextValue;

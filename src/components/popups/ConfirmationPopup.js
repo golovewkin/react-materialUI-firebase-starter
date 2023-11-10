@@ -1,11 +1,12 @@
 import React from "react";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
 import ButtonComponent from "../library-based-components/Button/ButtonComponent";
-import { withErrorBoundary } from "../hoc/withErrorBoundary/withErrorBoundary";
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from "@mui/material";
 
 const ConfirmationPopup = ({ open, onClose, onSuccess }) => {
   return (
@@ -38,4 +39,4 @@ const ConfirmationPopup = ({ open, onClose, onSuccess }) => {
   );
 };
 
-export default withErrorBoundary(ConfirmationPopup);
+export default ConfirmationPopup;

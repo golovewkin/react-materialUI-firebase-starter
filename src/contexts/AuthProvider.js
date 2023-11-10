@@ -1,13 +1,14 @@
 import React from "react";
 import { auth } from "../services/firebase";
 import { UserDBService } from "../services/to_remove/UserDBService";
-import { LogService } from "../services/LogService";
+import { useLogError } from "./LogErrorProvider";
 
 const AuthContext = React.createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = React.useState(null);
-
+  const showError = useLogError();
+  console.log(showError);
   React.useEffect(() => {
     auth.onAuthStateChanged(async (userData) => {
       try {
@@ -19,7 +20,7 @@ export const AuthProvider = ({ children }) => {
           // navigate("/");
         }
       } catch (e) {
-        LogService.showAndLogError("get user data error", e);
+        showError("get user data error", e);
       }
     });
     return () => {
@@ -31,7 +32,7 @@ export const AuthProvider = ({ children }) => {
     try {
       await auth.signInWithEmailAndPassword(newUser.email, newUser.password);
     } catch (e) {
-      LogService.showAndLogError("sign out error", e);
+      showError("sign out error", e);
     }
   };
 
@@ -39,7 +40,7 @@ export const AuthProvider = ({ children }) => {
     try {
       await auth.signOut();
     } catch (e) {
-      LogService.showAndLogError("sign out error", e);
+      showError("sign out error", e);
     }
   };
 

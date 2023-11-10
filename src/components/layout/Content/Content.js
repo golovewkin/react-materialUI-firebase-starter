@@ -3,6 +3,7 @@ import "./style.scss";
 import { Outlet } from "react-router-dom";
 import Header from "../Header/Header";
 import Nav from "../Nav/Nav";
+import { withErrorBoundary } from "../../hoc/withErrorBoundary/withErrorBoundary";
 
 const Content = ({ children, user }) => {
   return (
@@ -14,4 +15,4 @@ const Content = ({ children, user }) => {
   );
 };
 
-export default Content;
+export default withErrorBoundary(Content);
