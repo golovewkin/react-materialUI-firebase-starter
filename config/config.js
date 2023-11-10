@@ -9,6 +9,6 @@ if (process.env.NODE_ENV === "development" || argv.env === "development") {
 } else if (process.env.NODE_ENV === "production" || argv.env === "production") {
   configFile = path.join(__dirname, "config_prod.json");
 } else {
-  configFile = path.join(__dirname, "config_test.json");
+  configFile = path.join(__dirname, "config.json");
 }
 module.exports = nconf.argv().env().file({ file: configFile });
