@@ -11,6 +11,9 @@ src/**/*.css.map
 src/**/*.scssc
 coverage/
 
+/config/config_dev.json
+/config/config_prod.json
+
 # dependencies
 /node_modules
 /.pnp
