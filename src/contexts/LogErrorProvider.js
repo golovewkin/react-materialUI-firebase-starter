@@ -12,7 +12,7 @@ export const LogErrorProvider = ({ children }) => {
 
   const showError = useCallback((message, error) => {
     LogService.log(message, error);
-    setError({ message, open: true });
+    setError({ title: message, message: error.message, open: true });
   }, []);
 
   return (
@@ -20,6 +20,7 @@ export const LogErrorProvider = ({ children }) => {
       <ErrorPopup
         open={error.open}
         message={error.message}
+        title={error.title}
         setOpen={(open) => setError((oldState) => ({ ...oldState, open }))}
       />
       {children}

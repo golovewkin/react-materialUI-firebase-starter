@@ -1,7 +1,7 @@
-import { initializeApp } from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/firestore';
-import { getAuth } from "firebase/auth";
+import { initializeApp } from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const config = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -11,6 +11,8 @@ const config = {
   storageBucket: process.env.REACT_APP_FIREBASE_STORGARE_BUCKET,
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
 };
-const app = initializeApp(config, 'vocabulary');
+const app = initializeApp(config, "vocabulary");
 export const auth = getAuth(app);
+// export const createUserWithEmailAndPassword = createUserWithEmailAndPassword;
+export const signInWithEmailAndPass = signInWithEmailAndPassword;
 export default app;

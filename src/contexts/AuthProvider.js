@@ -1,5 +1,5 @@
 import React from "react";
-import { auth } from "../services/firebase";
+import { auth, signInWithEmailAndPass } from "../services/firebase";
 import { UserDBService } from "../services/to_remove/UserDBService";
 import { useLogError } from "./LogErrorProvider";
 
@@ -8,7 +8,7 @@ const AuthContext = React.createContext(null);
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = React.useState(null);
   const showError = useLogError();
-  console.log(showError);
+
   React.useEffect(() => {
     auth.onAuthStateChanged(async (userData) => {
       try {
@@ -26,13 +26,13 @@ export const AuthProvider = ({ children }) => {
     return () => {
       auth.onAuthStateChanged(() => {});
     };
-  }, []);
+  }, [showError, user]);
 
   let signin = async (newUser) => {
     try {
-      await auth.signInWithEmailAndPassword(newUser.email, newUser.password);
+      await signInWithEmailAndPass(auth, newUser.email, newUser.password);
     } catch (e) {
-      showError("sign out error", e);
+      showError("sign in error", e);
     }
   };
 

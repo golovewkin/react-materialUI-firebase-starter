@@ -8,7 +8,7 @@ import {
   DialogTitle,
 } from "@mui/material";
 
-const ErrorPopup = ({ open, setOpen, message }) => {
+const ErrorPopup = ({ open, setOpen, title, message }) => {
   return (
     <div>
       <Dialog
@@ -17,12 +17,10 @@ const ErrorPopup = ({ open, setOpen, message }) => {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">
-          Something went wrong...
-        </DialogTitle>
+        <DialogTitle>{title ?? "Something went wrong..."}</DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            {message}
+          <DialogContentText>
+            <p style={{ wordBreak: "break-all" }}>{message}</p>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
