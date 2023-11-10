@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 // import { AuthService } from "../../../services/AuthService";
 import "./style.scss";
-import ButtonComponent from "../../../common-components/Button/ButtonComponent";
+import ButtonComponent from "../../../components/library-based-components/Button/ButtonComponent";
 import MainContext from "../../../contexts/main.context";
 import { commonConst } from "../../../constants/commonConst";
-import TextFieldComponent from "../../../common-components/TextFieldComponent";
+import TextFieldComponent from "../../../components/library-based-components/TextFieldComponent";
 import { setFormState } from "../../../helpers/form.helper";
 import { LogService } from "../../../services/LogService";
 import { urlsConst } from "../../../constants/urlsConst";
 import { validEmail, validPassword } from "../../../helpers/validator.helper";
-import LinkComponent from "../../../common-components/Link/LinkComponent";
+import LinkComponent from "../../../components/library-based-components/Link/LinkComponent";
 
 const CreateAccountPage = () => {
   // const history = useHistory();

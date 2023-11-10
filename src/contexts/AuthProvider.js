@@ -1,12 +1,12 @@
 import React from "react";
-import {auth} from "../services/firebase";
-import {UserDBService} from "../services/to_remove/UserDBService";
-import {LogService} from "../services/LogService";
-import {useNavigate} from "react-router-dom";
+import { auth } from "../services/firebase";
+import { UserDBService } from "../services/to_remove/UserDBService";
+import { LogService } from "../services/LogService";
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = React.createContext(null);
 
-export const AuthProvider = ({children}) => {
+export const AuthProvider = ({ children }) => {
   const [user, setUser] = React.useState(null);
   const navigate = useNavigate();
 
@@ -25,27 +25,30 @@ export const AuthProvider = ({children}) => {
       }
     });
     return () => {
-      auth.onAuthStateChanged(() => {
-      });
+      auth.onAuthStateChanged(() => {});
     };
   }, []);
 
-  let signin = (newUser, callback) => {
-    // setUser(newUser);
-    // callback();
+  let signin = async (newUser) => {
+    try {
+      await auth.signInWithEmailAndPassword(newUser.email, newUser.password);
+    } catch (e) {
+      LogService.showAndLogError("sign out error", e);
+    }
   };
 
-  let signout = (callback) => {
-    setUser(null)
+  let signout = async (callback) => {
+    try {
+      await auth.signOut();
+    } catch (e) {
+      LogService.showAndLogError("sign out error", e);
+    }
   };
 
-  let value = {user, signin, signout, setUser};
+  let value = { user, signin, signout, setUser };
 
-  return <AuthContext.Provider
-    value={value}
-    children={children}
-  />;
-}
+  return <AuthContext.Provider value={value} children={children} />;
+};
 
 export const useAuth = () => {
   const contextValue = React.useContext(AuthContext);

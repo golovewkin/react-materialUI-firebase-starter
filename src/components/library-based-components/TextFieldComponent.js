@@ -1,6 +1,6 @@
 import React from "react";
-import { trimValue } from "../helpers/validator.helper";
-import {TextField} from "@mui/material";
+import { trimValue } from "../../helpers/validator.helper";
+import { TextField } from "@mui/material";
 
 const TextFieldComponent = ({ onChange, label, type, value = "", error }) => {
   return (

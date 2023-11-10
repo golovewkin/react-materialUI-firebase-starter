@@ -1,4 +1,3 @@
-TODO not found component
 TODO login via google and admin show users that are not in DB
 TODO my contacts on the landing page
 TODO popup context

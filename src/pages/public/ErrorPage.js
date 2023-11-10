@@ -1,14 +1,23 @@
-import React from 'react';
+import React from "react";
+import error from "../../../src/assets/img/error.jpg";
+import LinkComponent from "../../components/library-based-components/Link/LinkComponent";
+import { urlsConst } from "../../constants/urlsConst";
 
 const ErrorPage = () => {
-	return (
-	  <div className='text-center'>
-      <img
-        style={{objectFit: "contain", width: 450, height: 450}}
-        src="https://firebasestorage.googleapis.com/v0/b/vocabulary-dev-7e027.appspot.com/o/common%2Fmaxresdefault.jpg?alt=media&token=0058fc68-717f-4f60-b72c-a9e193d937fd"
-        alt="sad kitty"/>
-    </div>
-  )
+  return (
+    <>
+      <div className="text-center">
+        <LinkComponent to={urlsConst.home} children="Home" />
+      </div>
+      <div className="text-center">
+        <img
+          style={{ objectFit: "contain", width: 450, height: 450 }}
+          src={error}
+          alt="sad kitty"
+        />
+      </div>
+    </>
+  );
 };
 
 export default ErrorPage;

@@ -9,6 +9,7 @@ import { LandingPage } from "../pages/public/LandingPage/LandingPage";
 import Content from "../components/layout/Content/Content";
 import RequireAuth from "../pages/RequireAuth";
 import PublicContent from "../components/layout/PublicContent/PublicContent";
+import RequireNoUser from "../pages/RequireNoUser";
 
 export const getUserRoutes = (user) => {
   console.log(user);
@@ -17,8 +18,22 @@ export const getUserRoutes = (user) => {
       <Routes>
         <Route element={<PublicContent />}>
           <Route path={urlsConst.home} element={<LandingPage />} />
-          <Route path={urlsConst.login} element={<LoginPage />} />
-          <Route path={urlsConst.resetPass} element={<ResetPassPage />} />
+          <Route
+            path={urlsConst.login}
+            element={
+              <RequireNoUser>
+                <LoginPage />
+              </RequireNoUser>
+            }
+          />
+          <Route
+            path={urlsConst.resetPass}
+            element={
+              <RequireNoUser>
+                <ResetPassPage />
+              </RequireNoUser>
+            }
+          />
           {/**<Route path={urlsConst.createAccount} element={<CreateAccountPage/>}/>*/}
           <Route path="*" element={<ErrorPage />} />
         </Route>

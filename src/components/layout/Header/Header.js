@@ -1,17 +1,16 @@
 import React from "react";
 import "./style.scss";
 import { AuthService } from "../../../services/AuthService";
-import AddIconComponent from "../../../common-components/icons/AddIconComponent";
+import AddIconComponent from "../../library-based-components/icons/AddIconComponent";
 import MainContext from "../../../contexts/main.context";
-import OffIcon from "../../../common-components/icons/OffIcon";
-import AvatarComponent from "../../../common-components/AvatarComponent";
+import OffIcon from "../../library-based-components/icons/OffIcon";
+import AvatarComponent from "../../library-based-components/AvatarComponent";
 
 const Header = () => {
   // const history = useHistory();
   const history = {};
-  const { user, showCreateGroupPopup, showCreateWordPopup } = React.useContext(
-    MainContext
-  );
+  const { user, showCreateGroupPopup, showCreateWordPopup } =
+    React.useContext(MainContext);
 
   if (!user) return null;
   return (

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./style.scss";
-import ButtonComponent from "../../../common-components/Button/ButtonComponent";
+import ButtonComponent from "../../../components/library-based-components/Button/ButtonComponent";
 import MainContext from "../../../contexts/main.context";
 import { commonConst } from "../../../constants/commonConst";
-import TextFieldComponent from "../../../common-components/TextFieldComponent";
+import TextFieldComponent from "../../../components/library-based-components/TextFieldComponent";
 import { LogService } from "../../../services/LogService";
-import LinkComponent from "../../../common-components/Link/LinkComponent";
+import LinkComponent from "../../../components/library-based-components/Link/LinkComponent";
 import { urlsConst } from "../../../constants/urlsConst";
 import { validEmail } from "../../../helpers/validator.helper";
 
