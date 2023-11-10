@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { AuthService } from "../../../services/AuthService";
 import "./style.scss";
 import ButtonComponent from "../../../common-components/Button/ButtonComponent";
-import MainContext from "../../../contexts/main.context";
 import { commonConst } from "../../../constants/commonConst";
 import TextFieldComponent from "../../../common-components/TextFieldComponent";
 import { setFormState } from "../../../helpers/form.helper";
@@ -10,16 +9,32 @@ import { LogService } from "../../../services/LogService";
 import { urlsConst } from "../../../constants/urlsConst";
 import LinkComponent from "../../../common-components/Link/LinkComponent";
 import { validEmail, validPassword } from "../../../helpers/validator.helper";
+import {useLocation, useNavigate} from "react-router-dom";
+import {useAuth} from "../../../contexts/AuthProvider";
 
 const LoginPage = () => {
-  const { user } = React.useContext(MainContext);
+  let navigate = useNavigate();
+  let location = useLocation();
+  let auth = useAuth();
   const [state, setState] = useState({
     email: "",
     password: "",
   });
 
+  let from = location.state?.from?.pathname || "/";
+
   const login = () => {
-    AuthService.logIn(state.email, state.password);
+    console.log('TODO login');
+    // AuthService.logIn(state.email, state.password);
+    //     auth.signin(username, () => {
+      // Send them back to the page they tried to visit when they were
+      // redirected to the login page. Use { replace: true } so we don't create
+      // another entry in the history stack for the login page.  This means that
+      // when they get to the protected page and click the back button, they
+      // won't end up back on the login page, which is also really nice for the
+      // user experience.
+      // navigate(from, { replace: true });
+    // });
   };
 
   const isDisabled = (state) => {
@@ -33,9 +48,9 @@ const LoginPage = () => {
     }
   };
 
-  if (user) {
-    return <span>{commonConst.error}</span>;
-  }
+  // if (user) {
+  //   return <span>{commonConst.error}</span>;
+  // }
 
   return (
     <div className="LoginPage">

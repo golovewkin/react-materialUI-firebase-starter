@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
+import { getAuth } from "firebase/auth";
 
 const config = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -11,5 +12,5 @@ const config = {
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
 };
 const app = initializeApp(config, 'vocabulary');
-
+export const auth = getAuth(app);
 export default app;
