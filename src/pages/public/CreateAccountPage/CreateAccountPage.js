@@ -1,19 +1,19 @@
 import React, { useState } from "react";
-import { AuthService } from "../../../services/AuthService";
+// import { AuthService } from "../../../services/AuthService";
 import "./style.scss";
-import ProjectButton from "../../../common-components/Button/ProjectButton";
+import ButtonComponent from "../../../common-components/Button/ButtonComponent";
 import MainContext from "../../../contexts/main.context";
 import { commonConst } from "../../../constants/commonConst";
-import ProjectTextField from "../../../common-components/ProjectTextField";
+import TextFieldComponent from "../../../common-components/TextFieldComponent";
 import { setFormState } from "../../../helpers/form.helper";
 import { LogService } from "../../../services/LogService";
-import { useHistory } from "react-router-dom";
 import { urlsConst } from "../../../constants/urlsConst";
-import ProjectLink from "../../../common-components/Link/ProjectLink";
 import { validEmail, validPassword } from "../../../helpers/validator.helper";
+import LinkComponent from "../../../common-components/Link/LinkComponent";
 
 const CreateAccountPage = () => {
-  const history = useHistory();
+  // const history = useHistory();
+  const history = {};
   const { user } = React.useContext(MainContext);
   const [state, setState] = useState({
     email: "",
@@ -22,7 +22,7 @@ const CreateAccountPage = () => {
   });
 
   const createAccount = () => {
-    AuthService.createFirebaseAccount(state.email, state.password, history);
+    // AuthService.createFirebaseAccount(state.email, state.password, history);
   };
 
   const isDisabled = (state) => {
@@ -44,25 +44,25 @@ const CreateAccountPage = () => {
     <div className="CreateAccountPage">
       <div className="CreateAccountPage__title">Create account</div>
       <div className="CreateAccountPage__wrapper">
-        <TextField
+        <TextFieldComponent
           onChange={(value) => setFormState("email", value, setState)}
           value={state.email}
           type="email"
           label="email"
           error={!validEmail(state.email)}
         />
-        <TextField
+        <TextFieldComponent
           onChange={(value) => setFormState("password", value, setState)}
           value={state.password}
           type="password"
           label="password"
           error={!validPassword(state.password)}
         />
-        <Button disabled={isDisabled(state)} onClick={createAccount}>
+        <ButtonComponent disabled={isDisabled(state)} onClick={createAccount}>
           Create Account
-        </Button>
+        </ButtonComponent>
         <div className="CreateAccountPage__links">
-          <Link to={urlsConst.login} children="Sign in" />
+          <LinkComponent to={urlsConst.login} children="Sign in" />
         </div>
       </div>
     </div>

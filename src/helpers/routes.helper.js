@@ -1,4 +1,4 @@
-import { Route, Switch } from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import LoginPage from "../pages/public/LoginPage/LoginPage";
 import React from "react";
 import ErrorPage from "../pages/public/ErrorPage";
@@ -6,13 +6,11 @@ import CreateAccountPage from "../pages/public/CreateAccountPage/CreateAccountPa
 import { urlsConst } from "../constants/urlsConst";
 import SettingsPage from "../pages/user/SettingsPage/SettingsPage";
 import ResetPassPage from "../pages/public/ResetPassPage/ResetPassPage";
-import GroupPage from "../pages/user/GroupPage/GroupPage";
-import GroupsPage from "../pages/user/Entities/EntitiesPage";
 
 export const getUserRoutes = (user) => {
   if (!user) {
     return (
-      <Switch>
+      <Routes>
         <Route exact path={urlsConst.createAccount}>
           <CreateAccountPage />
         </Route>
@@ -22,24 +20,18 @@ export const getUserRoutes = (user) => {
         <Route path="*">
           <LoginPage />
         </Route>
-      </Switch>
+      </Routes>
     );
   }
 
   return (
-    <Switch>
-      <Route exact path="/">
-        <GroupsPage />
-      </Route>
+    <Routes>
       <Route exact path={urlsConst.settings}>
         <SettingsPage />
-      </Route>
-      <Route exact path={`${urlsConst.group}:id`}>
-        <GroupPage />
       </Route>
       <Route path="*">
         <ErrorPage />
       </Route>
-    </Switch>
+    </Routes>
   );
 };

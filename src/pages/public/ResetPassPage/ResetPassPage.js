@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./style.scss";
-import ProjectButton from "../../../common-components/Button/ProjectButton";
+import ButtonComponent from "../../../common-components/Button/ButtonComponent";
 import MainContext from "../../../contexts/main.context";
 import { commonConst } from "../../../constants/commonConst";
-import ProjectTextField from "../../../common-components/ProjectTextField";
+import TextFieldComponent from "../../../common-components/TextFieldComponent";
 import { LogService } from "../../../services/LogService";
-import ProjectLink from "../../../common-components/Link/ProjectLink";
+import LinkComponent from "../../../common-components/Link/LinkComponent";
 import { urlsConst } from "../../../constants/urlsConst";
 import { validEmail } from "../../../helpers/validator.helper";
 
@@ -39,18 +39,18 @@ const ResetPassPage = () => {
     <div className="ResetPassPage">
       <div className="ResetPassPage__title">Reset your password</div>
       <div className="ResetPassPage__wrapper">
-        <TextField
+        <TextFieldComponent
           onChange={setEmail}
           value={email}
           type="email"
           label="email"
           error={!validEmail(email)}
         />
-        <Button disabled={isDisabled(email)} onClick={submit}>
+        <ButtonComponent disabled={isDisabled(email)} onClick={submit}>
           Send
-        </Button>
+        </ButtonComponent>
         <div className="ResetPassPage__links">
-          <Link to={urlsConst.login} children="Sign in" />
+          <LinkComponent to={urlsConst.login} children="Sign in" />
         </div>
       </div>
     </div>

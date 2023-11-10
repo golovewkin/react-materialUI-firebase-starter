@@ -1,14 +1,14 @@
 import React from "react";
 import "./style.scss";
 import { AuthService } from "../../../services/AuthService";
-import { useHistory } from "react-router";
-import Avatar from "@material-ui/core/Avatar";
-import AddIcon from "../../../common-components/icons/AddIcon";
+import AddIconComponent from "../../../common-components/icons/AddIconComponent";
 import MainContext from "../../../contexts/main.context";
 import OffIcon from "../../../common-components/icons/OffIcon";
+import AvatarComponent from "../../../common-components/AvatarComponent";
 
 const Header = () => {
-  const history = useHistory();
+  // const history = useHistory();
+  const history = {};
   const { user, showCreateGroupPopup, showCreateWordPopup } = React.useContext(
     MainContext
   );
@@ -17,13 +17,13 @@ const Header = () => {
   return (
     <div className="Header">
       <div className="Header__menu">
-        {user.pic && <Avatar className="avatar" src={user.pic} />}
-        {!user.pic && <Avatar className="avatar">{user.name[0]}</Avatar>}
+        {user.pic && <AvatarComponent src={user.pic} />}
+        {!user.pic && <AvatarComponent>{user.name[0]}</AvatarComponent>}
         <span>{user.name}</span>
       </div>
       <div className="Header__user">
-        <AddIcon onClick={() => showCreateWordPopup(user, () => {})} />
-        <AddIcon onClick={() => showCreateGroupPopup(user)} />
+        <AddIconComponent onClick={() => showCreateWordPopup(user, () => {})} />
+        <AddIconComponent onClick={() => showCreateGroupPopup(user)} />
         <OffIcon onClick={() => AuthService.signOut(history)} />
       </div>
     </div>

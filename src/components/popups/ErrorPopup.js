@@ -1,11 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import ProjectButton from "../../common-components/Button/ProjectButton";
+import ButtonComponent from "../../common-components/Button/ButtonComponent";
 
 const ErrorPopup = ({ open, setOpen, message }) => {
   return (
@@ -25,17 +24,11 @@ const ErrorPopup = ({ open, setOpen, message }) => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setOpen(false)}>ok</Button>
+          <ButtonComponent onClick={() => setOpen(false)}>ok</ButtonComponent>
         </DialogActions>
       </Dialog>
     </div>
   );
-};
-
-ErrorPopup.propTypes = {
-  open: PropTypes.bool.isRequired,
-  setOpen: PropTypes.func.isRequired,
-  message: PropTypes.string.isRequired,
 };
 
 export default ErrorPopup;

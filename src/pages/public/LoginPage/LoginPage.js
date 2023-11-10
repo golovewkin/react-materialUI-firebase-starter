@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { AuthService } from "../../../services/AuthService";
 import "./style.scss";
-import ProjectButton from "../../../common-components/Button/ProjectButton";
+import ButtonComponent from "../../../common-components/Button/ButtonComponent";
 import MainContext from "../../../contexts/main.context";
 import { commonConst } from "../../../constants/commonConst";
-import ProjectTextField from "../../../common-components/ProjectTextField";
+import TextFieldComponent from "../../../common-components/TextFieldComponent";
 import { setFormState } from "../../../helpers/form.helper";
 import { LogService } from "../../../services/LogService";
 import { urlsConst } from "../../../constants/urlsConst";
-import ProjectLink from "../../../common-components/Link/ProjectLink";
+import LinkComponent from "../../../common-components/Link/LinkComponent";
 import { validEmail, validPassword } from "../../../helpers/validator.helper";
 
 const LoginPage = () => {
@@ -41,26 +41,26 @@ const LoginPage = () => {
     <div className="LoginPage">
       <div className="LoginPage__title">Sign in</div>
       <div className="LoginPage__wrapper">
-        <TextField
+        <TextFieldComponent
           onChange={(value) => setFormState("email", value, setState)}
           value={state.email}
           type="email"
           label="email"
           error={!validEmail(state.email)}
         />
-        <TextField
+        <TextFieldComponent
           onChange={(value) => setFormState("password", value, setState)}
           value={state.password}
           type="password"
           label="password"
           error={!validPassword(state.password)}
         />
-        <Button disabled={isDisabled(state)} onClick={login}>
+        <ButtonComponent disabled={isDisabled(state)} onClick={login}>
           Log in
-        </Button>
+        </ButtonComponent>
         <div className="LoginPage__links">
-          <Link to={urlsConst.resetPass} children="Forgot password?" />
-          <Link to={urlsConst.createAccount} children="Sign up" />
+          <LinkComponent to={urlsConst.resetPass} children="Forgot password?" />
+          <LinkComponent to={urlsConst.createAccount} children="Sign up" />
         </div>
       </div>
     </div>

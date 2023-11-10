@@ -1,3 +1,12 @@
+TODO not found component
+TODO login via google and admin show users that are not in DB
+TODO my contacts on the landing page
+TODO popup context
+TODO snack context
+TODO email service (could be email js)
+user sends request to create a user to admin, admin mail to env
+
+
 What is inside
 React 18, material ui, firebase auth, firebase firestore with NO SERVER CODE AT ALL.
 
@@ -29,10 +38,5 @@ Steps to launch the project:
 11. Log in as an admin and create a user
 12. Deploy to Digital Ocean or a similar service
 
-
-TODO login via google and admin show users that are not in DB
-TODO my contacts on the landing page
-TODO popup context
-TODO snack context
-TODO email service (could be email js)
-user sends request to create a user to admin, admin mail to env
+Maybe later:
+1. Typescript

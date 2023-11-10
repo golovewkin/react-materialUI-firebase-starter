@@ -1,13 +1,13 @@
 import React from "react";
-import EditIcon from '@mui/icons-material/Edit';
 import {IconButton} from "@mui/material";
+import AddIcon from '@mui/icons-material/Add';
 
-const EditIcon = (props) => {
+const AddIconComponent = (props) => {
   return (
     <IconButton {...props}>
-      <EditIcon />
+      <AddIcon />
     </IconButton>
   );
 };
 
-export default EditIcon;
+export default AddIconComponent;

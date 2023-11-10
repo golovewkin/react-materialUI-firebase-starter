@@ -1,8 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Checkbox from "@material-ui/core/Checkbox";
 
-const ProjectCheckBox = ({ value = false, onChange }) => {
+const CheckBoxComponent = ({ value = false, onChange }) => {
   return (
     <Checkbox
       style={{ marginRight: 16 }}
@@ -14,9 +13,4 @@ const ProjectCheckBox = ({ value = false, onChange }) => {
   );
 };
 
-ProjectCheckBox.propTypes = {
-  onChange: PropTypes.func.isRequired,
-  value: PropTypes.bool,
-};
-
-export default ProjectCheckBox;
+export default CheckBoxComponent;

@@ -1,11 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import ProjectButton from "../../common-components/Button/ProjectButton";
+import ButtonComponent from "../../common-components/Button/ButtonComponent";
 import { withErrorBoundary } from "../hoc/withErrorBoundary/withErrorBoundary";
 
 const ConfirmationPopup = ({ open, onClose, onSuccess }) => {
@@ -24,25 +23,19 @@ const ConfirmationPopup = ({ open, onClose, onSuccess }) => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={onClose}>Cancel</Button>
-          <Button
+          <ButtonComponent onClick={onClose}>Cancel</ButtonComponent>
+          <ButtonComponent
             onClick={() => {
               onSuccess();
               onClose();
             }}
           >
             Ok
-          </Button>
+          </ButtonComponent>
         </DialogActions>
       </Dialog>
     </div>
   );
-};
-
-ConfirmationPopup.propTypes = {
-  open: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
-  onSuccess: PropTypes.func,
 };
 
 export default withErrorBoundary(ConfirmationPopup);

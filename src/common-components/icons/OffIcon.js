@@ -1,6 +1,6 @@
 import React from "react";
-import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
-import IconButton from "@material-ui/core/IconButton";
+import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
+import {IconButton} from "@mui/material";
 
 const OffIcon = (props) => {
   return (
