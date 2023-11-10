@@ -1,7 +1,4 @@
 TODO login via google and admin show users that are not in DB
-TODO my contacts on the landing page
-TODO popup context
-TODO snack context
 TODO email service (could be email js)
 user sends request to create a user to admin, admin mail to env
 
@@ -31,8 +28,8 @@ Steps to launch the project:
    3. Setup firestore rules --current
 5. Change title in index.html and favicons
 6. Change name in package.json
-7. Get a captcha token form Google and put it to the env
-8. npm i
+7. Get a server config from firebase (Project settings -> server config)
+8. Put your credential to /config/config.json considering config.example.json as an example
 9. run script to create an admin
 10. npm start
 11. Log in as an admin and create a user
