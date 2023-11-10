@@ -12,12 +12,12 @@ export const AuthProvider = ({ children }) => {
   React.useEffect(() => {
     auth.onAuthStateChanged(async (userData) => {
       try {
+        console.log(user);
         if (user) {
           const user = await UserDBService.getUserByFirebaseId(userData.uid);
           setUser(user);
         } else {
           setUser(null);
-          // navigate("/");
         }
       } catch (e) {
         showError("get user data error", e);
@@ -31,6 +31,8 @@ export const AuthProvider = ({ children }) => {
   let signin = async (newUser) => {
     try {
       await signInWithEmailAndPass(auth, newUser.email, newUser.password);
+      // window.location.href = "/";
+      // debugger;
     } catch (e) {
       showError("sign in error", e);
     }
