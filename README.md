@@ -4,7 +4,6 @@ TODO popup context
 TODO snack context
 TODO email service (could be email js)
 user sends request to create a user to admin, admin mail to env
-TODO captcha
 
 
 What is inside
@@ -35,10 +34,12 @@ Steps to launch the project:
 7. Get a captcha token form Google and put it to the env
 8. npm i
 9. run script to create an admin
-10. npm start:prod
+10. npm start
 11. Log in as an admin and create a user
 12. Setup your landing page
 13. Deploy to Digital Ocean or a similar service
 
-Maybe later:
+This project is just a start point, you can add yourself:
 1. Typescript
+2. Google recaptcha but it requires a server or cloud functions
+3. Change DataBaseService according to your needs. It could be HTTP request to your server etc...

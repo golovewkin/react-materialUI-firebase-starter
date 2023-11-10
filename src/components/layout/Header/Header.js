@@ -1,6 +1,5 @@
 import React from "react";
 import "./style.scss";
-import { AuthService } from "../../../services/AuthService";
 import AddIconComponent from "../../library-based-components/icons/AddIconComponent";
 import MainContext from "../../../contexts/main.context";
 import OffIcon from "../../library-based-components/icons/OffIcon";
@@ -23,7 +22,7 @@ const Header = () => {
       <div className="Header__user">
         <AddIconComponent onClick={() => showCreateWordPopup(user, () => {})} />
         <AddIconComponent onClick={() => showCreateGroupPopup(user)} />
-        <OffIcon onClick={() => AuthService.signOut(history)} />
+        {/*<OffIcon onClick={() => AuthService.signOut(history)} />*/}
       </div>
     </div>
   );

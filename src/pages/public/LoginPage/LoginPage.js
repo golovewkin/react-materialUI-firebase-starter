@@ -7,22 +7,17 @@ import { urlsConst } from "../../../constants/urlsConst";
 import LinkComponent from "../../../components/library-based-components/Link/LinkComponent";
 import { validEmail, validPassword } from "../../../helpers/validator.helper";
 import { useAuth } from "../../../contexts/AuthProvider";
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 const LoginPage = () => {
   const auth = useAuth();
-  const { executeRecaptcha } = useGoogleReCaptcha();
   const [state, setState] = useState({
     email: "",
     password: "",
   });
 
-  const login = async () => {
-    const token = await executeRecaptcha(urlsConst.login);
-    const { user } = await UserDBService.checkUser({ token });
-    if (!user) throw new Error("bot is detected");
+  const login = useCallback(async (state) => {
     auth.signin(state);
-  };
+  }, []);
 
   const isDisabled = useCallback((state) => {
     if (!validEmail(state.email)) return true;
@@ -48,7 +43,10 @@ const LoginPage = () => {
           label="password"
           error={!validPassword(state.password)}
         />
-        <ButtonComponent disabled={isDisabled(state)} onClick={login}>
+        <ButtonComponent
+          disabled={isDisabled(state)}
+          onClick={() => login(state)}
+        >
           Log in
         </ButtonComponent>
         <div className="LoginPage__links">
