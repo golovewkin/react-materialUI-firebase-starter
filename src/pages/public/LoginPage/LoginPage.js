@@ -7,20 +7,24 @@ import { urlsConst } from "../../../constants/urlsConst";
 import LinkComponent from "../../../components/library-based-components/Link/LinkComponent";
 import { validEmail, validPassword } from "../../../helpers/validator.helper";
 import { useAuth } from "../../../contexts/AuthProvider";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 const LoginPage = () => {
   const auth = useAuth();
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const [state, setState] = useState({
     email: "",
     password: "",
   });
 
-  const login = () => {
+  const login = async () => {
+    const token = await executeRecaptcha(urlsConst.login);
+    const { user } = await UserDBService.checkUser({ token });
+    if (!user) throw new Error("bot is detected");
     auth.signin(state);
   };
 
   const isDisabled = useCallback((state) => {
-    return false;
     if (!validEmail(state.email)) return true;
     if (!validPassword(state.password)) return true;
     return false;
