@@ -1,7 +1,3 @@
-import { DataBaseService } from "./DataBaseService";
-import { classToObject } from "../helpers/util.helper";
-import { collections } from "../../src/constants/collections";
-
 export class LogService {
   static showMessage;
   static async logError(description, entityOrError) {

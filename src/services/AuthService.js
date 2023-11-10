@@ -1,6 +1,6 @@
 import firebase from './firebase';
 import {LogService} from "./LogService";
-import {UserDBService} from "./UserDBService";
+import {UserDBService} from "./to_remove/UserDBService";
 
 export class AuthService {
   static async signOut(history) {

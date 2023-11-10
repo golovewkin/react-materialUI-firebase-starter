@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { AuthService } from "../../../services/AuthService";
 import "./style.scss";
-import Button from "../../../common-components/Button/Button";
+import ProjectButton from "../../../common-components/Button/ProjectButton";
 import MainContext from "../../../contexts/main.context";
 import { commonConst } from "../../../constants/commonConst";
-import TextField from "../../../common-components/TextField";
+import ProjectTextField from "../../../common-components/ProjectTextField";
 import { setFormState } from "../../../helpers/form.helper";
 import { LogService } from "../../../services/LogService";
 import { useHistory } from "react-router-dom";
 import { urlsConst } from "../../../constants/urlsConst";
-import Link from "../../../common-components/Link/Link";
+import ProjectLink from "../../../common-components/Link/ProjectLink";
 import { validEmail, validPassword } from "../../../helpers/validator.helper";
 
 const CreateAccountPage = () => {

@@ -1,6 +1,6 @@
-import { DataBaseService } from "./DataBaseService";
+import { DataBaseService } from "../DataBaseService";
 import { collections } from "../../src/constants/collections";
-import { classToObject } from "../helpers/util.helper";
+import { classToObject } from "../../helpers/util.helper";
 
 export class EntityDBService {
   static getUserGroups(user) {

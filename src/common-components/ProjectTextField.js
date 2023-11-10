@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import TextField from "@material-ui/core/TextField";
 import { trimValue } from "../helpers/validator.helper";
 
-const TextField = ({ onChange, label, type, value = "", error }) => {
+const ProjectTextField = ({ onChange, label, type, value = "", error }) => {
   return (
     <TextField
       style={{ marginTop: 20 }}
@@ -16,7 +16,7 @@ const TextField = ({ onChange, label, type, value = "", error }) => {
   );
 };
 
-TextField.propTypes = {
+ProjectTextField.propTypes = {
   onChange: PropTypes.func.isRequired,
   label: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
@@ -24,4 +24,4 @@ TextField.propTypes = {
   error: PropTypes.bool,
 };
 
-export default TextField;
+export default ProjectTextField;

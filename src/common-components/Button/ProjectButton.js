@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Button from "@material-ui/core/Button";
 import "./style.scss";
+import Button from '@mui/material/Button';
 
-const Button = ({
+const ProjectButton = ({
   children,
   onClick,
   disabled = false,
@@ -24,7 +24,7 @@ const Button = ({
   );
 };
 
-Button.propTypes = {
+ProjectButton.propTypes = {
   children: PropTypes.node.isRequired,
   startIcon: PropTypes.node,
   style: PropTypes.object,
@@ -32,4 +32,4 @@ Button.propTypes = {
   disabled: PropTypes.bool,
 };
 
-export default Button;
+export default ProjectButton;

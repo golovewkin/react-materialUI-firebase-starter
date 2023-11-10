@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./style.scss";
-import Button from "../../../common-components/Button/Button";
+import ProjectButton from "../../../common-components/Button/ProjectButton";
 import MainContext from "../../../contexts/main.context";
 import { commonConst } from "../../../constants/commonConst";
-import TextField from "../../../common-components/TextField";
+import ProjectTextField from "../../../common-components/ProjectTextField";
 import { LogService } from "../../../services/LogService";
-import Link from "../../../common-components/Link/Link";
+import ProjectLink from "../../../common-components/Link/ProjectLink";
 import { urlsConst } from "../../../constants/urlsConst";
 import { validEmail } from "../../../helpers/validator.helper";
 

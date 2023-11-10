@@ -1,6 +1,8 @@
 import { LogService } from "../services/LogService";
+import {DataBaseService} from "../services/DataBaseService";
 
 export class EntityModel {
+  static collection = '';
   constructor(entity) {
     this.validate(entity);
     this.id = entity.id;
@@ -10,7 +12,6 @@ export class EntityModel {
 
   id;
   ownerId;
-  collection;
   createdAt;
 
   validate(entity) {
@@ -45,5 +46,10 @@ export class EntityModel {
     } catch (e) {
       LogService.showAndLogError("delete entity error", e);
     }
+  }
+
+  static async getEntityById(id){
+    const entityData = await DataBaseService.getDocumentById(id);
+    return new EntityModel(entityData)
   }
 }
