@@ -1,84 +1,52 @@
-import {Route, Routes} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import LoginPage from "../pages/public/LoginPage/LoginPage";
 import React from "react";
 import ErrorPage from "../pages/public/ErrorPage";
-import CreateAccountPage from "../pages/public/CreateAccountPage/CreateAccountPage";
-import {urlsConst} from "../constants/urlsConst";
+import { urlsConst } from "../constants/urlsConst";
 import SettingsPage from "../pages/user/SettingsPage/SettingsPage";
 import ResetPassPage from "../pages/public/ResetPassPage/ResetPassPage";
-import {RequireAuth} from "../pages/RequireAuth";
-import {ProtectedPage} from "../pages/ProtectedPage";
-import {PublicPage} from "../pages/PublicPage";
+import { LandingPage } from "../pages/public/LandingPage/LandingPage";
 import Content from "../components/layout/Content/Content";
+import RequireAuth from "../pages/RequireAuth";
+import PublicContent from "../components/layout/PublicContent/PublicContent";
 
 export const getUserRoutes = (user) => {
-  return <Routes>
-    <Route element={<Content/>}>
-      <Route path="/" element={<PublicPage/>}/>
-      <Route path="/login" element={<LoginPage/>}/>
-      <Route
-        path="/protected"
-        element={
-          <RequireAuth>
-            <ProtectedPage/>
-          </RequireAuth>
-        }
-      />
-    </Route>
-  </Routes>
-
-
+  console.log(user);
+  if (!user) {
+    return (
+      <Routes>
+        <Route element={<PublicContent />}>
+          <Route path={urlsConst.home} element={<LandingPage />} />
+          <Route path={urlsConst.login} element={<LoginPage />} />
+          <Route path={urlsConst.resetPass} element={<ResetPassPage />} />
+          {/**<Route path={urlsConst.createAccount} element={<CreateAccountPage/>}/>*/}
+          <Route path="*" element={<ErrorPage />} />
+        </Route>
+      </Routes>
+    );
+  } else {
+    return (
+      <Routes>
+        <Route element={<Content />}>
+          <Route
+            path={urlsConst.settings}
+            element={
+              <RequireAuth>
+                <SettingsPage />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path={urlsConst.settings}
+            element={
+              <RequireAuth>
+                <SettingsPage />
+              </RequireAuth>
+            }
+          />
+          <Route path="*" element={<ErrorPage />} />
+        </Route>
+      </Routes>
+    );
+  }
 };
-
-
-{/*if (!user) {*/
-}
-{/*  return (*/
-}
-{/*    <Routes>*/
-}
-{/*      <Route exact path={urlsConst.createAccount}>*/
-}
-{/*        <CreateAccountPage />*/
-}
-{/*      </Route>*/
-}
-{/*      <Route exact path={urlsConst.resetPass}>*/
-}
-{/*        <ResetPassPage />*/
-}
-{/*      </Route>*/
-}
-{/*      <Route path="*">*/
-}
-{/*        <LoginPage />*/
-}
-{/*      </Route>*/
-}
-{/*    </Routes>*/
-}
-{/*  );*/
-}
-{/*}*/
-}
-
-{/*return (*/
-}
-{/*  <Routes>*/
-}
-{/*    <Route exact path={urlsConst.settings}>*/
-}
-{/*      <SettingsPage />*/
-}
-{/*    </Route>*/
-}
-{/*    <Route path="*">*/
-}
-{/*      <ErrorPage />*/
-}
-{/*    </Route>*/
-}
-{/*  </Routes>*/
-}
-{/*);*/
-}

@@ -5,6 +5,7 @@ TODO popup context
 TODO snack context
 TODO email service (could be email js)
 user sends request to create a user to admin, admin mail to env
+TODO captcha
 
 
 What is inside
@@ -20,6 +21,7 @@ What you will get:
 7. Users can login via email or with a Google account
 8. Reset password functionality
 9. Landing page template
+10. Now it uses Firebase as a db, but there could be any requests to any DB via HTTP etc...
 
 Steps to launch the project:
 1. Clone the project
@@ -36,7 +38,8 @@ Steps to launch the project:
 9. run script to create an admin
 10. npm start:prod
 11. Log in as an admin and create a user
-12. Deploy to Digital Ocean or a similar service
+12. Setup your landing page
+13. Deploy to Digital Ocean or a similar service
 
 Maybe later:
 1. Typescript

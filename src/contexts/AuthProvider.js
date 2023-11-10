@@ -1,5 +1,5 @@
 import React from "react";
-import firebase, {auth} from "../services/firebase";
+import {auth} from "../services/firebase";
 import {UserDBService} from "../services/to_remove/UserDBService";
 import {LogService} from "../services/LogService";
 import {useNavigate} from "react-router-dom";
@@ -18,7 +18,7 @@ export const AuthProvider = ({children}) => {
           setUser(user);
         } else {
           setUser(null);
-          navigate("/");
+          // navigate("/");
         }
       } catch (e) {
         LogService.showAndLogError("get user data error", e);

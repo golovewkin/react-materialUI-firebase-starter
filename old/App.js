@@ -6,7 +6,6 @@ import { getUserRoutes } from "../src/helpers/routes.helper";
 import Header from "../src/components/layout/Header/Header";
 import Content from "../src/components/layout/Content/Content";
 import Nav from "../src/components/layout/Nav/Nav";
-import "./styles/global.scss";
 import "./App.scss";
 import Loader from "../src/components/utils/Loader";
 import { LogService } from "../src/services/LogService";
@@ -53,8 +52,6 @@ const App = () => {
   const showMessage = (message, open) => {
     setError({ message, open });
   };
-
-
 
   React.useEffect(() => {
     LogService.showMessage = showMessage;

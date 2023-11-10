@@ -1,9 +1,19 @@
-.App {
-  font-family: 'Nunito', sans-serif;
+body {
+  margin: 0;
+  padding: 0;
+}
 
-  &__content {
-    display: grid;
-    grid-template-columns: minmax(50px, 15%) 1fr;
-    height: calc(100vh - 64px);
+.clickable {
+  &:hover {
+    cursor: pointer;
   }
 }
+
+.text-center {
+  text-align: center;
+}
+
+.App {
+  font-family: 'Nunito', sans-serif;
+}
+

@@ -1,30 +1,17 @@
-import React from 'react';
-import './style.scss'
-import {
-  Link,
-  Outlet,
-} from "react-router-dom";
+import React from "react";
+import "./style.scss";
+import { Outlet } from "react-router-dom";
+import Header from "../Header/Header";
+import Nav from "../Nav/Nav";
 
-const Content = ({children, user}) => {
-	// return (
-	//   <div className={`Content ${user ? 'with-user' : ''}`}>{children}</div>
-  // )
-
-    return (
-    <div>
-      <ul>
-        <li>
-          <Link to="/">Public Page</Link>
-        </li>
-        <li>
-          <Link to="/protected">Protected Page</Link>
-        </li>
-      </ul>
-
+const Content = ({ children, user }) => {
+  return (
+    <>
+      <Header />
+      <Nav />
       <Outlet />
-    </div>
+    </>
   );
 };
 
 export default Content;
-
