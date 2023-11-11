@@ -5,7 +5,7 @@ import Header from "../Header/Header";
 import Nav from "../Nav/Nav";
 import { withErrorBoundary } from "../../hoc/withErrorBoundary/withErrorBoundary";
 
-const Content = ({ children, user }) => {
+const Content = () => {
   return (
     <>
       <Header />

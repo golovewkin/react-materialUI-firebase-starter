@@ -1,7 +1,12 @@
 export const urlsConst = {
   settings: "/settings",
-  createAccount: "/create-account",
   resetPass: "/reset-pass",
   login: "/login",
   home: "/",
 };
+
+export const publicUrls = [
+  urlsConst.home,
+  urlsConst.login,
+  urlsConst.resetPass,
+];

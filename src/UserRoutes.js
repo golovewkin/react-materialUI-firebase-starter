@@ -7,9 +7,9 @@ import SettingsPage from "./pages/user/SettingsPage/SettingsPage";
 import ResetPassPage from "./pages/public/ResetPassPage/ResetPassPage";
 import { LandingPage } from "./pages/public/LandingPage/LandingPage";
 import Content from "./components/layout/Content/Content";
-import RequireAuth from "./pages/RequireAuth";
+import RequireNoAuth from "./pages/RequireNoAuth";
 import PublicContent from "./components/layout/PublicContent/PublicContent";
-import RequireNoUser from "./pages/RequireNoUser";
+import RequireAuthWithRedirect from "./pages/RequireAuthWithRedirect";
 import { useAuth } from "./contexts/AuthProvider";
 import Loader from "./components/utils/Loader";
 
@@ -26,21 +26,27 @@ export const UserRoutes = () => {
           <Route
             path={urlsConst.login}
             element={
-              <RequireNoUser>
+              <RequireNoAuth>
                 <LoginPage />
-              </RequireNoUser>
+              </RequireNoAuth>
             }
           />
           <Route
             path={urlsConst.resetPass}
             element={
-              <RequireNoUser>
+              <RequireNoAuth>
                 <ResetPassPage />
-              </RequireNoUser>
+              </RequireNoAuth>
             }
           />
-          {/**<Route path={urlsConst.createAccount} element={<CreateAccountPage/>}/>*/}
-          <Route path="*" element={<ErrorPage />} />
+          <Route
+            path="*"
+            element={
+              <RequireNoAuth>
+                <ErrorPage />
+              </RequireNoAuth>
+            }
+          />
         </Route>
       </Routes>
     );
@@ -51,19 +57,20 @@ export const UserRoutes = () => {
           <Route
             path={urlsConst.home}
             element={
-              <RequireAuth>
+              <RequireAuthWithRedirect>
                 <SettingsPage />
-              </RequireAuth>
+              </RequireAuthWithRedirect>
             }
           />
           <Route
             path={urlsConst.settings}
             element={
-              <RequireAuth>
+              <RequireAuthWithRedirect>
                 <SettingsPage />
-              </RequireAuth>
+              </RequireAuthWithRedirect>
             }
           />
+          {/**<Route path={urlsConst.createAccount} element={<CreateAccountPage/>}/>*/}
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>

@@ -1,5 +1,5 @@
 export class LogService {
-  static async log(description, entityOrError) {
+  static log(description, entityOrError) {
     try {
       console.error(description, entityOrError);
 

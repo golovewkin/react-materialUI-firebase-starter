@@ -6,8 +6,8 @@ import { urlsConst } from "../../constants/urlsConst";
 const ErrorPage = () => {
   return (
     <>
-      <div className="text-center">
-        <LinkComponent to={urlsConst.home} children="Home" />
+      <div className="text-center" style={{ margin: 20 }}>
+        <LinkComponent to={urlsConst.home} children="Return to the Home page" />
       </div>
       <div className="text-center">
         <img

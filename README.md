@@ -1,4 +1,3 @@
-TODO urls without redirects
 TODO mark up
 TODO settings page
 TODO admin page
