@@ -1,28 +1,33 @@
 import { userRolesConst } from "../constants/userRolesConst";
 import { commonConst } from "../constants/commonConst";
 import { EntityModel } from "./EntityModel";
+import { DataBaseService } from "../services/DataBaseService";
 
 export class UserModel extends EntityModel {
+  static collection = "users";
   constructor(user) {
-    super();
+    super(user);
     this.name = user.name || "My first name";
     this.pic = user.pic || commonConst.noPicUser;
-    this.role = userRolesConst.user;
-    this.collection = "users";
+    this.role = user.role || userRolesConst.user;
   }
 
   validateCustom(user) {
-    if (user.role !== userRolesConst.user) {
-      throw new Error("incorrect user role");
-    }
-    if (user.firebaseId) {
+    if (!user.firebaseId) {
       throw new Error("no firebaseId");
     }
   }
-
   create() {
     // super.create();
     // createUserWithEmailAndPassword
     // then save it
+  }
+
+  static async getById(id) {
+    const entityData = await DataBaseService.getDocumentById(
+      id,
+      UserModel.collection,
+    );
+    return new UserModel(entityData);
   }
 }

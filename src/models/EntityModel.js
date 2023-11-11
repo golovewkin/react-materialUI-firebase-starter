@@ -1,5 +1,3 @@
-import { DataBaseService } from "../services/DataBaseService";
-
 export class EntityModel {
   static collection = "";
   constructor(entity) {
@@ -14,10 +12,8 @@ export class EntityModel {
   createdAt;
 
   validate(entity) {
-    this.validateCustom(entity);
     if (!entity.id) throw new Error("no entity.id");
-    if (!entity.ownerId) throw new Error("no entity.ownerId");
-    if (!entity.collection) throw new Error("no entity.collection");
+    this.validateCustom(entity);
   }
 
   validateCustom(entity) {
@@ -36,10 +32,5 @@ export class EntityModel {
 
   delete() {
     // TODO remove from DB
-  }
-
-  static async getById(id, collection) {
-    const entityData = await DataBaseService.getDocumentById(id, collection);
-    return new EntityModel(entityData);
   }
 }

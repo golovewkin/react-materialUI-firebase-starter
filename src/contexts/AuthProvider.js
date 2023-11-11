@@ -1,8 +1,7 @@
 import React from "react";
-import { UserDBService } from "../services/to_remove/UserDBService";
 import { useLogError } from "./LogErrorProvider";
 import { onUserlogin, auth, logIn } from "../services/firebase";
-import { EntityModel } from "../models/EntityModel";
+import { UserModel } from "../models/UserModel";
 
 const AuthContext = React.createContext(null);
 
@@ -18,7 +17,7 @@ export const AuthProvider = ({ children }) => {
       }
       try {
         if (userData) {
-          const user = await EntityModel.getById(userData.uid, "users");
+          const user = await UserModel.getById(userData.uid);
           console.log(user);
 
           // setUser(user);

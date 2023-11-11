@@ -25,6 +25,7 @@ const createUser = async (email) => {
       name: "Admin",
       role: "admin",
       firebaseId: firebaseUser.uid,
+      id: firebaseUser.uid,
     };
     const db = getFirestore();
     const docRef = db.collection("users").doc(firebaseUser.uid);

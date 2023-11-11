@@ -1,0 +1,19 @@
+//rules_version = '2';
+//service cloud.firestore {
+//  match /databases/{database}/documents {
+//    function isOwner(resource, request) {
+//      return resource.data.firebaseId == request.auth.uid;
+//    }
+//
+//    match /users/{user} {
+//      allow update: if isOwner(resource, request);
+//      allow create, read: if request.auth != null;
+//    }
+//  }
+//}
+
+
+//this is when it's open for everyone
+//    match /{document=**} {
+//      allow read, create, update, delete: if true;
+//    }

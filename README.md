@@ -27,7 +27,7 @@ React 18, material ui, firebase auth, firebase firestore with NO SERVER CODE AT 
 4. Create web app in your firebase project and get credentials
     1. Put your credentials in .env.example and rename it to .env
     2. Create firestore database storage and 'users' collection
-    3. Setup firestore rules
+    3. Setup firestore rules (see firebase.rules.example)
 5. Change title in index.html and favicons
 6. Change name in package.json
 7. Get a server config from firebase (Project settings -> server config)

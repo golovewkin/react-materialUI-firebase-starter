@@ -9,24 +9,9 @@ export class DataBaseService {
     // return firebase.firestore().collection(collection).add(document);
   }
 
-  static async getDocumentById(collection, id) {
-    // const docRef = db.collection(collection).doc(id);
-    // const doc = await docRef.get();
-    // if (doc.exists) {
-    //   return doc.data();
-    // } else {
-    //   return null;
-    // }
-
-    const docRef = doc(db, collection, id);
-    const docSnap = await getDoc(docRef);
-
-    if (docSnap.exists()) {
-      console.log("Document data:", docSnap.data());
-    } else {
-      // docSnap.data() will be undefined in this case
-      console.log("No such document!");
-    }
+  static async getDocumentById(id, collection) {
+    const docSnap = await getDoc(doc(db, collection, id));
+    return docSnap.exists() ? docSnap.data() : null;
   }
 
   static async getDocumentsWhere(collection, property, value) {
