@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import firebase from "../src/services/firebase";
+import firebase from "../src/services/AuthService";
 import MainContext from "../src/contexts/main.context";
 import { getUserRoutes } from "../src/UserRoutes";
 import Header from "../src/components/layout/Header/Header";

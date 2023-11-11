@@ -7,9 +7,11 @@ import { urlsConst } from "../../../constants/urlsConst";
 import LinkComponent from "../../../components/library-based-components/Link/LinkComponent";
 import { validEmail, validPassword } from "../../../helpers/validator.helper";
 import { useAuth } from "../../../contexts/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const auth = useAuth();
+  const navigate = useNavigate();
   const [state, setState] = useState({
     email: "",
     password: "",
@@ -17,9 +19,10 @@ const LoginPage = () => {
 
   const login = useCallback(
     async (state) => {
-      auth.signin(state);
+      await auth.signin(state);
+      navigate(urlsConst.home);
     },
-    [auth],
+    [auth, navigate],
   );
 
   const isDisabled = useCallback((state) => {

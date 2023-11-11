@@ -4,7 +4,6 @@ import { urlsConst } from "../constants/urlsConst";
 
 const RequireNoUser = ({ children }) => {
   const auth = useAuth();
-
   if (auth.user) {
     // Redirect them to the /login page, but save the current location they were
     // trying to go to when they were redirected. This allows us to send them

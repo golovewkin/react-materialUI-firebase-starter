@@ -1,4 +1,4 @@
-import firebase from "./firebase";
+import firebase from "./AuthService";
 
 export class DataBaseService {
   static addDocument(document, collection, id) {

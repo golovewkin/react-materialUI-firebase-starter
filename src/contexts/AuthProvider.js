@@ -1,14 +1,7 @@
 import React from "react";
-import firebaseApp from "../services/firebase";
-import {
-  getAuth,
-  onAuthStateChanged,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
 import { UserDBService } from "../services/to_remove/UserDBService";
 import { useLogError } from "./LogErrorProvider";
-
-const auth = getAuth(firebaseApp);
+import { onUserlogin, auth, logIn } from "../services/AuthService";
 
 const AuthContext = React.createContext(null);
 
@@ -18,14 +11,14 @@ export const AuthProvider = ({ children }) => {
   const showError = useLogError();
 
   React.useEffect(() => {
-    onAuthStateChanged(auth, async (userData, error) => {
+    onUserlogin(auth, async (userData, error) => {
       if (error) {
         showError("login error", error);
       }
       try {
         if (userData) {
-          const user = await UserDBService.getUserByFirebaseId(userData.uid);
-          console.log(user);
+          // const user = await UserDBService.getUserByFirebaseId(userData.uid);
+          // console.log(user);
 
           // setUser(user);
           setUser(userData);
@@ -40,7 +33,7 @@ export const AuthProvider = ({ children }) => {
 
   let signin = async (newUser) => {
     try {
-      await signInWithEmailAndPassword(auth, newUser.email, newUser.password);
+      await logIn(auth, newUser.email, newUser.password);
     } catch (e) {
       showError("sign in error", e);
     }
