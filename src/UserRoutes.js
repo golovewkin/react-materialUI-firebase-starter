@@ -11,9 +11,13 @@ import RequireAuth from "./pages/RequireAuth";
 import PublicContent from "./components/layout/PublicContent/PublicContent";
 import RequireNoUser from "./pages/RequireNoUser";
 import { useAuth } from "./contexts/AuthProvider";
+import Loader from "./components/utils/Loader";
 
 export const UserRoutes = () => {
   const auth = useAuth();
+  if (auth.loading) {
+    return <Loader />;
+  }
   if (!auth.user) {
     return (
       <Routes>

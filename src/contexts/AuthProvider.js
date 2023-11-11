@@ -7,15 +7,17 @@ const AuthContext = React.createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
   const showError = useLogError();
 
   React.useEffect(() => {
     onUserlogin(auth, async (userData, error) => {
-      console.log(userData);
       if (error) {
-        showError("login error", error);
+        return showError("login error", error);
       }
+
       try {
+        setLoading(true);
         if (userData) {
           const user = await UserModel.getById(userData.uid);
           setUser(user);
@@ -24,9 +26,11 @@ export const AuthProvider = ({ children }) => {
         }
       } catch (e) {
         showError("get user data error", e);
+      } finally {
+        setLoading(false);
       }
     });
-  }, [showError]);
+  }, [showError, setLoading]);
 
   let signin = async (newUser) => {
     try {
@@ -44,7 +48,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  let value = { user, signin, signout, setUser };
+  let value = { user, signin, signout, setUser, loading };
 
   return <AuthContext.Provider value={value} children={children} />;
 };
