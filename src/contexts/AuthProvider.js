@@ -1,7 +1,9 @@
 import React from "react";
-import { auth, signInWithEmailAndPass } from "../services/firebase";
+// import { app, signInWithEmailAndPass } from "../services/firebase";
 import { UserDBService } from "../services/to_remove/UserDBService";
 import { useLogError } from "./LogErrorProvider";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import app from "../services/firebase";
 
 const AuthContext = React.createContext(null);
 
@@ -9,28 +11,34 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = React.useState(null);
   const showError = useLogError();
 
-  React.useEffect(() => {
-    auth.onAuthStateChanged(async (userData) => {
-      try {
-        console.log(user);
-        if (user) {
-          const user = await UserDBService.getUserByFirebaseId(userData.uid);
-          setUser(user);
-        } else {
-          setUser(null);
-        }
-      } catch (e) {
-        showError("get user data error", e);
-      }
-    });
-    return () => {
-      auth.onAuthStateChanged(() => {});
-    };
-  }, [showError, user]);
+  // React.useEffect(() => {
+  //   auth.onAuthStateChanged(async (userData) => {
+  //     try {
+  //       if (user) {
+  //         const user = await UserDBService.getUserByFirebaseId(userData.uid);
+  //         setUser(user);
+  //       } else {
+  //         setUser(null);
+  //       }
+  //     } catch (e) {
+  //       showError("get user data error", e);
+  //     }
+  //   });
+  //   return () => {
+  //     auth.onAuthStateChanged(() => {});
+  //   };
+  // }, [showError, user]);
 
   let signin = async (newUser) => {
     try {
-      await signInWithEmailAndPass(auth, newUser.email, newUser.password);
+      await app.auth().signInWithEmailAndPassword(newUser);
+      // await AuthService.logIn(newUser);
+      // const user = await signInWithEmailAndPassword(
+      //   auth,
+      //   newUser.email,
+      //   newUser.password,
+      // );
+      // console.log(user);
       // window.location.href = "/";
       // debugger;
     } catch (e) {
@@ -40,7 +48,7 @@ export const AuthProvider = ({ children }) => {
 
   let signout = async (callback) => {
     try {
-      await auth.signOut();
+      // await auth.signOut();
     } catch (e) {
       showError("sign out error", e);
     }
