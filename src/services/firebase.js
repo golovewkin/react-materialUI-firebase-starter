@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
 } from "firebase/auth";
+import debounce from "debounce";
 
 const config = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -17,6 +18,6 @@ const config = {
 const firebaseApp = initializeApp(config, "firebase-starter");
 const db = getFirestore(firebaseApp);
 const auth = getAuth(firebaseApp);
-const onUserlogin = onAuthStateChanged;
+const onUserlogin = debounce(onAuthStateChanged, 200);
 const logIn = signInWithEmailAndPassword;
 export { auth, onUserlogin, logIn, doc, getDoc, db };

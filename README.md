@@ -1,4 +1,5 @@
-TODO get user from Firebase
+TODO get user from Firebase + memo
+TODO urls without redirects
 TODO login via google and admin show users that are not in DB
 TODO email service (could be email js)
 user sends request to create a user to admin, admin mail to env

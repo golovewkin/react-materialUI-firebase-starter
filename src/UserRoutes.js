@@ -14,7 +14,6 @@ import { useAuth } from "./contexts/AuthProvider";
 
 export const UserRoutes = () => {
   const auth = useAuth();
-
   if (!auth.user) {
     return (
       <Routes>

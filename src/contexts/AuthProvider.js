@@ -7,21 +7,18 @@ const AuthContext = React.createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = React.useState(null);
-  // const navigate = useNavigate();
   const showError = useLogError();
 
   React.useEffect(() => {
     onUserlogin(auth, async (userData, error) => {
+      console.log(userData);
       if (error) {
         showError("login error", error);
       }
       try {
         if (userData) {
           const user = await UserModel.getById(userData.uid);
-          console.log(user);
-
-          // setUser(user);
-          setUser(userData);
+          setUser(user);
         } else {
           setUser(null);
         }
