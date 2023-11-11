@@ -1,6 +1,7 @@
-TODO get user from Firebase + memo
 TODO urls without redirects
-TODO login via google and admin show users that are not in DB
+TODO mark up
+TODO settings page
+TODO admin page
 TODO email service (could be email js)
 user sends request to create a user to admin, admin mail to env
 
@@ -38,9 +39,10 @@ React 18, material ui, firebase auth, firebase firestore with NO SERVER CODE AT 
 11. Log in as an admin and create a user
 12. Setup your landing page
 13. Deploy to Digital Ocean or a similar service
+14. Change DataBaseService according to your needs. It could be HTTP request to your server etc...
 
 ## Note
 This project is just a start point, you can add yourself:
 1. Typescript
-2. Google recaptcha but it requires a server or cloud functions. Maybe Firebase reCAPTCHA
-3. Change DataBaseService according to your needs. It could be HTTP request to your server etc...
+2. Login with Google provider
+3. Google recaptcha but it requires a server or cloud functions. Maybe Firebase reCAPTCHA
