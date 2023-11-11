@@ -1,6 +1,5 @@
-import React from 'react';
-import { LogService } from '../../../services/LogService';
-import {commonConst} from "../../../constants/commonConst";
+import React from "react";
+import { commonConst } from "../../../constants/commonConst";
 
 export class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -10,7 +9,6 @@ export class ErrorBoundary extends React.Component {
 
   componentDidCatch(error, info) {
     this.setState({ hasError: true, error: commonConst.error });
-    LogService.showAndLogError('something went wrong...', error);
   }
 
   render() {

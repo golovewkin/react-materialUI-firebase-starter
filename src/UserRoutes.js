@@ -1,18 +1,20 @@
 import { Route, Routes } from "react-router-dom";
-import LoginPage from "../pages/public/LoginPage/LoginPage";
+import LoginPage from "./pages/public/LoginPage/LoginPage";
 import React from "react";
-import ErrorPage from "../pages/public/ErrorPage";
-import { urlsConst } from "../constants/urlsConst";
-import SettingsPage from "../pages/user/SettingsPage/SettingsPage";
-import ResetPassPage from "../pages/public/ResetPassPage/ResetPassPage";
-import { LandingPage } from "../pages/public/LandingPage/LandingPage";
-import Content from "../components/layout/Content/Content";
-import RequireAuth from "../pages/RequireAuth";
-import PublicContent from "../components/layout/PublicContent/PublicContent";
-import RequireNoUser from "../pages/RequireNoUser";
+import ErrorPage from "./pages/public/ErrorPage";
+import { urlsConst } from "./constants/urlsConst";
+import SettingsPage from "./pages/user/SettingsPage/SettingsPage";
+import ResetPassPage from "./pages/public/ResetPassPage/ResetPassPage";
+import { LandingPage } from "./pages/public/LandingPage/LandingPage";
+import Content from "./components/layout/Content/Content";
+import RequireAuth from "./pages/RequireAuth";
+import PublicContent from "./components/layout/PublicContent/PublicContent";
+import RequireNoUser from "./pages/RequireNoUser";
+import { useAuth } from "./contexts/AuthProvider";
 
-export const getUserRoutes = (user) => {
-  if (!user) {
+export const UserRoutes = () => {
+  const auth = useAuth();
+  if (!auth.user) {
     return (
       <Routes>
         <Route element={<PublicContent />}>
@@ -43,7 +45,7 @@ export const getUserRoutes = (user) => {
       <Routes>
         <Route element={<Content />}>
           <Route
-            path={urlsConst.settings}
+            path={urlsConst.home}
             element={
               <RequireAuth>
                 <SettingsPage />

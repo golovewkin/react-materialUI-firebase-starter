@@ -1,10 +1,9 @@
 import { useAuth } from "../contexts/AuthProvider";
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { urlsConst } from "../constants/urlsConst";
 
 const RequireNoUser = ({ children }) => {
-  let auth = useAuth();
-  let location = useLocation();
+  const auth = useAuth();
 
   if (auth.user) {
     // Redirect them to the /login page, but save the current location they were

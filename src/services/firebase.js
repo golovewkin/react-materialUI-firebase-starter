@@ -11,8 +11,8 @@ const config = {
   storageBucket: process.env.REACT_APP_FIREBASE_STORGARE_BUCKET,
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
 };
-const app = initializeApp(config, "vocabulary");
-export const auth = getAuth(app);
-// export const createUserWithEmailAndPassword = createUserWithEmailAndPassword;
-export const signInWithEmailAndPass = signInWithEmailAndPassword;
-export default app;
+const firebaseApp = initializeApp(config, "firebase-starter");
+// export const auth = getAuth(app);
+// // export const createUserWithEmailAndPassword = createUserWithEmailAndPassword;
+// export const signInWithEmailAndPass = signInWithEmailAndPassword;
+export default firebaseApp;

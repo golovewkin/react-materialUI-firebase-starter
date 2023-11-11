@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import "./style.scss";
-import ButtonComponent from "../../../components/library-based-components/Button/ButtonComponent";
+import ButtonComponent from "../../../components/library-based-components/ButtonComponent/ButtonComponent";
 import TextFieldComponent from "../../../components/library-based-components/TextFieldComponent";
 import { setFormState } from "../../../helpers/form.helper";
 import { urlsConst } from "../../../constants/urlsConst";
@@ -15,9 +15,12 @@ const LoginPage = () => {
     password: "",
   });
 
-  const login = useCallback(async (state) => {
-    auth.signin(state);
-  }, []);
+  const login = useCallback(
+    async (state) => {
+      auth.signin(state);
+    },
+    [auth],
+  );
 
   const isDisabled = useCallback((state) => {
     if (!validEmail(state.email)) return true;

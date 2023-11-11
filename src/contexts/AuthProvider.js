@@ -1,21 +1,34 @@
 import React from "react";
-import { auth, signInWithEmailAndPass } from "../services/firebase";
+import firebaseApp from "../services/firebase";
+import {
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { UserDBService } from "../services/to_remove/UserDBService";
 import { useLogError } from "./LogErrorProvider";
+
+const auth = getAuth(firebaseApp);
 
 const AuthContext = React.createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = React.useState(null);
+  // const navigate = useNavigate();
   const showError = useLogError();
 
   React.useEffect(() => {
-    auth.onAuthStateChanged(async (userData) => {
+    onAuthStateChanged(auth, async (userData, error) => {
+      if (error) {
+        showError("login error", error);
+      }
       try {
-        console.log(user);
-        if (user) {
+        if (userData) {
           const user = await UserDBService.getUserByFirebaseId(userData.uid);
-          setUser(user);
+          console.log(user);
+
+          // setUser(user);
+          setUser(userData);
         } else {
           setUser(null);
         }
@@ -23,16 +36,11 @@ export const AuthProvider = ({ children }) => {
         showError("get user data error", e);
       }
     });
-    return () => {
-      auth.onAuthStateChanged(() => {});
-    };
-  }, [showError, user]);
+  }, [showError]);
 
   let signin = async (newUser) => {
     try {
-      await signInWithEmailAndPass(auth, newUser.email, newUser.password);
-      // window.location.href = "/";
-      // debugger;
+      await signInWithEmailAndPassword(auth, newUser.email, newUser.password);
     } catch (e) {
       showError("sign in error", e);
     }

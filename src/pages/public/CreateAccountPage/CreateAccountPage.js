@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import { AuthService } from "../../../services/AuthService";
 import "./style.scss";
-import ButtonComponent from "../../../components/library-based-components/Button/ButtonComponent";
+import ButtonComponent from "../../../components/library-based-components/ButtonComponent/ButtonComponent";
 import MainContext from "../../../contexts/main.context";
 import { commonConst } from "../../../constants/commonConst";
 import TextFieldComponent from "../../../components/library-based-components/TextFieldComponent";
