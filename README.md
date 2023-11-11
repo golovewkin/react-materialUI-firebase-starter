@@ -39,5 +39,5 @@ Steps to launch the project:
 
 This project is just a start point, you can add yourself:
 1. Typescript
-2. Google recaptcha but it requires a server or cloud functions
+2. Google recaptcha but it requires a server or cloud functions. Maybe Firebase reCAPTCHA
 3. Change DataBaseService according to your needs. It could be HTTP request to your server etc...
