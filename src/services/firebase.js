@@ -1,6 +1,5 @@
 import { initializeApp } from "firebase/app";
-import "firebase/auth";
-import "firebase/firestore";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -16,7 +15,8 @@ const config = {
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
 };
 const firebaseApp = initializeApp(config, "firebase-starter");
+const db = getFirestore(firebaseApp);
 const auth = getAuth(firebaseApp);
 const onUserlogin = onAuthStateChanged;
 const logIn = signInWithEmailAndPassword;
-export { auth, onUserlogin, logIn };
+export { auth, onUserlogin, logIn, doc, getDoc, db };

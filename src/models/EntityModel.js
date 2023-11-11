@@ -38,8 +38,8 @@ export class EntityModel {
     // TODO remove from DB
   }
 
-  static async getEntityById(id) {
-    const entityData = await DataBaseService.getDocumentById(id);
+  static async getById(id, collection) {
+    const entityData = await DataBaseService.getDocumentById(id, collection);
     return new EntityModel(entityData);
   }
 }
