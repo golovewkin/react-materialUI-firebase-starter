@@ -3,11 +3,11 @@ TODO login via google and admin show users that are not in DB
 TODO email service (could be email js)
 user sends request to create a user to admin, admin mail to env
 
-
 What is inside
 React 18, material ui, firebase auth, firebase firestore with NO SERVER CODE AT ALL.
 
 What you will get:
+
 1. Admin panel
 2. Mini Entity framework with ability to save to firebase
 3. Ability to create an admin
@@ -20,13 +20,14 @@ What you will get:
 10. Now it uses Firebase as a db, but there could be any requests to any DB via HTTP etc...
 
 Steps to launch the project:
+
 1. Clone the project
 2. Create a firebase project
 3. Create Auth project inside your firebase project and set providers (email and Google)
 4. Create web app in your firebase project and get credentials
-   1. Put your credentials in .env.example and rename it to .env
-   2. Create firestore database storage and 'users' collection
-   3. Setup firestore rules
+    1. Put your credentials in .env.example and rename it to .env
+    2. Create firestore database storage and 'users' collection
+    3. Setup firestore rules
 5. Change title in index.html and favicons
 6. Change name in package.json
 7. Get a server config from firebase (Project settings -> server config)
@@ -38,6 +39,7 @@ Steps to launch the project:
 13. Deploy to Digital Ocean or a similar service
 
 This project is just a start point, you can add yourself:
+
 1. Typescript
 2. Google recaptcha but it requires a server or cloud functions. Maybe Firebase reCAPTCHA
 3. Change DataBaseService according to your needs. It could be HTTP request to your server etc...
