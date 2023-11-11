@@ -25,12 +25,12 @@ Steps to launch the project:
 4. Create web app in your firebase project and get credentials
    1. Put your credentials in .env.example and rename it to .env
    2. Create firestore database storage and 'users' collection
-   3. Setup firestore rules --current
+   3. Setup firestore rules
 5. Change title in index.html and favicons
 6. Change name in package.json
 7. Get a server config from firebase (Project settings -> server config)
 8. Put your credential to /config/config.json considering config.example.json as an example
-9. run script to create an admin: node admin-create-script.js your email
+9. run script to create an admin: node admin-create-script.js your-email
 10. npm start
 11. Log in as an admin and create a user
 12. Setup your landing page
