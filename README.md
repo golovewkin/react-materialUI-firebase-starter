@@ -6,7 +6,7 @@ user sends request to create a user to admin, admin mail to env
 What is inside
 React 18, material ui, firebase auth, firebase firestore with NO SERVER CODE AT ALL.
 
-What you will get:
+## What you will get:
 
 1. Admin panel
 2. Mini Entity framework with ability to save to firebase
@@ -19,7 +19,7 @@ What you will get:
 9. Landing page template
 10. Now it uses Firebase as a db, but there could be any requests to any DB via HTTP etc...
 
-Steps to launch the project:
+##  Steps to launch the project:
 
 1. Clone the project
 2. Create a firebase project
@@ -38,8 +38,8 @@ Steps to launch the project:
 12. Setup your landing page
 13. Deploy to Digital Ocean or a similar service
 
+## Note
 This project is just a start point, you can add yourself:
-
 1. Typescript
 2. Google recaptcha but it requires a server or cloud functions. Maybe Firebase reCAPTCHA
 3. Change DataBaseService according to your needs. It could be HTTP request to your server etc...
