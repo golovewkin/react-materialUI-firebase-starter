@@ -9,7 +9,7 @@ export class UserModel extends EntityModel {
     super(user);
     this.name = user.name || "My first name";
     this.pic = user.pic || commonConst.noPicUser;
-    this.role = userRolesConst.user;
+    this.role = user.role || userRolesConst.user;
   }
 
   validateCustom(user) {

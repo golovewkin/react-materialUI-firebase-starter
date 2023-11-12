@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
+import { Avatar } from "@mui/material";
 
-const AvatarComponent = (props) => {
-	return <span>AvatarComponent</span>
+const AvatarComponent = ({ src }) => {
+  return <Avatar src={src} />;
 };
 
 export default AvatarComponent;
-

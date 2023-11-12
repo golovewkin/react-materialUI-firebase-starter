@@ -7,7 +7,6 @@ import LinkComponent from "../../../components/library-based-components/Link/Lin
 export function LandingPage() {
   return (
     <section className="LandingPage">
-      <h3>LandingPage</h3>
       <p>
         Hello, This is a Landing page for a{" "}
         <Link

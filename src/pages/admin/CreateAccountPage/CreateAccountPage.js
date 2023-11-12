@@ -27,7 +27,7 @@ const CreateAccountPage = () => {
 
   return (
     <div className="CreateAccountPage">
-      <div className="CreateAccountPage__title">Create account</div>
+      <div className="CreateAccountPage__title">Create a user account</div>
       <div className="CreateAccountPage__wrapper">
         <TextFieldComponent
           onChange={(value) => setFormState("email", value, setState)}

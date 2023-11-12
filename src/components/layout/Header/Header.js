@@ -10,13 +10,9 @@ const Header = () => {
   if (!auth.user) return null;
   return (
     <div className="Header">
-      <div className="Header__menu">
-        <AvatarComponent src={auth.user.pic} />
-        <span>{auth.user.name}</span>
-      </div>
-      <div className="Header__user">
-        <OffIconComponent onClick={() => auth.signout()} />
-      </div>
+      <OffIconComponent onClick={() => auth.signout()} />
+      <AvatarComponent src={auth.user.pic} />
+      <span>{auth.user.name}</span>
     </div>
   );
 };
