@@ -1,9 +1,8 @@
-TODO mark up
 TODO settings page
-TODO Sign up page
-TODO admin page
+TODO create user
 TODO email service (could be email js)
 user sends request to create a user to admin, admin mail to env
+TODO user page check
 TODO forgot password check
 
 What is inside
