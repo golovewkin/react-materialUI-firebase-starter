@@ -10,6 +10,7 @@ import Content from "./components/layout/Content/MainContent";
 import PublicContent from "./components/layout/PublicContent/PublicContent";
 import { useAuth } from "./contexts/AuthProvider";
 import Loader from "./components/utils/Loader";
+import CreateAccountPage from "./pages/admin/CreateAccountPage/CreateAccountPage";
 
 export const UserRoutes = () => {
   const auth = useAuth();
@@ -33,7 +34,7 @@ export const UserRoutes = () => {
         <Route element={<Content />}>
           <Route path={urlsConst.home} element={<SettingsPage />} />
           <Route path={urlsConst.settings} element={<SettingsPage />} />
-          {/**<Route path={urlsConst.createAccount} element={<CreateAccountPage/>}/>*/}
+          *<Route path={urlsConst.createUser} element={<CreateAccountPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>

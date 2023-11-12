@@ -3,12 +3,10 @@ export class EntityModel {
   constructor(entity) {
     this.validate(entity);
     this.id = entity.id;
-    this.ownerId = entity.ownerId;
     this.createdAt = Date.now();
   }
 
   id;
-  ownerId;
   createdAt;
 
   validate(entity) {
@@ -20,17 +18,15 @@ export class EntityModel {
     throw new Error("validate something in specific entity");
   }
 
-  create() {
-    this.validate(this);
-    console.log(this);
-    // TODO save in DB
+  static async create(user) {
+    throw new Error("static create method should be implemented");
   }
 
-  update() {
+  async update() {
     this.validate(this);
   }
 
-  delete() {
+  async delete() {
     // TODO remove from DB
   }
 }

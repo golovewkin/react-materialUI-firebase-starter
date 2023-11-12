@@ -3,6 +3,7 @@ export const urlsConst = {
   resetPass: "/reset-pass",
   login: "/login",
   home: "/",
+  createUser: "/createUser",
 };
 
 export const publicUrls = [
