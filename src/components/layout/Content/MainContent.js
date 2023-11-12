@@ -6,14 +6,18 @@ import Nav from "../Nav/Nav";
 import { withErrorBoundary } from "../../hoc/withErrorBoundary/withErrorBoundary";
 import RequireAuthWithRedirect from "../../../pages/RequireAuthWithRedirect";
 
-const Content = () => {
+const MainContent = () => {
   return (
     <RequireAuthWithRedirect>
-      <Header />
-      <Nav />
-      <Outlet />
+      <main className="MainContent">
+        <Header />
+        <Nav />
+        <section className="MainContent__content">
+          <Outlet />
+        </section>
+      </main>
     </RequireAuthWithRedirect>
   );
 };
 
-export default withErrorBoundary(Content);
+export default withErrorBoundary(MainContent);

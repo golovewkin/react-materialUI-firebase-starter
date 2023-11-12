@@ -4,7 +4,7 @@ import firebase from "../src/services/firebase";
 import MainContext from "../src/contexts/main.context";
 import { getUserRoutes } from "../src/UserRoutes";
 import Header from "../src/components/layout/Header/Header";
-import Content from "../src/components/layout/Content/Content";
+import Content from "../src/components/layout/Content/MainContent";
 import Nav from "../src/components/layout/Nav/Nav";
 import "./App.scss";
 import Loader from "../src/components/utils/Loader";

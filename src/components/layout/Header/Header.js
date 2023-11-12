@@ -15,8 +15,6 @@ const Header = () => {
         <span>{auth.user.name}</span>
       </div>
       <div className="Header__user">
-        {/*<AddIconComponent onClick={() => showCreateWordPopup(user, () => {})} />*/}
-        {/*<AddIconComponent onClick={() => showCreateGroupPopup(user)} />*/}
         <OffIconComponent onClick={() => auth.signout()} />
       </div>
     </div>

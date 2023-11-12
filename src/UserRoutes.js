@@ -6,7 +6,7 @@ import { urlsConst } from "./constants/urlsConst";
 import SettingsPage from "./pages/user/SettingsPage/SettingsPage";
 import ResetPassPage from "./pages/public/ResetPassPage/ResetPassPage";
 import { LandingPage } from "./pages/public/LandingPage/LandingPage";
-import Content from "./components/layout/Content/Content";
+import Content from "./components/layout/Content/MainContent";
 import PublicContent from "./components/layout/PublicContent/PublicContent";
 import { useAuth } from "./contexts/AuthProvider";
 import Loader from "./components/utils/Loader";

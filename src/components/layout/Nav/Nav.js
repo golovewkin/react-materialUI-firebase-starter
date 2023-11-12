@@ -1,31 +1,29 @@
 import React from "react";
 import "./style.scss";
-import {
-  List,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-} from "@mui/material";
-import AddIconComponent from "../../library-based-components/icons/AddIconComponent";
+import { List } from "@mui/material";
+import { useAuth } from "../../../contexts/AuthProvider";
+import NavItem from "../NavItem";
+import { urlsConst } from "../../../constants/urlsConst";
+import EditIconComponent from "../../library-based-components/icons/EditIconComponent";
+import HomeIconComponent from "../../library-based-components/icons/HomeIconComponent";
 
-const Nav = ({ user }) => {
-  // const [path, setPath] = useState(history.location.pathname);
+const Nav = () => {
+  const auth = useAuth();
 
-  // console.log(path);
-  //   useEffect(() => {
-  //     setPath(history.location.pathname);
-  //   }, [history.location.pathname]);
-
-  if (!user) return null;
+  if (!auth.user) return null;
   return (
-    <div className="Nav">
-      <List component="nav" aria-label="main mailbox folders">
-        <ListItemButton>
-          <ListItemIcon>
-            <AddIconComponent />
-          </ListItemIcon>
-          <ListItemText primary="Sent mail" />
-        </ListItemButton>
+    <div className="Nav custom-scroll">
+      <List component="nav" aria-label="main nav">
+        <NavItem
+          label="Home"
+          icon={<HomeIconComponent />}
+          path={urlsConst.home}
+        />
+        <NavItem
+          label="Settings"
+          icon={<EditIconComponent />}
+          path={urlsConst.settings}
+        />
       </List>
     </div>
   );
