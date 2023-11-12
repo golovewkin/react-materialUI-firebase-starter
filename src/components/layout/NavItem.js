@@ -14,7 +14,9 @@ const NavItem = ({ path, icon, label }) => {
 
   return (
     <ListItemButton onClick={onClick} selected={location.pathname === path}>
-      <ListItemIcon>{icon}</ListItemIcon>
+      <ListItemIcon className={location.pathname === path ? "active" : ""}>
+        {icon}
+      </ListItemIcon>
       <ListItemText primary={label} />
     </ListItemButton>
   );
