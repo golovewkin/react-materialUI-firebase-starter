@@ -8,6 +8,7 @@ export class UserModel extends EntityModel {
   constructor(user) {
     super(user);
     this.name = user.name || "My first name";
+    this.firebaseId = user.firebaseId;
     this.pic = user.pic || commonConst.noPicUser;
     this.role = user.role || userRolesConst.user;
   }
@@ -17,14 +18,18 @@ export class UserModel extends EntityModel {
       throw new Error("no firebaseId");
     }
   }
-  static async create(user) {
-    // this.validate(this);
+  static async create(model) {
+    this.validate(model);
     // UserModel.validate;
-    console.log(user);
+    console.log(model);
+    //TODO createUserWithEmailAndPassword
     // TODO save in DB
     // TODO return new UserModel()
-    // createUserWithEmailAndPassword
-    // then save it tp db
+  }
+
+  update() {
+    this.validate(this);
+    return DataBaseService.saveDocumentById(this, UserModel.collection);
   }
 
   static async getById(id) {

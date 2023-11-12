@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "./style.scss";
 import ButtonComponent from "../../../components/library-based-components/ButtonComponent/ButtonComponent";
-import MainContext from "../../../contexts/main.context";
-import { commonConst } from "../../../constants/commonConst";
 import TextFieldComponent from "../../../components/library-based-components/TextFieldComponent";
 import { LogService } from "../../../services/LogService";
 import LinkComponent from "../../../components/library-based-components/Link/LinkComponent";
@@ -10,14 +8,13 @@ import { urlsConst } from "../../../constants/urlsConst";
 import { validEmail } from "../../../helpers/validator.helper";
 
 const ResetPassPage = () => {
-  const { user } = React.useContext(MainContext);
   const [email, setEmail] = useState("");
 
   const submit = () => {
     try {
       console.log("submit");
     } catch (e) {
-      LogService.showAndLogError("send reset password error", e);
+      LogService.log("send reset password error", e);
     }
   };
 
@@ -30,10 +27,6 @@ const ResetPassPage = () => {
       return true;
     }
   };
-
-  if (user) {
-    return <span>{commonConst.error}</span>;
-  }
 
   return (
     <div className="ResetPassPage">

@@ -1,28 +1,32 @@
-import React, { useState } from "react";
+import React from "react";
 import "./style.scss";
 import ButtonComponent from "../../../components/library-based-components/ButtonComponent/ButtonComponent";
-import MainContext from "../../../contexts/main.context";
 import TextFieldComponent from "../../../components/library-based-components/TextFieldComponent";
 import { setFormState } from "../../../helpers/form.helper";
 import { withErrorBoundary } from "../../../components/hoc/withErrorBoundary/withErrorBoundary";
+import { useAuth } from "../../../contexts/AuthProvider";
+import { UserModel } from "../../../models/UserModel";
+import { LogService } from "../../../services/LogService";
+import { useLogError } from "../../../contexts/LogErrorProvider";
 
 const SettingsPage = () => {
-  const { user } = React.useContext(MainContext);
-  const [state, setState] = useState({ ...user });
+  const { user, setUser } = useAuth();
+  const showError = useLogError();
+  const [state, setState] = React.useState(user.copy());
 
-  const submit = async (newUser) => {
-    // try {
-    //   const user = { ...newUser };
-    //   if (file) {
-    //     user.pic = await PicService.savePic(file);
-    //   }
-    //   await UserDBService.updateUser(newUser.id, user);
-    //   updateUser(user);
-    //   showSnack("Success!");
-    // } catch (e) {
-    //   LogService.showAndLogError("save user error", e);
-    // }
-  };
+  const submit = React.useCallback(
+    async (newUser) => {
+      try {
+        const userModel = new UserModel(newUser);
+        await userModel.update();
+        setUser(userModel);
+      } catch (e) {
+        LogService.log("error", e);
+        return showError("update user error", e);
+      }
+    },
+    [showError, setUser],
+  );
 
   return (
     <div className="SettingsPage">

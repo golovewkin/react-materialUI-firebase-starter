@@ -15,10 +15,10 @@ import UserHome from "./pages/user/UserHome";
 
 export const UserRoutes = () => {
   const auth = useAuth();
-  if (auth.loading) {
+  if (auth?.loading) {
     return <Loader />;
   }
-  if (!auth.user) {
+  if (!auth?.user) {
     return (
       <Routes>
         <Route element={<PublicContent />}>

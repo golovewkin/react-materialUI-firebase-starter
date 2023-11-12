@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -20,4 +20,4 @@ const db = getFirestore(firebaseApp);
 const auth = getAuth(firebaseApp);
 const onUserlogin = debounce(onAuthStateChanged, 200);
 const logIn = signInWithEmailAndPassword;
-export { auth, onUserlogin, logIn, doc, getDoc, db };
+export { auth, onUserlogin, logIn, doc, getDoc, db, setDoc };

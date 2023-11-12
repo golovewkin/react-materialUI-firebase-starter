@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  let signout = async (callback) => {
+  let signout = async () => {
     try {
       await auth.signOut();
     } catch (e) {

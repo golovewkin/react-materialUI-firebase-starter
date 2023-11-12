@@ -1,4 +1,4 @@
-import { doc, getDoc, db } from "./firebase";
+import { doc, getDoc, db, setDoc } from "./firebase";
 
 export class DataBaseService {
   static addDocument(document, collection, id) {
@@ -27,8 +27,14 @@ export class DataBaseService {
     // return docs;
   }
 
-  static updateDocument(document, collection, id) {
-    return db.collection(collection).doc(id).set(document);
+  static saveDocumentById(model, collection) {
+    if (typeof model.id !== "string") {
+      throw new Error("id should be a string");
+    }
+    if (typeof collection !== "string") {
+      throw new Error("collection should be a string");
+    }
+    return setDoc(doc(db, collection, model.id), model.toString());
   }
 
   static removeDocument(collection, document) {
