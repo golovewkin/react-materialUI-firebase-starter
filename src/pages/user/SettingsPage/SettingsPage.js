@@ -8,18 +8,20 @@ import { useAuth } from "../../../contexts/AuthProvider";
 import { UserModel } from "../../../models/UserModel";
 import { LogService } from "../../../services/LogService";
 import { useLogError } from "../../../contexts/LogErrorProvider";
+import { useSnack } from "../../../contexts/SnackProvider";
 
 const SettingsPage = () => {
   const { user, setUser } = useAuth();
   const showError = useLogError();
+  const showSnack = useSnack();
   const [state, setState] = React.useState(user.copy());
-
   const submit = React.useCallback(
     async (newUser) => {
       try {
         const userModel = new UserModel(newUser);
         await userModel.update();
         setUser(userModel);
+        showSnack("Done!");
       } catch (e) {
         LogService.log("error", e);
         return showError("update user error", e);
