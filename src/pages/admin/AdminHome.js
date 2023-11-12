@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAuth } from "../../contexts/AuthProvider";
 import HomeIconComponent from "../../components/library-based-components/icons/HomeIconComponent";
 import { APIProvider, useAPI } from "../../contexts/APIProvider";
@@ -7,7 +7,12 @@ import { apiCommands } from "../../constants/apiCommands";
 
 export const AdminHome = () => {
   const auth = useAuth();
-  const users = useAPI();
+  const data = useAPI();
+
+  useEffect(() => {
+    console.log("data", data);
+  }, [data]);
+  // TODO component doesn't understand that data as fetched
   return (
     <APIProvider
       command={apiCommands.getAll}
@@ -17,10 +22,16 @@ export const AdminHome = () => {
         Hello, {auth.user.name}, this is your Home page
         <HomeIconComponent />
       </h3>
-      {users && (
+      {data && (
         <>
           <h4>Users list</h4>
-          <ul>{/*{users}*/}</ul>
+          <ul>
+            {/*{data.map((user) => (*/}
+            {/*  <p>*/}
+            {/*    Name: {user.name}, role: {user.role}*/}
+            {/*  </p>*/}
+            {/*))}*/}
+          </ul>
         </>
       )}
     </APIProvider>

@@ -3,6 +3,7 @@ TODO email service (could be email js)
 user sends request to create a user to admin, admin mail to env
 TODO user page check
 TODO forgot password check
+TODO delete user
 TODO check deploy on Digital ocean
 
 What is inside
@@ -46,3 +47,4 @@ This project is just a start point, you can add yourself:
 1. Typescript
 2. Login with Google provider
 3. Google recaptcha but it requires a server or cloud functions. Maybe Firebase reCAPTCHA
+4. Pagination in data queries

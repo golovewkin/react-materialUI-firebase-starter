@@ -7,7 +7,7 @@ import { useLogError } from "./LogErrorProvider";
 
 const APIContext = createContext(null);
 
-export function APIProvider({ children, command, collection, filter }) {
+export function APIProvider({ children, command, collection }) {
   const showError = useLogError();
   const [data, setData] = useState([]);
   const [error, setError] = useState(false);
@@ -18,7 +18,7 @@ export function APIProvider({ children, command, collection, filter }) {
       try {
         setError(false);
         setLoader(true);
-        const serverData = await DataBaseService[command](collection, filter);
+        const serverData = await DataBaseService[command](collection);
         setData(serverData);
       } catch (e) {
         LogService.log("fetchData error", e);
@@ -29,8 +29,8 @@ export function APIProvider({ children, command, collection, filter }) {
       }
     }
     fetchData();
-  }, [collection, command, filter]);
-
+  }, [collection, command, showError]);
+  console.log(data);
   return (
     <APIContext.Provider
       value={{

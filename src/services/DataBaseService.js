@@ -1,12 +1,8 @@
-import { doc, getDoc, db, setDoc } from "./firebase";
+import { doc, getDoc, db, setDoc, getDocs, collection } from "./firebase";
 
 export class DataBaseService {
   static addDocument(document, collection, id) {
     // return firebase.firestore().collection(collection).doc(id).set(document);
-  }
-
-  static addDocumentWithoutId(document, collection) {
-    // return firebase.firestore().collection(collection).add(document);
   }
 
   static async getDocumentById(id, collection) {
@@ -14,9 +10,17 @@ export class DataBaseService {
     return docSnap.exists() ? docSnap.data() : null;
   }
 
-  static async getAll(collection, filter) {
-    const docSnap = await getDoc(doc(db, collection));
-    return docSnap.exists() ? docSnap.data() : null;
+  static async getAll(collectionName) {
+    const querySnapshot = await getDocs(collection(db, collectionName));
+    const documents = [];
+    querySnapshot.forEach((doc) => {
+      documents.push({
+        ...doc.data(),
+        id: doc.id,
+      });
+    });
+
+    return documents;
   }
 
   static saveDocumentById(model, collection) {
@@ -30,6 +34,6 @@ export class DataBaseService {
   }
 
   static removeDocument(collection, document) {
-    return db.collection(collection).doc(document.id).delete();
+    // return db.collection(collection).doc(document.id).delete();
   }
 }
