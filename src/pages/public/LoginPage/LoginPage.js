@@ -57,7 +57,7 @@ const LoginPage = () => {
         </ButtonComponent>
         <div className="LoginPage__links">
           <LinkComponent to={urlsConst.resetPass} children="Forgot password?" />
-          <LinkComponent to={urlsConst.createAccount} children="Sign up" />
+          <LinkComponent to={urlsConst.home} children="Home" />
         </div>
       </div>
     </div>

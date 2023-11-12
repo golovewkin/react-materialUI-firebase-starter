@@ -4,6 +4,7 @@ TODO Sign up page
 TODO admin page
 TODO email service (could be email js)
 user sends request to create a user to admin, admin mail to env
+TODO forgot password check
 
 What is inside
 React 18, material ui, firebase auth, firebase firestore with NO SERVER CODE AT ALL.
