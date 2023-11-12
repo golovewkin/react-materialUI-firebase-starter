@@ -2,9 +2,10 @@ import { userRolesConst } from "../constants/userRolesConst";
 import { commonConst } from "../constants/commonConst";
 import { EntityModel } from "./EntityModel";
 import { DataBaseService } from "../services/DataBaseService";
+import { collectionsConst } from "../constants/collectionsConst";
 
 export class UserModel extends EntityModel {
-  static collection = "users";
+  static collection = collectionsConst.users;
   constructor(user) {
     super(user);
     this.name = user.name || "My first name";

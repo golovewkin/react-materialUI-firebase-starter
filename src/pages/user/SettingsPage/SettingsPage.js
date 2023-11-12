@@ -27,7 +27,7 @@ const SettingsPage = () => {
         return showError("update user error", e);
       }
     },
-    [showError, setUser],
+    [showError, setUser, showSnack],
   );
 
   return (

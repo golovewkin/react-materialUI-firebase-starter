@@ -1,5 +1,5 @@
 export const commonConst = {
-  error: "contact with me :(",
+  error: "Something went wrong 😭",
   defaul: "default",
   noAuthUrl: "noAuthUrl",
   noPicUser:

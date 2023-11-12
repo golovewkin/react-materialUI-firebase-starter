@@ -14,17 +14,9 @@ export class DataBaseService {
     return docSnap.exists() ? docSnap.data() : null;
   }
 
-  static async getDocumentsWhere(collection, property, value) {
-    // const res = await firebase
-    //   .firestore()
-    //   .collection(collection)
-    //   .where(property, "==", value)
-    //   .get();
-    // const docs = [];
-    // res.forEach((doc) => {
-    //   docs.push(doc.data());
-    // });
-    // return docs;
+  static async getAll(collection, filter) {
+    const docSnap = await getDoc(doc(db, collection));
+    return docSnap.exists() ? docSnap.data() : null;
   }
 
   static saveDocumentById(model, collection) {

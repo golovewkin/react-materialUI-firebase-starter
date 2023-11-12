@@ -2,10 +2,13 @@ import React, { useContext, useState, useEffect, createContext } from "react";
 import { LogService } from "../services/LogService";
 import { commonConst } from "../constants/commonConst";
 import Loader from "../components/utils/Loader";
+import { DataBaseService } from "../services/DataBaseService";
+import { useLogError } from "./LogErrorProvider";
 
 const APIContext = createContext(null);
 
-export function APIContextProvider({ children, url }) {
+export function APIProvider({ children, command, collection, filter }) {
+  const showError = useLogError();
   const [data, setData] = useState([]);
   const [error, setError] = useState(false);
   const [loader, setLoader] = useState(false);
@@ -15,18 +18,19 @@ export function APIContextProvider({ children, url }) {
       try {
         setError(false);
         setLoader(true);
-        //TODO get data
-        const serverData = null;
+        const serverData = await DataBaseService[command](collection, filter);
         setData(serverData);
       } catch (e) {
         LogService.log("fetchData error", e);
         setError(true);
+        showError("fetchData error", e);
       } finally {
         setLoader(false);
       }
     }
     fetchData();
-  }, []);
+  }, [collection, command, filter]);
+
   return (
     <APIContext.Provider
       value={{
