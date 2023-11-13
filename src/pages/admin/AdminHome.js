@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useAuth } from "../../contexts/AuthProvider";
 import HomeIconComponent from "../../components/library-based-components/icons/HomeIconComponent";
-import { collectionsConst } from "../../constants/collectionsConst";
+import { collections } from "../../constants/collections";
 import { DBService } from "../../services/DBService";
 import FetchDataComponent from "../../components/hoc/FetchDataComponent";
 
@@ -9,7 +9,7 @@ export const AdminHome = () => {
   const auth = useAuth();
 
   const getData = useCallback(() => {
-    return DBService.getAll(collectionsConst.users);
+    return DBService.getAll(collections.users);
   }, []);
 
   // console.log(data);
@@ -32,7 +32,7 @@ export const AdminHome = () => {
               <h4>Users list</h4>
               <ul>
                 {users.map((user) => (
-                  <li>
+                  <li key={user.id}>
                     Name: {user.name}, role: {user.role}
                   </li>
                 ))}

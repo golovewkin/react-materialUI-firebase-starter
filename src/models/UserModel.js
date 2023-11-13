@@ -1,17 +1,17 @@
-import { userRolesConst } from "../constants/userRolesConst";
+import { userRoles } from "../constants/userRoles";
 import { commonConst } from "../constants/commonConst";
 import { EntityModel } from "./EntityModel";
 import { DBService } from "../services/DBService";
-import { collectionsConst } from "../constants/collectionsConst";
+import { collections } from "../constants/collections";
 
 export class UserModel extends EntityModel {
-  static collection = collectionsConst.users;
+  static collection = collections.users;
   constructor(user) {
     super(user);
     this.name = user.name || "My first name";
     this.firebaseId = user.firebaseId;
     this.pic = user.pic || commonConst.noPicUser;
-    this.role = user.role || userRolesConst.user;
+    this.role = user.role || userRoles.user;
   }
 
   validateCustom(user) {

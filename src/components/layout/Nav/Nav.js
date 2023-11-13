@@ -6,7 +6,7 @@ import NavItem from "../NavItem";
 import { urlsConst } from "../../../constants/urlsConst";
 import EditIconComponent from "../../library-based-components/icons/EditIconComponent";
 import HomeIconComponent from "../../library-based-components/icons/HomeIconComponent";
-import { userRolesConst } from "../../../constants/userRolesConst";
+import { userRoles } from "../../../constants/userRoles";
 import AddIconComponent from "../../library-based-components/icons/AddIconComponent";
 
 const Nav = () => {
@@ -27,7 +27,7 @@ const Nav = () => {
           icon={<EditIconComponent />}
           path={urlsConst.settings}
         />
-        {auth.user.role === userRolesConst.admin && (
+        {auth.user.role === userRoles.admin && (
           <NavItem
             label="Create user"
             icon={<AddIconComponent />}
