@@ -12,11 +12,6 @@ export const AdminHome = () => {
     return DBService.getAll(collections.users);
   }, []);
 
-  // console.log(data);
-  // useEffect(() => {
-  //   console.log("data", data);
-  // }, [data]);
-  // TODO component doesn't understand that data as fetched
   return (
     <FetchDataComponent
       queryKey={"admin-get-users"}
