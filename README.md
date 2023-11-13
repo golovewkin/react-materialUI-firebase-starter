@@ -1,7 +1,7 @@
 TODO create user
 TODO email service (could be email js)
 user sends request to create a user to admin, admin mail to env
-TODO user page check
+TODO users page check
 TODO forgot password check
 TODO delete user
 TODO check deploy on Digital ocean
