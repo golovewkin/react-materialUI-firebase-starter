@@ -5,12 +5,18 @@ import { commonConst } from "../../constants/commonConst";
 
 const FetchDataComponent = ({ getData, queryKey, render }) => {
   const query = useQuery(queryKey, getData);
-  if (query.isFetching) {
-    return <Loader />;
-  }
 
   if (query.isError) {
-    return <span>{commonConst.error}</span>;
+    return (
+      <div>
+        {commonConst.error}
+        <div>{query.error}</div>
+      </div>
+    );
+  }
+
+  if (query.isFetching) {
+    return <Loader />;
   }
 
   return render(query.data);
