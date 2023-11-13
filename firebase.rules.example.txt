@@ -1,15 +1,11 @@
 //rules_version = '2';
 //service cloud.firestore {
 //  match /databases/{database}/documents {
-//    function isOwner(resource, request) {
-//      return resource.data.firebaseId == request.auth.uid;
-//    }
-//
 //    match /users/{user} {
-//      allow update: if isOwner(resource, request);
-//      allow create, read: if request.auth != null;
+//      allow read: if request.auth.uid == resource.data.firebaseId || request.auth.uid == 'your admin id';
+//      allow update: if request.auth.uid == resource.data.firebaseId;
+//      allow create, delete: if request.auth.uid == 'your admin id';
 //    }
-//  }
 //}
 
 

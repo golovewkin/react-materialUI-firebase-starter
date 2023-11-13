@@ -2,6 +2,7 @@ import React from "react";
 import Loader from "../utils/Loader";
 import { commonConst } from "../../constants/commonConst";
 import { useQuery } from "@tanstack/react-query";
+import { withErrorBoundary } from "./withErrorBoundary";
 
 const FetchDataComponent = ({ getData, queryKey, render }) => {
   const query = useQuery({ queryKey: [queryKey], queryFn: getData });
@@ -10,7 +11,7 @@ const FetchDataComponent = ({ getData, queryKey, render }) => {
     return (
       <div>
         {commonConst.error}
-        <div>{query.error}</div>
+        <div>{query.error.toString()}</div>
       </div>
     );
   }
@@ -22,4 +23,4 @@ const FetchDataComponent = ({ getData, queryKey, render }) => {
   return render(query.data);
 };
 
-export default FetchDataComponent;
+export default withErrorBoundary(FetchDataComponent);
