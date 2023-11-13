@@ -1,7 +1,7 @@
 import { doc, getDoc, db, setDoc, getDocs, collection } from "./firebase";
 
-export class DataBaseService {
-  static addDocument(document, collection, id) {
+export class DBService {
+  static createDocument(document, collection, id) {
     // return firebase.firestore().collection(collection).doc(id).set(document);
   }
 

@@ -3,7 +3,7 @@ import "./style.scss";
 import ButtonComponent from "../../../components/library-based-components/ButtonComponent/ButtonComponent";
 import TextFieldComponent from "../../../components/library-based-components/TextFieldComponent";
 import { setFormState } from "../../../helpers/form.helper";
-import { withErrorBoundary } from "../../../components/hoc/withErrorBoundary/withErrorBoundary";
+import { withErrorBoundary } from "../../../components/hoc/withErrorBoundary";
 import { useAuth } from "../../../contexts/AuthProvider";
 import { UserModel } from "../../../models/UserModel";
 import { LogService } from "../../../services/LogService";

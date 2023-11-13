@@ -1,5 +1,5 @@
 import React from "react";
-import { commonConst } from "../../../constants/commonConst";
+import { commonConst } from "../../constants/commonConst";
 
 export class ErrorBoundary extends React.Component {
   constructor(props) {

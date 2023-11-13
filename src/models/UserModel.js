@@ -1,7 +1,7 @@
 import { userRolesConst } from "../constants/userRolesConst";
 import { commonConst } from "../constants/commonConst";
 import { EntityModel } from "./EntityModel";
-import { DataBaseService } from "../services/DataBaseService";
+import { DBService } from "../services/DBService";
 import { collectionsConst } from "../constants/collectionsConst";
 
 export class UserModel extends EntityModel {
@@ -30,11 +30,11 @@ export class UserModel extends EntityModel {
 
   update() {
     this.validate(this);
-    return DataBaseService.saveDocumentById(this, UserModel.collection);
+    return DBService.saveDocumentById(this, UserModel.collection);
   }
 
   static async getById(id) {
-    const entityData = await DataBaseService.getDocumentById(
+    const entityData = await DBService.getDocumentById(
       id,
       UserModel.collection,
     );

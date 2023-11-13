@@ -45,10 +45,10 @@ export class EntityModel {
   }
 
   async update() {
-    this.validate(this);
+    throw new Error("update method should be implemented");
   }
 
   async delete() {
-    // TODO remove from DB
+    throw new Error("delete method should be implemented");
   }
 }

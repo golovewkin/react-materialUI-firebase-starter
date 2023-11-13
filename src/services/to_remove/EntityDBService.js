@@ -1,33 +1,29 @@
-import { DataBaseService } from "../DataBaseService";
+import { DBService } from "../DBService";
 import { collections } from "../../src/constants/collections";
 import { classToObject } from "../../helpers/util.helper";
 
 export class EntityDBService {
   static getUserGroups(user) {
-    return DataBaseService.getDocumentsWhere(
-      collections.groups,
-      "ownerId",
-      user.id
-    );
+    return DBService.getDocumentsWhere(collections.groups, "ownerId", user.id);
   }
 
   static createGroup(group) {
-    return DataBaseService.updateDocument(
+    return DBService.updateDocument(
       classToObject(group),
       collections.groups,
-      group.id
+      group.id,
     );
   }
 
   static editGroup(group) {
-    return DataBaseService.updateDocument(
+    return DBService.updateDocument(
       classToObject(group),
       collections.groups,
-      group.id
+      group.id,
     );
   }
 
   static removeGroup(group) {
-    return DataBaseService.removeDocument(collections.groups, group);
+    return DBService.removeDocument(collections.groups, group);
   }
 }
