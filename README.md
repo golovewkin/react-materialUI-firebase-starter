@@ -51,3 +51,4 @@ This project is just a start point, you can add yourself:
 2. Login with Google provider
 3. Google recaptcha but it requires a server or cloud functions. Maybe Firebase reCAPTCHA
 4. Pagination in data queries
+5. Better accessibility
