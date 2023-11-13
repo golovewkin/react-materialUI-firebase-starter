@@ -1,10 +1,10 @@
 import React from "react";
-import { useQuery } from "react-query";
 import Loader from "../utils/Loader";
 import { commonConst } from "../../constants/commonConst";
+import { useQuery } from "@tanstack/react-query";
 
 const FetchDataComponent = ({ getData, queryKey, render }) => {
-  const query = useQuery(queryKey, getData);
+  const query = useQuery({ queryKey: [queryKey], queryFn: getData });
 
   if (query.isError) {
     return (

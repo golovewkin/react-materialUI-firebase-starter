@@ -6,7 +6,7 @@ import Nav from "../Nav/Nav";
 import { withErrorBoundary } from "../../hoc/withErrorBoundary";
 import RequireAuthWithRedirect from "../../../pages/RequireAuthWithRedirect";
 import { SnackProvider } from "../../../contexts/SnackProvider";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();
 const MainContent = () => {
