@@ -1,4 +1,4 @@
-export const urlsConst = {
+export const URLS = {
   settings: "/settings",
   resetPass: "/reset-pass",
   login: "/login",
@@ -6,8 +6,4 @@ export const urlsConst = {
   createUser: "/createUser",
 };
 
-export const publicUrls = [
-  urlsConst.home,
-  urlsConst.login,
-  urlsConst.resetPass,
-];
+export const PUBLIC_URLS = [URLS.home, URLS.login, URLS.resetPass];

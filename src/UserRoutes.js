@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import LoginPage from "./pages/public/LoginPage/LoginPage";
 import React from "react";
 import ErrorPage from "./pages/public/ErrorPage";
-import { urlsConst } from "./constants/urlsConst";
+import { URLS } from "./constants/URLS";
 import SettingsPage from "./pages/user/SettingsPage/SettingsPage";
 import ResetPassPage from "./pages/public/ResetPassPage/ResetPassPage";
 import { LandingPage } from "./pages/public/LandingPage/LandingPage";
@@ -22,9 +22,9 @@ export const UserRoutes = () => {
     return (
       <Routes>
         <Route element={<PublicContent />}>
-          <Route path={urlsConst.home} element={<LandingPage />} />
-          <Route path={urlsConst.login} element={<LoginPage />} />
-          <Route path={urlsConst.resetPass} element={<ResetPassPage />} />
+          <Route path={URLS.home} element={<LandingPage />} />
+          <Route path={URLS.login} element={<LoginPage />} />
+          <Route path={URLS.resetPass} element={<ResetPassPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
@@ -33,9 +33,9 @@ export const UserRoutes = () => {
     return (
       <Routes>
         <Route element={<Content />}>
-          <Route path={urlsConst.home} element={<UserHome />} />
-          <Route path={urlsConst.settings} element={<SettingsPage />} />
-          *<Route path={urlsConst.createUser} element={<CreateAccountPage />} />
+          <Route path={URLS.home} element={<UserHome />} />
+          <Route path={URLS.settings} element={<SettingsPage />} />
+          *<Route path={URLS.createUser} element={<CreateAccountPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>

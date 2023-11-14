@@ -4,7 +4,7 @@ import ButtonComponent from "../../../components/library-based-components/Button
 import TextFieldComponent from "../../../components/library-based-components/TextFieldComponent";
 import { LogService } from "../../../services/LogService";
 import LinkComponent from "../../../components/library-based-components/Link/LinkComponent";
-import { urlsConst } from "../../../constants/urlsConst";
+import { URLS } from "../../../constants/URLS";
 import { validEmail } from "../../../helpers/validator.helper";
 
 const ResetPassPage = () => {
@@ -43,7 +43,7 @@ const ResetPassPage = () => {
           Send
         </ButtonComponent>
         <div className="ResetPassPage__links">
-          <LinkComponent to={urlsConst.login} children="Sign in" />
+          <LinkComponent to={URLS.login} children="Sign in" />
         </div>
       </div>
     </div>

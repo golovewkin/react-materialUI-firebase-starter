@@ -1,5 +1,5 @@
 import React from "react";
-import { commonConst } from "../../constants/commonConst";
+import { COMMON } from "../../constants/COMMON";
 
 export class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -8,7 +8,7 @@ export class ErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, info) {
-    this.setState({ hasError: true, error: commonConst.error });
+    this.setState({ hasError: true, error: COMMON.error });
   }
 
   render() {

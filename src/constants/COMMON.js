@@ -1,4 +1,4 @@
-export const commonConst = {
+export const COMMON = {
   error: "Something went wrong 😭",
   defaul: "default",
   noAuthUrl: "noAuthUrl",

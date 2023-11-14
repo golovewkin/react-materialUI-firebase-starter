@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import { urlsConst } from "../../../constants/urlsConst";
+import { URLS } from "../../../constants/URLS";
 import "./style.scss";
 import LinkComponent from "../../../components/library-based-components/Link/LinkComponent";
 
@@ -18,7 +18,7 @@ export function LandingPage() {
       </p>
       <p>Contact with me if you have any ideas how to develop this project</p>
       <p>Sorry, in this version only admin can create users 😥</p>
-      <LinkComponent to={urlsConst.login}>Login</LinkComponent>
+      <LinkComponent to={URLS.login}>Login</LinkComponent>
     </section>
   );
 }

@@ -3,10 +3,10 @@ import "./style.scss";
 import { List } from "@mui/material";
 import { useAuth } from "../../../contexts/AuthProvider";
 import NavItem from "../NavItem";
-import { urlsConst } from "../../../constants/urlsConst";
+import { URLS } from "../../../constants/URLS";
 import EditIconComponent from "../../library-based-components/icons/EditIconComponent";
 import HomeIconComponent from "../../library-based-components/icons/HomeIconComponent";
-import { userRoles } from "../../../constants/userRoles";
+import { ROLES } from "../../../constants/ROLES";
 import AddIconComponent from "../../library-based-components/icons/AddIconComponent";
 
 const Nav = () => {
@@ -17,21 +17,17 @@ const Nav = () => {
   return (
     <div className="Nav custom-scroll">
       <List component="nav" aria-label="main nav">
-        <NavItem
-          label="Home"
-          icon={<HomeIconComponent />}
-          path={urlsConst.home}
-        />
+        <NavItem label="Home" icon={<HomeIconComponent />} path={URLS.home} />
         <NavItem
           label="Settings"
           icon={<EditIconComponent />}
-          path={urlsConst.settings}
+          path={URLS.settings}
         />
-        {auth.user.role === userRoles.admin && (
+        {auth.user.role === ROLES.admin && (
           <NavItem
             label="Create user"
             icon={<AddIconComponent />}
-            path={urlsConst.createUser}
+            path={URLS.createUser}
           />
         )}
       </List>

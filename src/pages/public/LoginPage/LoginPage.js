@@ -3,7 +3,7 @@ import "./style.scss";
 import ButtonComponent from "../../../components/library-based-components/ButtonComponent/ButtonComponent";
 import TextFieldComponent from "../../../components/library-based-components/TextFieldComponent";
 import { setFormState } from "../../../helpers/form.helper";
-import { urlsConst } from "../../../constants/urlsConst";
+import { URLS } from "../../../constants/URLS";
 import LinkComponent from "../../../components/library-based-components/Link/LinkComponent";
 import { validEmail, validPassword } from "../../../helpers/validator.helper";
 import { useAuth } from "../../../contexts/AuthProvider";
@@ -20,7 +20,7 @@ const LoginPage = () => {
   const login = useCallback(
     async (state) => {
       await auth.signin(state);
-      navigate(urlsConst.home);
+      navigate(URLS.home);
     },
     [auth, navigate],
   );
@@ -56,8 +56,8 @@ const LoginPage = () => {
           Log in
         </ButtonComponent>
         <div className="LoginPage__links">
-          <LinkComponent to={urlsConst.resetPass} children="Forgot password?" />
-          <LinkComponent to={urlsConst.home} children="Home" />
+          <LinkComponent to={URLS.resetPass} children="Forgot password?" />
+          <LinkComponent to={URLS.home} children="Home" />
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-export const userRoles = {
+export const ROLES = {
   user: "user",
   admin: "admin",
 };
