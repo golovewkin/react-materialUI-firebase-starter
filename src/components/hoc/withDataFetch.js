@@ -8,7 +8,7 @@ const withDataFetch = (Component) => (props) => {
   const { fetchCommand, fetchParamCollection, fetchParamId, queryKey } = props;
   const getData = useCallback(() => {
     return DBService[fetchCommand](fetchParamCollection, fetchParamId);
-  }, [fetchCommand, fetchParamId, fetchParamCollection]);
+  }, [fetchCommand, fetchParamCollection, fetchParamId]);
 
   const query = useQuery({ queryKey: [queryKey], queryFn: getData });
 
