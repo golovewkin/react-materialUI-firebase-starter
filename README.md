@@ -1,6 +1,3 @@
-TODO create user
-TODO email service (could be email js)
-user sends request to create a user to admin, admin mail to env
 TODO users page check
 TODO forgot password check
 TODO delete user
@@ -41,6 +38,9 @@ React 18, material ui, firebase auth, firebase firestore with NO SERVER CODE AT 
    3. Setup firestore rules (see firebase.rules.example)
 10. npm start
 11. Log in as an admin and create a user
+    1. admin creates a user with email 
+    2. the system gives a link and gives it to user
+    3. user can set a pass using this temporary link
 12. Setup your landing page
 13. Deploy to Digital Ocean or a similar service
 14. Change DataBaseService according to your needs. It could be HTTP request to your server etc...
@@ -49,6 +49,7 @@ React 18, material ui, firebase auth, firebase firestore with NO SERVER CODE AT 
 This project is just a start point, you can add yourself:
 1. Typescript
 2. Login with Google provider
-3. Google recaptcha but it requires a server or cloud functions. Maybe Firebase reCAPTCHA
+3. Google recaptcha but it requires a server or cloud functions. Maybe Firebase reCAPTCHA?
 4. Pagination in data queries
-5. Better accessibility
+5. An email service for users creation
+6. Better accessibility
