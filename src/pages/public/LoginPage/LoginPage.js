@@ -18,7 +18,8 @@ const LoginPage = () => {
   });
 
   const login = useCallback(
-    async (state) => {
+    async (event, state) => {
+      event.preventDefault();
       await auth.signin(state);
       navigate(URLS.home);
     },
@@ -34,7 +35,10 @@ const LoginPage = () => {
   return (
     <div className="LoginPage">
       <div className="LoginPage__title">Sign in</div>
-      <div className="LoginPage__wrapper">
+      <form
+        className="LoginPage__wrapper"
+        onSubmit={(event) => login(event, state)}
+      >
         <TextFieldComponent
           onChange={(value) => setFormState("email", value, setState)}
           value={state.email}
@@ -49,17 +53,14 @@ const LoginPage = () => {
           label="password"
           error={!validPassword(state.password)}
         />
-        <ButtonComponent
-          disabled={isDisabled(state)}
-          onClick={() => login(state)}
-        >
+        <ButtonComponent type="submit" disabled={isDisabled(state)}>
           Log in
         </ButtonComponent>
         <div className="LoginPage__links">
           <LinkComponent to={URLS.resetPass} children="Forgot password?" />
           <LinkComponent to={URLS.home} children="Home" />
         </div>
-      </div>
+      </form>
     </div>
   );
 };
