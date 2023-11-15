@@ -1,17 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './App.scss';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import {BrowserRouter} from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./App.scss";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter } from "react-router-dom";
+import * as emailjs from "@emailjs/browser";
+emailjs.init(process.env.REACT_APP_EMAIL_JS_PUBLIC_KEY);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 
 // If you want to start measuring performance in your app, pass a function

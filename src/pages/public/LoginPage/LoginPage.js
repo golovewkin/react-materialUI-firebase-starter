@@ -8,6 +8,7 @@ import LinkComponent from "../../../components/library-based-components/Link/Lin
 import { validEmail, validPassword } from "../../../helpers/validator.helper";
 import { useAuth } from "../../../contexts/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import * as emailjs from "@emailjs/browser";
 
 const LoginPage = () => {
   const auth = useAuth();
@@ -21,6 +22,26 @@ const LoginPage = () => {
     async (event, state) => {
       event.preventDefault();
       await auth.signin(state);
+      const templateParams = {
+        to_name: "xyz",
+        from_name: "abc",
+        message_html: "Please Find out the attached file",
+      };
+      emailjs
+        .send(
+          "service_bxz13fs",
+          "template_67hirif",
+          templateParams,
+          "T3K0W3gQbolXImQAq",
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+          },
+          (error) => {
+            console.log(error.text);
+          },
+        );
       navigate(URLS.home);
     },
     [auth, navigate],
