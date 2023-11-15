@@ -7,11 +7,15 @@ export class InviteModel extends EntityModel {
   constructor(invite) {
     super(invite);
     this.taken = invite.taken || false;
+    this.takenBy = invite.takenBy || "";
   }
 
   validateCustom(invite) {
     if (!invite.createdAt) {
       throw new Error("no createdAt");
+    }
+    if (invite.taken && !invite.takenBy) {
+      throw new Error("no takenBy but It should be");
     }
   }
   static async create(model) {
