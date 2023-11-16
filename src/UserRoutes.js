@@ -13,7 +13,7 @@ import Loader from "./components/utils/Loader";
 import CreateAccountPage from "./pages/admin/CreateAccountPage/CreateAccountPage";
 import UserHome from "./pages/user/UserHome";
 import SendRequestPage from "./pages/public/SendRequestPage/SendRequestPage";
-import { AdminInquiriesPage } from "./pages/admin/AdminInquiriesPage";
+import { AdminInquiriesPage } from "./pages/AdminInquiriesPage/AdminInquiriesPage";
 
 export const UserRoutes = () => {
   const auth = useAuth();

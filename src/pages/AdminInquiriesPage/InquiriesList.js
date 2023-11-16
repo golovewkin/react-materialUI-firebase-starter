@@ -1,7 +1,7 @@
 import React from "react";
 import withDataFetch from "../../components/hoc/withDataFetch";
 
-export const AdminInquiriesPage = ({ data }) => {
+const InquiriesList = ({ data }) => {
   return (
     <>
       <h4>Invites</h4>
@@ -14,4 +14,4 @@ export const AdminInquiriesPage = ({ data }) => {
   );
 };
 
-export default AdminInquiriesPage;
+export default withDataFetch(InquiriesList);

@@ -8,7 +8,6 @@ export const AdminHome = ({ data, a }) => {
 
   return (
     <>
-      {/*{a.a}*/}
       <h3>
         Hello, {auth.user.name}, this is your Home page
         <HomeIconComponent />
@@ -25,4 +24,4 @@ export const AdminHome = ({ data, a }) => {
   );
 };
 
-export default AdminHome;
+export default withDataFetch(AdminHome);
