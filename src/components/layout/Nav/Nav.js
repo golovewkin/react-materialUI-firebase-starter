@@ -24,11 +24,19 @@ const Nav = () => {
           path={URLS.SETTINGS}
         />
         {auth.user.role === ROLES.ADMIN && (
-          <NavItem
-            label="Create user"
-            icon={<AddIconComponent />}
-            path={URLS.CREATE_USER}
-          />
+          <>
+            {" "}
+            <NavItem
+              label="Create user"
+              icon={<AddIconComponent />}
+              path={URLS.CREATE_USER}
+            />
+            <NavItem
+              label="Create user"
+              icon={<AddIconComponent />}
+              path={URLS.CREATE_USER}
+            />
+          </>
         )}
       </List>
     </div>

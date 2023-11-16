@@ -9,6 +9,6 @@ service cloud.firestore {
 
   match /inquiries/{inquiry} {
 		 allow create, read: if request.auth == null;
-		 allow update, delete: if request.auth.uid == 'D0lSCqGElkV9NmyvsJZKunlA9y03';
+		 allow update, delete: if request.auth.uid == 'your admin id';
 	}
 }
