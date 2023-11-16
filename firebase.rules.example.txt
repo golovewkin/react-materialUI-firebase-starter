@@ -1,15 +1,14 @@
 //rules_version = '2';
-//service cloud.firestore {
-//  match /databases/{database}/documents {
-//    match /users/{user} {
-//      allow read: if request.auth.uid == resource.data.firebaseId || request.auth.uid == 'your admin id';
-//      allow update: if request.auth.uid == resource.data.firebaseId;
-//      allow create, delete: if request.auth.uid == 'your admin id';
-//    }
-//}
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{user} {
+     allow read: if request.auth.uid == resource.data.firebaseId || request.auth.uid == 'your admin id';
+      allow update: if request.auth.uid == resource.data.firebaseId;
+      allow create, delete: if request.auth.uid == 'your admin id';
+    }
 
-
-//this is when it's open for everyone
-//    match /{document=**} {
-//      allow read, create, update, delete: if true;
-//    }
+  match /inquiries/{inquiry} {
+		 allow create, read: if request.auth == null;
+		 allow update, delete: if request.auth.uid == 'D0lSCqGElkV9NmyvsJZKunlA9y03';
+	}
+}
