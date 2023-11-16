@@ -21,7 +21,7 @@ const LoginPage = () => {
     async (event, state) => {
       event.preventDefault();
       await auth.signin(state);
-      navigate(URLS.home);
+      navigate(URLS.HOME);
     },
     [auth, navigate],
   );
@@ -57,8 +57,8 @@ const LoginPage = () => {
           Log in
         </ButtonComponent>
         <div className="LoginPage__links">
-          <LinkComponent to={URLS.resetPass} children="Forgot password?" />
-          <LinkComponent to={URLS.home} children="Home" />
+          <LinkComponent to={URLS.RESET_PASS} children="Forgot password?" />
+          <LinkComponent to={URLS.HOME} children="Return to home" />
         </div>
       </form>
     </div>

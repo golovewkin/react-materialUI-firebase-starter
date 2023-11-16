@@ -9,10 +9,10 @@ import { DBService } from "../../services/DBService";
 const UserHome = () => {
   const auth = useAuth();
   const getData = React.useCallback(() => {
-    return DBService.getAll(COLLECTIONS.users);
+    return DBService.getAll(COLLECTIONS.USERS);
   }, []);
 
-  if (auth.user.role === ROLES.admin) {
+  if (auth.user.role === ROLES.ADMIN) {
     return <AdminHome getData={getData} queryKey="admin-get-users" />;
   }
 

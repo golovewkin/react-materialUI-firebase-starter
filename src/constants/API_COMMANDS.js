@@ -1,3 +1,3 @@
 export const API_COMMANDS = {
-  getAll: "getAll",
+  GET_ALL: "getAll",
 };

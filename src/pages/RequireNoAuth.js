@@ -9,17 +9,17 @@ const RequireNoAuth = ({ children }) => {
   const location = useLocation();
   const isPublicUrl = PUBLIC_URLS.includes(location.pathname);
   if (!isPublicUrl && !auth.user) {
-    BrowserStorageService.setData(COMMON.noAuthUrl, location.pathname);
+    BrowserStorageService.setData(COMMON.NO_AUTH_URL, location.pathname);
   }
 
   if (auth.user) {
-    return <Navigate to={URLS.home} />;
+    return <Navigate to={URLS.HOME} />;
   }
 
   if (isPublicUrl) {
     return children;
   } else {
-    return <Navigate to={URLS.login} />;
+    return <Navigate to={URLS.LOGIN} />;
   }
 };
 

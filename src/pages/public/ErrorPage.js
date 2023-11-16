@@ -7,7 +7,7 @@ const ErrorPage = () => {
   return (
     <>
       <div className="text-center" style={{ margin: 20 }}>
-        <LinkComponent to={URLS.home} children="Return to the Home page" />
+        <LinkComponent to={URLS.HOME} children="Return to the Home page" />
       </div>
       <div className="text-center">
         <img

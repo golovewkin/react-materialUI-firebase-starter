@@ -17,17 +17,17 @@ const Nav = () => {
   return (
     <div className="Nav custom-scroll">
       <List component="nav" aria-label="main nav">
-        <NavItem label="Home" icon={<HomeIconComponent />} path={URLS.home} />
+        <NavItem label="Home" icon={<HomeIconComponent />} path={URLS.HOME} />
         <NavItem
           label="Settings"
           icon={<EditIconComponent />}
-          path={URLS.settings}
+          path={URLS.SETTINGS}
         />
-        {auth.user.role === ROLES.admin && (
+        {auth.user.role === ROLES.ADMIN && (
           <NavItem
             label="Create user"
             icon={<AddIconComponent />}
-            path={URLS.createUser}
+            path={URLS.CREATE_USER}
           />
         )}
       </List>

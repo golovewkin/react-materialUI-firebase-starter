@@ -7,12 +7,12 @@ import { withErrorBoundary } from "../../../components/hoc/withErrorBoundary";
 import { useAuth } from "../../../contexts/AuthProvider";
 import { UserModel } from "../../../models/UserModel";
 import { LogService } from "../../../services/LogService";
-import { useLogError } from "../../../contexts/LogErrorProvider";
+import { useShowError } from "../../../contexts/ShowErrorProvider";
 import { useSnack } from "../../../contexts/SnackProvider";
 
 const SettingsPage = () => {
   const { user, setUser } = useAuth();
-  const showError = useLogError();
+  const showError = useShowError();
   const showSnack = useSnack();
   const [state, setState] = React.useState(user.copy());
   const submit = React.useCallback(

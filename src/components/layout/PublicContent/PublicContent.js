@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import { withErrorBoundary } from "../../hoc/withErrorBoundary";
 import RequireNoAuth from "../../../pages/RequireNoAuth";
 
-const PublicContent = (props) => {
+const PublicContent = () => {
   return (
     <RequireNoAuth>
       <Outlet />

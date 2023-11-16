@@ -18,7 +18,12 @@ export function LandingPage() {
       </p>
       <p>Contact with me if you have any ideas how to develop this project</p>
       <p>Sorry, in this version only admin can create users 😥</p>
-      <LinkComponent to={URLS.login}>Login</LinkComponent>
+      <LinkComponent to={URLS.LOGIN}>Login</LinkComponent>
+      <br />
+      <br />
+      <b>BUT!</b> you can{" "}
+      <LinkComponent to={URLS.SEND_REQUEST}>Send a request</LinkComponent> to
+      our admin to get the access
     </section>
   );
 }

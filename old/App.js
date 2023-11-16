@@ -58,7 +58,7 @@ const App = () => {
 
   const updateUser = (newUser) => {
     setState((oldState) => {
-      return { ...oldState, user: newUser };
+      return { ...oldState, USER: newUser };
     });
   };
 

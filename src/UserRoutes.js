@@ -12,6 +12,7 @@ import { useAuth } from "./contexts/AuthProvider";
 import Loader from "./components/utils/Loader";
 import CreateAccountPage from "./pages/admin/CreateAccountPage/CreateAccountPage";
 import UserHome from "./pages/user/UserHome";
+import SendRequestPage from "./pages/public/SendRequestPage/SendRequestPage";
 
 export const UserRoutes = () => {
   const auth = useAuth();
@@ -22,9 +23,10 @@ export const UserRoutes = () => {
     return (
       <Routes>
         <Route element={<PublicContent />}>
-          <Route path={URLS.home} element={<LandingPage />} />
-          <Route path={URLS.login} element={<LoginPage />} />
-          <Route path={URLS.resetPass} element={<ResetPassPage />} />
+          <Route path={URLS.HOME} element={<LandingPage />} />
+          <Route path={URLS.LOGIN} element={<LoginPage />} />
+          <Route path={URLS.RESET_PASS} element={<ResetPassPage />} />
+          <Route path={URLS.SEND_REQUEST} element={<SendRequestPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
@@ -33,9 +35,9 @@ export const UserRoutes = () => {
     return (
       <Routes>
         <Route element={<Content />}>
-          <Route path={URLS.home} element={<UserHome />} />
-          <Route path={URLS.settings} element={<SettingsPage />} />
-          *<Route path={URLS.createUser} element={<CreateAccountPage />} />
+          <Route path={URLS.HOME} element={<UserHome />} />
+          <Route path={URLS.SETTINGS} element={<SettingsPage />} />
+          *<Route path={URLS.CREATE_USER} element={<CreateAccountPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>

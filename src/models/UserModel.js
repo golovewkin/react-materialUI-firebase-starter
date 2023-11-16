@@ -5,13 +5,13 @@ import { DBService } from "../services/DBService";
 import { COLLECTIONS } from "../constants/COLLECTIONS";
 
 export class UserModel extends EntityModel {
-  static collection = COLLECTIONS.users;
+  static collection = COLLECTIONS.USERS;
   constructor(user) {
     super(user);
     this.name = user.name || "My first name";
     this.firebaseId = user.firebaseId;
-    this.pic = user.pic || COMMON.noPicUser;
-    this.role = user.role || ROLES.user;
+    this.pic = user.pic || COMMON.NO_PIC_USER;
+    this.role = user.role || ROLES.USER;
   }
 
   validateCustom(user) {

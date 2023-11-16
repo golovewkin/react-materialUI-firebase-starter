@@ -1,5 +1,5 @@
 import React from "react";
-import { useLogError } from "./LogErrorProvider";
+import { useShowError } from "./ShowErrorProvider";
 import { onUserlogin, auth, logIn } from "../services/firebase";
 import { UserModel } from "../models/UserModel";
 
@@ -8,7 +8,7 @@ const AuthContext = React.createContext(null);
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
-  const showError = useLogError();
+  const showError = useShowError();
 
   React.useEffect(() => {
     onUserlogin(auth, async (userData, error) => {

@@ -1,9 +1,15 @@
 export const URLS = {
-  settings: "/settings",
-  resetPass: "/reset-pass",
-  login: "/login",
-  home: "/",
-  createUser: "/createUser",
+  SETTINGS: "/settings",
+  RESET_PASS: "/reset-pass",
+  LOGIN: "/login",
+  HOME: "/",
+  CREATE_USER: "/createUser",
+  SEND_REQUEST: "/sendRequest",
 };
 
-export const PUBLIC_URLS = [URLS.home, URLS.login, URLS.resetPass];
+export const PUBLIC_URLS = [
+  URLS.HOME,
+  URLS.LOGIN,
+  URLS.RESET_PASS,
+  URLS.SEND_REQUEST,
+];

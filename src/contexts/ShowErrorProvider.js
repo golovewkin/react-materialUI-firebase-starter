@@ -2,9 +2,9 @@ import React, { useCallback } from "react";
 import { LogService } from "../services/LogService";
 import ErrorPopup from "../components/popups/ErrorPopup";
 
-const LogErrorContext = React.createContext(null);
+const ShowErrorContext = React.createContext(null);
 
-export const LogErrorProvider = ({ children }) => {
+export const ShowErrorProvider = ({ children }) => {
   const [error, setError] = React.useState({
     open: false,
     message: "",
@@ -16,7 +16,7 @@ export const LogErrorProvider = ({ children }) => {
   }, []);
 
   return (
-    <LogErrorContext.Provider value={showError}>
+    <ShowErrorContext.Provider value={showError}>
       <ErrorPopup
         open={error.open}
         message={error.message}
@@ -24,13 +24,13 @@ export const LogErrorProvider = ({ children }) => {
         setOpen={(open) => setError((oldState) => ({ ...oldState, open }))}
       />
       {children}
-    </LogErrorContext.Provider>
+    </ShowErrorContext.Provider>
   );
 };
 
-export const useLogError = () => {
-  const contextValue = React.useContext(LogErrorContext);
-  if (!LogErrorContext) {
+export const useShowError = () => {
+  const contextValue = React.useContext(ShowErrorContext);
+  if (!ShowErrorContext) {
     throw new Error("Tried to use context from outside the provider");
   }
   return contextValue;

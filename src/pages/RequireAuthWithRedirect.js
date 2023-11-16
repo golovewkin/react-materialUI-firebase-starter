@@ -10,9 +10,9 @@ const RequireAuthWithRedirect = ({ children }) => {
 
   React.useEffect(() => {
     // Redirect user to a page they were trying to access
-    const from = BrowserStorageService.getData(COMMON.noAuthUrl);
+    const from = BrowserStorageService.getData(COMMON.NO_AUTH_URL);
     if (from && auth.user?.id) {
-      BrowserStorageService.removeData(COMMON.noAuthUrl);
+      BrowserStorageService.removeData(COMMON.NO_AUTH_URL);
       return navigate(from);
     }
   }, [navigate, auth.user?.id]);
