@@ -3,9 +3,9 @@ import "./style.scss";
 import { Outlet } from "react-router-dom";
 import Header from "../Header/Header";
 import Nav from "../Nav/Nav";
-import { withErrorBoundary } from "../../hoc/withErrorBoundary";
 import RequireAuthWithRedirect from "../../../pages/RequireAuthWithRedirect";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { withErrorBoundary } from "../../hoc/withErrorBoundary";
 
 const queryClient = new QueryClient();
 const MainContent = () => {

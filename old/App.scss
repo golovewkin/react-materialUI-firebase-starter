@@ -1,9 +1,0 @@
-.App {
-  font-family: 'Nunito', sans-serif;
-
-  &__content {
-    display: grid;
-    grid-template-columns: minmax(50px, 15%) 1fr;
-    height: calc(100vh - 64px);
-  }
-}

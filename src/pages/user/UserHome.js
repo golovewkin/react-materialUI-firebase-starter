@@ -1,5 +1,5 @@
 import React from "react";
-import { useAuth } from "../../contexts/AuthProvider";
+import { useAuth } from "../../providers/AuthProvider";
 import HomeIconComponent from "../../components/library-based-components/icons/HomeIconComponent";
 import { ROLES } from "../../constants/ROLES";
 import AdminHome from "../admin/AdminHome";

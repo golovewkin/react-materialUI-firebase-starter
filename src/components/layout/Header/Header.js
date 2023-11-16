@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 import AvatarComponent from "../../library-based-components/AvatarComponent";
-import { useAuth } from "../../../contexts/AuthProvider";
+import { useAuth } from "../../../providers/AuthProvider";
 import OffIconComponent from "../../library-based-components/icons/OffIconComponent";
 
 const Header = () => {

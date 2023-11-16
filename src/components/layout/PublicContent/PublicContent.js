@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import { withErrorBoundary } from "../../hoc/withErrorBoundary";
 import RequireNoAuth from "../../../pages/RequireNoAuth";
+import { withErrorBoundary } from "../../hoc/withErrorBoundary";
 
 const PublicContent = () => {
   return (

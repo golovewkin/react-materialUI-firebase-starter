@@ -1,5 +1,5 @@
 import React from "react";
-import { useAuth } from "../contexts/AuthProvider";
+import { useAuth } from "../providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import { BrowserStorageService } from "../services/BrowserStorageService";
 import { COMMON } from "../constants/COMMON";

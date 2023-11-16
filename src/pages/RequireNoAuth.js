@@ -1,4 +1,4 @@
-import { useAuth } from "../contexts/AuthProvider";
+import { useAuth } from "../providers/AuthProvider";
 import { Navigate, useLocation } from "react-router-dom";
 import { PUBLIC_URLS, URLS } from "../constants/URLS";
 import { BrowserStorageService } from "../services/BrowserStorageService";

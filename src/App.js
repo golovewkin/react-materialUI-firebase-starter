@@ -1,9 +1,9 @@
 import "./App.scss";
 import { UserRoutes } from "./UserRoutes";
 import React from "react";
-import { AuthProvider } from "./contexts/AuthProvider";
-import { ShowErrorProvider } from "./contexts/ShowErrorProvider";
-import { SnackProvider } from "./contexts/SnackProvider";
+import { AuthProvider } from "./providers/AuthProvider";
+import { ShowErrorProvider } from "./providers/ShowErrorProvider";
+import { SnackProvider } from "./providers/SnackProvider";
 
 function App() {
   return (

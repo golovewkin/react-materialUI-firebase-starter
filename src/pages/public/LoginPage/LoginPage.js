@@ -6,7 +6,7 @@ import { setFormState } from "../../../helpers/form.helper";
 import { URLS } from "../../../constants/URLS";
 import LinkComponent from "../../../components/library-based-components/Link/LinkComponent";
 import { validEmail, validPassword } from "../../../helpers/validator.helper";
-import { useAuth } from "../../../contexts/AuthProvider";
+import { useAuth } from "../../../providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
@@ -34,6 +34,7 @@ const LoginPage = () => {
 
   return (
     <div className="LoginPage">
+      {a.a}
       <div className="LoginPage__title">Sign in</div>
       <form
         className="LoginPage__wrapper"

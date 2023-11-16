@@ -1,13 +1,14 @@
 import React from "react";
-import { useAuth } from "../../contexts/AuthProvider";
+import { useAuth } from "../../providers/AuthProvider";
 import HomeIconComponent from "../../components/library-based-components/icons/HomeIconComponent";
 import withDataFetch from "../../components/hoc/withDataFetch";
 
-export const AdminHome = ({ data }) => {
+export const AdminHome = ({ data, a }) => {
   const auth = useAuth();
 
   return (
     <>
+      {/*{a.a}*/}
       <h3>
         Hello, {auth.user.name}, this is your Home page
         <HomeIconComponent />
@@ -24,4 +25,4 @@ export const AdminHome = ({ data }) => {
   );
 };
 
-export default withDataFetch(AdminHome);
+export default AdminHome;

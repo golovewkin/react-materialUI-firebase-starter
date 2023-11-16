@@ -7,8 +7,8 @@ import LinkComponent from "../../../components/library-based-components/Link/Lin
 import { URLS } from "../../../constants/URLS";
 import { validEmail } from "../../../helpers/validator.helper";
 import { InquiryModel } from "../../../models/InquiryModel";
-import { useShowError } from "../../../contexts/ShowErrorProvider";
-import { useSnack } from "../../../contexts/SnackProvider";
+import { useShowError } from "../../../providers/ShowErrorProvider";
+import { useSnack } from "../../../providers/SnackProvider";
 
 const SendRequestPage = () => {
   const showError = useShowError();

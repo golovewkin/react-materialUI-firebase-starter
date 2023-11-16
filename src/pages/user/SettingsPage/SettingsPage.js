@@ -3,12 +3,11 @@ import "./style.scss";
 import ButtonComponent from "../../../components/library-based-components/ButtonComponent/ButtonComponent";
 import TextFieldComponent from "../../../components/library-based-components/TextFieldComponent";
 import { setFormState } from "../../../helpers/form.helper";
-import { withErrorBoundary } from "../../../components/hoc/withErrorBoundary";
-import { useAuth } from "../../../contexts/AuthProvider";
+import { useAuth } from "../../../providers/AuthProvider";
 import { UserModel } from "../../../models/UserModel";
 import { LogService } from "../../../services/LogService";
-import { useShowError } from "../../../contexts/ShowErrorProvider";
-import { useSnack } from "../../../contexts/SnackProvider";
+import { useShowError } from "../../../providers/ShowErrorProvider";
+import { useSnack } from "../../../providers/SnackProvider";
 
 const SettingsPage = () => {
   const { user, setUser } = useAuth();
@@ -49,4 +48,4 @@ const SettingsPage = () => {
   );
 };
 
-export default withErrorBoundary(SettingsPage);
+export default SettingsPage;
