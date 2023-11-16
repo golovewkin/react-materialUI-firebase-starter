@@ -34,7 +34,6 @@ const LoginPage = () => {
 
   return (
     <div className="LoginPage">
-      {a.a}
       <div className="LoginPage__title">Sign in</div>
       <form
         className="LoginPage__wrapper"

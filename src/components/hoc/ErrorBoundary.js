@@ -1,5 +1,6 @@
 import React from "react";
 import { COMMON } from "../../constants/COMMON";
+import { LogService } from "../../services/LogService";
 
 export class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ export class ErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, info) {
+    LogService.log("componentDidCatch catches an error", error);
     this.setState({ hasError: true, error: COMMON.ERROR });
   }
 
