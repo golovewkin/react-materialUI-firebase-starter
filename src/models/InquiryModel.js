@@ -19,7 +19,15 @@ export class InquiryModel extends EntityModel {
     }
   }
   static async create(model) {
-    // TODO check we dont have this request
+    const find = await DBService.getDocumentWhere(
+      InquiryModel.collection,
+      "email",
+      model.email,
+    );
+
+    if (find) {
+      throw new Error("This request exists!");
+    }
 
     return DBService.createDocument(
       model,

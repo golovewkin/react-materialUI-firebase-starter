@@ -1,10 +1,29 @@
-import { doc, getDoc, db, setDoc, getDocs, collection } from "./firebase";
+import {
+  doc,
+  getDoc,
+  db,
+  setDoc,
+  getDocs,
+  collection,
+  query,
+  where,
+} from "./firebase";
 
 export class DBService {
+  static getDocumentsFromSnapshot(querySnapshot) {
+    const documents = [];
+    querySnapshot.forEach((doc) => {
+      documents.push({
+        ...doc.data(),
+        id: doc.id,
+      });
+    });
+    return documents;
+  }
+
   static async createDocument(model, collectionName, getModelCb) {
     const newDocRef = doc(collection(db, collectionName));
     const newModel = getModelCb({ ...model, id: newDocRef.id });
-    debugger;
     return setDoc(newDocRef, newModel.toString());
   }
 
@@ -15,15 +34,19 @@ export class DBService {
 
   static async getAll(collectionName) {
     const querySnapshot = await getDocs(collection(db, collectionName));
-    const documents = [];
-    querySnapshot.forEach((doc) => {
-      documents.push({
-        ...doc.data(),
-        id: doc.id,
-      });
-    });
+    return DBService.getDocumentsFromSnapshot(querySnapshot);
+  }
 
-    return documents;
+  static async getDocumentWhere(collectionName, prop, value) {
+    const q = query(collection(db, collectionName), where(prop, "==", value));
+    const querySnapshot = await getDocs(q);
+    return DBService.getDocumentsFromSnapshot(querySnapshot)[0];
+  }
+
+  static async getDocumentsWhere(collectionName, prop, value) {
+    const q = query(collection(db, collectionName), where(prop, "==", value));
+    const querySnapshot = await getDocs(q);
+    return DBService.getDocumentsFromSnapshot(querySnapshot);
   }
 
   static saveDocumentById(model, collection) {

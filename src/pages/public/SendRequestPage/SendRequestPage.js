@@ -8,26 +8,28 @@ import { URLS } from "../../../constants/URLS";
 import { validEmail } from "../../../helpers/validator.helper";
 import { InquiryModel } from "../../../models/InquiryModel";
 import { useShowError } from "../../../contexts/ShowErrorProvider";
-import { doc } from "firebase/firestore";
-import { DBService } from "../../../services/DBService";
+import { useSnack } from "../../../contexts/SnackProvider";
 
 const SendRequestPage = () => {
   const showError = useShowError();
+  const showShack = useSnack();
   const [email, setEmail] = useState("");
 
-  const submit = async () => {
+  const submit = React.useCallback(async (email) => {
     try {
       await InquiryModel.create({ email });
+      showShack("Request was sent! Please wait till admin accepts 🤗");
     } catch (e) {
-      showError("send request error", e);
-      LogService.log("send request error", e);
+      const error = "Send request error";
+      showError(error, e);
+      LogService.log(error, e);
     }
-  };
+  }, []);
 
-  const isDisabled = (email) => {
+  const isDisabled = React.useCallback((email) => {
     if (!validEmail(email)) return true;
     return false;
-  };
+  }, []);
 
   return (
     <div className="ResetPassPage">
@@ -42,7 +44,10 @@ const SendRequestPage = () => {
           label="email"
           error={!validEmail(email)}
         />
-        <ButtonComponent disabled={isDisabled(email)} onClick={submit}>
+        <ButtonComponent
+          disabled={isDisabled(email)}
+          onClick={() => submit(email)}
+        >
           Send
         </ButtonComponent>
         <div className="ResetPassPage__links">
