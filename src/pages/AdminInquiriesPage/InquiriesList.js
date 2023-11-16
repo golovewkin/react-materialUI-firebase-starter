@@ -4,10 +4,11 @@ import withDataFetch from "../../components/hoc/withDataFetch";
 const InquiriesList = ({ data }) => {
   return (
     <>
-      <h4>Invites</h4>
+      TODO show if this email exists already for admin show button create a user
+      <h4>Requests</h4>
       <ul>
-        {data.map((invite) => (
-          <li key={invite.id}>Email: {invite.email}</li>
+        {data.map((request) => (
+          <li key={request.id}>Email: {request.email}</li>
         ))}
       </ul>
     </>

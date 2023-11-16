@@ -15,16 +15,19 @@ const SendRequestPage = () => {
   const showShack = useSnack();
   const [email, setEmail] = useState("");
 
-  const submit = React.useCallback(async (email) => {
-    try {
-      await InquiryModel.create({ email });
-      showShack("Request was sent! Please wait till admin accepts 🤗");
-    } catch (e) {
-      const error = "Send request error";
-      showError(error, e);
-      LogService.log(error, e);
-    }
-  }, []);
+  const submit = React.useCallback(
+    async (email) => {
+      try {
+        await InquiryModel.create({ email });
+        showShack("Request was sent! Please wait till admin accepts 🤗");
+      } catch (e) {
+        const error = "Send request error";
+        showError(error, e);
+        LogService.log(error, e);
+      }
+    },
+    [showShack, showError],
+  );
 
   const isDisabled = React.useCallback((email) => {
     if (!validEmail(email)) return true;
