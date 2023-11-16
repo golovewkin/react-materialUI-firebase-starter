@@ -6,6 +6,10 @@ export class EntityModel {
     this.createdAt = entity.createdAt || Date.now();
   }
 
+  static getModel() {
+    throw new Error("static getModel method should be implemented");
+  }
+
   validate(entity) {
     if (!entity.id) throw new Error("no entity.id");
     this.validateCustom(entity);

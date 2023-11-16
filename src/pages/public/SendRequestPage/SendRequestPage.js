@@ -6,19 +6,18 @@ import { LogService } from "../../../services/LogService";
 import LinkComponent from "../../../components/library-based-components/Link/LinkComponent";
 import { URLS } from "../../../constants/URLS";
 import { validEmail } from "../../../helpers/validator.helper";
-import { RequestModel } from "../../../models/RequestModel";
+import { InquiryModel } from "../../../models/InquiryModel";
 import { useShowError } from "../../../contexts/ShowErrorProvider";
-import { makeId } from "../../../helpers/util.helper";
+import { doc } from "firebase/firestore";
+import { DBService } from "../../../services/DBService";
 
 const SendRequestPage = () => {
   const showError = useShowError();
   const [email, setEmail] = useState("");
 
-  const submit = async (email) => {
+  const submit = async () => {
     try {
-      const id = makeId();
-      const request = new RequestModel({ email, id });
-      await request.create();
+      await InquiryModel.create({ email });
     } catch (e) {
       showError("send request error", e);
       LogService.log("send request error", e);

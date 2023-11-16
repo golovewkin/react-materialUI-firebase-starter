@@ -1,8 +1,11 @@
 import { doc, getDoc, db, setDoc, getDocs, collection } from "./firebase";
 
 export class DBService {
-  static createDocument(document, collection, id) {
-    // return firebase.firestore().collection(collection).doc(id).set(document);
+  static async createDocument(model, collectionName, getModelCb) {
+    const newDocRef = doc(collection(db, collectionName));
+    const newModel = getModelCb({ ...model, id: newDocRef.id });
+    debugger;
+    return setDoc(newDocRef, newModel.toString());
   }
 
   static async getDocumentById(id, collection) {

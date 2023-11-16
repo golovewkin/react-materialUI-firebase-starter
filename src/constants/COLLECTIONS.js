@@ -1,4 +1,4 @@
 export const COLLECTIONS = {
   USERS: "users",
-  REQUESTS: "requests",
+  INQUIRIES: "inquiries",
 };
