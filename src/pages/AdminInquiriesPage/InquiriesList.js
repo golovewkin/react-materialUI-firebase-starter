@@ -16,6 +16,7 @@ const InquiriesList = ({ data }) => {
   const [state, setState] = useState(clone(data));
   const showConfirm = useShowConfirm();
 
+  // TODO remove element fix
   const { submit: removeElement } = useSubmit({
     sendRequest: async (itemId) => {
       setState((oldState) => {
