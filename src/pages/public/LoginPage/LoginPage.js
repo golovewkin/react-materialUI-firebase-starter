@@ -9,6 +9,8 @@ import { validEmail, validPassword } from "../../../helpers/validator.helper";
 import { useAuth } from "../../../providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import useSubmit from "../../../components/hooks/useSubmit";
+import FormComponent from "../../../components/utils/FormComponent";
+import { COMMON } from "../../../constants/COMMON";
 
 const LoginPage = () => {
   const auth = useAuth();
@@ -18,16 +20,16 @@ const LoginPage = () => {
     password: "",
   });
 
-  const login = useCallback(
-    async (state) => {
-      await auth.signin(state);
+  const sendRequest = useCallback(
+    async (params) => {
+      await auth.signin(params);
       navigate(URLS.HOME);
     },
     [auth, navigate],
   );
 
   const { loading, submit } = useSubmit({
-    sendRequest: () => login(state),
+    sendRequest,
   });
 
   const isDisabled = useCallback((state) => {
@@ -39,12 +41,9 @@ const LoginPage = () => {
   return (
     <div className="LoginPage">
       <div className="LoginPage__title">Sign in</div>
-      <form
+      <FormComponent
         className="LoginPage__wrapper"
-        onSubmit={(event) => {
-          event.preventDefault();
-          submit(state);
-        }}
+        onSubmit={() => submit(state)}
       >
         <TextFieldComponent
           onChange={(value) => setFormState("email", value, setState)}
@@ -65,13 +64,13 @@ const LoginPage = () => {
           loading={loading}
           disabled={isDisabled(state)}
         >
-          Log in
+          {COMMON.SUBMIT_WITH_ENTER_MESSAGE}
         </ButtonComponent>
         <div className="LoginPage__links">
           <LinkComponent to={URLS.RESET_PASS} children="Forgot password?" />
           <LinkComponent to={URLS.HOME} children="Return to home" />
         </div>
-      </form>
+      </FormComponent>
     </div>
   );
 };

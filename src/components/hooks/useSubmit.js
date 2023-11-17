@@ -9,10 +9,10 @@ const useSubmit = ({ sendRequest, successMessage = "Success!" }) => {
   const [loading, setLoading] = useState(false);
 
   const submit = React.useCallback(
-    async (email) => {
+    async (params) => {
       try {
         setLoading(true);
-        await sendRequest();
+        await sendRequest(params);
         showShack(successMessage);
       } catch (e) {
         LogService.log("Send request error", e, showError);

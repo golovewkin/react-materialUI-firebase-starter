@@ -12,6 +12,7 @@ import { COMMON } from "../../../constants/COMMON";
 import { setFormState } from "../../../helpers/form.helper";
 import { INQUIRY_STATUSES } from "../../../constants/INQUIRY_STATUSES";
 import { useNavigate } from "react-router-dom";
+import FormComponent from "../../../components/utils/FormComponent";
 
 const SendRequestPage = () => {
   const navigate = useNavigate();
@@ -21,14 +22,17 @@ const SendRequestPage = () => {
   });
 
   const { loading, submit } = useSubmit({
-    sendRequest: async () => {
+    sendRequest: async (params) => {
       const previousRequest = BrowserStorageService.getData(
         COMMON.REQUEST_SENT,
       );
       if (previousRequest) {
         throw new Error("Request was already sent!");
       }
-      await InquiryModel.create({ ...state, status: INQUIRY_STATUSES.CREATED });
+      await InquiryModel.create({
+        ...params,
+        status: INQUIRY_STATUSES.CREATED,
+      });
       BrowserStorageService.setData(COMMON.REQUEST_SENT, "sent");
       navigate(URLS.HOME);
     },
@@ -45,7 +49,10 @@ const SendRequestPage = () => {
       <div className="SendRequestPage__title">
         Send a request to get the access
       </div>
-      <div className="SendRequestPage__wrapper">
+      <FormComponent
+        className="SendRequestPage__wrapperr"
+        onSubmit={() => submit(state)}
+      >
         <TextFieldComponent
           onChange={(value) => setFormState("message", value, setState)}
           value={state.message}
@@ -63,14 +70,14 @@ const SendRequestPage = () => {
         <ButtonComponent
           loading={loading}
           disabled={isDisabled(state.email)}
-          onClick={submit}
+          type="submit"
         >
-          Send
+          {COMMON.SUBMIT_WITH_ENTER_MESSAGE}
         </ButtonComponent>
         <div className="SendRequestPage__links">
           <LinkComponent to={URLS.HOME} children="Return to home" />
         </div>
-      </div>
+      </FormComponent>
     </div>
   );
 };
