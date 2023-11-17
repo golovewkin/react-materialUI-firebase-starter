@@ -7,10 +7,7 @@ export class InquiryModel extends EntityModel {
   constructor(inquiry) {
     super(inquiry);
     this.email = inquiry.email;
-  }
-
-  static getModel(data) {
-    return new InquiryModel(data);
+    this.message = inquiry.message;
   }
 
   validateCustom(inquiry) {
@@ -32,7 +29,7 @@ export class InquiryModel extends EntityModel {
     return DBService.createDocument(
       model,
       InquiryModel.collection,
-      InquiryModel.getModel,
+      (data) => new InquiryModel(data),
     );
   }
 

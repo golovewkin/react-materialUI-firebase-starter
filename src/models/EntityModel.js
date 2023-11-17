@@ -6,10 +6,6 @@ export class EntityModel {
     this.createdAt = entity.createdAt || Date.now();
   }
 
-  static getModel() {
-    throw new Error("static getModel method should be implemented");
-  }
-
   validate(entity) {
     if (!entity.id) throw new Error("no entity.id");
     this.validateCustom(entity);
@@ -41,6 +37,7 @@ export class EntityModel {
 
     return jsoned;
   }
+
   static async create() {
     throw new Error("static create method should be implemented");
   }

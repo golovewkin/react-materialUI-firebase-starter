@@ -9,9 +9,19 @@ const InquiriesList = ({ data }) => {
       What is your email ask
       <h4>Requests</h4>
       <ul>
-        {data.map((request) => (
-          <li key={request.id}>Email: {request.email}</li>
-        ))}
+        {data
+          .sort((a, b) => b.createdAt - a.createdAt)
+          .map((request) => (
+            <li key={request.id}>
+              <span>Email: {request.email}</span>
+              <br />
+              <span>Email: {request.message || "No message"}</span>
+              <br />
+              <span>
+                Created at: {new Date(request.createdAt).toDateString()}
+              </span>
+            </li>
+          ))}
       </ul>
     </>
   );

@@ -9,9 +9,14 @@ import { InquiryModel } from "../../../models/InquiryModel";
 import useSubmit from "../../../components/hooks/useSubmit";
 import { BrowserStorageService } from "../../../services/BrowserStorageService";
 import { COMMON } from "../../../constants/COMMON";
+import { setFormState } from "../../../helpers/form.helper";
 
 const SendRequestPage = () => {
-  const [email, setEmail] = useState("");
+  const [state, setState] = useState({
+    email: "",
+    message: "",
+  });
+
   const { loading, submit } = useSubmit({
     sendRequest: async () => {
       const previousRequest = BrowserStorageService.getData(
@@ -20,7 +25,7 @@ const SendRequestPage = () => {
       if (previousRequest) {
         throw new Error("Request was already sent!");
       }
-      await InquiryModel.create({ email });
+      await InquiryModel.create(state);
       BrowserStorageService.setData(COMMON.REQUEST_SENT, "sent");
     },
     successMessage: "Request was sent! Please wait till admin accepts 🤗",
@@ -38,15 +43,22 @@ const SendRequestPage = () => {
       </div>
       <div className="SendRequestPage__wrapper">
         <TextFieldComponent
-          onChange={setEmail}
-          value={email}
+          onChange={(value) => setFormState("message", value, setState)}
+          value={state.message}
+          type="text"
+          label="message"
+          error={!state.message}
+        />
+        <TextFieldComponent
+          onChange={(value) => setFormState("email", value, setState)}
+          value={state.email}
           type="email"
           label="email"
-          error={!validEmail(email)}
+          error={!validEmail(state.email)}
         />
         <ButtonComponent
           loading={loading}
-          disabled={isDisabled(email)}
+          disabled={isDisabled(state.email)}
           onClick={submit}
         >
           Send

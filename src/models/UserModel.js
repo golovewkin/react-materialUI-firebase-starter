@@ -14,9 +14,6 @@ export class UserModel extends EntityModel {
     this.role = user.role || ROLES.USER;
   }
 
-  static getModel(data) {
-    return new UserModel(data);
-  }
   validateCustom(user) {
     if (!user.firebaseId) {
       throw new Error("no firebaseId");
