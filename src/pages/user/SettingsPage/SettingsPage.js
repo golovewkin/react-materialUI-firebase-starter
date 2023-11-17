@@ -14,8 +14,8 @@ const SettingsPage = () => {
   const sendRequest = useCallback(
     async (newUser) => {
       const userModel = new UserModel(newUser);
-      await userModel.update();
       setUser(userModel);
+      await userModel.update();
     },
     [setUser],
   );
