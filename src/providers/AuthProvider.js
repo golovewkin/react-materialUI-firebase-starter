@@ -33,24 +33,19 @@ export const AuthProvider = ({ children }) => {
   }, [showError, setLoading]);
 
   let signin = async (newUser) => {
-    try {
-      await logIn(auth, newUser.email, newUser.password);
-    } catch (e) {
-      showError("sign in error", e);
-    }
+    return logIn(auth, newUser.email, newUser.password);
   };
 
   let signout = async () => {
-    try {
-      await auth.signOut();
-    } catch (e) {
-      showError("sign out error", e);
-    }
+    return await auth.signOut();
   };
 
-  let value = { user, signin, signout, setUser, loading };
-
-  return <AuthContext.Provider value={value} children={children} />;
+  return (
+    <AuthContext.Provider
+      value={{ user, signin, signout, setUser, loading }}
+      children={children}
+    />
+  );
 };
 
 export const useAuth = () => {

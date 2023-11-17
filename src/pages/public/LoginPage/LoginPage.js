@@ -8,6 +8,7 @@ import LinkComponent from "../../../components/library-based-components/Link/Lin
 import { validEmail, validPassword } from "../../../helpers/validator.helper";
 import { useAuth } from "../../../providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import useSubmit from "../../../components/hooks/useSubmit";
 
 const LoginPage = () => {
   const auth = useAuth();
@@ -18,13 +19,16 @@ const LoginPage = () => {
   });
 
   const login = useCallback(
-    async (event, state) => {
-      event.preventDefault();
+    async (state) => {
       await auth.signin(state);
       navigate(URLS.HOME);
     },
     [auth, navigate],
   );
+
+  const { loading, submit } = useSubmit({
+    sendRequest: () => login(state),
+  });
 
   const isDisabled = useCallback((state) => {
     if (!validEmail(state.email)) return true;
@@ -37,7 +41,10 @@ const LoginPage = () => {
       <div className="LoginPage__title">Sign in</div>
       <form
         className="LoginPage__wrapper"
-        onSubmit={(event) => login(event, state)}
+        onSubmit={(event) => {
+          event.preventDefault();
+          submit(state);
+        }}
       >
         <TextFieldComponent
           onChange={(value) => setFormState("email", value, setState)}
@@ -53,7 +60,11 @@ const LoginPage = () => {
           label="password"
           error={!validPassword(state.password)}
         />
-        <ButtonComponent type="submit" disabled={isDisabled(state)}>
+        <ButtonComponent
+          type="submit"
+          loading={loading}
+          disabled={isDisabled(state)}
+        >
           Log in
         </ButtonComponent>
         <div className="LoginPage__links">

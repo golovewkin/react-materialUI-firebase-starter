@@ -18,6 +18,10 @@ const ResetPassPage = () => {
     }
   };
 
+  //   const { loading, submit } = useSubmit({
+  //   sendRequest: () => sendRequest(state),
+  // });
+
   const isDisabled = (email) => {
     try {
       if (!validEmail(email)) return true;
