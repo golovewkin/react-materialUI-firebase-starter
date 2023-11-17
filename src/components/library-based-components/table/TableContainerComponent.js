@@ -13,11 +13,7 @@ const TableContainerComponent = ({ rows, columns, className = "" }) => {
     <TableContainer className={className}>
       <Table sx={{ minWidth: 650 }} aria-label="data table">
         <TableHead>
-          <TableRow>
-            {columns.map((column) => (
-              <TableCell key={column.id}>{column.component}</TableCell>
-            ))}
-          </TableRow>
+          <TableRow>{columns}</TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
@@ -25,11 +21,7 @@ const TableContainerComponent = ({ rows, columns, className = "" }) => {
               key={row.id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
-              {row.components.map((component) => (
-                <TableCell component="th" scope="row" key={component.id}>
-                  {component.markUp}
-                </TableCell>
-              ))}
+              {row.components}
             </TableRow>
           ))}
         </TableBody>

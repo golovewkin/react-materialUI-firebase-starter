@@ -1,6 +1,6 @@
 import React from "react";
-import DeleteIcon from '@mui/icons-material/Delete';
-import {IconButton} from "@mui/material";
+import { IconButton } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const DeleteIconComponent = (props) => {
   return (

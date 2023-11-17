@@ -1,15 +1,30 @@
 import React, { useCallback } from "react";
 import ConfirmationPopup from "../components/popups/ConfirmationPopup";
+import { LogService } from "../services/LogService";
+import { useShowError } from "./ShowErrorProvider";
 
 const ShowConfirmContext = React.createContext(null);
 
-export const ShowConfirmProvider = ({ children, onSuccess }) => {
+export const ShowConfirmProvider = ({ children }) => {
   const [open, setOpen] = React.useState(false);
+  const showError = useShowError();
   const showConfirm = useCallback(() => {
     setOpen(true);
   }, []);
 
-  const value = { showConfirm };
+  const onSuccess = useCallback(
+    async (cb) => {
+      try {
+        await cb();
+      } catch (e) {
+        LogService.log("error", e, showError);
+      }
+      setOpen(false);
+    },
+    [showError],
+  );
+
+  const value = { showConfirm, onSuccess };
   return (
     <ShowConfirmContext.Provider value={value}>
       <ConfirmationPopup open={open} onSuccess={onSuccess} />
