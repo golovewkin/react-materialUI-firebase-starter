@@ -7,11 +7,22 @@ import { URLS } from "../../../constants/URLS";
 import { validEmail } from "../../../helpers/validator.helper";
 import { InquiryModel } from "../../../models/InquiryModel";
 import useSubmit from "../../../components/hooks/useSubmit";
+import { BrowserStorageService } from "../../../services/BrowserStorageService";
+import { COMMON } from "../../../constants/COMMON";
 
 const SendRequestPage = () => {
   const [email, setEmail] = useState("");
   const { loading, submit } = useSubmit({
-    sendRequest: () => InquiryModel.create({ email }),
+    sendRequest: async () => {
+      const previousRequest = BrowserStorageService.getData(
+        COMMON.REQUEST_SENT,
+      );
+      if (previousRequest) {
+        throw new Error("Request was already sent!");
+      }
+      await InquiryModel.create({ email });
+      BrowserStorageService.setData(COMMON.REQUEST_SENT, "sent");
+    },
     successMessage: "Request was sent! Please wait till admin accepts 🤗",
   });
 
