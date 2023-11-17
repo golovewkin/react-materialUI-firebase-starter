@@ -2,9 +2,14 @@ import React from "react";
 
 import { Outlet } from "react-router-dom";
 import { withErrorBoundary } from "../../hoc/withErrorBoundary";
+import Loader from "../../utils/Loader";
 
 const OutletWithErrorBoundary = () => {
-  return <Outlet />;
+  return (
+    <React.Suspense fallback={<Loader />}>
+      <Outlet />
+    </React.Suspense>
+  );
 };
 
 export default withErrorBoundary(OutletWithErrorBoundary);

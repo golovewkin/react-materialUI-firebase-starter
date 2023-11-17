@@ -1,20 +1,31 @@
 import { Route, Routes } from "react-router-dom";
 import LoginPage from "./pages/public/LoginPage/LoginPage";
-import React from "react";
-import ErrorPage from "./pages/public/ErrorPage";
+import React, { lazy } from "react";
 import { URLS } from "./constants/URLS";
-import SettingsPage from "./pages/user/SettingsPage/SettingsPage";
-import ResetPassPage from "./pages/public/ResetPassPage/ResetPassPage";
-import { LandingPage } from "./pages/public/LandingPage/LandingPage";
 import Content from "./components/layout/MainContent/MainContent";
 import PublicContent from "./components/layout/PublicContent/PublicContent";
 import { useAuth } from "./providers/AuthProvider";
 import Loader from "./components/utils/Loader";
-import CreateAccountPage from "./pages/admin/CreateAccountPage/CreateAccountPage";
-import UserHome from "./pages/user/UserHome";
-import SendRequestPage from "./pages/public/SendRequestPage/SendRequestPage";
-import { AdminInquiriesPage } from "./pages/AdminInquiriesPage/AdminInquiriesPage";
-
+const ErrorPage = lazy(() => import("./pages/public/ErrorPage"));
+const SettingsPage = lazy(
+  () => import("./pages/user/SettingsPage/SettingsPage.js"),
+);
+const ResetPassPage = lazy(
+  () => import("./pages/public/ResetPassPage/ResetPassPage"),
+);
+const LandingPage = lazy(
+  () => import("./pages/public/LandingPage/LandingPage"),
+);
+const CreateAccountPage = lazy(
+  () => import("./pages/admin/CreateAccountPage/CreateAccountPage"),
+);
+const UserHome = lazy(() => import("./pages/user/UserHome"));
+const SendRequestPage = lazy(
+  () => import("./pages/public/SendRequestPage/SendRequestPage"),
+);
+const AdminInquiriesPage = lazy(
+  () => import("./pages/AdminInquiriesPage/AdminInquiriesPage"),
+);
 export const UserRoutes = () => {
   const auth = useAuth();
   if (auth?.loading) {

@@ -4,7 +4,7 @@ import { URLS } from "../../../constants/URLS";
 import "./style.scss";
 import LinkComponent from "../../../components/library-based-components/Link/LinkComponent";
 
-export function LandingPage() {
+const LandingPage = () => {
   return (
     <section className="LandingPage">
       <p>
@@ -26,4 +26,6 @@ export function LandingPage() {
       our admin to get the access
     </section>
   );
-}
+};
+
+export default LandingPage;

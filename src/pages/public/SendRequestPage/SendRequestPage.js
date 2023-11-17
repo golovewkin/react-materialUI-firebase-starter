@@ -35,11 +35,11 @@ const SendRequestPage = () => {
   }, []);
 
   return (
-    <div className="ResetPassPage">
-      <div className="ResetPassPage__title">
+    <div className="SendRequestPage">
+      <div className="SendRequestPage__title">
         Send a request to get the access
       </div>
-      <div className="ResetPassPage__wrapper">
+      <div className="SendRequestPage__wrapper">
         <TextFieldComponent
           onChange={setEmail}
           value={email}
@@ -53,7 +53,7 @@ const SendRequestPage = () => {
         >
           Send
         </ButtonComponent>
-        <div className="ResetPassPage__links">
+        <div className="SendRequestPage__links">
           <LinkComponent to={URLS.HOME} children="Return to home" />
         </div>
       </div>
