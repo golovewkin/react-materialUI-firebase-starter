@@ -6,7 +6,7 @@ import LinkComponent from "../../../components/library-based-components/Link/Lin
 import { URLS } from "../../../constants/URLS";
 import { validEmail } from "../../../helpers/validator.helper";
 import { InquiryModel } from "../../../models/InquiryModel";
-import useSubmit from "../../../components/hoc/useSubmit";
+import useSubmit from "../../../components/hooks/useSubmit";
 
 const SendRequestPage = () => {
   const [email, setEmail] = useState("");

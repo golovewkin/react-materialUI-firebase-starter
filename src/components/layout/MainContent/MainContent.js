@@ -4,7 +4,7 @@ import Header from "../Header/Header";
 import Nav from "../Nav/Nav";
 import RequireAuthWithRedirect from "../../../pages/RequireAuthWithRedirect";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { withErrorBoundary } from "../../hoc/withErrorBoundary";
+import { withErrorBoundary } from "../../hocs/withErrorBoundary";
 import OutletWithErrorBoundary from "./OutletWithErrorBoundary";
 
 const queryClient = new QueryClient();

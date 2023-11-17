@@ -1,33 +1,27 @@
-import React from "react";
+import React, { useCallback } from "react";
 import "./style.scss";
 import ButtonComponent from "../../../components/library-based-components/ButtonComponent/ButtonComponent";
 import TextFieldComponent from "../../../components/library-based-components/TextFieldComponent";
 import { setFormState } from "../../../helpers/form.helper";
 import { useAuth } from "../../../providers/AuthProvider";
 import { UserModel } from "../../../models/UserModel";
-import { LogService } from "../../../services/LogService";
-import { useShowError } from "../../../providers/ShowErrorProvider";
-import { useSnack } from "../../../providers/SnackProvider";
+import useSubmit from "../../../components/hooks/useSubmit";
 
 const SettingsPage = () => {
   const { user, setUser } = useAuth();
-  const showError = useShowError();
-  const showSnack = useSnack();
   const [state, setState] = React.useState(user.copy());
-  const submit = React.useCallback(
-    async (newUser) => {
-      try {
-        const userModel = new UserModel(newUser);
-        await userModel.update();
-        setUser(userModel);
-        showSnack("Done!");
-      } catch (e) {
-        LogService.log("error", e);
-        return showError("update user error", e);
-      }
-    },
-    [showError, setUser, showSnack],
-  );
+
+  const getData = useCallback(async (newUser) => {
+    const userModel = new UserModel(newUser);
+    await userModel.update();
+    setUser(userModel);
+  }, []);
+
+  const { loading, submit } = useSubmit({
+    getData,
+    getDataParams: state,
+    successMessage: "Done!",
+  });
 
   return (
     <div className="SettingsPage">
@@ -40,7 +34,11 @@ const SettingsPage = () => {
           error={!state.name}
           label="name"
         />
-        <ButtonComponent disabled={!state.name} onClick={() => submit(state)}>
+        <ButtonComponent
+          disabled={!state.name}
+          loading={loading}
+          onClick={submit}
+        >
           Save
         </ButtonComponent>
       </div>

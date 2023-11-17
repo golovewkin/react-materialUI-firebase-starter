@@ -1,5 +1,5 @@
 import React from "react";
-import withDataFetch from "../../components/hoc/withDataFetch";
+import withDataFetch from "../../components/hocs/withDataFetch";
 
 const InquiriesList = ({ data }) => {
   return (
