@@ -10,29 +10,24 @@ import {
 
 const ConfirmationPopup = ({ open, onClose, onSuccess }) => {
   return (
-    <div>
+    <div style={{ minWidth: 300 }}>
       <Dialog
         open={open}
         onClose={onClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">Confirmation</DialogTitle>
+        <DialogTitle id="alert-dialog-title">
+          This action needs confirmation
+        </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Are you Sure?
+            Are you 100% Sure?
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <ButtonComponent onClick={onClose}>Cancel</ButtonComponent>
-          <ButtonComponent
-            onClick={() => {
-              onSuccess();
-              onClose();
-            }}
-          >
-            Ok
-          </ButtonComponent>
+          <ButtonComponent onClick={onSuccess}>Ok</ButtonComponent>
         </DialogActions>
       </Dialog>
     </div>

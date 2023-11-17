@@ -6,14 +6,17 @@ import { useShowError } from "../../providers/ShowErrorProvider";
 import { LogService } from "../../services/LogService";
 import { InquiryModel } from "../../models/InquiryModel";
 import { useSnack } from "../../providers/SnackProvider";
+import ConfirmationPopup from "../../components/popups/ConfirmationPopup";
 
 const InquiriesList = ({ data }) => {
   const [state, setState] = useState(data);
+  const [confirm, setConfirm] = React.useState({ open: false, id: "" });
   const showError = useShowError();
   const showSnack = useSnack();
-  const onRemove = useCallback(
+
+  const removeElement = useCallback(
     (itemId) => {
-      const removeElement = async (itemId) => {
+      const doRemoveElement = async (itemId) => {
         try {
           setState((oldState) => {
             return oldState.filter(({ id }) => id !== itemId);
@@ -30,14 +33,26 @@ const InquiriesList = ({ data }) => {
         }
       };
 
-      removeElement(itemId);
+      doRemoveElement(itemId);
     },
     [showError, showSnack],
   );
 
+  const onRemove = useCallback((itemId) => {
+    setConfirm({ open: true, id: itemId });
+  }, []);
+
   const { rows, columns } = getColumnsAndRowsForRequests(state, onRemove);
   return (
     <>
+      <ConfirmationPopup
+        open={confirm.open}
+        onClose={() => setConfirm({ open: false, id: "" })}
+        onSuccess={() => {
+          removeElement(confirm.id);
+          setConfirm({ open: false, id: "" });
+        }}
+      />
       TODO show if this email exists already for admin show button create a user
       confirmation popup show link to login after this and save it to the db?
       What is your email ask
