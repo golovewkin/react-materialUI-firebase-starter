@@ -16,13 +16,13 @@ const InquiriesList = ({ data }) => {
   const [state, setState] = useState(clone(data));
   const showConfirm = useShowConfirm();
 
-  // TODO remove element fix
-  const { submit: removeElement } = useSubmit({
+  const { submit } = useSubmit({
     sendRequest: async (itemId) => {
       setState((oldState) => {
         return oldState.filter(({ id }) => id !== itemId);
       });
-      await InquiryModel.deleteEntity(itemId);
+      debugger;
+      // await InquiryModel.deleteEntity(itemId);
     },
   });
 
@@ -52,7 +52,7 @@ const InquiriesList = ({ data }) => {
         </TCell>,
         <TCell key={item.id + 5}>
           <DeleteIconComponent
-            onClick={() => showConfirm(() => removeElement(item.id))}
+            onClick={() => showConfirm(() => submit(item.id))}
           />
         </TCell>,
       ],
