@@ -6,7 +6,8 @@ const InquiriesColumns = () => {
   return [
     <TCell key={makeId()}>Email</TCell>,
     <TCell key={makeId()}>Message</TCell>,
-    <TCell key={makeId()}>Link</TCell>,
+    <TCell key={makeId()}>Status</TCell>,
+    <TCell key={makeId()}>Link to page</TCell>,
     <TCell key={makeId()}>Actions</TCell>,
   ];
 };

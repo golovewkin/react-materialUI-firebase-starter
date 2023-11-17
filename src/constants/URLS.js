@@ -6,6 +6,7 @@ export const URLS = {
   CREATE_USER: "/createUser",
   SEND_REQUEST: "/sendRequest",
   INQUIRIES: "/inquiries",
+  INQUIRY: "/inquiry",
 };
 
 export const PUBLIC_URLS = [
