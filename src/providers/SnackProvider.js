@@ -33,7 +33,7 @@ export const SnackProvider = ({ children }) => {
 
 export const useSnack = () => {
   const contextValue = React.useContext(SnackContext);
-  if (!SnackContext) {
+  if (!contextValue) {
     throw new Error("Tried to use context from outside the provider");
   }
   return contextValue;

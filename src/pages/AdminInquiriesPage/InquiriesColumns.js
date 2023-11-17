@@ -8,7 +8,6 @@ const InquiriesColumns = () => {
     <TCell key={makeId()}>Message</TCell>,
     <TCell key={makeId()}>Link</TCell>,
     <TCell key={makeId()}>Actions</TCell>,
-    ,
   ];
 };
 

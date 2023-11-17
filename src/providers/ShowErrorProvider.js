@@ -28,7 +28,7 @@ export const ShowErrorProvider = ({ children }) => {
 
 export const useShowError = () => {
   const contextValue = React.useContext(ShowErrorContext);
-  if (!ShowErrorContext) {
+  if (!contextValue) {
     throw new Error("Tried to use context from outside the provider");
   }
   return contextValue;
