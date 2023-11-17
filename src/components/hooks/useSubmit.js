@@ -3,12 +3,7 @@ import { LogService } from "../../services/LogService";
 import { useShowError } from "../../providers/ShowErrorProvider";
 import { useSnack } from "../../providers/SnackProvider";
 
-const useSubmit = ({
-  getData,
-  getDataParams,
-  successMessage = "Success!",
-  onSuccess,
-}) => {
+const useSubmit = ({ sendRequest, successMessage = "Success!", onSuccess }) => {
   const showError = useShowError();
   const showShack = useSnack();
   const [loading, setLoading] = useState(false);
@@ -17,7 +12,7 @@ const useSubmit = ({
     async (email) => {
       try {
         setLoading(true);
-        await getData(getDataParams);
+        await sendRequest();
         showShack(successMessage);
         onSuccess && onSuccess();
       } catch (e) {
@@ -28,15 +23,7 @@ const useSubmit = ({
         setLoading(false);
       }
     },
-    [
-      showShack,
-      showError,
-      setLoading,
-      getData,
-      successMessage,
-      getDataParams,
-      onSuccess,
-    ],
+    [showShack, showError, setLoading, sendRequest, successMessage, onSuccess],
   );
 
   return { loading, submit };

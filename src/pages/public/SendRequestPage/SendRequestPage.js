@@ -11,8 +11,7 @@ import useSubmit from "../../../components/hooks/useSubmit";
 const SendRequestPage = () => {
   const [email, setEmail] = useState("");
   const { loading, submit } = useSubmit({
-    getData: InquiryModel.create,
-    getDataParams: { email },
+    sendRequest: () => InquiryModel.create({ email }),
     successMessage: "Request was sent! Please wait till admin accepts 🤗",
   });
 

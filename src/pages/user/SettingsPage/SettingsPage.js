@@ -11,16 +11,17 @@ const SettingsPage = () => {
   const { user, setUser } = useAuth();
   const [state, setState] = React.useState(user.copy());
 
-  const getData = useCallback(async (newUser) => {
-    const userModel = new UserModel(newUser);
-    await userModel.update();
-    setUser(userModel);
-  }, []);
+  const sendRequest = useCallback(
+    async (newUser) => {
+      const userModel = new UserModel(newUser);
+      await userModel.update();
+      setUser(userModel);
+    },
+    [setUser],
+  );
 
   const { loading, submit } = useSubmit({
-    getData,
-    getDataParams: state,
-    successMessage: "Done!",
+    sendRequest: () => sendRequest(state),
   });
 
   return (
