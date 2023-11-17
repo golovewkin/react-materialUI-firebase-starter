@@ -4,11 +4,13 @@ TODO forgot password check
 TODO delete user
 TODO check deploy on Digital ocean
 
-What is inside
+## When You need it
+When you want to create a small project really quick
+
+## What is inside
 React 18, material ui, firebase auth, firebase firestore with NO SERVER CODE AT ALL.
 
 ## What you will get:
-
 1. Admin panel
 2. Mini Entity framework with ability to save to firebase
 3. Ability to create an admin
@@ -21,7 +23,7 @@ React 18, material ui, firebase auth, firebase firestore with NO SERVER CODE AT 
 10. Now it uses Firebase as a db, but there could be any requests to any DB via HTTP etc...
 
 
-##  Steps to launch the project:
+##  Steps to launch the project (Yes, it's a little complicated 🥺:
 
 1. Clone the project
 2. Create a firebase project
@@ -47,7 +49,7 @@ React 18, material ui, firebase auth, firebase firestore with NO SERVER CODE AT 
 14. Change DataBaseService according to your needs. It could be HTTP request to your server etc...
 
 ## Note
-This project is just a start point, you can add yourself:
+This project is just a starting point, you can add yourself:
 1. Typescript
 2. Login with Google provider
 3. Google recaptcha but it requires a server or cloud functions. Maybe Firebase reCAPTCHA?
