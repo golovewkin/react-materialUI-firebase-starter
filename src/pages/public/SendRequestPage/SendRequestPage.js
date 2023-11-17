@@ -50,7 +50,7 @@ const SendRequestPage = () => {
         Send a request to get the access
       </div>
       <FormComponent
-        className="SendRequestPage__wrapperr"
+        className="SendRequestPage__wrapper"
         onSubmit={() => submit(state)}
       >
         <TextFieldComponent

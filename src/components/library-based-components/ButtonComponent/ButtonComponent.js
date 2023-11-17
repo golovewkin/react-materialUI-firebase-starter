@@ -10,6 +10,7 @@ const ButtonComponent = ({
   style = {},
   startIcon,
   type,
+  useLoading = true,
   loading,
 }) => {
   return (
@@ -22,7 +23,7 @@ const ButtonComponent = ({
       startIcon={startIcon ? startIcon : null}
       type={type ? type : null}
     >
-      {loading && (
+      {loading && useLoading && (
         <CircularProgress
           color="inherit"
           size={20}

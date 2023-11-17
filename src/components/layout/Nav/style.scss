@@ -1,4 +1,9 @@
 .Nav {
+  color: #8a8989;
+
+  .Mui-selected, .MuiButtonBase-root {
+    color: #8a8989;
+  }
   .Mui-selected,  .active .MuiButtonBase-root {
     color: #fff;
   }
