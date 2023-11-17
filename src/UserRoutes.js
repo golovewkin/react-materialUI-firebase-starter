@@ -26,6 +26,9 @@ const SendRequestPage = lazy(
 const AdminInquiriesPage = lazy(
   () => import("./pages/AdminInquiriesPage/AdminInquiriesPage"),
 );
+const AcceptRequestPage = lazy(
+  () => import("./pages/public/AcceptRequestPage/AcceptRequestPage"),
+);
 export const UserRoutes = () => {
   const auth = useAuth();
   if (auth?.loading) {
@@ -39,6 +42,7 @@ export const UserRoutes = () => {
           <Route path={URLS.LOGIN} element={<LoginPage />} />
           <Route path={URLS.RESET_PASS} element={<ResetPassPage />} />
           <Route path={URLS.SEND_REQUEST} element={<SendRequestPage />} />
+          <Route path={`${URLS.INQUIRY}/:id`} element={<AcceptRequestPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>

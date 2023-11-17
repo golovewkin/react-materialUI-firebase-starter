@@ -54,8 +54,8 @@ const InquiriesList = ({ data }) => {
           <InquiryStatusCell item={item} onClick={() => approveRequest(item)} />
         </TCell>,
         <TCell key={item.id + 4}>
-          {`${URLS.INQUIRIES}/${item.id}`}
-          <ContentCopyIconComponent copy={`${URLS.INQUIRIES}/${item.id}`} />
+          {`${URLS.INQUIRY}/${item.id}`}
+          <ContentCopyIconComponent copy={`${URLS.INQUIRY}/${item.id}`} />
         </TCell>,
         <TCell key={item.id + 5}>
           <DeleteIconComponent

@@ -1,13 +1,14 @@
 import { useAuth } from "../providers/AuthProvider";
 import { Navigate, useLocation } from "react-router-dom";
-import { PUBLIC_URLS, URLS } from "../constants/URLS";
+import { URLS } from "../constants/URLS";
 import { BrowserStorageService } from "../services/BrowserStorageService";
 import { COMMON } from "../constants/COMMON";
+import { isItPublicURL } from "../helpers/util.helper";
 
 const RequireNoAuth = ({ children }) => {
   const auth = useAuth();
   const location = useLocation();
-  const isPublicUrl = PUBLIC_URLS.includes(location.pathname);
+  const isPublicUrl = isItPublicURL(location.pathname);
   if (!isPublicUrl && !auth.user) {
     BrowserStorageService.setData(COMMON.NO_AUTH_URL, location.pathname);
   }

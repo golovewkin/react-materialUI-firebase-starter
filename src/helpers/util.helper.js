@@ -1,4 +1,5 @@
 import cloneDeep from "lodash/cloneDeep";
+import { PUBLIC_URLS, URLS } from "../constants/URLS";
 export const makeId = (length = 27) => {
   let result = "";
   const characters =
@@ -14,3 +15,7 @@ export const sleep = (delay) =>
   new Promise((resolve) => setTimeout(resolve, delay));
 
 export const clone = cloneDeep;
+
+export const isItPublicURL = (pathname) => {
+  return PUBLIC_URLS.includes(pathname) || pathname.includes(URLS.INQUIRY);
+};
