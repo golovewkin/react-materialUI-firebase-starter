@@ -7,6 +7,7 @@ import {
   collection,
   query,
   where,
+  deleteDoc,
 } from "./firebase";
 
 export class DBService {
@@ -59,7 +60,7 @@ export class DBService {
     return setDoc(doc(db, collection, model.id), model.toString());
   }
 
-  static removeDocument(collection, document) {
-    // return db.collection(collection).doc(document.id).delete();
+  static removeDocument(collectionName, id) {
+    return deleteDoc(doc(db, collectionName, id));
   }
 }

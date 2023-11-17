@@ -15,9 +15,7 @@ const useSubmit = ({ sendRequest, successMessage = "Success!" }) => {
         await sendRequest();
         showShack(successMessage);
       } catch (e) {
-        const error = "Send request error";
-        showError(error, e);
-        LogService.log(error, e);
+        LogService.log("Send request error", e, showError);
       } finally {
         setLoading(false);
       }

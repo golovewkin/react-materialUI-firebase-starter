@@ -1,3 +1,4 @@
+import cloneDeep from "lodash/cloneDeep";
 export const makeId = (length = 27) => {
   let result = "";
   const characters =
@@ -11,3 +12,5 @@ export const makeId = (length = 27) => {
 
 export const sleep = (delay) =>
   new Promise((resolve) => setTimeout(resolve, delay));
+
+export const clone = cloneDeep;

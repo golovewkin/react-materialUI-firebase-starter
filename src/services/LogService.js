@@ -1,7 +1,10 @@
 export class LogService {
-  static log(description, entityOrError) {
+  static log(description, entityOrError, showError) {
     try {
       console.error(description, entityOrError);
+      if (showError) {
+        showError((description, entityOrError));
+      }
 
       //no need logging local dev errors
       if (process.env.NODE_ENV === "development") {

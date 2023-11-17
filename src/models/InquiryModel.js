@@ -45,4 +45,8 @@ export class InquiryModel extends EntityModel {
     );
     return new InquiryModel(entityData);
   }
+
+  static async deleteEntity(id) {
+    return DBService.removeDocument(InquiryModel.collection, id);
+  }
 }

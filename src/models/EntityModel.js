@@ -46,7 +46,7 @@ export class EntityModel {
     throw new Error("update method should be implemented");
   }
 
-  async delete() {
-    throw new Error("delete method should be implemented");
+  static async deleteEntity() {
+    throw new Error("update method should be implemented");
   }
 }

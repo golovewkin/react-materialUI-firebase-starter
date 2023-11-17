@@ -8,6 +8,7 @@ import {
   collection,
   query,
   where,
+  deleteDoc,
 } from "firebase/firestore";
 import {
   getAuth,
@@ -41,4 +42,5 @@ export {
   collection,
   query,
   where,
+  deleteDoc,
 };

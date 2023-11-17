@@ -1,5 +1,4 @@
 import React, { useCallback } from "react";
-import { LogService } from "../services/LogService";
 import ErrorPopup from "../components/popups/ErrorPopup";
 
 const ShowErrorContext = React.createContext(null);
@@ -11,7 +10,6 @@ export const ShowErrorProvider = ({ children }) => {
   });
 
   const showError = useCallback((message, error) => {
-    LogService.log(message, error);
     setError({ title: message, message: error.message, open: true });
   }, []);
 

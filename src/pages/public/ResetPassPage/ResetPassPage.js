@@ -27,7 +27,7 @@ const ResetPassPage = () => {
       if (!validEmail(email)) return true;
       return false;
     } catch (e) {
-      LogService.logError("isDisabled error", e);
+      LogService.log("isDisabled error", e);
       return true;
     }
   };
