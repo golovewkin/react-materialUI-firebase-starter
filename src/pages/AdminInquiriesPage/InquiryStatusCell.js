@@ -1,7 +1,7 @@
 import React from "react";
 import { COMMON } from "../../constants/COMMON";
 import { INQUIRY_STATUSES } from "../../constants/INQUIRY_STATUSES";
-import EmptyCircleComponent from "../../components/library-based-components/icons/EmptyCircleComponent";
+import EmptyCircleIconComponent from "../../components/library-based-components/icons/EmptyCircleIconComponent";
 import CircleIconComponent from "../../components/library-based-components/icons/CircleIconComponent";
 import VerifiedIconComponent from "../../components/library-based-components/icons/VerifiedIconComponent";
 
@@ -10,10 +10,10 @@ const InquiryStatusCell = ({ status, onClick }) => {
     <div>
       {status ?? COMMON.NA}{" "}
       {status === INQUIRY_STATUSES.CREATED && (
-        <EmptyCircleComponent onClick={onClick} />
+        <EmptyCircleIconComponent onClick={onClick} />
       )}
-      {status === INQUIRY_STATUSES.APPROVED && <CircleIconComponent />}
-      {status === INQUIRY_STATUSES.TAKEN && <VerifiedIconComponent />}
+      {status === INQUIRY_STATUSES.APPROVED && <CircleIconComponent disabled />}
+      {status === INQUIRY_STATUSES.TAKEN && <VerifiedIconComponent disabled />}
     </div>
   );
 };

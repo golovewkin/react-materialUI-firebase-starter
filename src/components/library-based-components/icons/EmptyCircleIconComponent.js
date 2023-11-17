@@ -2,7 +2,7 @@ import React from "react";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 
 import { IconButton } from "@mui/material";
-const EmptyCircleComponent = (props) => {
+const EmptyCircleIconComponent = (props) => {
   return (
     <IconButton {...props}>
       <RadioButtonUncheckedIcon />
@@ -10,4 +10,4 @@ const EmptyCircleComponent = (props) => {
   );
 };
 
-export default EmptyCircleComponent;
+export default EmptyCircleIconComponent;
