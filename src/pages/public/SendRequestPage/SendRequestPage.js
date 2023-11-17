@@ -14,19 +14,23 @@ const SendRequestPage = () => {
   const showError = useShowError();
   const showShack = useSnack();
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const submit = React.useCallback(
     async (email) => {
       try {
+        setLoading(true);
         await InquiryModel.create({ email });
         showShack("Request was sent! Please wait till admin accepts 🤗");
       } catch (e) {
         const error = "Send request error";
         showError(error, e);
         LogService.log(error, e);
+      } finally {
+        setLoading(false);
       }
     },
-    [showShack, showError],
+    [showShack, showError, setLoading],
   );
 
   const isDisabled = React.useCallback((email) => {
@@ -48,6 +52,7 @@ const SendRequestPage = () => {
           error={!validEmail(email)}
         />
         <ButtonComponent
+          loading={loading}
           disabled={isDisabled(email)}
           onClick={() => submit(email)}
         >
