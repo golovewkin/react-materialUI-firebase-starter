@@ -20,7 +20,7 @@ export const SnackProvider = ({ children }) => {
   return (
     <SnackContext.Provider value={showSnack}>
       <Snackbar
-        autoHideDuration={1000}
+        autoHideDuration={3000}
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
         open={snack.open}
         onClose={closeSnack}

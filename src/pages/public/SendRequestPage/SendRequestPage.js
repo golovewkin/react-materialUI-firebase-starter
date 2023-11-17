@@ -10,8 +10,11 @@ import useSubmit from "../../../components/hooks/useSubmit";
 import { BrowserStorageService } from "../../../services/BrowserStorageService";
 import { COMMON } from "../../../constants/COMMON";
 import { setFormState } from "../../../helpers/form.helper";
+import { INQUIRY_STATUSES } from "../../../constants/INQUIRY_STATUSES";
+import { useNavigate } from "react-router-dom";
 
 const SendRequestPage = () => {
+  const navigate = useNavigate();
   const [state, setState] = useState({
     email: "",
     message: "",
@@ -25,8 +28,9 @@ const SendRequestPage = () => {
       if (previousRequest) {
         throw new Error("Request was already sent!");
       }
-      await InquiryModel.create(state);
+      await InquiryModel.create({ ...state, status: INQUIRY_STATUSES.CREATED });
       BrowserStorageService.setData(COMMON.REQUEST_SENT, "sent");
+      navigate(URLS.HOME);
     },
     successMessage: "Request was sent! Please wait till admin accepts 🤗",
   });

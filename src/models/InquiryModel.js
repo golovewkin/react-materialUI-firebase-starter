@@ -8,11 +8,15 @@ export class InquiryModel extends EntityModel {
     super(inquiry);
     this.email = inquiry.email;
     this.message = inquiry.message;
+    this.status = inquiry.status;
   }
 
   validateCustom(inquiry) {
     if (!inquiry.email) {
       throw new Error("no email");
+    }
+    if (!inquiry.status) {
+      throw new Error("no status");
     }
   }
   static async create(model) {
