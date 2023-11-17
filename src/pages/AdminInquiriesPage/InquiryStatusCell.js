@@ -5,10 +5,11 @@ import EmptyCircleIconComponent from "../../components/library-based-components/
 import CircleIconComponent from "../../components/library-based-components/icons/CircleIconComponent";
 import VerifiedIconComponent from "../../components/library-based-components/icons/VerifiedIconComponent";
 
-const InquiryStatusCell = ({ status, onClick }) => {
+const InquiryStatusCell = ({ item, onClick }) => {
+  const status = item.status;
   return (
     <div>
-      {status ?? COMMON.NA}{" "}
+      {status ?? COMMON.NA}
       {status === INQUIRY_STATUSES.CREATED && (
         <EmptyCircleIconComponent onClick={onClick} />
       )}

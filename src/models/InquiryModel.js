@@ -1,6 +1,7 @@
 import { EntityModel } from "./EntityModel";
 import { DBService } from "../services/DBService";
 import { COLLECTIONS } from "../constants/COLLECTIONS";
+import { INQUIRY_STATUSES } from "../constants/INQUIRY_STATUSES";
 
 export class InquiryModel extends EntityModel {
   static collection = COLLECTIONS.INQUIRIES;
@@ -17,6 +18,14 @@ export class InquiryModel extends EntityModel {
     }
     if (!inquiry.status) {
       throw new Error("no status");
+    }
+
+    if (
+      inquiry.status !== INQUIRY_STATUSES.APPROVED &&
+      inquiry.status !== INQUIRY_STATUSES.CREATED &&
+      inquiry.status !== INQUIRY_STATUSES.TAKEN
+    ) {
+      throw new Error("wrong status");
     }
   }
   static async create(model) {
@@ -35,6 +44,10 @@ export class InquiryModel extends EntityModel {
       InquiryModel.collection,
       (data) => new InquiryModel(data),
     );
+  }
+
+  setStatus(status) {
+    this.status = status;
   }
 
   update() {
