@@ -8,38 +8,35 @@ const ShowConfirmContext = React.createContext(null);
 
 export const ShowConfirmProvider = ({ children }) => {
   const [open, setOpen] = React.useState(false);
-  const [callback, setCallback] = React.useState(null);
+  // It doesn't save callback between renders that's why we need ref here
+  const callBack = React.useRef(null);
   const showError = useShowError();
   const showSnack = useSnack();
   const showConfirm = useCallback((cb) => {
-    debugger;
     if (!cb) {
       throw new Error("Success callback is not provided!");
     }
-    setCallback(cb);
+    callBack.current = cb;
     setOpen(true);
   }, []);
 
   const onSuccess = useCallback(
     async (cb) => {
       try {
-        console.log(callback);
         await cb();
         showSnack("Done!");
         setOpen(false);
-        setCallback(null);
       } catch (e) {
         LogService.log("error", e, showError);
       }
     },
-    [showError, callback],
+    [showError, showSnack],
   );
-  console.log("callback", callback);
   return (
     <ShowConfirmContext.Provider value={showConfirm}>
       <ConfirmationPopup
         open={open}
-        onSuccess={() => onSuccess(callback)}
+        onSuccess={() => onSuccess(callBack.current)}
         onClose={() => setOpen(false)}
       />
       {children}
