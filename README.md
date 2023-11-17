@@ -9,6 +9,7 @@ When you want to create a small project really quick
 
 ## What is inside
 React 18, material ui, firebase auth, firebase firestore with NO SERVER CODE AT ALL.
+View Updates are BEFORE the request. For users it looks like our app is really fast 😉
 
 ## What you will get:
 1. Admin panel

@@ -18,7 +18,6 @@ const InquiriesList = ({ data }) => {
       setState((oldState) => {
         return oldState.filter(({ id }) => id !== itemId);
       });
-
       await InquiryModel.deleteEntity(itemId);
     },
   });

@@ -1,6 +1,6 @@
-import { makeId } from "../../helpers/util.helper";
 import React from "react";
 import TCell from "../../components/library-based-components/table/TCell";
+import { makeId } from "../../helpers/util.helper";
 
 const InquiriesColumns = () => {
   return [
