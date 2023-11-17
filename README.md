@@ -40,10 +40,12 @@ React 18, material ui, firebase auth, firebase firestore with NO SERVER CODE AT 
    2. Get your admin data id
    3. Setup firestore rules (see firebase.rules.example)
 10. npm start
-11. Log in as an admin and create a user
-    1. admin creates a user with email 
-    2. the system gives a link and gives it to user
-    3. user can set a pass using this temporary link
+11. How users can get the access
+    1. user sends a request 
+    2. admin approves this request and gets a link for login
+    3. admin gives this link to the user (can be done automatically via email, but it's in plans...)
+    4. user goes to the link and setup a pass
+    5. user can log in
 12. Setup your landing page
 13. Deploy to Digital Ocean or a similar service
 14. Change DataBaseService according to your needs. It could be HTTP request to your server etc...
