@@ -15,7 +15,7 @@ const CreateAccountPage = () => {
 
   const createAccount = () => {
     try {
-      UserModel.create(state);
+      // UserModel.create(state);
     } catch (e) {
       LogService.log("error", e);
     }

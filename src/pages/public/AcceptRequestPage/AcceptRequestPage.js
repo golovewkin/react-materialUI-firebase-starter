@@ -13,29 +13,22 @@ import { setFormState } from "../../../helpers/form.helper";
 import { INQUIRY_STATUSES } from "../../../constants/INQUIRY_STATUSES";
 import { useNavigate, useParams } from "react-router-dom";
 import FormComponent from "../../../components/utils/FormComponent";
+import { UserModel } from "../../../models/UserModel";
 
 const AcceptRequestPage = () => {
   const navigate = useNavigate();
   const { id: inquiryId } = useParams();
-  const [state, setState] = useState({
-    email: "",
-    password: "",
-  });
+  const [email, setEmail] = useState("");
 
   const { loading, submit } = useSubmit({
     sendRequest: async (params) => {
-      const { data, inquiryId } = params;
-      debugger;
       const previousRequest = BrowserStorageService.getData(
         COMMON.APPROVAL_SENT,
       );
       if (previousRequest) {
         throw new Error("Approval was already sent!");
       }
-      await InquiryModel.create({
-        ...params,
-        status: INQUIRY_STATUSES.CREATED,
-      });
+      await InquiryModel.acceptByInquiryId(params.email, params.inquiryId);
 
       BrowserStorageService.setData(COMMON.APPROVAL_SENT, "sent");
       navigate(URLS.LOGIN);
@@ -43,9 +36,8 @@ const AcceptRequestPage = () => {
     successMessage: "Success! Now you can login 🥳",
   });
 
-  const isDisabled = useCallback((state) => {
-    if (!validEmail(state.email)) return true;
-    if (!validPassword(state.password)) return true;
+  const isDisabled = useCallback((email) => {
+    if (!validEmail(email)) return true;
     return false;
   }, []);
 
@@ -56,25 +48,18 @@ const AcceptRequestPage = () => {
       </div>
       <FormComponent
         className="AcceptRequestPage__wrapper"
-        onSubmit={() => submit({ data: state, inquiryId })}
+        onSubmit={() => submit({ email, inquiryId })}
       >
         <TextFieldComponent
-          onChange={(value) => setFormState("email", value, setState)}
-          value={state.email}
+          onChange={(value) => setEmail(value)}
+          value={email}
           type="email"
           label="your email"
-          error={!validEmail(state.email)}
-        />
-        <TextFieldComponent
-          onChange={(value) => setFormState("password", value, setState)}
-          value={state.password}
-          type="password"
-          label="your desired password"
-          error={!validPassword(state.password)}
+          error={!validEmail(email)}
         />
         <ButtonComponent
           loading={loading}
-          disabled={isDisabled(state)}
+          disabled={isDisabled(email)}
           type="submit"
         >
           {COMMON.SUBMIT_WITH_ENTER_MESSAGE}

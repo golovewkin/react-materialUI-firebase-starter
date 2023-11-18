@@ -3,6 +3,9 @@ import { COMMON } from "../constants/COMMON";
 import { EntityModel } from "./EntityModel";
 import { DBService } from "../services/DBService";
 import { COLLECTIONS } from "../constants/COLLECTIONS";
+import { InquiryModel } from "./InquiryModel";
+import { INQUIRY_STATUSES } from "../constants/INQUIRY_STATUSES";
+import admin from "firebase-admin";
 
 export class UserModel extends EntityModel {
   static collection = COLLECTIONS.USERS;
@@ -23,6 +26,10 @@ export class UserModel extends EntityModel {
     this.validate(model);
     // UserModel.validate;
     console.log(model);
+    // const firebaseUser = await admin.auth().createUser({
+    //   email,
+    //   password,
+    // });
     //TODO createUserWithEmailAndPassword
     // TODO save in DB
     // TODO return new UserModel()
