@@ -2,6 +2,7 @@ TODO users page check
 TODO forgot password check
 TODO create account admin page
 TODO delete user
+TODO deploy chceck
 
 ## When You need it
 When you want to create a small project really quick
@@ -15,12 +16,13 @@ View Updates are BEFORE the request. For users it looks like our app is really f
 2. Mini Entity framework with ability to save to firebase
 3. Ability to create an admin
 4. Ability to create a user as an admin
-5. 'Settings' and 'Home' page for users
-6. Users can send a request to get the access
-7. Users can login via email ONLY in this version
-8. Reset password functionality
-9. Landing page template
-10. Now it uses Firebase as a db, but there could be any requests to any DB via HTTP etc...
+5. Admin can manage users (create, remove)
+6. 'Settings' and 'Home' page for users
+7. Users can send a request to get the access
+8. Users can login via email ONLY in this version
+9. Reset password functionality
+10. Landing page template
+11. Now it uses Firebase as a db, but there could be any requests to any DB via HTTP etc...
 
 
 ##  Steps to launch the project (Yes, it's a little complicated 🥺:
