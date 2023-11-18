@@ -57,7 +57,10 @@ const InquiriesList = ({ data }) => {
         });
       });
 
-      await UserModel.createByEmail(inquiryItem.email);
+      const credentials = await UserModel.createByEmail(inquiryItem.email);
+      // TODO show a popup with credentials
+      console.log(credentials);
+
       const inquiry = new InquiryModel(inquiryItem);
       inquiry.setStatus(newStatus);
       await inquiry.update();

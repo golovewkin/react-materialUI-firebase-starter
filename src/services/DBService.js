@@ -8,7 +8,12 @@ import {
   query,
   where,
   deleteDoc,
+  createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
+  auth,
 } from "./firebase";
+import { makeId } from "../helpers/util.helper";
+import { UserModel } from "../models/UserModel";
 
 export class DBService {
   static getDocumentsFromSnapshot(querySnapshot) {
@@ -67,5 +72,15 @@ export class DBService {
 
   static removeDocument(collectionName, id) {
     return deleteDoc(doc(db, collectionName, id));
+  }
+
+  static async createUserByEmail(email) {
+    const password = makeId();
+    const firebaseUser = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password,
+    );
+    return { firebaseUser, password };
   }
 }

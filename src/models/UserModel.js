@@ -23,29 +23,18 @@ export class UserModel extends EntityModel {
       throw new Error("no id");
     }
   }
-  static async create(model) {
-    this.validate(model);
-    // UserModel.validate;
-    console.log(model);
-    // const firebaseUser = await admin.auth().createUser({
-    //   email,
-    //   password,
-    // });
-    //TODO createUserWithEmailAndPassword
-    // TODO save in DB
-    // TODO return new UserModel()
-  }
 
   static async createByEmail(email) {
-    const user = await DBService.createDocument(
-      {},
-      UserModel.collection,
-      (data) => new UserModel(data),
-    );
-    console.log(user);
-    //TODO createUserWithEmailAndPassword
-    // TODO sendreset password email
-    // TODO return new UserModel()
+    debugger;
+    const { password, firebaseUser } = await DBService.createUserByEmail(email);
+    debugger;
+    const user = new UserModel({
+      firebaseId: firebaseUser.user.uid,
+      id: firebaseUser.user.uid,
+    });
+    await user.update();
+    console.log("created with pass", password);
+    return { password, email };
   }
 
   update() {

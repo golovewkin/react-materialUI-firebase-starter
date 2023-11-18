@@ -5,7 +5,6 @@ import TextFieldComponent from "../../../components/library-based-components/Tex
 import { setFormState } from "../../../helpers/form.helper";
 import { LogService } from "../../../services/LogService";
 import { validEmail } from "../../../helpers/validator.helper";
-import { UserModel } from "../../../models/UserModel";
 
 const CreateAccountPage = () => {
   const [state, setState] = useState({

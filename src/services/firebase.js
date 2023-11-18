@@ -14,6 +14,8 @@ import {
   getAuth,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import debounce from "debounce";
 
@@ -43,4 +45,6 @@ export {
   query,
   where,
   deleteDoc,
+  createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
 };
