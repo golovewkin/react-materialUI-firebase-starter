@@ -7,7 +7,7 @@ import FormComponent from "../../../components/utils/FormComponent";
 import { UserModel } from "../../../models/UserModel";
 import useSubmit from "../../../components/hooks/useSubmit";
 
-const CreateAccountPage = () => {
+const CreateInvitePage = () => {
   const [email, setEmail] = useState("");
 
   const sendRequest = useCallback(
@@ -29,16 +29,15 @@ const CreateAccountPage = () => {
   }, []);
 
   return (
-    <div className="CreateAccountPage">
-      <div className="CreateAccountPage__title">
-        Create a user account
-        <br />
-        (You will login as this user, but this is how firebase works 🙄)
-        <br />
-        Just sign out and sign in as an admin again
-      </div>
+    <div className="CreateInvitePage">
+      <div className="CreateInvitePage__title">Create an invite</div>
+      <ol>
+        <li>Create an invite</li>
+        <li>It gives you a link</li>
+        <li>Give this link to the user</li>
+      </ol>
       <FormComponent
-        className="CreateAccountPage__wrapper"
+        className="CreateInvitePage__wrapper"
         onSubmit={() => submit(email)}
       >
         <TextFieldComponent
@@ -56,4 +55,4 @@ const CreateAccountPage = () => {
   );
 };
 
-export default CreateAccountPage;
+export default CreateInvitePage;

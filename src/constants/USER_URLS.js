@@ -11,5 +11,5 @@ export const PUBLIC_URLS = {
 
 export const ADMIN_URLS = {
   INQUIRIES: "/inquiries",
-  CREATE_USER: "/createUser",
+  CREATE_INVITE: "/createInvite",
 };

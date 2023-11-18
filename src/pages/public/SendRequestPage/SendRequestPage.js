@@ -24,10 +24,7 @@ const SendRequestPage = () => {
   const { loading, submit } = useSubmit({
     sendRequest: async (params) => {
       SecurityService.checkIfUserCanSendRequest();
-      await InquiryModel.create({
-        ...params,
-        status: INQUIRY_STATUSES.CREATED,
-      });
+      await InquiryModel.create(params);
       navigate(PUBLIC_URLS.HOME);
     },
     successMessage: "Request was sent! Please wait till admin accepts 🤗",

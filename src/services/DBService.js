@@ -26,7 +26,7 @@ export class DBService {
     return documents;
   }
 
-  static async createOrSetDocument(model, collectionName, getModelCb) {
+  static async createDocument(model, collectionName, getModelCb) {
     const newDocRef = doc(collection(db, collectionName));
     const newModel = getModelCb({
       ...model,

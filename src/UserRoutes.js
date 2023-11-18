@@ -17,7 +17,7 @@ const LandingPage = lazy(
   () => import("./pages/public/LandingPage/LandingPage"),
 );
 const CreateAccountPage = lazy(
-  () => import("./pages/admin/CreateAccountPage/CreateAccountPage"),
+  () => import("./pages/admin/CreateInvitePage/CreateInvitePage"),
 );
 const UserHome = lazy(() => import("./pages/user/UserHome"));
 const SendRequestPage = lazy(
@@ -54,7 +54,7 @@ export const UserRoutes = () => {
           <Route path={PUBLIC_URLS.HOME} element={<UserHome />} />
           <Route path={USER_URLS.SETTINGS} element={<SettingsPage />} />
           <Route
-            path={ADMIN_URLS.CREATE_USER}
+            path={ADMIN_URLS.CREATE_INVITE}
             element={<CreateAccountPage />}
           />
           <Route path={ADMIN_URLS.INQUIRIES} element={<AdminInquiriesPage />} />

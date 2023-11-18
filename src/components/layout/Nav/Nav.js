@@ -36,9 +36,9 @@ const Nav = () => {
           <>
             {" "}
             <NavItem
-              label="Create user"
+              label="Create an invite"
               icon={<AddIconComponent />}
-              path={ADMIN_URLS.CREATE_USER}
+              path={ADMIN_URLS.CREATE_INVITE}
             />
             <NavItem
               label="Requests"

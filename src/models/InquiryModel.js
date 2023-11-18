@@ -27,19 +27,19 @@ export class InquiryModel extends EntityModel {
       throw new Error("wrong status");
     }
   }
-  static async create(model) {
+  static async create(modelData) {
     const find = await DBService.getDocumentWhere(
       InquiryModel.collection,
       "email",
-      model.email,
+      modelData.email,
     );
 
     if (find) {
       throw new Error("This request exists!");
     }
 
-    return DBService.createOrSetDocument(
-      model,
+    return DBService.createDocument(
+      { ...modelData, status: INQUIRY_STATUSES.CREATED },
       InquiryModel.collection,
       (data) => new InquiryModel(data),
     );
