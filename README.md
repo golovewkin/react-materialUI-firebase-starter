@@ -14,7 +14,7 @@ View Updates are BEFORE the request. For users it looks like our app is really f
 6. 'Settings' and 'Home' page for users
 7. Users can send a request to get the access
 8. Users can login via email ONLY in this version
-9. Reset password functionality
+9. Reset password functionality out of the box
 10. Landing page template
 11. Now it uses Firebase as a db, but there could be any requests to any DB via HTTP etc...
 

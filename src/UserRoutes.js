@@ -10,9 +10,6 @@ const SettingsPage = lazy(
   () => import("./pages/user/SettingsPage/SettingsPage.js"),
 );
 const LoginPage = lazy(() => import("./pages/public/LoginPage/LoginPage"));
-const ResetPassPage = lazy(
-  () => import("./pages/public/ResetPassPage/ResetPassPage"),
-);
 const LandingPage = lazy(
   () => import("./pages/public/LandingPage/LandingPage"),
 );
@@ -41,7 +38,6 @@ export const UserRoutes = () => {
         <Route element={<PublicContent />}>
           <Route path={PUBLIC_URLS.HOME} element={<LandingPage />} />
           <Route path={PUBLIC_URLS.LOGIN} element={<LoginPage />} />
-          <Route path={PUBLIC_URLS.RESET_PASS} element={<ResetPassPage />} />
           <Route
             path={`${PUBLIC_URLS.ACCEPT_INVITE}/:id`}
             element={<AcceptInvitePage />}
