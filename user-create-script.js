@@ -8,7 +8,7 @@ admin.initializeApp({
   databaseURL: config.databaseURL,
 });
 
-const createAdmin = async (email) => {
+const createUser = async (email) => {
   try {
     if (!email) throw new Error("no email!");
 
@@ -22,8 +22,8 @@ const createAdmin = async (email) => {
     });
 
     const adminData = {
-      name: "Admin",
-      role: "admin",
+      name: "My name",
+      role: "user",
       firebaseId: firebaseUser.uid,
       id: firebaseUser.uid,
       createdAt: Date.now(),
@@ -32,11 +32,11 @@ const createAdmin = async (email) => {
     const docRef = db.collection("users").doc(firebaseUser.uid);
     await docRef.set(adminData);
     console.log(
-      `admin was created with:\n email:${email}\npassword:${password}`,
+      `user was created with:\n email:${email}\npassword:${password}`,
     );
   } catch (e) {
     console.log("error", e);
   }
 };
 
-createAdmin(process.argv[2]);
+createUser(process.argv[2]);

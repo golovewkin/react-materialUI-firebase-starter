@@ -1,6 +1,6 @@
-TODO users page check
-TODO forgot password check
 TODO message popup with ability to copy
+TODO requires admin check pages
+TODO forgot password check
 TODO delete user
 TODO deploy chceck
 
@@ -48,6 +48,9 @@ View Updates are BEFORE the request. For users it looks like our app is really f
     3. admin gives this link to the user (can be done automatically via email, but it's in plans...)
     4. user goes to the link and setup a pass
     5. user can log in
+    6. if something went wrong just create a user via script
+       1. remove all data is connected to this user in DB and Firebase
+       2. node user-create-script.js user-email
 12. Setup your landing page
 13. Deploy to Digital Ocean or a similar service
 14. Change DataBaseService according to your needs. It could be HTTP request to your server etc...

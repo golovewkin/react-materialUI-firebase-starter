@@ -8,7 +8,7 @@ export class UserModel extends EntityModel {
   static collection = COLLECTIONS.USERS;
   constructor(user) {
     super(user);
-    this.name = user.name || "My name";
+    this.name = user.name || "My lovely name";
     this.firebaseId = user.firebaseId;
     this.id = user.id;
     this.pic = user.pic || COMMON.NO_PIC_USER;

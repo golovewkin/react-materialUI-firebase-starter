@@ -20,7 +20,7 @@ const ErrorPopup = ({ open, setOpen, title, message }) => {
         <DialogTitle>{title ?? "Something went wrong..."}</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            <p style={{ wordBreak: "break-all" }}>{message}</p>
+            <span style={{ wordBreak: "break-all" }}>{message}</span>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
