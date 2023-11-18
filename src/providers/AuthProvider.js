@@ -2,10 +2,15 @@ import React from "react";
 import { useShowError } from "./ShowErrorProvider";
 import { onUserlogin, auth, logIn } from "../services/firebase";
 import { UserModel } from "../models/UserModel";
+import { useNavigate } from "react-router-dom";
+import { PUBLIC_URLS } from "../constants/USER_URLS";
+import { BrowserStorageService } from "../services/BrowserStorageService";
+import { COMMON } from "../constants/COMMON";
 
 const AuthContext = React.createContext(null);
 
 export const AuthProvider = ({ children }) => {
+  const navigate = useNavigate();
   const [user, setUser] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
   const showError = useShowError();
@@ -32,17 +37,25 @@ export const AuthProvider = ({ children }) => {
     });
   }, [showError, setLoading]);
 
-  let signin = async (newUser) => {
-    return logIn(auth, newUser.email, newUser.password);
+  const signIn = async (newUser) => {
+    await logIn(auth, newUser.email, newUser.password);
+    const savedUrl = BrowserStorageService.getData(COMMON.NO_AUTH_URL);
+    if (savedUrl) {
+      navigate(savedUrl);
+      BrowserStorageService.removeData(COMMON.NO_AUTH_URL);
+    } else {
+      navigate(PUBLIC_URLS.HOME);
+    }
   };
 
-  let signout = async () => {
-    return auth.signOut();
+  const signOut = async () => {
+    await auth.signOut();
+    navigate(PUBLIC_URLS.HOME);
   };
 
   return (
     <AuthContext.Provider
-      value={{ user, signin, signout, setUser, loading }}
+      value={{ user, signin: signIn, signout: signOut, setUser, loading }}
       children={children}
     />
   );

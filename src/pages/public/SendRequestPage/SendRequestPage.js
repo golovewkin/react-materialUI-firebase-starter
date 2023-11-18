@@ -3,7 +3,7 @@ import "./style.scss";
 import ButtonComponent from "../../../components/library-based-components/ButtonComponent/ButtonComponent";
 import TextFieldComponent from "../../../components/library-based-components/TextFieldComponent";
 import LinkComponent from "../../../components/library-based-components/Link/LinkComponent";
-import { USER_URLS } from "../../../constants/USER_URLS";
+import { PUBLIC_URLS } from "../../../constants/USER_URLS";
 import { validEmail } from "../../../helpers/validator.helper";
 import { InquiryModel } from "../../../models/InquiryModel";
 import useSubmit from "../../../components/hooks/useSubmit";
@@ -28,7 +28,7 @@ const SendRequestPage = () => {
         ...params,
         status: INQUIRY_STATUSES.CREATED,
       });
-      navigate(USER_URLS.HOME);
+      navigate(PUBLIC_URLS.HOME);
     },
     successMessage: "Request was sent! Please wait till admin accepts 🤗",
   });
@@ -69,7 +69,7 @@ const SendRequestPage = () => {
           {COMMON.SUBMIT_WITH_ENTER_MESSAGE}
         </ButtonComponent>
         <div className="SendRequestPage__links">
-          <LinkComponent to={USER_URLS.HOME} children="Return to home" />
+          <LinkComponent to={PUBLIC_URLS.HOME} children="Return to home" />
         </div>
       </FormComponent>
     </div>

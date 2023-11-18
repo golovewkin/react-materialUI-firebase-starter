@@ -1,5 +1,5 @@
 import cloneDeep from "clone-deep";
-import { ADMIN_URLS, PUBLIC_URLS } from "../constants/USER_URLS";
+import { USER_URLS } from "../constants/USER_URLS";
 export const makeId = (length = 27) => {
   let result = "";
   const characters =
@@ -16,10 +16,6 @@ export const sleep = (delay) =>
 
 export const clone = cloneDeep;
 
-export const isItPublicURL = (pathname) => {
-  return Object.values(PUBLIC_URLS).find((key) => key === pathname);
-};
-
-export const isItAdminURL = (pathname) => {
-  return Object.values(ADMIN_URLS).find((key) => key === pathname);
+export const isUserURL = (pathname) => {
+  return Object.values(USER_URLS).find((key) => key === pathname);
 };

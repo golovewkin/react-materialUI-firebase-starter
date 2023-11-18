@@ -3,18 +3,16 @@ import "./style.scss";
 import ButtonComponent from "../../../components/library-based-components/ButtonComponent/ButtonComponent";
 import TextFieldComponent from "../../../components/library-based-components/TextFieldComponent";
 import { setFormState } from "../../../helpers/form.helper";
-import { USER_URLS } from "../../../constants/USER_URLS";
+import { PUBLIC_URLS } from "../../../constants/USER_URLS";
 import LinkComponent from "../../../components/library-based-components/Link/LinkComponent";
 import { validEmail, validPassword } from "../../../helpers/validator.helper";
 import { useAuth } from "../../../providers/AuthProvider";
-import { useNavigate } from "react-router-dom";
 import useSubmit from "../../../components/hooks/useSubmit";
 import FormComponent from "../../../components/utils/FormComponent";
 import { COMMON } from "../../../constants/COMMON";
 
 const LoginPage = () => {
   const auth = useAuth();
-  const navigate = useNavigate();
   const [state, setState] = useState({
     email: "",
     password: "",
@@ -23,9 +21,8 @@ const LoginPage = () => {
   const sendRequest = useCallback(
     async (params) => {
       await auth.signin(params);
-      navigate(USER_URLS.HOME);
     },
-    [auth, navigate],
+    [auth],
   );
 
   const { loading, submit } = useSubmit({
@@ -68,10 +65,10 @@ const LoginPage = () => {
         </ButtonComponent>
         <div className="LoginPage__links">
           <LinkComponent
-            to={USER_URLS.RESET_PASS}
+            to={PUBLIC_URLS.RESET_PASS}
             children="Forgot password?"
           />
-          <LinkComponent to={USER_URLS.HOME} children="Return to home" />
+          <LinkComponent to={PUBLIC_URLS.HOME} children="Return to home" />
         </div>
       </FormComponent>
     </div>

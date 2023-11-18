@@ -1,5 +1,6 @@
 export class BrowserStorageService {
   static setData(prop, data) {
+    console.log(data);
     if (typeof data !== "string") {
       throw new Error("BrowserStorageService can work only with strings");
     }
