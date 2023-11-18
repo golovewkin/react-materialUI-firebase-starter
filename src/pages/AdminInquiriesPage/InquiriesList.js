@@ -57,10 +57,10 @@ const InquiriesList = ({ data }) => {
         });
       });
 
-      // await UserModel.createByEmail(inquiryItem.email);
-      // const inquiry = new InquiryModel(inquiryItem);
-      // inquiry.setStatus(newStatus);
-      // await inquiry.update();
+      await UserModel.createByEmail(inquiryItem.email);
+      const inquiry = new InquiryModel(inquiryItem);
+      inquiry.setStatus(newStatus);
+      await inquiry.update();
     },
   });
 

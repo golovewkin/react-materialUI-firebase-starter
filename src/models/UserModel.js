@@ -8,8 +8,9 @@ export class UserModel extends EntityModel {
   static collection = COLLECTIONS.USERS;
   constructor(user) {
     super(user);
-    this.name = user.name || "My first name";
+    this.name = user.name || "My name";
     this.firebaseId = user.firebaseId;
+    this.id = user.id;
     this.pic = user.pic || COMMON.NO_PIC_USER;
     this.role = user.role || ROLES.USER;
   }
@@ -17,6 +18,9 @@ export class UserModel extends EntityModel {
   validateCustom(user) {
     if (!user.firebaseId) {
       throw new Error("no firebaseId");
+    }
+    if (!user.id) {
+      throw new Error("no id");
     }
   }
   static async create(model) {
@@ -33,8 +37,12 @@ export class UserModel extends EntityModel {
   }
 
   static async createByEmail(email) {
-    // TODO create userData
-    // TODO save in DB userData
+    const user = await DBService.createDocument(
+      {},
+      UserModel.collection,
+      (data) => new UserModel(data),
+    );
+    console.log(user);
     //TODO createUserWithEmailAndPassword
     // TODO sendreset password email
     // TODO return new UserModel()
