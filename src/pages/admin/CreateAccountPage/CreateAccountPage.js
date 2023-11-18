@@ -1,51 +1,51 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import "./style.scss";
 import ButtonComponent from "../../../components/library-based-components/ButtonComponent/ButtonComponent";
 import TextFieldComponent from "../../../components/library-based-components/TextFieldComponent";
-import { setFormState } from "../../../helpers/form.helper";
-import { LogService } from "../../../services/LogService";
 import { validEmail } from "../../../helpers/validator.helper";
+import FormComponent from "../../../components/utils/FormComponent";
+import { UserModel } from "../../../models/UserModel";
+import useSubmit from "../../../components/hooks/useSubmit";
 
 const CreateAccountPage = () => {
-  const [state, setState] = useState({
-    email: "",
-    name: "",
+  const [email, setEmail] = useState("");
+
+  const sendRequest = useCallback(
+    async (email) => {
+      const credentials = await UserModel.createByEmail(email);
+      console.log(credentials);
+      setEmail("");
+    },
+    [setEmail],
+  );
+
+  const { loading, submit } = useSubmit({
+    sendRequest,
   });
 
-  const createAccount = () => {
-    try {
-      // UserModel.create(state);
-    } catch (e) {
-      LogService.log("error", e);
-    }
-  };
-
-  const isDisabled = (state) => {
-    if (!validEmail(state.email)) return true;
-  };
+  const isDisabled = useCallback((email) => {
+    if (!validEmail(email)) return true;
+    return false;
+  }, []);
 
   return (
     <div className="CreateAccountPage">
       <div className="CreateAccountPage__title">Create a user account</div>
-      <div className="CreateAccountPage__wrapper">
+      <FormComponent
+        className="CreateAccountPage__wrapper"
+        onSubmit={() => submit(email)}
+      >
         <TextFieldComponent
-          onChange={(value) => setFormState("email", value, setState)}
-          value={state.email}
+          onChange={(value) => setEmail(value)}
+          value={email}
           type="email"
           label="email"
-          error={!validEmail(state.email)}
+          error={!validEmail(email)}
         />
-        <TextFieldComponent
-          onChange={(value) => setFormState("name", value, setState)}
-          value={state.name}
-          type="text"
-          label="name"
-          error={!state.name}
-        />
-        <ButtonComponent disabled={isDisabled(state)} onClick={createAccount}>
+        <ButtonComponent disabled={isDisabled(email)} loading={loading}>
           Create Account
         </ButtonComponent>
-      </div>
+      </FormComponent>
     </div>
   );
 };

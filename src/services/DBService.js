@@ -9,11 +9,9 @@ import {
   where,
   deleteDoc,
   createUserWithEmailAndPassword,
-  sendPasswordResetEmail,
   auth,
 } from "./firebase";
 import { makeId } from "../helpers/util.helper";
-import { UserModel } from "../models/UserModel";
 
 export class DBService {
   static getDocumentsFromSnapshot(querySnapshot) {

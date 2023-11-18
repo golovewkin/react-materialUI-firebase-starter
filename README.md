@@ -1,6 +1,5 @@
 TODO users page check
 TODO forgot password check
-TODO create account admin page
 TODO delete user
 TODO deploy chceck
 
