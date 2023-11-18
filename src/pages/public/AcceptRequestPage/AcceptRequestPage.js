@@ -33,7 +33,7 @@ const AcceptRequestPage = () => {
       BrowserStorageService.setData(COMMON.APPROVAL_SENT, "sent");
       navigate(URLS.LOGIN);
     },
-    successMessage: "Success! Now you can login 🥳",
+    successMessage: "Success 🥳! Wait, please, we will send you a link",
   });
 
   const isDisabled = useCallback((email) => {
