@@ -1,8 +1,7 @@
-TODO admin users creation via invites
 TODO users page check
 TODO forgot password check
+TODO create account admin page
 TODO delete user
-TODO check deploy on Digital ocean
 
 ## When You need it
 When you want to create a small project really quick
@@ -17,7 +16,7 @@ View Updates are BEFORE the request. For users it looks like our app is really f
 3. Ability to create an admin
 4. Ability to create a user as an admin
 5. 'Settings' and 'Home' page for users
-6. User management for admins
+6. Users can send a request to get the access
 7. Users can login via email ONLY in this version
 8. Reset password functionality
 9. Landing page template

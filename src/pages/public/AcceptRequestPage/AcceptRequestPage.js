@@ -1,75 +1,80 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import "./style.scss";
 import ButtonComponent from "../../../components/library-based-components/ButtonComponent/ButtonComponent";
 import TextFieldComponent from "../../../components/library-based-components/TextFieldComponent";
 import LinkComponent from "../../../components/library-based-components/Link/LinkComponent";
 import { URLS } from "../../../constants/URLS";
-import { validEmail } from "../../../helpers/validator.helper";
+import { validEmail, validPassword } from "../../../helpers/validator.helper";
 import { InquiryModel } from "../../../models/InquiryModel";
 import useSubmit from "../../../components/hooks/useSubmit";
 import { BrowserStorageService } from "../../../services/BrowserStorageService";
 import { COMMON } from "../../../constants/COMMON";
 import { setFormState } from "../../../helpers/form.helper";
 import { INQUIRY_STATUSES } from "../../../constants/INQUIRY_STATUSES";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import FormComponent from "../../../components/utils/FormComponent";
 
 const AcceptRequestPage = () => {
   const navigate = useNavigate();
+  const { id: inquiryId } = useParams();
   const [state, setState] = useState({
     email: "",
-    message: "",
+    password: "",
   });
 
   const { loading, submit } = useSubmit({
     sendRequest: async (params) => {
+      const { data, inquiryId } = params;
+      debugger;
       const previousRequest = BrowserStorageService.getData(
-        COMMON.REQUEST_SENT,
+        COMMON.APPROVAL_SENT,
       );
       if (previousRequest) {
-        throw new Error("Request was already sent!");
+        throw new Error("Approval was already sent!");
       }
       await InquiryModel.create({
         ...params,
         status: INQUIRY_STATUSES.CREATED,
       });
-      BrowserStorageService.setData(COMMON.REQUEST_SENT, "sent");
-      navigate(URLS.HOME);
+
+      BrowserStorageService.setData(COMMON.APPROVAL_SENT, "sent");
+      navigate(URLS.LOGIN);
     },
-    successMessage: "Request was sent! Please wait till admin accepts 🤗",
+    successMessage: "Success! Now you can login 🥳",
   });
 
-  const isDisabled = React.useCallback((email) => {
-    if (!validEmail(email)) return true;
+  const isDisabled = useCallback((state) => {
+    if (!validEmail(state.email)) return true;
+    if (!validPassword(state.password)) return true;
     return false;
   }, []);
 
   return (
     <div className="AcceptRequestPage">
       <div className="AcceptRequestPage__title">
-        Send a request to get the access
+        Accept the invite and setup your password
       </div>
       <FormComponent
         className="AcceptRequestPage__wrapper"
-        onSubmit={() => submit(state)}
+        onSubmit={() => submit({ data: state, inquiryId })}
       >
-        <TextFieldComponent
-          onChange={(value) => setFormState("message", value, setState)}
-          value={state.message}
-          type="text"
-          label="message"
-          error={!state.message}
-        />
         <TextFieldComponent
           onChange={(value) => setFormState("email", value, setState)}
           value={state.email}
           type="email"
-          label="email"
+          label="your email"
           error={!validEmail(state.email)}
+        />
+        <TextFieldComponent
+          onChange={(value) => setFormState("password", value, setState)}
+          value={state.password}
+          type="password"
+          label="your desired password"
+          error={!validPassword(state.password)}
         />
         <ButtonComponent
           loading={loading}
-          disabled={isDisabled(state.email)}
+          disabled={isDisabled(state)}
           type="submit"
         >
           {COMMON.SUBMIT_WITH_ENTER_MESSAGE}

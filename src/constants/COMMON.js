@@ -3,6 +3,7 @@ export const COMMON = {
     "Something went wrong 😭 Please, try to refresh the page or go to another one...",
   NO_AUTH_URL: "noAuthUrl",
   REQUEST_SENT: "requestSent",
+  APPROVAL_SENT: "approvalSent",
   NA: "N/A",
   SUBMIT_WITH_ENTER_MESSAGE: "Click or press ENTER",
   NO_PIC_USER:

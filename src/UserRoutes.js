@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import LoginPage from "./pages/public/LoginPage/LoginPage";
 import React, { lazy } from "react";
 import { URLS } from "./constants/URLS";
 import Content from "./components/layout/MainContent/MainContent";
@@ -10,6 +9,7 @@ const ErrorPage = lazy(() => import("./pages/public/ErrorPage"));
 const SettingsPage = lazy(
   () => import("./pages/user/SettingsPage/SettingsPage.js"),
 );
+const LoginPage = lazy(() => import("./pages/public/LoginPage/LoginPage"));
 const ResetPassPage = lazy(
   () => import("./pages/public/ResetPassPage/ResetPassPage"),
 );
