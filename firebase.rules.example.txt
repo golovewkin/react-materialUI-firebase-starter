@@ -2,13 +2,13 @@
 service cloud.firestore {
   match /databases/{database}/documents {
     match /users/{user} {
-     allow read: if request.auth.uid == resource.data.firebaseId || request.auth.uid == 'your admin id';
-      allow update: if request.auth.uid == resource.data.firebaseId;
+     allow read: if request.auth.uid == resource.data.firebaseId || request.auth.uid == 'your firebase admin id';
+      allow update: if request.auth.uid == resource.data.firebaseId || request.auth.uid == 'your firebase admin id';
       allow create, delete: if request.auth.uid == 'your admin id';
     }
 
   match /inquiries/{inquiry} {
-		 allow create, read: if request.auth == null || || request.auth.uid == 'your admin id';
-		 allow update, delete: if request.auth.uid == 'your admin id';
+		 allow create, read: if request.auth == null || || request.auth.uid == 'your admin firebase id';
+		 allow update, delete: if request.auth.uid == 'your admin firebase id';
 	}
 }

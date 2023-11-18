@@ -1,5 +1,6 @@
 TODO users page check
 TODO forgot password check
+TODO message popup with ability to copy
 TODO delete user
 TODO deploy chceck
 
