@@ -14,6 +14,7 @@ const CreateAccountPage = () => {
     async (email) => {
       const credentials = await UserModel.createByEmail(email);
       console.log(credentials);
+      debugger;
       setEmail("");
     },
     [setEmail],

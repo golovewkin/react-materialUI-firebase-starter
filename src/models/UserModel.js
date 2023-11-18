@@ -25,15 +25,12 @@ export class UserModel extends EntityModel {
   }
 
   static async createByEmail(email) {
-    debugger;
     const { password, firebaseUser } = await DBService.createUserByEmail(email);
-    debugger;
     const user = new UserModel({
       firebaseId: firebaseUser.user.uid,
       id: firebaseUser.user.uid,
     });
     await user.update();
-    console.log("created with pass", password);
     return { password, email };
   }
 
