@@ -21,7 +21,7 @@ export class InquiryModel extends EntityModel {
     }
 
     if (
-      inquiry.status !== INQUIRY_STATUSES.APPROVED &&
+      inquiry.status !== INQUIRY_STATUSES.DONE &&
       inquiry.status !== INQUIRY_STATUSES.CREATED
     ) {
       throw new Error("wrong status");
@@ -66,17 +66,16 @@ export class InquiryModel extends EntityModel {
     return DBService.removeDocument(InquiryModel.collection, id);
   }
 
-  static async acceptByInquiryId(email, inquiryId) {
-    debugger;
+  static async doneByInquiryId(email, inquiryId) {
     const inquiry = await InquiryModel.getById(inquiryId);
     if (
       !inquiry ||
       inquiry.email !== email ||
-      inquiry.status !== INQUIRY_STATUSES.APPROVED
+      inquiry.status !== INQUIRY_STATUSES.CREATED
     ) {
       throw new Error("Wrong request!");
     }
-    inquiry.setStatus(INQUIRY_STATUSES.TAKEN);
+    inquiry.setStatus(INQUIRY_STATUSES.DONE);
     await inquiry.update();
   }
 }

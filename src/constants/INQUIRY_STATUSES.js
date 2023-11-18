@@ -1,4 +1,4 @@
 export const INQUIRY_STATUSES = {
-  APPROVED: "approved",
+  DONE: "done",
   CREATED: "created",
 };

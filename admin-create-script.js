@@ -32,7 +32,7 @@ const createAdmin = async (email) => {
     const docRef = db.collection("users").doc(firebaseUser.uid);
     await docRef.set(adminData);
     console.log(
-      `admin was created with:\n email:${email}\npassword:${password}`,
+      `admin was created with email: ${email}\npassword: ${password}`,
     );
   } catch (e) {
     console.log("error", e);

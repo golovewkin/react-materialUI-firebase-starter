@@ -3,22 +3,17 @@ import withDataFetch from "../../components/hocs/withDataFetch";
 import TableContainerComponent from "../../components/library-based-components/table/TableContainerComponent";
 import InquiriesColumns from "./InquiriesColumns";
 import { InquiryModel } from "../../models/InquiryModel";
-import DeleteIconComponent from "../../components/library-based-components/icons/DeleteIconComponent";
 import TCell from "../../components/library-based-components/table/TCell";
-import { useShowConfirm } from "../../providers/ShowConfirmProvider";
 import { clone } from "../../helpers/util.helper";
 import useSubmit from "../../components/hooks/useSubmit";
 import InquiryStatusCell from "./InquiryStatusCell";
-import { URLS } from "../../constants/URLS";
-import ContentCopyIconComponent from "../../components/library-based-components/icons/ContentCopyIconComponent";
 import { INQUIRY_STATUSES } from "../../constants/INQUIRY_STATUSES";
-import { UserModel } from "../../models/UserModel";
+import ContentCopyIconComponent from "../../components/library-based-components/icons/ContentCopyIconComponent";
 
 const InquiriesList = ({ data }) => {
   const [state, setState] = useState(clone(data));
-  const showConfirm = useShowConfirm();
 
-  const { submit: removeItem } = useSubmit({
+  const { submit: removeRequest } = useSubmit({
     sendRequest: async (itemId) => {
       setState((oldState) => {
         return oldState.filter(({ id }) => id !== itemId);
@@ -27,9 +22,9 @@ const InquiriesList = ({ data }) => {
     },
   });
 
-  const { submit: approveRequest } = useSubmit({
+  const { submit: doneRequest } = useSubmit({
     sendRequest: async (inquiryItem) => {
-      const newStatus = INQUIRY_STATUSES.APPROVED;
+      const newStatus = INQUIRY_STATUSES.DONE;
       setState((oldState) => {
         return oldState.map((item) => {
           if (item.id === inquiryItem.id) {
@@ -38,10 +33,6 @@ const InquiriesList = ({ data }) => {
           return item;
         });
       });
-
-      const credentials = await UserModel.createByEmail(inquiryItem.email);
-      // TODO show a popup with credentials
-      console.log(credentials);
 
       const inquiry = new InquiryModel(inquiryItem);
       inquiry.setStatus(newStatus);
@@ -53,21 +44,18 @@ const InquiriesList = ({ data }) => {
     return {
       id: item.id,
       components: [
-        <TCell key={item.id + 1}>{item.email}</TCell>,
+        <TCell key={item.id + 1}>
+          {item.email}{" "}
+          <ContentCopyIconComponent
+            copy={`node user-create-script.js ${item.email}`}
+          />
+        </TCell>,
         <TCell key={item.id + 2}>{item.message}</TCell>,
         <TCell key={item.id + 3}>
           <InquiryStatusCell
             item={item}
-            approveRequest={() => approveRequest(item)}
-          />
-        </TCell>,
-        <TCell key={item.id + 4}>
-          {`${URLS.INQUIRY}/${item.id}`}
-          <ContentCopyIconComponent copy={`${URLS.INQUIRY}/${item.id}`} />
-        </TCell>,
-        <TCell key={item.id + 5}>
-          <DeleteIconComponent
-            onClick={() => showConfirm(() => removeItem(item.id))}
+            doneRequest={() => doneRequest(item)}
+            removeRequest={() => removeRequest(item.id)}
           />
         </TCell>,
       ],
@@ -76,7 +64,16 @@ const InquiriesList = ({ data }) => {
 
   return (
     <>
-      <h4>Requests</h4>
+      <h4>Requests and how to deal with it</h4>
+      <ol>
+        <li>Get user email</li>
+        <li>
+          Create a user via script (node user-create-script.js user-email)
+        </li>
+        <li>Mark a request as done</li>
+        <li>Send a user's credentials that the script gives you</li>
+        <li>Remove a request</li>
+      </ol>
       <TableContainerComponent rows={rows} columns={<InquiriesColumns />} />
     </>
   );
