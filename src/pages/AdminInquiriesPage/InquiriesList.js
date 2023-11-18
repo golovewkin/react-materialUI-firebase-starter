@@ -39,24 +39,6 @@ const InquiriesList = ({ data }) => {
         });
       });
 
-      const inquiry = new InquiryModel(inquiryItem);
-      inquiry.setStatus(newStatus);
-      await inquiry.update();
-    },
-  });
-
-  const { submit: createUser } = useSubmit({
-    sendRequest: async (inquiryItem) => {
-      const newStatus = INQUIRY_STATUSES.USER_CREATED;
-      setState((oldState) => {
-        return oldState.map((item) => {
-          if (item.id === inquiryItem.id) {
-            return { ...item, status: newStatus };
-          }
-          return item;
-        });
-      });
-
       const credentials = await UserModel.createByEmail(inquiryItem.email);
       // TODO show a popup with credentials
       console.log(credentials);
@@ -77,7 +59,6 @@ const InquiriesList = ({ data }) => {
           <InquiryStatusCell
             item={item}
             approveRequest={() => approveRequest(item)}
-            createUser={() => createUser(item)}
           />
         </TCell>,
         <TCell key={item.id + 4}>
