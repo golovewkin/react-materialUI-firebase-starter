@@ -8,7 +8,7 @@ import {
   DialogTitle,
 } from "@mui/material";
 
-const ErrorPopup = ({ open, setOpen, title, message }) => {
+const MessagePopup = ({ open, setOpen, title, message }) => {
   return (
     <div>
       <Dialog
@@ -31,4 +31,4 @@ const ErrorPopup = ({ open, setOpen, title, message }) => {
   );
 };
 
-export default ErrorPopup;
+export default MessagePopup;

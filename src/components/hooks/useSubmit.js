@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { LogService } from "../../services/LogService";
-import { useShowError } from "../../providers/ShowErrorProvider";
+import { useShowMessage } from "../../providers/ShowMessageProvider";
 import { useSnack } from "../../providers/SnackProvider";
 
 const useSubmit = ({ sendRequest, successMessage = "Success!" }) => {
-  const showError = useShowError();
+  const showError = useShowMessage();
   const showShack = useSnack();
   const [loading, setLoading] = useState(false);
 

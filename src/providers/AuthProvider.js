@@ -1,5 +1,5 @@
 import React from "react";
-import { useShowError } from "./ShowErrorProvider";
+import { useShowMessage } from "./ShowMessageProvider";
 import { onUserlogin, auth, logIn } from "../services/firebase";
 import { UserModel } from "../models/UserModel";
 import { useNavigate } from "react-router-dom";
@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const [user, setUser] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
-  const showError = useShowError();
+  const showError = useShowMessage();
 
   React.useEffect(() => {
     onUserlogin(auth, async (userData, error) => {

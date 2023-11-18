@@ -7,11 +7,11 @@ import FormComponent from "../../../components/utils/FormComponent";
 import useSubmit from "../../../components/hooks/useSubmit";
 import { InquiryModel } from "../../../models/InquiryModel";
 import { INQUIRY_TYPES } from "../../../constants/INQUIRY";
-import { useShowError } from "../../../providers/ShowErrorProvider";
+import { useShowMessage } from "../../../providers/ShowMessageProvider";
 
 const CreateInvitePage = () => {
   const [email, setEmail] = useState("");
-  const showError = useShowError();
+  const showError = useShowMessage();
 
   const sendRequest = useCallback(
     async (email) => {
