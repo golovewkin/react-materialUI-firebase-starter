@@ -1,4 +1,5 @@
 TODO delete user admin
+TODO only 1 step in user requests
 TODO message popup with ability to copy
 TODO requires admin check pages
 TODO forgot password check

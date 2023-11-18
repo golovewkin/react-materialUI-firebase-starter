@@ -20,49 +20,49 @@ export const AdminHome = ({ data }) => {
   const [state, setState] = useState(clone(data));
   const showConfirm = useShowConfirm();
 
-  const { submit: removeItem } = useSubmit({
-    sendRequest: async (itemId) => {
-      setState((oldState) => {
-        return oldState.filter(({ id }) => id !== itemId);
-      });
-      await InquiryModel.deleteEntity(itemId);
-    },
-  });
-
-  const rows = state.map((item) => {
-    return {
-      id: item.id,
-      components: [
-        <TCell key={item.id + 1}>{item.email}</TCell>,
-        <TCell key={item.id + 2}>{item.message}</TCell>,
-        <TCell key={item.id + 3}>
-          <InquiryStatusCell
-            item={item}
-            approveRequest={() => approveRequest(item)}
-            createUser={() => createUser(item)}
-          />
-        </TCell>,
-        <TCell key={item.id + 4}>
-          {`${URLS.INQUIRY}/${item.id}`}
-          <ContentCopyIconComponent copy={`${URLS.INQUIRY}/${item.id}`} />
-        </TCell>,
-        <TCell key={item.id + 5}>
-          <DeleteIconComponent
-            onClick={() => showConfirm(() => removeItem(item.id))}
-          />
-        </TCell>,
-      ],
-    };
-  });
+  // const { submit: removeItem } = useSubmit({
+  //   sendRequest: async (itemId) => {
+  //     setState((oldState) => {
+  //       return oldState.filter(({ id }) => id !== itemId);
+  //     });
+  //     await InquiryModel.deleteEntity(itemId);
+  //   },
+  // });
+  //
+  // const rows = state.map((item) => {
+  //   return {
+  //     id: item.id,
+  //     components: [
+  //       <TCell key={item.id + 1}>{item.email}</TCell>,
+  //       <TCell key={item.id + 2}>{item.message}</TCell>,
+  //       <TCell key={item.id + 3}>
+  //         <InquiryStatusCell
+  //           item={item}
+  //           approveRequest={() => approveRequest(item)}
+  //           createUser={() => createUser(item)}
+  //         />
+  //       </TCell>,
+  //       <TCell key={item.id + 4}>
+  //         {`${URLS.INQUIRY}/${item.id}`}
+  //         <ContentCopyIconComponent copy={`${URLS.INQUIRY}/${item.id}`} />
+  //       </TCell>,
+  //       <TCell key={item.id + 5}>
+  //         <DeleteIconComponent
+  //           onClick={() => showConfirm(() => removeItem(item.id))}
+  //         />
+  //       </TCell>,
+  //     ],
+  //   };
+  // });
 
   return (
     <>
       <h3>
-        Hello, {auth.user.name}, this is your Home page
-        <HomeIconComponent />
+        {/*Hello, {auth.user.name}, this is your Home page*/}
+        {/*<HomeIconComponent />*/}
       </h3>
       <h4>Users list</h4>
-      <TableContainerComponent rows={rows} columns={<InquiriesColumns />} />
+      <TableContainerComponent rows={[]} columns={<InquiriesColumns />} />
     </>
   );
 };
