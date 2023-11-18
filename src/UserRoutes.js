@@ -5,7 +5,7 @@ import Content from "./components/layout/MainContent/MainContent";
 import PublicContent from "./components/layout/PublicContent/PublicContent";
 import { useAuth } from "./providers/AuthProvider";
 import Loader from "./components/utils/Loader";
-const ErrorPage = lazy(() => import("./pages/public/ErrorPage"));
+const ErrorPage = lazy(() => import("./pages/ErrorPage"));
 const SettingsPage = lazy(
   () => import("./pages/user/SettingsPage/SettingsPage.js"),
 );
@@ -21,7 +21,7 @@ const SendRequestPage = lazy(
   () => import("./pages/public/SendRequestPage/SendRequestPage"),
 );
 const AdminInquiriesPage = lazy(
-  () => import("./pages/AdminInquiriesPage/AdminInquiriesPage"),
+  () => import("./pages/admin/AdminInquiriesPage/AdminInquiriesPage"),
 );
 const AcceptInvitePage = lazy(
   () => import("./pages/public/AcceptInvitePage/AcceptInvitePage"),

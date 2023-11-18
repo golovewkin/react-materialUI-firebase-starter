@@ -1,6 +1,6 @@
 import React from "react";
-import { DBService } from "../../services/DBService";
-import { COLLECTIONS } from "../../constants/COLLECTIONS";
+import { DBService } from "../../../services/DBService";
+import { COLLECTIONS } from "../../../constants/COLLECTIONS";
 import InquiriesList from "./InquiriesList";
 
 export const AdminInquiriesPage = ({ data }) => {
