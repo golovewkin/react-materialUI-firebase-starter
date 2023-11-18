@@ -3,9 +3,6 @@ import { COMMON } from "../constants/COMMON";
 import { EntityModel } from "./EntityModel";
 import { DBService } from "../services/DBService";
 import { COLLECTIONS } from "../constants/COLLECTIONS";
-import { InquiryModel } from "./InquiryModel";
-import { INQUIRY_STATUSES } from "../constants/INQUIRY_STATUSES";
-import admin from "firebase-admin";
 
 export class UserModel extends EntityModel {
   static collection = COLLECTIONS.USERS;
