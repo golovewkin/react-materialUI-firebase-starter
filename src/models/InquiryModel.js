@@ -73,7 +73,7 @@ export class InquiryModel extends EntityModel {
     return DBService.removeDocument(InquiryModel.collection, id);
   }
 
-  static async doneByInquiryId(email, inquiryId) {
+  static async checkInviteByInquiryId(email, inquiryId) {
     const inquiry = await InquiryModel.getById(inquiryId);
     if (
       !inquiry ||

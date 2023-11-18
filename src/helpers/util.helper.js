@@ -1,5 +1,5 @@
 import cloneDeep from "clone-deep";
-import { USER_URLS } from "../constants/URLS";
+import { PUBLIC_URLS, USER_URLS } from "../constants/URLS";
 export const makeId = (length = 27) => {
   let result = "";
   const characters =
@@ -21,5 +21,5 @@ export const isUserURL = (pathname) => {
 };
 
 export const getInviteUrl = (inquiry) => {
-  return `/invite/${inquiry.id}`;
+  return `${PUBLIC_URLS.ACCEPT_INVITE}/${inquiry.id}`;
 };

@@ -18,6 +18,7 @@ const CreateInvitePage = () => {
   const sendRequest = useCallback(
     async (email) => {
       const inquiry = await InquiryModel.create({
+        message: "Created by admin",
         email,
         type: INQUIRY_TYPES.INVITE,
       });
