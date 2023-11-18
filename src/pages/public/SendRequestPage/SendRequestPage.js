@@ -18,7 +18,6 @@ const SendRequestPage = () => {
   const navigate = useNavigate();
   const [state, setState] = useState({
     email: "",
-    message: "",
   });
 
   const { loading, submit } = useSubmit({
@@ -44,13 +43,6 @@ const SendRequestPage = () => {
         className="SendRequestPage__wrapper"
         onSubmit={() => submit(state)}
       >
-        <TextFieldComponent
-          onChange={(value) => setFormState("message", value, setState)}
-          value={state.message}
-          type="text"
-          label="message"
-          error={!state.message}
-        />
         <TextFieldComponent
           onChange={(value) => setFormState("email", value, setState)}
           value={state.email}

@@ -8,7 +8,6 @@ export class InquiryModel extends EntityModel {
   constructor(inquiry) {
     super(inquiry);
     this.email = inquiry.email;
-    this.message = inquiry.message || "";
     this.status = inquiry.status;
     this.type = inquiry.type;
   }

@@ -50,16 +50,15 @@ const InquiriesList = ({ data }) => {
             copy={`node user-create-script.js ${item.email}`}
           />
         </TCell>,
-        <TCell key={item.id + 2}>{item.message}</TCell>,
-        <TCell key={item.id + 3}>
+        <TCell key={item.id + 2}>
           <InquiryStatusCell
             item={item}
             doneRequest={() => doneRequest(item)}
             removeRequest={() => removeRequest(item.id)}
           />
         </TCell>,
-        <TCell key={item.id + 4}>{item.type}</TCell>,
-        <TCell key={item.id + 5}>
+        <TCell key={item.id + 3}>{item.type}</TCell>,
+        <TCell key={item.id + 4}>
           {item.type === INQUIRY_TYPES.INVITE && (
             <>
               {getInviteUrl(item)}
