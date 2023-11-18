@@ -19,3 +19,7 @@ export const clone = cloneDeep;
 export const isUserURL = (pathname) => {
   return Object.values(USER_URLS).find((key) => key === pathname);
 };
+
+export const getInviteUrl = (inquiry) => {
+  return `/invite/${inquiry.id}`;
+};

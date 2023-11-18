@@ -8,17 +8,27 @@ import useSubmit from "../../../components/hooks/useSubmit";
 import { InquiryModel } from "../../../models/InquiryModel";
 import { INQUIRY_TYPES } from "../../../constants/INQUIRY";
 import { useShowMessage } from "../../../providers/ShowMessageProvider";
+import { getInviteUrl } from "../../../helpers/util.helper";
+import ContentCopyIconComponent from "../../../components/library-based-components/icons/ContentCopyIconComponent";
 
 const CreateInvitePage = () => {
   const [email, setEmail] = useState("");
-  const showError = useShowMessage();
+  const showMessage = useShowMessage();
 
   const sendRequest = useCallback(
     async (email) => {
-      // await InquiryModel.create({ email, type: INQUIRY_TYPES.INVITE });
-      // TODO show a link
-      throw "444";
-      showError("fdfd", <b>aaaa</b>);
+      const inquiry = await InquiryModel.create({
+        email,
+        type: INQUIRY_TYPES.INVITE,
+      });
+      const url = getInviteUrl(inquiry);
+      const componentToShow = (
+        <div>
+          {getInviteUrl(inquiry)}{" "}
+          <ContentCopyIconComponent copy={getInviteUrl(inquiry)} />
+        </div>
+      );
+      showMessage("Here is the link to send", componentToShow);
       setEmail("");
     },
     [setEmail],

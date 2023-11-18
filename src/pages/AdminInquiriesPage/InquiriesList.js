@@ -4,7 +4,7 @@ import TableContainerComponent from "../../components/library-based-components/t
 import InquiriesColumns from "./InquiriesColumns";
 import { InquiryModel } from "../../models/InquiryModel";
 import TCell from "../../components/library-based-components/table/TCell";
-import { clone } from "../../helpers/util.helper";
+import { clone, getInviteUrl } from "../../helpers/util.helper";
 import useSubmit from "../../components/hooks/useSubmit";
 import InquiryStatusCell from "./InquiryStatusCell";
 import { INQUIRY_STATUSES, INQUIRY_TYPES } from "../../constants/INQUIRY";
@@ -62,8 +62,8 @@ const InquiriesList = ({ data }) => {
         <TCell key={item.id + 5}>
           {item.type === INQUIRY_TYPES.INVITE && (
             <>
-              {`/invite/${item.id}`}
-              <ContentCopyIconComponent copy={`/invite/${item.id}`} />
+              {getInviteUrl(item)}
+              <ContentCopyIconComponent copy={getInviteUrl(item)} />
             </>
           )}
         </TCell>,

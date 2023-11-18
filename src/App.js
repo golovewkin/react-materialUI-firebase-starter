@@ -7,15 +7,15 @@ import { SnackProvider } from "./providers/SnackProvider";
 
 function App() {
   return (
-    <ShowMessageProvider>
-      <AuthProvider>
-        <SnackProvider>
+    <SnackProvider>
+      <ShowMessageProvider>
+        <AuthProvider>
           <div className="App">
             <UserRoutes />
           </div>
-        </SnackProvider>
-      </AuthProvider>
-    </ShowMessageProvider>
+        </AuthProvider>
+      </ShowMessageProvider>
+    </SnackProvider>
   );
 }
 
