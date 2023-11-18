@@ -4,16 +4,13 @@ import ButtonComponent from "../../../components/library-based-components/Button
 import TextFieldComponent from "../../../components/library-based-components/TextFieldComponent";
 import LinkComponent from "../../../components/library-based-components/Link/LinkComponent";
 import { URLS } from "../../../constants/URLS";
-import { validEmail, validPassword } from "../../../helpers/validator.helper";
+import { validEmail } from "../../../helpers/validator.helper";
 import { InquiryModel } from "../../../models/InquiryModel";
 import useSubmit from "../../../components/hooks/useSubmit";
 import { BrowserStorageService } from "../../../services/BrowserStorageService";
 import { COMMON } from "../../../constants/COMMON";
-import { setFormState } from "../../../helpers/form.helper";
-import { INQUIRY_STATUSES } from "../../../constants/INQUIRY_STATUSES";
 import { useNavigate, useParams } from "react-router-dom";
 import FormComponent from "../../../components/utils/FormComponent";
-import { UserModel } from "../../../models/UserModel";
 
 const AcceptRequestPage = () => {
   const navigate = useNavigate();
