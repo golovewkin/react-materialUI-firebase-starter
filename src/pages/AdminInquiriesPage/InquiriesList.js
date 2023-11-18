@@ -12,6 +12,7 @@ import InquiryStatusCell from "./InquiryStatusCell";
 import { URLS } from "../../constants/URLS";
 import ContentCopyIconComponent from "../../components/library-based-components/icons/ContentCopyIconComponent";
 import { INQUIRY_STATUSES } from "../../constants/INQUIRY_STATUSES";
+import { UserModel } from "../../models/UserModel";
 
 const InquiriesList = ({ data }) => {
   const [state, setState] = useState(clone(data));
@@ -44,6 +45,25 @@ const InquiriesList = ({ data }) => {
     },
   });
 
+  const { submit: createUser } = useSubmit({
+    sendRequest: async (inquiryItem) => {
+      const newStatus = INQUIRY_STATUSES.USER_CREATED;
+      setState((oldState) => {
+        return oldState.map((item) => {
+          if (item.id === inquiryItem.id) {
+            return { ...item, status: newStatus };
+          }
+          return item;
+        });
+      });
+
+      // await UserModel.createByEmail(inquiryItem.email);
+      // const inquiry = new InquiryModel(inquiryItem);
+      // inquiry.setStatus(newStatus);
+      // await inquiry.update();
+    },
+  });
+
   const rows = state.map((item) => {
     return {
       id: item.id,
@@ -51,7 +71,11 @@ const InquiriesList = ({ data }) => {
         <TCell key={item.id + 1}>{item.email}</TCell>,
         <TCell key={item.id + 2}>{item.message}</TCell>,
         <TCell key={item.id + 3}>
-          <InquiryStatusCell item={item} onClick={() => approveRequest(item)} />
+          <InquiryStatusCell
+            item={item}
+            approveRequest={() => approveRequest(item)}
+            createUser={() => createUser(item)}
+          />
         </TCell>,
         <TCell key={item.id + 4}>
           {`${URLS.INQUIRY}/${item.id}`}

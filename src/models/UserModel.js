@@ -32,6 +32,14 @@ export class UserModel extends EntityModel {
     // TODO return new UserModel()
   }
 
+  static async createByEmail(email) {
+    // TODO create userData
+    // TODO save in DB userData
+    //TODO createUserWithEmailAndPassword
+    // TODO sendreset password email
+    // TODO return new UserModel()
+  }
+
   update() {
     this.validate(this);
     return DBService.saveDocumentById(this, UserModel.collection);

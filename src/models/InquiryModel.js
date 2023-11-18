@@ -23,7 +23,8 @@ export class InquiryModel extends EntityModel {
     if (
       inquiry.status !== INQUIRY_STATUSES.APPROVED &&
       inquiry.status !== INQUIRY_STATUSES.CREATED &&
-      inquiry.status !== INQUIRY_STATUSES.TAKEN
+      inquiry.status !== INQUIRY_STATUSES.TAKEN &&
+      inquiry.status !== INQUIRY_STATUSES.USER_CREATED
     ) {
       throw new Error("wrong status");
     }
