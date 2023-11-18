@@ -68,6 +68,7 @@ export class InquiryModel extends EntityModel {
   }
 
   static async acceptByInquiryId(email, inquiryId) {
+    debugger;
     const inquiry = await InquiryModel.getById(inquiryId);
     if (
       !inquiry ||

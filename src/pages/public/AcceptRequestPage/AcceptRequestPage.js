@@ -9,12 +9,12 @@ import { InquiryModel } from "../../../models/InquiryModel";
 import useSubmit from "../../../components/hooks/useSubmit";
 import { BrowserStorageService } from "../../../services/BrowserStorageService";
 import { COMMON } from "../../../constants/COMMON";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import FormComponent from "../../../components/utils/FormComponent";
 
 const AcceptRequestPage = () => {
   const navigate = useNavigate();
-  const { id: inquiryId } = "useParams()";
+  const { id: inquiryId } = useParams();
   const [email, setEmail] = useState("");
 
   const { loading, submit } = useSubmit({
@@ -28,7 +28,7 @@ const AcceptRequestPage = () => {
       await InquiryModel.acceptByInquiryId(params.email, params.inquiryId);
 
       BrowserStorageService.setData(COMMON.APPROVAL_SENT, "sent");
-      navigate(URLS.LOGIN);
+      navigate(URLS.HOME);
     },
     successMessage: "Success 🥳! Wait, please, we will send you a link",
   });
