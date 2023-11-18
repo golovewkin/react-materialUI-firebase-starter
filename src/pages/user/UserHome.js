@@ -1,7 +1,7 @@
 import React from "react";
 import { useAuth } from "../../providers/AuthProvider";
 import HomeIconComponent from "../../components/library-based-components/icons/HomeIconComponent";
-import { ROLES } from "../../constants/ROLES";
+import { USER_ROLES } from "../../constants/USER_ROLES";
 import AdminHome from "../admin/AdminHome";
 import { COLLECTIONS } from "../../constants/COLLECTIONS";
 import { DBService } from "../../services/DBService";
@@ -12,7 +12,7 @@ const UserHome = () => {
     return DBService.getAll(COLLECTIONS.USERS);
   }, []);
 
-  if (auth.user.role === ROLES.ADMIN) {
+  if (auth.user.role === USER_ROLES.ADMIN) {
     return <AdminHome getData={getData} queryKey="admin-get-users" />;
   }
 

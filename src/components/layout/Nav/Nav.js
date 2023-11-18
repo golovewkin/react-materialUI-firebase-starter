@@ -6,7 +6,7 @@ import NavItem from "../NavItem";
 import { ADMIN_URLS, PUBLIC_URLS, USER_URLS } from "../../../constants/URLS";
 import EditIconComponent from "../../library-based-components/icons/EditIconComponent";
 import HomeIconComponent from "../../library-based-components/icons/HomeIconComponent";
-import { ROLES } from "../../../constants/ROLES";
+import { USER_ROLES } from "../../../constants/USER_ROLES";
 import AddIconComponent from "../../library-based-components/icons/AddIconComponent";
 import QuestionIconComponent from "../../library-based-components/icons/QuestionIconComponent";
 
@@ -28,7 +28,7 @@ const Nav = () => {
           icon={<EditIconComponent />}
           path={USER_URLS.SETTINGS}
         />
-        {auth.user.role === ROLES.ADMIN && (
+        {auth.user.role === USER_ROLES.ADMIN && (
           <>
             {" "}
             <NavItem

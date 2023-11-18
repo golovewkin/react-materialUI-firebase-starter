@@ -1,4 +1,4 @@
-import { ROLES } from "../constants/ROLES";
+import { USER_ROLES } from "../constants/USER_ROLES";
 import { COMMON } from "../constants/COMMON";
 import { EntityModel } from "./EntityModel";
 import { DBService } from "../services/DBService";
@@ -12,7 +12,7 @@ export class UserModel extends EntityModel {
     this.firebaseId = user.firebaseId;
     this.id = user.id;
     this.pic = user.pic || COMMON.NO_PIC_USER;
-    this.role = user.role || ROLES.USER;
+    this.role = user.role || USER_ROLES.USER;
   }
 
   validateCustom(user) {
@@ -47,5 +47,9 @@ export class UserModel extends EntityModel {
       UserModel.collection,
     );
     return new UserModel(entityData);
+  }
+
+  static async deleteEntity(id) {
+    return DBService.removeDocument(UserModel.collection, id);
   }
 }
