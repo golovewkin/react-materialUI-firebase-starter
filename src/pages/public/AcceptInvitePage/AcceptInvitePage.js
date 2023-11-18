@@ -9,10 +9,11 @@ import useSubmit from "../../../components/hooks/useSubmit";
 import { setFormState } from "../../../helpers/form.helper";
 import { useParams } from "react-router-dom";
 import { InquiryModel } from "../../../models/InquiryModel";
+import { PUBLIC_URLS } from "../../../constants/URLS";
+import LinkComponent from "../../../components/library-based-components/Link/LinkComponent";
 
 const AcceptInvitePage = () => {
   const params = useParams();
-  console.log(params);
   const [state, setState] = useState({
     email: "",
     password: "",
@@ -40,6 +41,11 @@ const AcceptInvitePage = () => {
     <div className="AcceptInvitePage">
       <div className="AcceptInvitePage__title">
         Accept an invite and create a user account
+        <br />
+        <LinkComponent
+          to={PUBLIC_URLS.HOME}
+          children="Return to home if you are not sure 🤔"
+        />
       </div>
       <FormComponent
         className="AcceptInvitePage__wrapper"

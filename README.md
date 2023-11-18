@@ -47,7 +47,7 @@ View Updates are BEFORE the request. For users it looks like our app is really f
        2. Admin approves it
        3. Admin creates a user via script (node user-create-script.js user-email)
        4. Admin send credentials to a user (any way)
-    3. Via an admin invite (the most dangerous)
+    3. Via an admin invite (the most dangerous, doesn't work right now because of Firebase restrictions)
        1. Admin creates an invite
        2. It gives you a link
        3. Admin should give it to the user
