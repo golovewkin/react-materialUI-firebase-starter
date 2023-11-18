@@ -3,7 +3,7 @@ import { useShowMessage } from "./ShowMessageProvider";
 import { onUserlogin, auth, logIn } from "../services/firebase";
 import { UserModel } from "../models/UserModel";
 import { useNavigate } from "react-router-dom";
-import { PUBLIC_URLS } from "../constants/USER_URLS";
+import { PUBLIC_URLS } from "../constants/URLS";
 import { BrowserStorageService } from "../services/BrowserStorageService";
 import { COMMON } from "../constants/COMMON";
 

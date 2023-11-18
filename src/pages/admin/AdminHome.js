@@ -10,7 +10,7 @@ import { INQUIRY_STATUSES } from "../../constants/INQUIRY";
 import { UserModel } from "../../models/UserModel";
 import TCell from "../../components/library-based-components/table/TCell";
 import InquiryStatusCell from "../AdminInquiriesPage/InquiryStatusCell";
-import { USER_URLS } from "../../constants/USER_URLS";
+import { USER_URLS } from "../../constants/URLS";
 import ContentCopyIconComponent from "../../components/library-based-components/icons/ContentCopyIconComponent";
 import DeleteIconComponent from "../../components/library-based-components/icons/DeleteIconComponent";
 import TableContainerComponent from "../../components/library-based-components/table/TableContainerComponent";

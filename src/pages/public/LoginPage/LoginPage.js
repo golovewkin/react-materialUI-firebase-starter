@@ -3,7 +3,7 @@ import "./style.scss";
 import ButtonComponent from "../../../components/library-based-components/ButtonComponent/ButtonComponent";
 import TextFieldComponent from "../../../components/library-based-components/TextFieldComponent";
 import { setFormState } from "../../../helpers/form.helper";
-import { PUBLIC_URLS } from "../../../constants/USER_URLS";
+import { PUBLIC_URLS } from "../../../constants/URLS";
 import LinkComponent from "../../../components/library-based-components/Link/LinkComponent";
 import { validEmail, validPassword } from "../../../helpers/validator.helper";
 import { useAuth } from "../../../providers/AuthProvider";

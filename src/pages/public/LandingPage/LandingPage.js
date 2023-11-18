@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import { PUBLIC_URLS } from "../../../constants/USER_URLS";
+import { PUBLIC_URLS } from "../../../constants/URLS";
 import "./style.scss";
 import LinkComponent from "../../../components/library-based-components/Link/LinkComponent";
 

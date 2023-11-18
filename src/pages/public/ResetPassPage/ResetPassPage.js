@@ -4,7 +4,7 @@ import ButtonComponent from "../../../components/library-based-components/Button
 import TextFieldComponent from "../../../components/library-based-components/TextFieldComponent";
 import { LogService } from "../../../services/LogService";
 import LinkComponent from "../../../components/library-based-components/Link/LinkComponent";
-import { USER_URLS } from "../../../constants/USER_URLS";
+import { USER_URLS } from "../../../constants/URLS";
 import { validEmail } from "../../../helpers/validator.helper";
 
 const ResetPassPage = () => {

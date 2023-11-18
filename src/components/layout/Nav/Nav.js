@@ -3,11 +3,7 @@ import "./style.scss";
 import { List } from "@mui/material";
 import { useAuth } from "../../../providers/AuthProvider";
 import NavItem from "../NavItem";
-import {
-  ADMIN_URLS,
-  PUBLIC_URLS,
-  USER_URLS,
-} from "../../../constants/USER_URLS";
+import { ADMIN_URLS, PUBLIC_URLS, USER_URLS } from "../../../constants/URLS";
 import EditIconComponent from "../../library-based-components/icons/EditIconComponent";
 import HomeIconComponent from "../../library-based-components/icons/HomeIconComponent";
 import { ROLES } from "../../../constants/ROLES";

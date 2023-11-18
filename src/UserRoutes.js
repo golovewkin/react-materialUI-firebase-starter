@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import React, { lazy } from "react";
-import { ADMIN_URLS, PUBLIC_URLS, USER_URLS } from "./constants/USER_URLS";
+import { ADMIN_URLS, PUBLIC_URLS, USER_URLS } from "./constants/URLS";
 import Content from "./components/layout/MainContent/MainContent";
 import PublicContent from "./components/layout/PublicContent/PublicContent";
 import { useAuth } from "./providers/AuthProvider";
