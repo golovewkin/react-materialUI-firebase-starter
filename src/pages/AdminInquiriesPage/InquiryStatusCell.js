@@ -16,6 +16,7 @@ const InquiryStatusCell = ({ item, approveRequest }) => {
       {status === INQUIRY_STATUSES.APPROVED && <CircleIconComponent disabled />}
       {status ?? COMMON.NA}{" "}
       {status === INQUIRY_STATUSES.CREATED && <span>(click to approve)</span>}
+      {status === INQUIRY_STATUSES.APPROVED && <span>(you can delete it)</span>}
     </div>
   );
 };
