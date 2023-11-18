@@ -25,18 +25,15 @@ export class UserModel extends EntityModel {
   }
 
   /**
-   * This will login user automatically
-   * @param email
-   * @returns {Promise<{password: string, email}>}
+   * This will login user automatically>}
    */
-  static async createByEmail({ email, password }, inviteId) {
-    const { password, firebaseUser } = await DBService.createUserByEmail(email);
+  static async createByEmailAndPassword({ email, password }) {
+    const firebaseUser = await DBService.createUserByEmailAndPassword(email);
     const user = new UserModel({
       firebaseId: firebaseUser.user.uid,
       id: firebaseUser.user.uid,
     });
     await user.update();
-    return { password, email };
   }
 
   update() {

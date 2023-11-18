@@ -8,6 +8,7 @@ import { UserModel } from "../../../models/UserModel";
 import useSubmit from "../../../components/hooks/useSubmit";
 import { setFormState } from "../../../helpers/form.helper";
 import { useParams } from "react-router-dom";
+import { InquiryModel } from "../../../models/InquiryModel";
 
 const AcceptInvitePage = () => {
   const params = useParams();
@@ -19,7 +20,8 @@ const AcceptInvitePage = () => {
 
   const sendRequest = useCallback(
     async (state) => {
-      await UserModel.createByEmail(state, params.id);
+      await InquiryModel.checkInviteByInquiryId(state.email, params.id);
+      await UserModel.createByEmailAndPassword(state);
     },
     [params.id],
   );

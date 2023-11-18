@@ -80,13 +80,12 @@ export class DBService {
     return deleteDoc(doc(db, collectionName, id));
   }
 
-  static async createUserByEmail(email) {
-    const password = makeId();
+  static async createUserByEmailAndPassword({ email, password }) {
     const firebaseUser = await createUserWithEmailAndPassword(
       auth,
       email,
       password,
     );
-    return { firebaseUser, password };
+    return firebaseUser;
   }
 }
