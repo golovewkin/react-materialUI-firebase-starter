@@ -1,7 +1,7 @@
 import { EntityModel } from "./EntityModel";
 import { DBService } from "../services/DBService";
 import { COLLECTIONS } from "../constants/COLLECTIONS";
-import { INQUIRY_STATUSES } from "../constants/INQUIRY_STATUSES";
+import { INQUIRY_STATUSES, INQUIRY_TYPES } from "../constants/INQUIRY";
 
 export class InquiryModel extends EntityModel {
   static collection = COLLECTIONS.INQUIRIES;
@@ -10,6 +10,7 @@ export class InquiryModel extends EntityModel {
     this.email = inquiry.email;
     this.message = inquiry.message;
     this.status = inquiry.status;
+    this.type = inquiry.type;
   }
 
   validateCustom(inquiry) {
@@ -25,6 +26,12 @@ export class InquiryModel extends EntityModel {
       inquiry.status !== INQUIRY_STATUSES.CREATED
     ) {
       throw new Error("wrong status");
+    }
+    if (
+      inquiry.type !== INQUIRY_TYPES.REQUEST &&
+      inquiry.type !== INQUIRY_TYPES.INVITE
+    ) {
+      throw new Error("wrong type");
     }
   }
   static async create(modelData) {

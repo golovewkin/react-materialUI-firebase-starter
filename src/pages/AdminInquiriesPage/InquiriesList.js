@@ -7,7 +7,7 @@ import TCell from "../../components/library-based-components/table/TCell";
 import { clone } from "../../helpers/util.helper";
 import useSubmit from "../../components/hooks/useSubmit";
 import InquiryStatusCell from "./InquiryStatusCell";
-import { INQUIRY_STATUSES } from "../../constants/INQUIRY_STATUSES";
+import { INQUIRY_STATUSES, INQUIRY_TYPES } from "../../constants/INQUIRY";
 import ContentCopyIconComponent from "../../components/library-based-components/icons/ContentCopyIconComponent";
 
 const InquiriesList = ({ data }) => {
@@ -57,6 +57,15 @@ const InquiriesList = ({ data }) => {
             doneRequest={() => doneRequest(item)}
             removeRequest={() => removeRequest(item.id)}
           />
+        </TCell>,
+        <TCell key={item.id + 4}>{item.type}</TCell>,
+        <TCell key={item.id + 5}>
+          {item.type === INQUIRY_TYPES.INVITE && (
+            <>
+              {`/invite/${item.id}`}
+              <ContentCopyIconComponent copy={`/invite/${item.id}`} />
+            </>
+          )}
         </TCell>,
       ],
     };

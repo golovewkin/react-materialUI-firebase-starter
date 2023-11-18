@@ -4,16 +4,17 @@ import ButtonComponent from "../../../components/library-based-components/Button
 import TextFieldComponent from "../../../components/library-based-components/TextFieldComponent";
 import { validEmail } from "../../../helpers/validator.helper";
 import FormComponent from "../../../components/utils/FormComponent";
-import { UserModel } from "../../../models/UserModel";
 import useSubmit from "../../../components/hooks/useSubmit";
+import { InquiryModel } from "../../../models/InquiryModel";
+import { INQUIRY_TYPES } from "../../../constants/INQUIRY";
 
 const CreateInvitePage = () => {
   const [email, setEmail] = useState("");
 
   const sendRequest = useCallback(
     async (email) => {
-      const credentials = await UserModel.createByEmail(email);
-      console.log(credentials);
+      await InquiryModel.create({ email, type: INQUIRY_TYPES.INVITE });
+      // TODO show a link
       setEmail("");
     },
     [setEmail],
@@ -35,6 +36,7 @@ const CreateInvitePage = () => {
         <li>Create an invite</li>
         <li>It gives you a link</li>
         <li>Give this link to the user</li>
+        <li>Remove this Inquiry on the Inquiries page</li>
       </ol>
       <FormComponent
         className="CreateInvitePage__wrapper"
@@ -48,7 +50,7 @@ const CreateInvitePage = () => {
           error={!validEmail(email)}
         />
         <ButtonComponent disabled={isDisabled(email)} loading={loading}>
-          Create Account
+          Create Invite
         </ButtonComponent>
       </FormComponent>
     </div>

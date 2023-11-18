@@ -9,10 +9,10 @@ import { InquiryModel } from "../../../models/InquiryModel";
 import useSubmit from "../../../components/hooks/useSubmit";
 import { COMMON } from "../../../constants/COMMON";
 import { setFormState } from "../../../helpers/form.helper";
-import { INQUIRY_STATUSES } from "../../../constants/INQUIRY_STATUSES";
 import { useNavigate } from "react-router-dom";
 import FormComponent from "../../../components/utils/FormComponent";
 import SecurityService from "../../../services/SecurityService";
+import { INQUIRY_TYPES } from "../../../constants/INQUIRY";
 
 const SendRequestPage = () => {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ const SendRequestPage = () => {
   const { loading, submit } = useSubmit({
     sendRequest: async (params) => {
       SecurityService.checkIfUserCanSendRequest();
-      await InquiryModel.create(params);
+      await InquiryModel.create({ ...params, type: INQUIRY_TYPES.REQUEST });
       navigate(PUBLIC_URLS.HOME);
     },
     successMessage: "Request was sent! Please wait till admin accepts 🤗",

@@ -6,7 +6,7 @@ import { clone } from "../../helpers/util.helper";
 import { useShowConfirm } from "../../providers/ShowConfirmProvider";
 import useSubmit from "../../components/hooks/useSubmit";
 import { InquiryModel } from "../../models/InquiryModel";
-import { INQUIRY_STATUSES } from "../../constants/INQUIRY_STATUSES";
+import { INQUIRY_STATUSES } from "../../constants/INQUIRY";
 import { UserModel } from "../../models/UserModel";
 import TCell from "../../components/library-based-components/table/TCell";
 import InquiryStatusCell from "../AdminInquiriesPage/InquiryStatusCell";
