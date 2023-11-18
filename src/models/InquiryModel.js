@@ -66,4 +66,17 @@ export class InquiryModel extends EntityModel {
   static async deleteEntity(id) {
     return DBService.removeDocument(InquiryModel.collection, id);
   }
+
+  static async acceptByInquiryId(email, inquiryId) {
+    const inquiry = await InquiryModel.getById(inquiryId);
+    if (
+      !inquiry ||
+      inquiry.email !== email ||
+      inquiry.status !== INQUIRY_STATUSES.APPROVED
+    ) {
+      throw new Error("Wrong request!");
+    }
+    inquiry.setStatus(INQUIRY_STATUSES.TAKEN);
+    await inquiry.update();
+  }
 }
