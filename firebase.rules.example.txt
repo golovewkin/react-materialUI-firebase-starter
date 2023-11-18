@@ -1,14 +1,24 @@
-//rules_version = '2';
+rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /users/{user} {
-     allow read: if request.auth.uid == resource.data.firebaseId || request.auth.uid == 'your firebase admin id';
-      allow update: if request.auth.uid == resource.data.firebaseId || request.auth.uid == 'your firebase admin id';
-      allow create, delete: if request.auth.uid == 'your admin id';
+
+    function isOwner(resource, request) {
+      return resource.data.firebaseId == request.auth.uid;
     }
 
-  match /inquiries/{inquiry} {
-		 allow create, read: if request.auth == null || || request.auth.uid == 'your admin firebase id';
-		 allow update, delete: if request.auth.uid == 'your admin firebase id';
-	}
+    function isAdmin(request) {
+      return request.auth.uid == 'your admin id here';
+    }
+
+    match /users/{user} {
+      allow read, update: if request.auth != null;
+      allow delete: if isAdmin(request);
+      allow create: if request.auth != null; // weird but this is the only way
+    }
+
+    match /inquiries/{inquiry} {
+     	allow create, read: if request.auth == null;
+      allow delete, update: if isAdmin(request);
+    }
+  }
 }

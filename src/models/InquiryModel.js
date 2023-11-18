@@ -22,9 +22,7 @@ export class InquiryModel extends EntityModel {
 
     if (
       inquiry.status !== INQUIRY_STATUSES.APPROVED &&
-      inquiry.status !== INQUIRY_STATUSES.CREATED &&
-      inquiry.status !== INQUIRY_STATUSES.TAKEN &&
-      inquiry.status !== INQUIRY_STATUSES.USER_CREATED
+      inquiry.status !== INQUIRY_STATUSES.CREATED
     ) {
       throw new Error("wrong status");
     }
@@ -40,7 +38,7 @@ export class InquiryModel extends EntityModel {
       throw new Error("This request exists!");
     }
 
-    return DBService.createDocument(
+    return DBService.createOrSetDocument(
       model,
       InquiryModel.collection,
       (data) => new InquiryModel(data),

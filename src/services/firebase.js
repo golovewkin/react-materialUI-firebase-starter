@@ -9,6 +9,7 @@ import {
   query,
   where,
   deleteDoc,
+  addDoc,
 } from "firebase/firestore";
 import {
   getAuth,
@@ -47,4 +48,5 @@ export {
   deleteDoc,
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
+  addDoc,
 };

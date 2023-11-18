@@ -10,6 +10,7 @@ import {
   deleteDoc,
   createUserWithEmailAndPassword,
   auth,
+  addDoc,
 } from "./firebase";
 import { makeId } from "../helpers/util.helper";
 
@@ -25,7 +26,7 @@ export class DBService {
     return documents;
   }
 
-  static async createDocument(model, collectionName, getModelCb) {
+  static async createOrSetDocument(model, collectionName, getModelCb) {
     const newDocRef = doc(collection(db, collectionName));
     const newModel = getModelCb({
       ...model,
@@ -34,6 +35,11 @@ export class DBService {
     });
     await setDoc(newDocRef, newModel.toString());
     return newModel;
+  }
+
+  static async createDocumentWithId(model, collectionName) {
+    await addDoc(collection(db, collectionName), model.toString());
+    return model;
   }
 
   static async getDocumentById(id, collection) {
