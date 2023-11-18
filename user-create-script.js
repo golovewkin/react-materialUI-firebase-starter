@@ -31,9 +31,7 @@ const createUser = async (email) => {
     const db = getFirestore();
     const docRef = db.collection("users").doc(firebaseUser.uid);
     await docRef.set(adminData);
-    console.log(
-      `user was created with:\n email:${email}\npassword:${password}`,
-    );
+    console.log(`user was created with email: ${email}\npassword: ${password}`);
   } catch (e) {
     console.log("error", e);
   }

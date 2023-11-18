@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   let signout = async () => {
-    return await auth.signOut();
+    return auth.signOut();
   };
 
   return (

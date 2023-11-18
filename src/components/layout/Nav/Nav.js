@@ -3,7 +3,7 @@ import "./style.scss";
 import { List } from "@mui/material";
 import { useAuth } from "../../../providers/AuthProvider";
 import NavItem from "../NavItem";
-import { URLS } from "../../../constants/URLS";
+import { ADMIN_URLS, USER_URLS } from "../../../constants/USER_URLS";
 import EditIconComponent from "../../library-based-components/icons/EditIconComponent";
 import HomeIconComponent from "../../library-based-components/icons/HomeIconComponent";
 import { ROLES } from "../../../constants/ROLES";
@@ -18,11 +18,15 @@ const Nav = () => {
   return (
     <div className="Nav custom-scroll">
       <List component="nav" aria-label="main nav">
-        <NavItem label="Home" icon={<HomeIconComponent />} path={URLS.HOME} />
+        <NavItem
+          label="Home"
+          icon={<HomeIconComponent />}
+          path={USER_URLS.HOME}
+        />
         <NavItem
           label="Settings"
           icon={<EditIconComponent />}
-          path={URLS.SETTINGS}
+          path={USER_URLS.SETTINGS}
         />
         {auth.user.role === ROLES.ADMIN && (
           <>
@@ -30,12 +34,12 @@ const Nav = () => {
             <NavItem
               label="Create user"
               icon={<AddIconComponent />}
-              path={URLS.CREATE_USER}
+              path={ADMIN_URLS.CREATE_USER}
             />
             <NavItem
               label="Requests"
               icon={<QuestionIconComponent />}
-              path={URLS.INQUIRIES}
+              path={ADMIN_URLS.INQUIRIES}
             />
           </>
         )}
