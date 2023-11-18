@@ -12,7 +12,6 @@ import {
   auth,
   addDoc,
 } from "./firebase";
-import { makeId } from "../helpers/util.helper";
 
 export class DBService {
   static getDocumentsFromSnapshot(querySnapshot) {

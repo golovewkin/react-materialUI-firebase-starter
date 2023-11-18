@@ -22,7 +22,6 @@ const CreateInvitePage = () => {
         email,
         type: INQUIRY_TYPES.INVITE,
       });
-      const url = getInviteUrl(inquiry);
       const componentToShow = (
         <div>
           {getInviteUrl(inquiry)}{" "}
@@ -32,7 +31,7 @@ const CreateInvitePage = () => {
       showMessage("Here is the link to send", componentToShow);
       setEmail("");
     },
-    [setEmail],
+    [setEmail, showMessage],
   );
 
   const { loading, submit } = useSubmit({
