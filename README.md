@@ -43,19 +43,18 @@ View Updates are BEFORE the request. For users it looks like our app is really f
    2. Get your admin data id
    3. Setup firestore rules (see firebase.rules.example)
 10. npm start
-11. How to create a user
-    1. Via a user request
+11. How to create a user (3 ways)
+    1. Admin creates a user via script (node user-create-script.js user-email)
+    2. Via a user request
        1. User sends a request
        2. Admin approves it
        3. Admin creates a user via script (node user-create-script.js user-email)
        4. Admin send credentials to a user (any way)
-    2. admin approves this request and gets a link for login
-    3. admin gives this link to the user (can be done automatically via email, but it's in plans...)
-    4. user goes to the link and setup a pass
-    5. user can log in
-    6. if something went wrong just create a user via script
-       1. remove all data is connected to this user in DB and Firebase
-       2. node user-create-script.js user-email
+    3. Via an admin invite
+       1. Admin creates an invite
+       2. It gives you a link
+       3. Admin should give it to the user
+       4. User can create an account with this link
 12. Setup your landing page
 13. Deploy to Digital Ocean or a similar service
 14. Change DataBaseService according to your needs. It could be HTTP request to your server etc...
