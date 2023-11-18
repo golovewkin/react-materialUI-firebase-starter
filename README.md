@@ -1,7 +1,3 @@
-TODO delete user admin
-TODO forgot password check
-TODO deploy chceck
-
 ## When You need it
 When you want to create a small project really quick
 
