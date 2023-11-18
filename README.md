@@ -1,7 +1,7 @@
+TODO delete user admin
 TODO message popup with ability to copy
 TODO requires admin check pages
 TODO forgot password check
-TODO delete user
 TODO deploy chceck
 
 ## When You need it
