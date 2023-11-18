@@ -10,6 +10,7 @@ import TCell from "../../components/library-based-components/table/TCell";
 import DeleteIconComponent from "../../components/library-based-components/icons/DeleteIconComponent";
 import TableContainerComponent from "../../components/library-based-components/table/TableContainerComponent";
 import { USER_ROLES } from "../../constants/USER_ROLES";
+import ContentCopyIconComponent from "../../components/library-based-components/icons/ContentCopyIconComponent";
 
 export const AdminHome = ({ data }) => {
   const auth = useAuth();
@@ -31,7 +32,10 @@ export const AdminHome = ({ data }) => {
       return {
         id: user.id,
         components: [
-          <TCell key={user.id + 1}>{user.firebaseId}</TCell>,
+          <TCell key={user.id + 1}>
+            {user.firebaseId}{" "}
+            <ContentCopyIconComponent copy={user.firebaseId} />
+          </TCell>,
           <TCell key={user.id + 2}>{user.name}</TCell>,
           <TCell key={user.id + 5}>
             <DeleteIconComponent
