@@ -7,14 +7,18 @@ import FormComponent from "../../../components/utils/FormComponent";
 import useSubmit from "../../../components/hooks/useSubmit";
 import { InquiryModel } from "../../../models/InquiryModel";
 import { INQUIRY_TYPES } from "../../../constants/INQUIRY";
+import { useShowError } from "../../../providers/ShowErrorProvider";
 
 const CreateInvitePage = () => {
   const [email, setEmail] = useState("");
+  const showError = useShowError();
 
   const sendRequest = useCallback(
     async (email) => {
-      await InquiryModel.create({ email, type: INQUIRY_TYPES.INVITE });
+      // await InquiryModel.create({ email, type: INQUIRY_TYPES.INVITE });
       // TODO show a link
+      throw "444";
+      showError("fdfd", <b>aaaa</b>);
       setEmail("");
     },
     [setEmail],

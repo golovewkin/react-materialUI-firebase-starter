@@ -9,8 +9,9 @@ export const ShowErrorProvider = ({ children }) => {
     message: "",
   });
 
-  const showError = useCallback((message, error) => {
-    setError({ title: message, message: error.message, open: true });
+  const showError = useCallback((title, message) => {
+    const messageToShow = message.message ? message.message : message;
+    setError({ title, message: messageToShow, open: true });
   }, []);
 
   return (
