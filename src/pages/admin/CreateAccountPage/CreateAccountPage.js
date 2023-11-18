@@ -30,7 +30,13 @@ const CreateAccountPage = () => {
 
   return (
     <div className="CreateAccountPage">
-      <div className="CreateAccountPage__title">Create a user account</div>
+      <div className="CreateAccountPage__title">
+        Create a user account
+        <br />
+        (You will login as this user, but this is how firebase works 🙄)
+        <br />
+        Just sign out and sign in as an admin again
+      </div>
       <FormComponent
         className="CreateAccountPage__wrapper"
         onSubmit={() => submit(email)}

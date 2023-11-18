@@ -1,3 +1,5 @@
+TODO explain how to create a user
+TODO inquiry set status
 TODO delete user admin
 TODO timer for requests
 TODO message popup with ability to copy
