@@ -6,9 +6,9 @@ This project works as a static website after you build it
 React 18, material ui, firebase auth, firebase firestore with NO SERVER CODE (just 2 scripts 😉)
 
 ## What you will get:
-1. Admin panel
-2. Mini Entity framework with ability to save to firebase
-3. Ability to create an admin
+1. Easy hosting (Digital Ocean, for example)
+2. Admin panel
+3. Mini Entity framework with ability to save to firebase
 4. 'Settings' and 'Home' page for users
 5. Users can login via email ONLY in this version
 6. Reset password functionality out of the box
