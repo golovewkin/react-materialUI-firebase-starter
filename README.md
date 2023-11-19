@@ -47,7 +47,6 @@ React 18, material ui, firebase auth, firebase firestore with NO SERVER CODE (ju
        4. User can create an account with this link
 12. Setup your landing page
 13. Deploy to Digital Ocean or a similar service
-14. Change DataBaseService according to your needs. It could be HTTP request to your server etc...
 
 ## Note
 This project is just a starting point, you can change/add yourself:
@@ -57,5 +56,4 @@ This project is just a starting point, you can change/add yourself:
 4. Pagination in data queries
 5. An email service for users creation
 6. Only webpack without create-react-app
-7. Switch to any DB storage
-8. Better accessibility
+7. Better accessibility
