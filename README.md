@@ -59,4 +59,5 @@ This project is just a starting point, you can add yourself:
 3. Google recaptcha but it requires a server or cloud functions. Maybe Firebase reCAPTCHA?
 4. Pagination in data queries
 5. An email service for users creation
-6. Better accessibility
+6. Only webpack without create-react-app
+7. Better accessibility
