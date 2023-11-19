@@ -1,5 +1,5 @@
 ## When You need it
-When you want to create a small project really quick and you don't want complications with deploy and hosting
+When you want to create a small project really quick and you don't want complications with deploy and hosting.
 This project works as a static website after you build it
 
 ## What is inside
