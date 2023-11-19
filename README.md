@@ -1,22 +1,19 @@
 ## When You need it
-When you want to create a small project really quick
+When you want to create a small project really quick and you don't want complications with deploy and hosting
+This project works as a static website after you build it
 
 ## What is inside
-React 18, material ui, firebase auth, firebase firestore with NO SERVER CODE AT ALL.
-View Updates are BEFORE the request. For users it looks like our app is really fast 😉
+React 18, material ui, firebase auth, firebase firestore with NO SERVER CODE (just 2 scripts 😉)
 
 ## What you will get:
 1. Admin panel
 2. Mini Entity framework with ability to save to firebase
 3. Ability to create an admin
-4. Ability to create a user as an admin
-5. Admin can manage users (create, remove)
-6. 'Settings' and 'Home' page for users
-7. Users can send a request to get the access
-8. Users can login via email ONLY in this version
-9. Reset password functionality out of the box
-10. Landing page template
-11. Now it uses Firebase as a db, but there could be any requests to any DB via HTTP etc...
+4. 'Settings' and 'Home' page for users
+5. Users can login via email ONLY in this version
+6. Reset password functionality out of the box
+7. Landing page template
+8. Now it uses Firebase as a db, but there could be any requests to any DB or via HTTP and switching should go smoothly
 
 
 ##  Steps to launch the project (Yes, it's a little complicated 🥺:
@@ -53,11 +50,12 @@ View Updates are BEFORE the request. For users it looks like our app is really f
 14. Change DataBaseService according to your needs. It could be HTTP request to your server etc...
 
 ## Note
-This project is just a starting point, you can add yourself:
+This project is just a starting point, you can change/add yourself:
 1. Typescript
 2. Login with Google provider
 3. Google recaptcha but it requires a server or cloud functions. Maybe Firebase reCAPTCHA?
 4. Pagination in data queries
 5. An email service for users creation
 6. Only webpack without create-react-app
-7. Better accessibility
+7. Switch to any DB storage
+8. Better accessibility
