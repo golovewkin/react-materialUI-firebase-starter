@@ -16,7 +16,7 @@ React 18, material ui, firebase auth, firebase firestore with NO SERVER CODE (ju
 8. Now it uses Firebase as a db, but there could be any requests to any DB or via HTTP and switching should go smoothly
 
 
-##  Steps to launch the project (Yes, it's a little complicated 🥺:
+##  Steps to launch the project (Yes, it's a little complicated 🥺):
 
 1. Clone the project
 2. Create a firebase project
