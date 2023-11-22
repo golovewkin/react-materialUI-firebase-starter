@@ -28,7 +28,7 @@ React 18, material ui, firebase auth, firebase firestore with NO SERVER CODE (ju
 6. Change name in package.json and manifest.json
 7. Get a server config from firebase (Project settings -> server config ->generate new private key)
 8. Put your credential to /config/config.json considering config.example.json as an example
-9. run script to create an admin:
+9. run script to create an admin (after npm i):
    1. node admin-create-script.js your-email 
    2. Get your admin data id
    3. Setup firestore rules (see firebase.rules.example)
