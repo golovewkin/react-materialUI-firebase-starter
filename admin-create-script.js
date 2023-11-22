@@ -3,6 +3,10 @@ const config = require("./config/config.json");
 const generator = require("generate-password");
 const { getFirestore } = require("firebase-admin/firestore");
 
+const randomIntFromInterval = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+};
+
 admin.initializeApp({
   credential: admin.credential.cert(config.firebase),
   databaseURL: config.databaseURL,
@@ -12,10 +16,11 @@ const createAdmin = async (email) => {
   try {
     if (!email) throw new Error("no email!");
 
-    const password = generator.generate({
-      length: 12,
-      numbers: true,
-    });
+    const password =
+      generator.generate({
+        length: 12,
+        numbers: true,
+      }) + randomIntFromInterval(1, 20);
     const firebaseUser = await admin.auth().createUser({
       email,
       password,
