@@ -21,7 +21,7 @@ React 18, material ui, firebase auth, firebase firestore with NO SERVER CODE (ju
 1. Clone the project
 2. Create a firebase project
 3. Create Auth project inside your firebase project and set providers (email and Google)
-4. Create web app in your firebase project and get credentials
+4. Create web app in your firebase project and get credentials (it's in project settings)
     1. Put your credentials in .env.example and rename it to .env
     2. Create firestore database storage
 5. Change title in index.html and favicons
