@@ -25,7 +25,7 @@ React 18, material ui, firebase auth, firebase firestore with NO SERVER CODE (ju
     1. Put your credentials in .env.example and rename it to .env
     2. Create firestore database storage
 5. Change title in index.html and favicons
-6. Change name in package.json
+6. Change name in package.json and manifest.json
 7. Get a server config from firebase (Project settings -> server config ->generate new private key)
 8. Put your credential to /config/config.json considering config.example.json as an example
 9. run script to create an admin:
