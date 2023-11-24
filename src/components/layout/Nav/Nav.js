@@ -30,7 +30,6 @@ const Nav = () => {
         />
         {auth.user.role === USER_ROLES.ADMIN && (
           <>
-            {" "}
             <NavItem
               label="Create an invite"
               icon={<AddIconComponent />}
