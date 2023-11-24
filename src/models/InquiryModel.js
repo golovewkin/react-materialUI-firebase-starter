@@ -9,6 +9,7 @@ export class InquiryModel extends EntityModel {
     super(inquiry);
     this.email = inquiry.email;
     this.status = inquiry.status;
+    this.firebaseId = inquiry.firebaseId;
     this.type = inquiry.type;
   }
 
@@ -18,6 +19,9 @@ export class InquiryModel extends EntityModel {
     }
     if (!inquiry.status) {
       throw new Error("no status");
+    }
+    if (!inquiry.firebaseId) {
+      throw new Error("no firebaseId");
     }
 
     if (
