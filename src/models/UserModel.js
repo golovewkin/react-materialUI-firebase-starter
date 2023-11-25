@@ -10,7 +10,6 @@ export class UserModel extends EntityModel {
     super(user);
     this.name = user.name || "My name";
     this.firebaseId = user.firebaseId;
-    this.id = user.id;
     this.pic = user.pic || COMMON.NO_PIC_USER;
     this.role = user.role || USER_ROLES.USER;
   }
