@@ -9,6 +9,7 @@ import {
   where,
   deleteDoc,
   createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
   auth,
   addDoc,
 } from "./firebase";
@@ -75,6 +76,10 @@ export class DBService {
 
   static removeDocument(collectionName, id) {
     return deleteDoc(doc(db, collectionName, id));
+  }
+
+  static async sendPasswordResetEmail(email) {
+    return sendPasswordResetEmail(auth, email);
   }
 
   static async createUserByEmailAndPassword({ email, password }) {

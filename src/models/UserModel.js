@@ -23,6 +23,10 @@ export class UserModel extends EntityModel {
     }
   }
 
+  static async resetPass(email) {
+    return DBService.sendPasswordResetEmail(email);
+  }
+
   /**
    * This will login user automatically>}
    */

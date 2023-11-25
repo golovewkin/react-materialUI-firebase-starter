@@ -18,6 +18,7 @@ const InquiriesPage = lazy(
   () => import("./pages/admin/InquiriesPage/InquiriesPage"),
 );
 const AcceptInvitePage = lazy(() => import("./pages/public/AcceptInvitePage"));
+const ResetPassPage = lazy(() => import("./pages/public/ResetPassPage"));
 
 export const UserRoutes = () => {
   const auth = useAuth();
@@ -37,7 +38,8 @@ export const UserRoutes = () => {
           <Route
             path={PUBLIC_URLS.SEND_REQUEST}
             element={<SendRequestPage />}
-          />
+          />{" "}
+          <Route path={PUBLIC_URLS.RESET_PASS} element={<ResetPassPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>

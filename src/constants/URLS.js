@@ -7,6 +7,7 @@ export const PUBLIC_URLS = {
   HOME: "/",
   SEND_REQUEST: "/sendRequest",
   ACCEPT_INVITE: "/acceptInvite",
+  RESET_PASS: "/resetPass",
 };
 
 export const ADMIN_URLS = {
