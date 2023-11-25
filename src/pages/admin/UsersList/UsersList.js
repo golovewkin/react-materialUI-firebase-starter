@@ -38,7 +38,7 @@ const UsersList = ({ data }) => {
             <ContentCopyIconComponent copy={user.firebaseId} />
           </TCell>,
           <TCell key={user.id + 2}>{user.name}</TCell>,
-          <TCell key={user.id + 5}>
+          <TCell key={user.id + 3}>
             <DeleteIconComponent
               onClick={() => showConfirm(() => removeUser(user))}
             />
