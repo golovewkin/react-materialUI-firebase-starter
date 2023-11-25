@@ -78,6 +78,8 @@ export class DBService {
   }
 
   static async createUserByEmailAndPassword({ email, password }) {
+    // This falls with 'FirebaseError: Missing or insufficient permissions.' even it's open
+    // for everyone
     const firebaseUser = await createUserWithEmailAndPassword(
       auth,
       email,
