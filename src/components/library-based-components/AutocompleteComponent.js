@@ -6,6 +6,7 @@ const AutocompleteComponent = ({
   onChange,
   style = {},
   value = "",
+  label = "Search",
 }) => {
   const currentValue = options.find((item) => item.id === value);
 
@@ -19,7 +20,7 @@ const AutocompleteComponent = ({
       getOptionLabel={(option) => option.label || ""}
       style={{ width: "100%", ...style }}
       renderInput={(params) => (
-        <TextField variant="standard" {...params} label="Search" />
+        <TextField variant="standard" {...params} label={label} />
       )}
     />
   );
