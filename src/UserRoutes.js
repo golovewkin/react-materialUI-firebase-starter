@@ -20,8 +20,8 @@ const UserHome = lazy(() => import("./pages/user/UserHome"));
 const SendRequestPage = lazy(
   () => import("./pages/public/SendRequestPage/SendRequestPage"),
 );
-const AdminInquiriesPage = lazy(
-  () => import("./pages/admin/AdminInquiriesPage/AdminInquiriesPage"),
+const InquiriesPage = lazy(
+  () => import("./pages/admin/InquiriesPage/InquiriesPage"),
 );
 const AcceptInvitePage = lazy(
   () => import("./pages/public/AcceptInvitePage/AcceptInvitePage"),
@@ -60,7 +60,7 @@ export const UserRoutes = () => {
             path={ADMIN_URLS.CREATE_INVITE}
             element={<CreateAccountPage />}
           />
-          <Route path={ADMIN_URLS.INQUIRIES} element={<AdminInquiriesPage />} />
+          <Route path={ADMIN_URLS.INQUIRIES} element={<InquiriesPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
