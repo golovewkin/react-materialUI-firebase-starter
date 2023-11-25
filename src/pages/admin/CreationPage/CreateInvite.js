@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from "react";
-import "./style.scss";
 import ButtonComponent from "../../../components/library-based-components/ButtonComponent/ButtonComponent";
 import TextFieldComponent from "../../../components/library-based-components/TextFieldComponent";
 import { validEmail } from "../../../helpers/validator.helper";
@@ -11,7 +10,7 @@ import { useShowMessage } from "../../../providers/ShowMessageProvider";
 import { getInviteUrl } from "../../../helpers/util.helper";
 import ContentCopyIconComponent from "../../../components/library-based-components/icons/ContentCopyIconComponent";
 
-const CreateInvitePage = () => {
+const CreateInvite = () => {
   const [email, setEmail] = useState("");
   const showMessage = useShowMessage();
 
@@ -44,8 +43,8 @@ const CreateInvitePage = () => {
   }, []);
 
   return (
-    <div className="CreateInvitePage">
-      <div className="CreateInvitePage__title">Create an invite</div>
+    <div className="CreateInvite">
+      <div className="CreateInvite__title">Create an invite</div>
       <ol>
         <li>Create an invite</li>
         <li>It gives you a link</li>
@@ -53,7 +52,7 @@ const CreateInvitePage = () => {
         <li>Remove this Inquiry on the Inquiries page</li>
       </ol>
       <FormComponent
-        className="CreateInvitePage__wrapper"
+        className="CreateInvite__wrapper"
         onSubmit={() => submit(email)}
       >
         <TextFieldComponent
@@ -71,4 +70,4 @@ const CreateInvitePage = () => {
   );
 };
 
-export default CreateInvitePage;
+export default CreateInvite;

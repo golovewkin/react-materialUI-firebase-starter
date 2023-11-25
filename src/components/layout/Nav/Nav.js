@@ -31,9 +31,9 @@ const Nav = () => {
         {auth.user.role === USER_ROLES.ADMIN && (
           <>
             <NavItem
-              label="Create an invite"
+              label="Creation"
               icon={<AddIconComponent />}
-              path={ADMIN_URLS.CREATE_INVITE}
+              path={ADMIN_URLS.CREATION}
             />
             <NavItem
               label="Requests"
