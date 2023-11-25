@@ -43,8 +43,8 @@ const CreateInvite = () => {
   }, []);
 
   return (
-    <div className="CreateInvite">
-      <div className="CreateInvite__title">Create an invite</div>
+    <div className="App-page">
+      <div className="App-page__title">Create an invite</div>
       <ol>
         <li>Create an invite</li>
         <li>It gives you a link</li>
@@ -52,7 +52,7 @@ const CreateInvite = () => {
         <li>Remove this Inquiry on the Inquiries page</li>
       </ol>
       <FormComponent
-        className="CreateInvite__wrapper"
+        className="App-page__wrapper"
         onSubmit={() => submit(email)}
       >
         <TextFieldComponent

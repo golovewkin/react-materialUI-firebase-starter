@@ -6,9 +6,7 @@ import PublicContent from "./components/layout/PublicContent/PublicContent";
 import { useAuth } from "./providers/AuthProvider";
 import Loader from "./components/utils/Loader";
 const ErrorPage = lazy(() => import("./pages/ErrorPage"));
-const SettingsPage = lazy(
-  () => import("./pages/user/SettingsPage/SettingsPage.js"),
-);
+const SettingsPage = lazy(() => import("./pages/user/SettingsPage.js"));
 const LoginPage = lazy(() => import("./pages/public/LoginPage"));
 const LandingPage = lazy(() => import("./pages/public/LandingPage"));
 const CreationPage = lazy(
