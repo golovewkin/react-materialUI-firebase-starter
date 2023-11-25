@@ -27,6 +27,7 @@ const LoginPage = () => {
 
   const { loading, submit } = useSubmit({
     sendRequest,
+    noMessage: true,
   });
 
   const isDisabled = useCallback((state) => {
