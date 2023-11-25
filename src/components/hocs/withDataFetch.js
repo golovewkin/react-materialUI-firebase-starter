@@ -5,7 +5,9 @@ import { COMMON } from "../../constants/COMMON";
 
 const withDataFetch = (Component) => (props) => {
   const { getData, queryKey } = props;
-
+  if (!getData) {
+    throw new Error("no getData function");
+  }
   const query = useQuery({ queryKey: [queryKey], queryFn: getData });
 
   if (query.isError) {
