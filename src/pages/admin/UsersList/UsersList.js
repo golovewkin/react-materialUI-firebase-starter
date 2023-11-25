@@ -40,7 +40,12 @@ const UsersList = ({ data }) => {
           <TCell key={user.id + 2}>{user.name}</TCell>,
           <TCell key={user.id + 3}>
             <DeleteIconComponent
-              onClick={() => showConfirm(() => removeUser(user))}
+              onClick={() =>
+                showConfirm(
+                  () => removeUser(user),
+                  "Are you sure you want to remove this user?",
+                )
+              }
             />
           </TCell>,
         ],

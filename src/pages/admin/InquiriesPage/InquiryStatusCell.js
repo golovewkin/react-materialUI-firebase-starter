@@ -21,7 +21,11 @@ const InquiryStatusCell = ({ item, doneRequest, removeRequest }) => {
           <CircleIconComponent disabled />
         </>
       )}
-      <DeleteIconComponent onClick={() => showConfirm(removeRequest)} />
+      <DeleteIconComponent
+        onClick={() =>
+          showConfirm(removeRequest, "Are you sure you want to remove this?")
+        }
+      />
     </div>
   );
 };
