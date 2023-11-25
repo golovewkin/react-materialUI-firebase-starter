@@ -9,32 +9,19 @@ const InquiryStatusCell = ({ item, doneRequest, removeRequest }) => {
   const showConfirm = useShowConfirm();
 
   const status = item.status;
-  const type = item.type;
   return (
     <div>
-      {type === INQUIRY_TYPES.REQUEST && (
+      {status === INQUIRY_STATUSES.CREATED && (
         <>
-          {status === INQUIRY_STATUSES.CREATED && (
-            <>
-              <EmptyCircleIconComponent
-                onClick={() => showConfirm(doneRequest)}
-              />
-            </>
-          )}
-          {status === INQUIRY_STATUSES.DONE && (
-            <>
-              <CircleIconComponent disabled />
-              <DeleteIconComponent onClick={() => showConfirm(removeRequest)} />
-            </>
-          )}
+          <EmptyCircleIconComponent onClick={() => showConfirm(doneRequest)} />
         </>
       )}
-      {type === INQUIRY_TYPES.INVITE && (
+      {status === INQUIRY_STATUSES.DONE && (
         <>
-          {status === INQUIRY_STATUSES.DONE && <CircleIconComponent disabled />}
-          <DeleteIconComponent onClick={() => showConfirm(removeRequest)} />
+          <CircleIconComponent disabled />
         </>
       )}
+      <DeleteIconComponent onClick={() => showConfirm(removeRequest)} />
     </div>
   );
 };
