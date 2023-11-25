@@ -10,9 +10,7 @@ const SettingsPage = lazy(
   () => import("./pages/user/SettingsPage/SettingsPage.js"),
 );
 const LoginPage = lazy(() => import("./pages/public/LoginPage"));
-const LandingPage = lazy(
-  () => import("./pages/public/LandingPage/LandingPage"),
-);
+const LandingPage = lazy(() => import("./pages/public/LandingPage"));
 const CreationPage = lazy(
   () => import("./pages/admin/CreationPage/CreationPage"),
 );
@@ -21,9 +19,7 @@ const SendRequestPage = lazy(() => import("./pages/public/SendRequestPage"));
 const InquiriesPage = lazy(
   () => import("./pages/admin/InquiriesPage/InquiriesPage"),
 );
-const AcceptInvitePage = lazy(
-  () => import("./pages/public/AcceptInvitePage/AcceptInvitePage"),
-);
+const AcceptInvitePage = lazy(() => import("./pages/public/AcceptInvitePage"));
 
 export const UserRoutes = () => {
   const auth = useAuth();

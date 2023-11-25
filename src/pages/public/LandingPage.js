@@ -1,11 +1,10 @@
 import React from "react";
-import { PUBLIC_URLS } from "../../../constants/URLS";
-import "./style.scss";
-import LinkComponent from "../../../components/library-based-components/Link/LinkComponent";
+import { PUBLIC_URLS } from "../../constants/URLS";
+import LinkComponent from "../../components/library-based-components/Link/LinkComponent";
 
 const LandingPage = () => {
   return (
-    <section className="LandingPage">
+    <section className="text-center">
       <p>
         Hello, This is a Landing page for a{" "}
         <LinkComponent

@@ -1,16 +1,15 @@
 import React, { useCallback, useState } from "react";
-import "./style.scss";
-import ButtonComponent from "../../../components/library-based-components/ButtonComponent/ButtonComponent";
-import TextFieldComponent from "../../../components/library-based-components/TextFieldComponent";
-import { validEmail, validPassword } from "../../../helpers/validator.helper";
-import FormComponent from "../../../components/utils/FormComponent";
-import { UserModel } from "../../../models/UserModel";
-import useSubmit from "../../../components/hooks/useSubmit";
-import { setFormState } from "../../../helpers/form.helper";
+import ButtonComponent from "../../components/library-based-components/ButtonComponent/ButtonComponent";
+import TextFieldComponent from "../../components/library-based-components/TextFieldComponent";
+import { validEmail, validPassword } from "../../helpers/validator.helper";
+import FormComponent from "../../components/utils/FormComponent";
+import { UserModel } from "../../models/UserModel";
+import useSubmit from "../../components/hooks/useSubmit";
+import { setFormState } from "../../helpers/form.helper";
 import { useParams } from "react-router-dom";
-import { InquiryModel } from "../../../models/InquiryModel";
-import { PUBLIC_URLS } from "../../../constants/URLS";
-import LinkComponent from "../../../components/library-based-components/Link/LinkComponent";
+import { InquiryModel } from "../../models/InquiryModel";
+import { PUBLIC_URLS } from "../../constants/URLS";
+import LinkComponent from "../../components/library-based-components/Link/LinkComponent";
 
 const AcceptInvitePage = () => {
   const params = useParams();
@@ -38,8 +37,8 @@ const AcceptInvitePage = () => {
   }, []);
 
   return (
-    <div className="AcceptInvitePage">
-      <div className="AcceptInvitePage__title">
+    <div className="App-page">
+      <div className="App-page__title">
         Accept an invite and create a user account
         <br />
         <LinkComponent
@@ -48,7 +47,7 @@ const AcceptInvitePage = () => {
         />
       </div>
       <FormComponent
-        className="AcceptInvitePage__wrapper"
+        className="App-page__wrapper"
         onSubmit={() => submit(state)}
       >
         <TextFieldComponent
