@@ -22,7 +22,6 @@ export class EntityModel {
   }
 
   static async getById(id) {
-    debugger;
     const entityData = await DBService.getDocumentById(id, this.collection);
     return new this(entityData);
   }
