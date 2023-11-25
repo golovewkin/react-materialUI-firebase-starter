@@ -8,7 +8,12 @@ import {
   DialogTitle,
 } from "@mui/material";
 
-const ConfirmationPopup = ({ open, onClose, onSuccess }) => {
+const ConfirmationPopup = ({
+  open,
+  onClose,
+  onSuccess,
+  message = "Are you 100% Sure?",
+}) => {
   return (
     <div style={{ minWidth: 300 }}>
       <Dialog
@@ -22,7 +27,7 @@ const ConfirmationPopup = ({ open, onClose, onSuccess }) => {
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Are you 100% Sure?
+            {message}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
