@@ -41,14 +41,6 @@ export class UserModel extends EntityModel {
     return DBService.saveDocumentById(this, UserModel.collection);
   }
 
-  static async getById(id) {
-    const entityData = await DBService.getDocumentById(
-      id,
-      UserModel.collection,
-    );
-    return new UserModel(entityData);
-  }
-
   static async deleteEntity(id) {
     return DBService.removeDocument(UserModel.collection, id);
   }

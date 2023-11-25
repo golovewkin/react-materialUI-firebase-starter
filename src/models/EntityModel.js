@@ -1,3 +1,5 @@
+import { DBService } from "../services/DBService";
+
 export class EntityModel {
   static collection = "";
   constructor(entity) {
@@ -17,6 +19,12 @@ export class EntityModel {
 
   copy() {
     return Object.assign(Object.create(Object.getPrototypeOf(this)), this);
+  }
+
+  static async getById(id) {
+    debugger;
+    const entityData = await DBService.getDocumentById(id, this.collection);
+    return new this(entityData);
   }
 
   toString() {

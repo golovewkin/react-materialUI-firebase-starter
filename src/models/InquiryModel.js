@@ -64,14 +64,6 @@ export class InquiryModel extends EntityModel {
     return DBService.saveDocumentById(this, InquiryModel.collection);
   }
 
-  static async getById(id) {
-    const entityData = await DBService.getDocumentById(
-      id,
-      InquiryModel.collection,
-    );
-    return new InquiryModel(entityData);
-  }
-
   static async deleteEntity(id) {
     return DBService.removeDocument(InquiryModel.collection, id);
   }
