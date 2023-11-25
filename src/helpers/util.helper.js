@@ -27,3 +27,7 @@ export const getInviteUrl = (inquiry) => {
 export const transformForAutoComplete = (data, prop) => {
   return data.map((item) => ({ id: item.id, label: item[prop] }));
 };
+
+export const capitalizeFirstLetter = (str) => {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+};
