@@ -23,3 +23,7 @@ export const isUserURL = (pathname) => {
 export const getInviteUrl = (inquiry) => {
   return `${PUBLIC_URLS.ACCEPT_INVITE}/${inquiry.id}`;
 };
+
+export const transformForAutoComplete = (data, prop) => {
+  return data.map((item) => ({ id: item.id, label: item[prop] }));
+};
