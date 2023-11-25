@@ -27,13 +27,11 @@ export class DBService {
 
   static async createDocument(model, collectionName, getModelCb) {
     const newDocRef = doc(collection(db, collectionName));
-    debugger;
     const newModel = getModelCb({
       ...model,
       id: newDocRef.id,
       firebaseId: newDocRef.id,
     });
-    debugger;
     await setDoc(newDocRef, newModel.toString());
     return newModel;
   }
