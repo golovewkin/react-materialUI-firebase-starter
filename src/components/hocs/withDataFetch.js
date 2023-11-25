@@ -23,7 +23,7 @@ const withDataFetch = (Component) => (props) => {
     return <Loader />;
   }
 
-  if (!query.data || !query.data.length) {
+  if (!query.data) {
     return <div>Data is empty.</div>;
   }
 
