@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import React from "react";
 import { PUBLIC_URLS } from "../../../constants/URLS";
 import "./style.scss";
@@ -9,12 +8,12 @@ const LandingPage = () => {
     <section className="LandingPage">
       <p>
         Hello, This is a Landing page for a{" "}
-        <Link
+        <LinkComponent
           to={"https://github.com/golovewkin/react-firebase-starter"}
           target={"_blank"}
         >
           react-firebase-starter
-        </Link>
+        </LinkComponent>
       </p>
       <p>Contact with me if you have any ideas how to develop this project</p>
       <p>Sorry, in this version only admin can create users 😥</p>
