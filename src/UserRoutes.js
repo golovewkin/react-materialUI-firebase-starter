@@ -9,7 +9,7 @@ const ErrorPage = lazy(() => import("./pages/ErrorPage"));
 const SettingsPage = lazy(
   () => import("./pages/user/SettingsPage/SettingsPage.js"),
 );
-const LoginPage = lazy(() => import("./pages/public/LoginPage/LoginPage"));
+const LoginPage = lazy(() => import("./pages/public/LoginPage"));
 const LandingPage = lazy(
   () => import("./pages/public/LandingPage/LandingPage"),
 );
@@ -17,9 +17,7 @@ const CreationPage = lazy(
   () => import("./pages/admin/CreationPage/CreationPage"),
 );
 const UserHome = lazy(() => import("./pages/user/UserHome"));
-const SendRequestPage = lazy(
-  () => import("./pages/public/SendRequestPage/SendRequestPage"),
-);
+const SendRequestPage = lazy(() => import("./pages/public/SendRequestPage"));
 const InquiriesPage = lazy(
   () => import("./pages/admin/InquiriesPage/InquiriesPage"),
 );
