@@ -8,7 +8,7 @@ const AutocompleteComponent = ({
   value = "",
 }) => {
   const currentValue = options.find((item) => item.id === value);
-  console.log(currentValue);
+
   return (
     <Autocomplete
       id="AutocompleteComponent"
