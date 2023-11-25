@@ -23,8 +23,8 @@ export const ShowConfirmProvider = ({ children }) => {
   const onSuccess = useCallback(
     async (cb) => {
       try {
-        await cb();
         setOpen(false);
+        await cb();
         callBack.current = null;
         messageRef.current = "";
       } catch (e) {
