@@ -1,23 +1,22 @@
 import React from "react";
-import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
-import Select from "@material-ui/core/Select";
-import MenuItem from "@material-ui/core/MenuItem";
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
+import { FormControl, InputLabel } from "@mui/material";
 
-const SelectComponent = ({ onChange, value, values }) => {
+const SelectComponent = ({ onChange, value, values, label }) => {
   return (
-    <FormControl style={{ marginTop: 15 }}>
-      <InputLabel id="VSelect">Group</InputLabel>
+    <FormControl fullWidth style={{ marginTop: 15 }}>
+      <InputLabel id="simple-select-label">{label}</InputLabel>
       <Select
-        labelId="VSelect"
-        id="VSelect-select"
+        labelId="simple-select-label"
+        id="simple-select"
         value={value}
-        error={!value}
+        label={label}
         onChange={(e) => onChange(e.target.value)}
       >
         {values.map((value) => (
           <MenuItem key={value.id} value={value.id}>
-            {value.name}
+            {value.label}
           </MenuItem>
         ))}
       </Select>
