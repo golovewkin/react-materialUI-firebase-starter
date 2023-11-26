@@ -3,12 +3,12 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { FormControl, InputLabel } from "@mui/material";
 
-const SelectComponent = ({ onChange, value, values, label }) => {
+const SelectComponent = ({ onChange, value, values, label, id }) => {
   return (
     <FormControl fullWidth style={{ marginTop: 15 }}>
-      <InputLabel id="simple-select-label">{label}</InputLabel>
+      <InputLabel id={id}>{label}</InputLabel>
       <Select
-        labelId="simple-select-label"
+        labelId={id}
         id="simple-select"
         value={value}
         label={label}
