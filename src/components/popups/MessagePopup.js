@@ -4,7 +4,6 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
-  DialogContentText,
   DialogTitle,
 } from "@mui/material";
 
@@ -19,9 +18,7 @@ const MessagePopup = ({ open, setOpen, title, message }) => {
       >
         <DialogTitle>{title ?? "Something went wrong..."}</DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            <span style={{ wordBreak: "break-all" }}>{message}</span>
-          </DialogContentText>
+          <section style={{ wordBreak: "break-all" }}>{message}</section>
         </DialogContent>
         <DialogActions>
           <ButtonComponent onClick={() => setOpen(false)}>ok</ButtonComponent>
