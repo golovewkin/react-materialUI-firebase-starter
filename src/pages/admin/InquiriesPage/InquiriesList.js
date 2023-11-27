@@ -9,15 +9,18 @@ import useSubmit from "../../../components/hooks/useSubmit";
 import InquiryStatusCell from "./InquiryStatusCell";
 import { INQUIRY_STATUSES, INQUIRY_TYPES } from "../../../constants/INQUIRY";
 import ContentCopyIconComponent from "../../../components/library-based-components/icons/ContentCopyIconComponent";
+import { useSnack } from "../../../providers/SnackProvider";
 
 const InquiriesList = ({ data }) => {
   const [state, setState] = useState(clone(data));
+  const showSnack = useSnack();
 
   const { submit: removeRequest } = useSubmit({
     sendRequest: async (itemId) => {
       setState((oldState) => {
         return oldState.filter(({ id }) => id !== itemId);
       });
+      showSnack("Done!");
       await InquiryModel.deleteEntity(itemId);
     },
   });
@@ -33,6 +36,7 @@ const InquiriesList = ({ data }) => {
           return item;
         });
       });
+      showSnack("Done!");
 
       const inquiry = new InquiryModel(inquiryItem);
       inquiry.setStatus(newStatus);
