@@ -6,7 +6,7 @@ import FormComponent from "../../../components/utils/FormComponent";
 import useSubmit from "../../../components/hooks/useSubmit";
 import { InquiryModel } from "../../../models/InquiryModel";
 import { INQUIRY_TYPES } from "../../../constants/INQUIRY";
-import { useShowMessage } from "../../../providers/ShowMessageProvider";
+import { useShowMessage } from "../../../providers/ShowCommonPopupProvider";
 import { getInviteUrl } from "../../../helpers/util.helper";
 import ContentCopyIconComponent from "../../../components/library-based-components/icons/ContentCopyIconComponent";
 

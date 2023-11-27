@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { LogService } from "../../services/LogService";
-import { useShowMessage } from "../../providers/ShowMessageProvider";
+// import { useShowMessage } from "../../providers/ShowCommonPopupProvider";
 import { useSnack } from "../../providers/SnackProvider";
+import { useShowCommonPopup } from "../../providers/ShowCommonPopupProvider";
 
 const useSubmit = ({
   sendRequest,
   successMessage = "Success!",
   noMessage = false,
 }) => {
-  const showError = useShowMessage();
+  const showError = useShowCommonPopup();
   const showShack = useSnack();
   const [loading, setLoading] = useState(false);
 

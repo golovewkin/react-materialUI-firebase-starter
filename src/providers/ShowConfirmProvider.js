@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import ConfirmationPopup from "../components/popups/ConfirmationPopup";
 import { LogService } from "../services/LogService";
-import { useShowMessage } from "./ShowMessageProvider";
+import { useShowMessage } from "./ShowCommonPopupProvider";
 
 const ShowConfirmContext = React.createContext(null);
 
