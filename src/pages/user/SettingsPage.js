@@ -1,48 +1,34 @@
-import React, { useCallback } from "react";
-import ButtonComponent from "../../components/library-based-components/ButtonComponent/ButtonComponent";
-import TextFieldComponent from "../../components/library-based-components/TextFieldComponent";
-import { setFormState } from "../../helpers/form.helper";
+import React, { useCallback, useMemo } from "react";
 import { useAuth } from "../../providers/AuthProvider";
 import { UserModel } from "../../models/UserModel";
-import useSubmit from "../../components/hooks/useSubmit";
-import FormComponent from "../../components/utils/FormComponent";
 import { COMMON } from "../../constants/COMMON";
+import FormComponent from "../../components/library-based-components/FormComponent";
+import { useSnack } from "../../providers/SnackProvider";
 
 const SettingsPage = () => {
+  const showSnack = useSnack();
   const { user, setUser } = useAuth();
-  const [state, setState] = React.useState(user.copy());
 
   const sendRequest = useCallback(
-    async (newUser) => {
-      const userModel = new UserModel(newUser);
+    async ({ name }) => {
+      const userModel = new UserModel(user);
+      userModel.setName(name);
       setUser(userModel);
+      showSnack("Done!");
       await userModel.update();
     },
-    [setUser],
+    [setUser, user, showSnack],
   );
 
-  const { loading, submit } = useSubmit({
-    sendRequest,
-  });
-
+  const configState = useMemo(() => ({ name: user.name }), [user.name]);
   return (
     <div className="App-page">
       <div className="App-page__title">Edit Account Data</div>
       <FormComponent
-        className="App-page__wrapper"
-        onSubmit={() => submit(state)}
-      >
-        <TextFieldComponent
-          onChange={(value) => setFormState("name", value, setState)}
-          value={state.name}
-          type="name"
-          error={!state.name}
-          label="name"
-        />
-        <ButtonComponent disabled={!state.name} loading={loading} type="submit">
-          {COMMON.SUBMIT_WITH_ENTER_MESSAGE}
-        </ButtonComponent>
-      </FormComponent>
+        footerButtonLabel={COMMON.SUBMIT_WITH_ENTER_MESSAGE}
+        configState={configState}
+        sendRequest={sendRequest}
+      />
     </div>
   );
 };

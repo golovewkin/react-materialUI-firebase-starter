@@ -2,7 +2,7 @@ import React from "react";
 
 import { Outlet } from "react-router-dom";
 import { withErrorBoundary } from "../../hocs/withErrorBoundary";
-import Loader from "../../utils/Loader";
+import Loader from "../../library-based-components/Loader";
 
 const OutletWithErrorBoundary = () => {
   return (

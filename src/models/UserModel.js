@@ -39,6 +39,10 @@ export class UserModel extends EntityModel {
     await user.update();
   }
 
+  setName(name) {
+    this.name = name;
+  }
+
   update() {
     this.validate(this);
     return DBService.saveDocumentById(this, UserModel.collection);

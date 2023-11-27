@@ -4,7 +4,7 @@ import { ADMIN_URLS, PUBLIC_URLS, USER_URLS } from "./constants/URLS";
 import Content from "./components/layout/MainContent/MainContent";
 import PublicContent from "./components/layout/PublicContent/PublicContent";
 import { useAuth } from "./providers/AuthProvider";
-import Loader from "./components/utils/Loader";
+import Loader from "./components/library-based-components/Loader";
 const ErrorPage = lazy(() => import("./pages/ErrorPage"));
 const SettingsPage = lazy(() => import("./pages/user/SettingsPage.js"));
 const LoginPage = lazy(() => import("./pages/public/LoginPage"));

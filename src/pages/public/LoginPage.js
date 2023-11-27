@@ -1,22 +1,11 @@
-import React, { useCallback, useState } from "react";
-import ButtonComponent from "../../components/library-based-components/ButtonComponent/ButtonComponent";
-import TextFieldComponent from "../../components/library-based-components/TextFieldComponent";
-import { setFormState } from "../../helpers/form.helper";
+import React, { useCallback, useMemo } from "react";
 import { PUBLIC_URLS } from "../../constants/URLS";
 import LinkComponent from "../../components/library-based-components/Link/LinkComponent";
-import { validEmail, validPassword } from "../../helpers/validator.helper";
 import { useAuth } from "../../providers/AuthProvider";
-import useSubmit from "../../components/hooks/useSubmit";
-import FormComponent from "../../components/utils/FormComponent";
-import { COMMON } from "../../constants/COMMON";
+import FormComponent from "../../components/library-based-components/FormComponent";
 
 const LoginPage = () => {
   const auth = useAuth();
-  const [state, setState] = useState({
-    email: "",
-    password: "",
-  });
-
   const sendRequest = useCallback(
     async (params) => {
       await auth.signin(params);
@@ -24,45 +13,11 @@ const LoginPage = () => {
     [auth],
   );
 
-  const { loading, submit } = useSubmit({
-    sendRequest,
-    noMessage: true,
-  });
-
-  const isDisabled = useCallback((state) => {
-    if (!validEmail(state.email)) return true;
-    if (!validPassword(state.password)) return true;
-    return false;
-  }, []);
-
+  const configState = useMemo(() => ({ email: "", password: "" }), []);
   return (
     <div className="App-page">
       <div className="App-page__title">Sign in</div>
-      <FormComponent
-        className="App-page__wrapper"
-        onSubmit={() => submit(state)}
-      >
-        <TextFieldComponent
-          onChange={(value) => setFormState("email", value, setState)}
-          value={state.email}
-          type="email"
-          label="email"
-          error={!validEmail(state.email)}
-        />
-        <TextFieldComponent
-          onChange={(value) => setFormState("password", value, setState)}
-          value={state.password}
-          type="password"
-          label="password"
-          error={!validPassword(state.password)}
-        />
-        <ButtonComponent
-          type="submit"
-          loading={loading}
-          disabled={isDisabled(state)}
-        >
-          {COMMON.SUBMIT_WITH_ENTER_MESSAGE}
-        </ButtonComponent>
+      <FormComponent configState={configState} sendRequest={sendRequest}>
         <div className="App-page__links">
           <LinkComponent
             to={PUBLIC_URLS.RESET_PASS}

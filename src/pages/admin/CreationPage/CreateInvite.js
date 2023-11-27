@@ -1,21 +1,16 @@
-import React, { useCallback, useState } from "react";
-import ButtonComponent from "../../../components/library-based-components/ButtonComponent/ButtonComponent";
-import TextFieldComponent from "../../../components/library-based-components/TextFieldComponent";
-import { validEmail } from "../../../helpers/validator.helper";
-import FormComponent from "../../../components/utils/FormComponent";
-import useSubmit from "../../../components/hooks/useSubmit";
+import React, { useCallback, useMemo } from "react";
 import { InquiryModel } from "../../../models/InquiryModel";
 import { INQUIRY_TYPES } from "../../../constants/INQUIRY";
 import { getInviteUrl } from "../../../helpers/util.helper";
 import ContentCopyIconComponent from "../../../components/library-based-components/icons/ContentCopyIconComponent";
 import { useShowCommonPopup } from "../../../providers/ShowCommonPopupProvider";
+import FormComponent from "../../../components/library-based-components/FormComponent";
 
 const CreateInvite = () => {
-  const [email, setEmail] = useState("");
   const showMessage = useShowCommonPopup();
 
   const sendRequest = useCallback(
-    async (email) => {
+    async ({ email }) => {
       const inquiry = await InquiryModel.create({
         message: "Created by admin",
         email,
@@ -31,20 +26,11 @@ const CreateInvite = () => {
         title: "Here is the link to send",
         content: componentToShow,
       });
-      setEmail("");
     },
-    [setEmail, showMessage],
+    [showMessage],
   );
 
-  const { loading, submit } = useSubmit({
-    sendRequest,
-  });
-
-  const isDisabled = useCallback((email) => {
-    if (!validEmail(email)) return true;
-    return false;
-  }, []);
-
+  const configState = useMemo(() => ({ email: "" }), []);
   return (
     <div className="App-page">
       <div className="App-page__title">Create an invite</div>
@@ -55,20 +41,10 @@ const CreateInvite = () => {
         <li>Remove this Inquiry on the Inquiries page</li>
       </ol>
       <FormComponent
-        className="App-page__wrapper"
-        onSubmit={() => submit(email)}
-      >
-        <TextFieldComponent
-          onChange={(value) => setEmail(value)}
-          value={email}
-          type="email"
-          label="email"
-          error={!validEmail(email)}
-        />
-        <ButtonComponent disabled={isDisabled(email)} loading={loading}>
-          Create Invite
-        </ButtonComponent>
-      </FormComponent>
+        configState={configState}
+        sendRequest={sendRequest}
+        resetAfterSubmit={true}
+      />
     </div>
   );
 };

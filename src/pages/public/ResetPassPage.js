@@ -1,62 +1,45 @@
-import React, { useState } from "react";
-import ButtonComponent from "../../components/library-based-components/ButtonComponent/ButtonComponent";
-import TextFieldComponent from "../../components/library-based-components/TextFieldComponent";
+import React, { useCallback, useMemo } from "react";
 import LinkComponent from "../../components/library-based-components/Link/LinkComponent";
 import { PUBLIC_URLS } from "../../constants/URLS";
-import { validEmail } from "../../helpers/validator.helper";
-import useSubmit from "../../components/hooks/useSubmit";
-import { COMMON } from "../../constants/COMMON";
-import { setFormState } from "../../helpers/form.helper";
 import { useNavigate } from "react-router-dom";
-import FormComponent from "../../components/utils/FormComponent";
 import SecurityService from "../../services/SecurityService";
 import { UserModel } from "../../models/UserModel";
+import { useShowCommonPopup } from "../../providers/ShowCommonPopupProvider";
+import FormComponent from "../../components/library-based-components/FormComponent";
 
 const ResetPassPage = () => {
   const navigate = useNavigate();
-  const [state, setState] = useState({
-    email: "",
-  });
+  const showMessage = useShowCommonPopup();
 
-  const { loading, submit } = useSubmit({
-    sendRequest: async (email) => {
+  const sendRequest = useCallback(
+    async ({ email }) => {
       SecurityService.checkIfUserCanSendRequest();
       await UserModel.resetPass(email);
       navigate(PUBLIC_URLS.HOME);
+      showMessage({
+        title: "Success!",
+        content: "Request was sent!",
+      });
+      navigate(PUBLIC_URLS.HOME);
     },
-    successMessage: "Request was sent!",
-  });
+    [navigate, showMessage],
+  );
 
-  const isDisabled = React.useCallback((email) => {
-    if (!validEmail(email)) return true;
-    return false;
-  }, []);
-
+  const configState = useMemo(() => ({ email: "" }), []);
   return (
     <div className="App-page">
-      <div className="App-page__title">Send a request to get the access</div>
+      <div className="App-page__title">
+        Send a request to reset your password
+      </div>
       <FormComponent
-        className="App-page__wrapper"
-        onSubmit={() => submit(state.email)}
-      >
-        <TextFieldComponent
-          onChange={(value) => setFormState("email", value, setState)}
-          value={state.email}
-          type="email"
-          label="email"
-          error={!validEmail(state.email)}
-        />
-        <ButtonComponent
-          loading={loading}
-          disabled={isDisabled(state.email)}
-          type="submit"
-        >
-          {COMMON.SUBMIT_WITH_ENTER_MESSAGE}
-        </ButtonComponent>
-        <div className="App-page__links">
-          <LinkComponent to={PUBLIC_URLS.HOME} children="Return to home" />
-        </div>
-      </FormComponent>
+        configState={configState}
+        sendRequest={sendRequest}
+        children={
+          <div className="App-page__links">
+            <LinkComponent to={PUBLIC_URLS.HOME} children="Return to home" />
+          </div>
+        }
+      />
     </div>
   );
 };
