@@ -7,14 +7,7 @@ import {
   DialogTitle,
 } from "@mui/material";
 
-const CommonPopup = ({
-  open,
-  onClose,
-  title,
-  content,
-  footer,
-  showOk = true,
-}) => {
+const CommonPopup = ({ open, onClose, title, content, footer, showOk }) => {
   return (
     <div>
       <Dialog
@@ -29,7 +22,7 @@ const CommonPopup = ({
         </DialogContent>
         <DialogActions>
           {footer}
-          {!showOk && <ButtonComponent onClick={onClose}>ok</ButtonComponent>}
+          {showOk && <ButtonComponent onClick={onClose}>ok</ButtonComponent>}
         </DialogActions>
       </Dialog>
     </div>

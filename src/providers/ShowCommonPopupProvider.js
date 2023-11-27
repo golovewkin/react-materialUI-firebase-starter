@@ -7,19 +7,25 @@ export const ShowCommonPopupProvider = ({ children }) => {
   const [state, setState] = React.useState({
     open: false,
     content: "",
+    footer: "",
+    showOk: true,
   });
 
-  const showPopup = useCallback((title, content) => {
-    setState({ title, content, open: true });
+  const showPopup = useCallback(({ title, content, footer, showOk = true }) => {
+    setState({ title, content, open: true, footer, showOk });
   }, []);
 
   return (
     <ShowCommonPopupContext.Provider value={showPopup}>
       <CommonPopup
         open={state.open}
-        message={state.message}
+        content={state.content}
+        showOk={state.showOk}
+        footer={state.footer}
         title={state.title}
-        setOpen={(open) => setState((oldState) => ({ ...oldState, open }))}
+        onClose={(open) =>
+          setState((oldState) => ({ ...oldState, open: false }))
+        }
       />
       {children}
     </ShowCommonPopupContext.Provider>

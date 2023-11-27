@@ -6,13 +6,13 @@ import FormComponent from "../../../components/utils/FormComponent";
 import useSubmit from "../../../components/hooks/useSubmit";
 import { InquiryModel } from "../../../models/InquiryModel";
 import { INQUIRY_TYPES } from "../../../constants/INQUIRY";
-import { useShowMessage } from "../../../providers/ShowCommonPopupProvider";
 import { getInviteUrl } from "../../../helpers/util.helper";
 import ContentCopyIconComponent from "../../../components/library-based-components/icons/ContentCopyIconComponent";
+import { useShowCommonPopup } from "../../../providers/ShowCommonPopupProvider";
 
 const CreateInvite = () => {
   const [email, setEmail] = useState("");
-  const showMessage = useShowMessage();
+  const showMessage = useShowCommonPopup();
 
   const sendRequest = useCallback(
     async (email) => {
@@ -27,7 +27,10 @@ const CreateInvite = () => {
           <ContentCopyIconComponent copy={getInviteUrl(inquiry)} />
         </div>
       );
-      showMessage("Here is the link to send", componentToShow);
+      showMessage({
+        title: "Here is the link to send",
+        content: componentToShow,
+      });
       setEmail("");
     },
     [setEmail, showMessage],

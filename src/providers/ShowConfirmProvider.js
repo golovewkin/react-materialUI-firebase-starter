@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import ConfirmationPopup from "../components/popups/ConfirmationPopup";
 import { LogService } from "../services/LogService";
-import { useShowMessage } from "./ShowCommonPopupProvider";
+import { useShowCommonPopup } from "./ShowCommonPopupProvider";
 
 const ShowConfirmContext = React.createContext(null);
 
@@ -10,7 +10,7 @@ export const ShowConfirmProvider = ({ children }) => {
   // It doesn't save callback between renders that's why we need ref here
   const callBack = React.useRef(null);
   const messageRef = React.useRef("");
-  const showError = useShowMessage();
+  const showError = useShowCommonPopup();
   const showConfirm = useCallback((cb, message) => {
     if (!cb) {
       throw new Error("Success callback is not provided!");

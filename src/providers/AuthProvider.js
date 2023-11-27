@@ -1,11 +1,12 @@
 import React from "react";
-import { useShowMessage } from "./ShowCommonPopupProvider";
 import { onUserlogin, auth, logIn } from "../services/firebase";
 import { UserModel } from "../models/UserModel";
 import { useNavigate } from "react-router-dom";
 import { PUBLIC_URLS } from "../constants/URLS";
 import { BrowserStorageService } from "../services/BrowserStorageService";
 import { COMMON } from "../constants/COMMON";
+import { useShowCommonPopup } from "./ShowCommonPopupProvider";
+import { LogService } from "../services/LogService";
 
 const AuthContext = React.createContext(null);
 
@@ -13,12 +14,12 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const [user, setUser] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
-  const showError = useShowMessage();
+  const showError = useShowCommonPopup();
 
   React.useEffect(() => {
     onUserlogin(auth, async (userData, error) => {
       if (error) {
-        return showError("login error", error);
+        return LogService.log("login error", error, showError);
       }
 
       try {
@@ -30,7 +31,7 @@ export const AuthProvider = ({ children }) => {
           setUser(null);
         }
       } catch (e) {
-        showError("get user data error", e);
+        LogService.log("get user data error", e, showError);
       } finally {
         setLoading(false);
       }

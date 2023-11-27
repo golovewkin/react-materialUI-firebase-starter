@@ -3,7 +3,10 @@ export class LogService {
     try {
       console.error(description, entityOrError);
       if (showError) {
-        showError(description, entityOrError);
+        const messageToShow = entityOrError.message
+          ? entityOrError.message
+          : entityOrError;
+        showError({ title: description, content: messageToShow });
       }
 
       //no need logging local dev errors
