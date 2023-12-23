@@ -18,8 +18,16 @@ export class UserModel extends EntityModel {
     if (!user.firebaseId) {
       throw new Error("no firebaseId");
     }
-    if (!user.id) {
-      throw new Error("no id");
+    if (!user.role) {
+      throw new Error("no role for this user");
+    }
+
+    if (!user.name) {
+      throw new Error("no name for this user");
+    }
+
+    if (!user.pic) {
+      throw new Error("no pic for this user");
     }
   }
 
