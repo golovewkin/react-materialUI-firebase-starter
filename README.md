@@ -41,7 +41,7 @@ React 18, material ui, firebase auth, firebase firestore with NO SERVER CODE (ju
        3. Admin creates a user via script (node user-create-script.js user-email)
        4. Admin send credentials to a user (any way)
     3. Via an admin invite (the most dangerous, doesn't work right now because of Firebase restrictions)
-       1. Admin creates an invite
+       1. Admin creates an invitation
        2. It gives you a link
        3. Admin should give it to the user
        4. User can create an account with this link
