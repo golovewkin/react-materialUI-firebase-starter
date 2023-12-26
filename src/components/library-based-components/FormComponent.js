@@ -3,7 +3,7 @@ import TextFieldComponent from "./TextFieldComponent";
 import { validEmail, validPassword } from "../../helpers/validator.helper";
 import ButtonComponent from "./ButtonComponent/ButtonComponent";
 import { setFormState } from "../../helpers/form.helper";
-import useSubmit from "../hooks/useSubmit";
+import useSubmit from "../../hooks/useSubmit";
 
 const FormComponent = ({
   className = "App-page__wrapper",

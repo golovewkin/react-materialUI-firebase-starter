@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import Loader from "../library-based-components/Loader";
-import { COMMON } from "../../constants/COMMON";
+import Loader from "../components/library-based-components/Loader";
+import { COMMON } from "../constants/COMMON";
 
 const withDataFetch = (Component) => (props) => {
   const { getData, queryKey } = props;

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import withDataFetch from "../../../components/hocs/withDataFetch";
+import withDataFetch from "../../../hocs/withDataFetch";
 import TableContainerComponent from "../../../components/library-based-components/table/TableContainerComponent";
 import InquiriesColumns from "./InquiriesColumns";
 import { InquiryModel } from "../../../models/InquiryModel";
 import TCell from "../../../components/library-based-components/table/TCell";
 import { clone, getInviteUrl } from "../../../helpers/util.helper";
-import useSubmit from "../../../components/hooks/useSubmit";
+import useSubmit from "../../../hooks/useSubmit";
 import InquiryStatusCell from "./InquiryStatusCell";
 import { INQUIRY_STATUSES, INQUIRY_TYPES } from "../../../constants/INQUIRY";
 import ContentCopyIconComponent from "../../../components/library-based-components/icons/ContentCopyIconComponent";

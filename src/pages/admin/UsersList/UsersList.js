@@ -9,8 +9,8 @@ import DeleteIconComponent from "../../../components/library-based-components/ic
 import { clone } from "../../../helpers/util.helper";
 import HomeIconComponent from "../../../components/library-based-components/icons/HomeIconComponent";
 import TableContainerComponent from "../../../components/library-based-components/table/TableContainerComponent";
-import withDataFetch from "../../../components/hocs/withDataFetch";
-import useSubmit from "../../../components/hooks/useSubmit";
+import withDataFetch from "../../../hocs/withDataFetch";
+import useSubmit from "../../../hooks/useSubmit";
 import UsersColumnsList from "./UsersColumnList";
 
 const UsersList = ({ data }) => {
