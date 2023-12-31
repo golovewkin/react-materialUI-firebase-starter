@@ -7,19 +7,19 @@ import { COLLECTIONS } from "../../constants/COLLECTIONS";
 import { DBService } from "../../services/DBService";
 
 const UserHome = () => {
-  const auth = useAuth();
+  const { user } = useAuth();
   const getData = React.useCallback(() => {
     return DBService.getAll(COLLECTIONS.USERS);
   }, []);
 
-  if (auth.user.role === USER_ROLES.ADMIN) {
+  if (user.role === USER_ROLES.ADMIN) {
     return <AdminHome getData={getData} queryKey="admin-get-users" />;
   }
 
   return (
     <>
       <h3>
-        Hello, {auth.user.name}, this is your Home page
+        Hello, {user.name}, this is your Home page
         <HomeIconComponent />
       </h3>
     </>

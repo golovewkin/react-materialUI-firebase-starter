@@ -46,7 +46,8 @@ React 18, material ui, firebase auth, firebase firestore with NO SERVER CODE (ju
        3. Admin should give it to the user
        4. User can create an account with this link
 12. Setup your landing page
-13. Deploy to Digital Ocean or a similar service
+13. Setup Firebase Cloud Storage if you want to store images
+14. Deploy to Digital Ocean or a similar service
 
 ## Note
 This project is just a starting point, you can change/add yourself:

@@ -38,9 +38,8 @@ const InquiriesList = ({ data }) => {
       });
       showSnack("Done!");
 
-      const inquiry = new InquiryModel(inquiryItem);
-      inquiry.setStatus(newStatus);
-      await inquiry.update();
+      inquiryItem.setStatus(newStatus);
+      await inquiryItem.update();
     },
   });
 

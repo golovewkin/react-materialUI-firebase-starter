@@ -1,14 +1,8 @@
 import React from "react";
-import { DBService } from "../../services/DBService";
-import { COLLECTIONS } from "../../constants/COLLECTIONS";
-import UsersList from "./UsersList/UsersList";
+import UsersPage from "./UsersList/UsersPage";
 
 const AdminHome = () => {
-  const getData = React.useCallback(() => {
-    return DBService.getAll(COLLECTIONS.USERS);
-  }, []);
-
-  return <UsersList getData={getData} queryKey="admin-get-users" />;
+  return <UsersPage />;
 };
 
 export default AdminHome;

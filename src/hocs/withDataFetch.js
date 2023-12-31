@@ -4,10 +4,14 @@ import Loader from "../components/library-based-components/Loader";
 import { COMMON } from "../constants/COMMON";
 
 const withDataFetch = (Component) => (props) => {
-  const { getData, queryKey } = props;
+  const { getData, queryKey, cb } = props;
   if (!getData) {
     throw new Error("no getData function");
   }
+  if (!cb) {
+    throw new Error("no cb function");
+  }
+
   const query = useQuery({ queryKey: [queryKey], queryFn: getData });
 
   if (query.isError) {
@@ -27,7 +31,7 @@ const withDataFetch = (Component) => (props) => {
     return <div>Data is empty.</div>;
   }
 
-  return <Component {...props} data={query.data} />;
+  return <Component {...props} data={query.data.map((item) => cb(item))} />;
 };
 
 export default withDataFetch;

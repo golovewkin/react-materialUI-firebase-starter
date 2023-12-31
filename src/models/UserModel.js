@@ -25,10 +25,6 @@ export class UserModel extends EntityModel {
     if (!user.name) {
       throw new Error("no name for this user");
     }
-
-    if (!user.pic) {
-      throw new Error("no pic for this user");
-    }
   }
 
   static async resetPass(email) {
