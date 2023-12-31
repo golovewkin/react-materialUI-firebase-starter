@@ -44,7 +44,7 @@ const SettingsPage = () => {
     <div className="App-page">
       <div className="App-page__title">Edit Account Data</div>
       <PicChanger
-        id="GroupEditPopup-PicChanger"
+        id="picChanger"
         alt="group-pic"
         pic={user.pic}
         onChange={(value) => picOnChange(value, user)}
