@@ -2,7 +2,14 @@ import React from "react";
 import { trimValue } from "../../helpers/validator.helper";
 import { TextField } from "@mui/material";
 
-const TextFieldComponent = ({ onChange, label, type, value = "", error }) => {
+const TextFieldComponent = ({
+  onChange,
+  label,
+  type,
+  value = "",
+  error,
+  InputProps = null,
+}) => {
   return (
     <TextField
       style={{ marginTop: 20 }}
@@ -10,6 +17,7 @@ const TextFieldComponent = ({ onChange, label, type, value = "", error }) => {
       type={type}
       value={value}
       error={error}
+      InputProps={InputProps}
       onChange={(value) => onChange(trimValue(value.target.value))}
     />
   );

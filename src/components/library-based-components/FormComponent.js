@@ -4,6 +4,9 @@ import { validEmail, validPassword } from "../../helpers/validator.helper";
 import ButtonComponent from "./ButtonComponent/ButtonComponent";
 import { setFormState } from "../../helpers/form.helper";
 import useSubmit from "../../hooks/useSubmit";
+import VisibilityOnComponent from "./icons/VisibilityOnComponent";
+import VisibilityOffComponent from "./icons/VisibilityOffComponent";
+import { InputAdornment } from "@mui/material";
 
 const FormComponent = ({
   className = "App-page__wrapper",
@@ -14,6 +17,9 @@ const FormComponent = ({
   footerButtonLabel = "Submit",
 }) => {
   const [state, setState] = useState(configState);
+  const [showPassword, setShowPassword] = useState(false);
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
   const { loading, submit } = useSubmit({
     sendRequest: async () => {
       if (resetAfterSubmit) {
@@ -55,8 +61,22 @@ const FormComponent = ({
         <TextFieldComponent
           onChange={(value) => setFormState("password", value, setState)}
           value={state.password}
-          type="password"
+          type={showPassword ? "text" : "password"}
           label="password"
+          InputProps={{
+            endAdornment: (
+              <InputAdornment
+                position="start"
+                onClick={handleClickShowPassword}
+              >
+                {showPassword ? (
+                  <VisibilityOnComponent />
+                ) : (
+                  <VisibilityOffComponent />
+                )}
+              </InputAdornment>
+            ),
+          }}
           error={!validPassword(state.password)}
         />
       )}

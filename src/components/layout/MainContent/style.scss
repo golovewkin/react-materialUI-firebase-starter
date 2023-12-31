@@ -3,6 +3,7 @@
   grid-template-rows: 64px auto;
   grid-template-columns: 235px auto;
   height: 100vh;
+  transition: 300ms;
 
   &__content {
     background-color: #f7f9fc;
@@ -10,6 +11,14 @@
     grid-column: 2;
     padding: 20px;
   }
+}
+
+.MainContent-hidden {
+  display: grid;
+  grid-template-rows: 64px auto;
+  grid-template-columns: 0px auto;
+  height: 100vh;
+  transition: 300ms;
 }
 
 .Header {
@@ -32,7 +41,7 @@
 
 @media (max-width: 500px) {
   .MainContent {
-      grid-template-columns: auto;
+    grid-template-columns: auto;
   }
   .Nav {
     grid-column: 1/2;
