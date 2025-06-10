@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonComponent from "../library-based-components/ButtonComponent/ButtonComponent";
+import ButtonComponent from "../library-based-components/ButtonComponent/ButtonComponent.js";
 import {
   Dialog,
   DialogActions,

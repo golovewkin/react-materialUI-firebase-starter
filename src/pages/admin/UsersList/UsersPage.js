@@ -1,8 +1,8 @@
 import React from "react";
-import { DBService } from "../../../services/DBService";
-import { COLLECTIONS } from "../../../constants/COLLECTIONS";
-import UsersList from "./UsersList";
-import { UserModel } from "../../../models/UserModel";
+import { DBService } from "../../../services/DBService.js";
+import { COLLECTIONS } from "../../../constants/COLLECTIONS.js";
+import UsersList from "./UsersList.js";
+import { UserModel } from "../../../models/UserModel.js";
 
 const UsersPage = () => {
   const getData = React.useCallback(() => {

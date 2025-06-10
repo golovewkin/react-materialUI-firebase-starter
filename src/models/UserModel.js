@@ -1,8 +1,8 @@
-import { USER_ROLES } from "../constants/USER_ROLES";
-import { COMMON } from "../constants/COMMON";
-import { EntityModel } from "./EntityModel";
-import { DBService } from "../services/DBService";
-import { COLLECTIONS } from "../constants/COLLECTIONS";
+import { USER_ROLES } from "../constants/USER_ROLES.js";
+import { COMMON } from "../constants/COMMON.js";
+import { EntityModel } from "./EntityModel.js";
+import { DBService } from "../services/DBService.js";
+import { COLLECTIONS } from "../constants/COLLECTIONS.js";
 
 export class UserModel extends EntityModel {
   static collection = COLLECTIONS.USERS;

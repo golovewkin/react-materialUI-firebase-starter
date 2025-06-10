@@ -1,24 +1,24 @@
 import { Route, Routes } from "react-router-dom";
 import React, { lazy } from "react";
-import { ADMIN_URLS, PUBLIC_URLS, USER_URLS } from "./constants/URLS";
-import Content from "./components/layout/MainContent/MainContent";
-import PublicContent from "./components/layout/PublicContent/PublicContent";
-import { useAuth } from "./providers/AuthProvider";
-import Loader from "./components/library-based-components/Loader";
-const ErrorPage = lazy(() => import("./pages/ErrorPage"));
+import { ADMIN_URLS, PUBLIC_URLS, USER_URLS } from "./constants/URLS.js";
+import Content from "./components/layout/MainContent/MainContent.js";
+import PublicContent from "./components/layout/PublicContent/PublicContent.js";
+import { useAuth } from "./providers/AuthProvider.js";
+import Loader from "./components/library-based-components/Loader.js";
+const ErrorPage = lazy(() => import("./pages/ErrorPage.js"));
 const SettingsPage = lazy(() => import("./pages/user/SettingsPage.js"));
-const LoginPage = lazy(() => import("./pages/public/LoginPage"));
-const LandingPage = lazy(() => import("./pages/public/LandingPage"));
+const LoginPage = lazy(() => import("./pages/public/LoginPage.js"));
+const LandingPage = lazy(() => import("./pages/public/LandingPage.js"));
 const CreationPage = lazy(
-  () => import("./pages/admin/CreationPage/CreationPage"),
+  () => import("./pages/admin/CreationPage/CreationPage.js"),
 );
-const UserHome = lazy(() => import("./pages/user/UserHome"));
-const SendRequestPage = lazy(() => import("./pages/public/SendRequestPage"));
+const UserHome = lazy(() => import("./pages/user/UserHome.js"));
+const SendRequestPage = lazy(() => import("./pages/public/SendRequestPage.js"));
 const InquiriesPage = lazy(
-  () => import("./pages/admin/InquiriesPage/InquiriesPage"),
+  () => import("./pages/admin/InquiriesPage/InquiriesPage.js"),
 );
-const AcceptInvitePage = lazy(() => import("./pages/public/AcceptInvitePage"));
-const ResetPassPage = lazy(() => import("./pages/public/ResetPassPage"));
+const AcceptInvitePage = lazy(() => import("./pages/public/AcceptInvitePage.js"));
+const ResetPassPage = lazy(() => import("./pages/public/ResetPassPage.js"));
 
 export const UserRoutes = () => {
   const auth = useAuth();

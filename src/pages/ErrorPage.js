@@ -1,7 +1,7 @@
 import React from "react";
 import error from "../assets/img/error.jpg";
-import LinkComponent from "../components/library-based-components/Link/LinkComponent";
-import { PUBLIC_URLS } from "../constants/URLS";
+import LinkComponent from "../components/library-based-components/Link/LinkComponent.js";
+import { PUBLIC_URLS } from "../constants/URLS.js";
 
 const ErrorPage = () => {
   return (

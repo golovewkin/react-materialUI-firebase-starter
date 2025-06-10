@@ -1,11 +1,11 @@
 import React, { useCallback, useMemo } from "react";
-import LinkComponent from "../../components/library-based-components/Link/LinkComponent";
-import { PUBLIC_URLS } from "../../constants/URLS";
+import LinkComponent from "../../components/library-based-components/Link/LinkComponent.js";
+import { PUBLIC_URLS } from "../../constants/URLS.js";
 import { useNavigate } from "react-router-dom";
-import SecurityService from "../../services/SecurityService";
-import { UserModel } from "../../models/UserModel";
-import { useShowCommonPopup } from "../../providers/ShowCommonPopupProvider";
-import FormComponent from "../../components/library-based-components/FormComponent";
+import SecurityService from "../../services/SecurityService.js";
+import { UserModel } from "../../models/UserModel.js";
+import { useShowCommonPopup } from "../../providers/ShowCommonPopupProvider.js";
+import FormComponent from "../../components/library-based-components/FormComponent.js";
 
 const ResetPassPage = () => {
   const navigate = useNavigate();

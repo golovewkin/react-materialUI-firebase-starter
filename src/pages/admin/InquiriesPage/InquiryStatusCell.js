@@ -1,9 +1,9 @@
 import React from "react";
-import { INQUIRY_STATUSES } from "../../../constants/INQUIRY";
-import EmptyCircleIconComponent from "../../../components/library-based-components/icons/EmptyCircleIconComponent";
-import CircleIconComponent from "../../../components/library-based-components/icons/CircleIconComponent";
-import DeleteIconComponent from "../../../components/library-based-components/icons/DeleteIconComponent";
-import { useShowConfirm } from "../../../providers/ShowConfirmProvider";
+import { INQUIRY_STATUSES } from "../../../constants/INQUIRY.js";
+import EmptyCircleIconComponent from "../../../components/library-based-components/icons/EmptyCircleIconComponent.js";
+import CircleIconComponent from "../../../components/library-based-components/icons/CircleIconComponent.js";
+import DeleteIconComponent from "../../../components/library-based-components/icons/DeleteIconComponent.js";
+import { useShowConfirm } from "../../../providers/ShowConfirmProvider.js";
 
 const InquiryStatusCell = ({ item, doneRequest, removeRequest }) => {
   const showConfirm = useShowConfirm();

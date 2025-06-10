@@ -1,7 +1,7 @@
-const admin = require("firebase-admin");
-const config = require("./config/config.json");
-const generator = require("generate-password");
-const { getFirestore } = require("firebase-admin/firestore");
+import admin from "firebase-admin";
+import config from "./config/config.json" with {type: "json"};
+import generator from "generate-password";
+import {getFirestore} from "firebase-admin/firestore";
 
 const randomIntFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -21,12 +21,13 @@ const createAdmin = async (email) => {
         length: 12,
         numbers: true,
       }) + randomIntFromInterval(1, 20);
+
     const firebaseUser = await admin.auth().createUser({
       email,
       password,
     });
 
-    const adminData = {
+    const data = {
       name: "Admin",
       role: "admin",
       firebaseId: firebaseUser.uid,
@@ -35,13 +36,11 @@ const createAdmin = async (email) => {
     };
     const db = getFirestore();
     const docRef = db.collection("users").doc(firebaseUser.uid);
-    await docRef.set(adminData);
-    console.log(
-      `admin was created with email: ${email}\npassword: ${password}`,
-    );
+    await docRef.set(data);
+    console.log(`admin was created with email: ${email}\npassword: ${password}`);
   } catch (e) {
     console.log("error", e);
   }
 };
 
-createAdmin(process.argv[2]);
+void createAdmin(process.argv[2]); // eslint-disable-line no-undef

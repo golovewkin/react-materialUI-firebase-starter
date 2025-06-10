@@ -1,7 +1,7 @@
-import { EntityModel } from "./EntityModel";
-import { DBService } from "../services/DBService";
-import { COLLECTIONS } from "../constants/COLLECTIONS";
-import { INQUIRY_STATUSES, INQUIRY_TYPES } from "../constants/INQUIRY";
+import { EntityModel } from "./EntityModel.js";
+import { DBService } from "../services/DBService.js";
+import { COLLECTIONS } from "../constants/COLLECTIONS.js";
+import { INQUIRY_STATUSES, INQUIRY_TYPES } from "../constants/INQUIRY.js";
 
 export class InquiryModel extends EntityModel {
   static collection = COLLECTIONS.INQUIRIES;

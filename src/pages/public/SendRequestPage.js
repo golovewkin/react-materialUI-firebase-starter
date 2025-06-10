@@ -1,12 +1,12 @@
 import React, { useCallback, useMemo } from "react";
-import LinkComponent from "../../components/library-based-components/Link/LinkComponent";
-import { PUBLIC_URLS } from "../../constants/URLS";
-import { InquiryModel } from "../../models/InquiryModel";
+import LinkComponent from "../../components/library-based-components/Link/LinkComponent.js";
+import { PUBLIC_URLS } from "../../constants/URLS.js";
+import { InquiryModel } from "../../models/InquiryModel.js";
 import { useNavigate } from "react-router-dom";
-import SecurityService from "../../services/SecurityService";
-import { INQUIRY_TYPES } from "../../constants/INQUIRY";
-import FormComponent from "../../components/library-based-components/FormComponent";
-import { useShowCommonPopup } from "../../providers/ShowCommonPopupProvider";
+import SecurityService from "../../services/SecurityService.js";
+import { INQUIRY_TYPES } from "../../constants/INQUIRY.js";
+import FormComponent from "../../components/library-based-components/FormComponent.js";
+import { useShowCommonPopup } from "../../providers/ShowCommonPopupProvider.js";
 
 const SendRequestPage = () => {
   const navigate = useNavigate();

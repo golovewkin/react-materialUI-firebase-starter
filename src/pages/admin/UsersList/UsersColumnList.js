@@ -1,5 +1,5 @@
-import TCell from "../../../components/library-based-components/table/TCell";
-import { makeId } from "../../../helpers/util.helper";
+import TCell from "../../../components/library-based-components/table/TCell.js";
+import { makeId } from "../../../helpers/util.helper.js";
 
 const UsersColumnsList = () => {
   return [

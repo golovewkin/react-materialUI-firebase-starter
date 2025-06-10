@@ -1,11 +1,11 @@
 import React, { useCallback, useMemo, useState } from "react";
-import { useAuth } from "../../providers/AuthProvider";
-import { UserModel } from "../../models/UserModel";
-import { COMMON } from "../../constants/COMMON";
-import FormComponent from "../../components/library-based-components/FormComponent";
-import { useSnack } from "../../providers/SnackProvider";
-import PicChanger from "../../components/PicChanger/PicChanger";
-import { PicService } from "../../services/PicService";
+import { useAuth } from "../../providers/AuthProvider.js";
+import { UserModel } from "../../models/UserModel.js";
+import { COMMON } from "../../constants/COMMON.js";
+import FormComponent from "../../components/library-based-components/FormComponent.js";
+import { useSnack } from "../../providers/SnackProvider.js";
+import PicChanger from "../../components/PicChanger/PicChanger.js";
+import { PicService } from "../../services/PicService.js";
 
 const SettingsPage = () => {
   const showSnack = useSnack();

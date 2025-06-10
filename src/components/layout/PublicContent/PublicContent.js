@@ -1,6 +1,6 @@
 import React from "react";
-import RequireNoAuth from "../../../pages/RequireNoAuth";
-import OutletWithErrorBoundary from "../MainContent/OutletWithErrorBoundary";
+import RequireNoAuth from "../../../pages/RequireNoAuth.js";
+import OutletWithErrorBoundary from "../MainContent/OutletWithErrorBoundary.js";
 
 const PublicContent = () => {
   return (

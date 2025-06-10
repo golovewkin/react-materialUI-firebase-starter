@@ -1,6 +1,6 @@
 import React from "react";
-import { COMMON } from "../constants/COMMON";
-import { LogService } from "../services/LogService";
+import { COMMON } from "../constants/COMMON.js";
+import { LogService } from "../services/LogService.js";
 
 export class ErrorBoundary extends React.Component {
   constructor(props) {

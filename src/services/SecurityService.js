@@ -1,5 +1,5 @@
-import { BrowserStorageService } from "./BrowserStorageService";
-import { COMMON } from "../constants/COMMON";
+import { BrowserStorageService } from "./BrowserStorageService.js";
+import { COMMON } from "../constants/COMMON.js";
 
 class SecurityService {
   static checkIfUserCanSendRequest() {

@@ -1,12 +1,12 @@
 import React from "react";
-import { onUserlogin, auth, logIn } from "../services/firebase";
-import { UserModel } from "../models/UserModel";
+import { onUserlogin, auth, logIn } from "../services/firebase.js";
+import { UserModel } from "../models/UserModel.js";
 import { useNavigate } from "react-router-dom";
-import { PUBLIC_URLS } from "../constants/URLS";
-import { BrowserStorageService } from "../services/BrowserStorageService";
-import { COMMON } from "../constants/COMMON";
-import { useShowCommonPopup } from "./ShowCommonPopupProvider";
-import { LogService } from "../services/LogService";
+import { PUBLIC_URLS } from "../constants/URLS.js";
+import { BrowserStorageService } from "../services/BrowserStorageService.js";
+import { COMMON } from "../constants/COMMON.js";
+import { useShowCommonPopup } from "./ShowCommonPopupProvider.js";
+import { LogService } from "../services/LogService.js";
 
 const AuthContext = React.createContext(null);
 

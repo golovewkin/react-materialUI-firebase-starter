@@ -1,5 +1,5 @@
 import cloneDeep from "clone-deep";
-import { PUBLIC_URLS, USER_URLS } from "../constants/URLS";
+import { PUBLIC_URLS, USER_URLS } from "../constants/URLS.js";
 export const makeId = (length = 27) => {
   let result = "";
   const characters =

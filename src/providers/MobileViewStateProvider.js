@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { BrowserStorageService } from "../services/BrowserStorageService";
+import { BrowserStorageService } from "../services/BrowserStorageService.js";
 
 const MobileViewStateContext = React.createContext(null);
 

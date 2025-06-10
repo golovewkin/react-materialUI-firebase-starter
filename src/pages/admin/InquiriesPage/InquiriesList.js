@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import withDataFetch from "../../../hocs/withDataFetch";
-import TableContainerComponent from "../../../components/library-based-components/table/TableContainerComponent";
-import InquiriesColumns from "./InquiriesColumns";
-import { InquiryModel } from "../../../models/InquiryModel";
-import TCell from "../../../components/library-based-components/table/TCell";
-import { clone, getInviteUrl } from "../../../helpers/util.helper";
-import useSubmit from "../../../hooks/useSubmit";
-import InquiryStatusCell from "./InquiryStatusCell";
-import { INQUIRY_STATUSES, INQUIRY_TYPES } from "../../../constants/INQUIRY";
-import ContentCopyIconComponent from "../../../components/library-based-components/icons/ContentCopyIconComponent";
-import { useSnack } from "../../../providers/SnackProvider";
+import withDataFetch from "../../../hocs/withDataFetch.js";
+import TableContainerComponent from "../../../components/library-based-components/table/TableContainerComponent.js";
+import InquiriesColumns from "./InquiriesColumns.js";
+import { InquiryModel } from "../../../models/InquiryModel.js";
+import TCell from "../../../components/library-based-components/table/TCell.js";
+import { clone, getInviteUrl } from "../../../helpers/util.helper.js";
+import useSubmit from "../../../hooks/useSubmit.js";
+import InquiryStatusCell from "./InquiryStatusCell.js";
+import { INQUIRY_STATUSES, INQUIRY_TYPES } from "../../../constants/INQUIRY.js";
+import ContentCopyIconComponent from "../../../components/library-based-components/icons/ContentCopyIconComponent.js";
+import { useSnack } from "../../../providers/SnackProvider.js";
 
 const InquiriesList = ({ data }) => {
   const [state, setState] = useState(clone(data));

@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import CommonPopup from "../components/popups/CommonPopup";
+import CommonPopup from "../components/popups/CommonPopup.js";
 
 const ShowCommonPopupContext = React.createContext(null);
 

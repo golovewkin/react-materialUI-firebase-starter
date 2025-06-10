@@ -1,10 +1,10 @@
 import React, { useCallback, useMemo } from "react";
-import { UserModel } from "../../models/UserModel";
+import { UserModel } from "../../models/UserModel.js";
 import { useParams } from "react-router-dom";
-import { InquiryModel } from "../../models/InquiryModel";
-import { PUBLIC_URLS } from "../../constants/URLS";
-import LinkComponent from "../../components/library-based-components/Link/LinkComponent";
-import FormComponent from "../../components/library-based-components/FormComponent";
+import { InquiryModel } from "../../models/InquiryModel.js";
+import { PUBLIC_URLS } from "../../constants/URLS.js";
+import LinkComponent from "../../components/library-based-components/Link/LinkComponent.js";
+import FormComponent from "../../components/library-based-components/FormComponent.js";
 
 const AcceptInvitePage = () => {
   const params = useParams();

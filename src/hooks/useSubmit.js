@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { LogService } from "../services/LogService";
-import { useShowCommonPopup } from "../providers/ShowCommonPopupProvider";
+import { LogService } from "../services/LogService.js";
+import { useShowCommonPopup } from "../providers/ShowCommonPopupProvider.js";
 
 const useSubmit = ({ sendRequest }) => {
   const showError = useShowCommonPopup();

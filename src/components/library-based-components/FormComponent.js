@@ -1,11 +1,11 @@
 import React, { useCallback, useState } from "react";
-import TextFieldComponent from "./TextFieldComponent";
-import { validEmail, validPassword } from "../../helpers/validator.helper";
-import ButtonComponent from "./ButtonComponent/ButtonComponent";
-import { setFormState } from "../../helpers/form.helper";
-import useSubmit from "../../hooks/useSubmit";
-import VisibilityOnComponent from "./icons/VisibilityOnComponent";
-import VisibilityOffComponent from "./icons/VisibilityOffComponent";
+import TextFieldComponent from "./TextFieldComponent.js";
+import { validEmail, validPassword } from "../../helpers/validator.helper.js";
+import ButtonComponent from "./ButtonComponent/ButtonComponent.js";
+import { setFormState } from "../../helpers/form.helper.js";
+import useSubmit from "../../hooks/useSubmit.js";
+import VisibilityOnComponent from "./icons/VisibilityOnComponent.js";
+import VisibilityOffComponent from "./icons/VisibilityOffComponent.js";
 import { InputAdornment } from "@mui/material";
 
 const FormComponent = ({

@@ -1,5 +1,5 @@
 import React from "react";
-import CreateInvite from "./CreateInvite";
+import CreateInvite from "./CreateInvite.js";
 
 const CreationPage = () => {
   return (

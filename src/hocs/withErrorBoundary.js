@@ -1,5 +1,5 @@
 import React from 'react';
-import {ErrorBoundary} from "./ErrorBoundary";
+import {ErrorBoundary} from "./ErrorBoundary.js";
 
 export const withErrorBoundary = WrappedComponent => {
   return class extends React.Component {

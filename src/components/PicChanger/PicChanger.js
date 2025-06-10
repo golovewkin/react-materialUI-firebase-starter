@@ -1,8 +1,8 @@
 import React from "react";
 import "./style.scss";
-import { PicService } from "../../services/PicService";
-import { LogService } from "../../services/LogService";
-import { useShowCommonPopup } from "../../providers/ShowCommonPopupProvider";
+import { PicService } from "../../services/PicService.js";
+import { LogService } from "../../services/LogService.js";
+import { useShowCommonPopup } from "../../providers/ShowCommonPopupProvider.js";
 
 const PicChanger = ({ pic, alt, onChange, blockPicker = false }) => {
   const showError = useShowCommonPopup();

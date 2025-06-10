@@ -1,14 +1,14 @@
 import React from "react";
 import "./style.scss";
 import { List } from "@mui/material";
-import { useAuth } from "../../../providers/AuthProvider";
-import NavItem from "../NavItem";
-import { ADMIN_URLS, PUBLIC_URLS, USER_URLS } from "../../../constants/URLS";
-import EditIconComponent from "../../library-based-components/icons/EditIconComponent";
-import HomeIconComponent from "../../library-based-components/icons/HomeIconComponent";
-import { USER_ROLES } from "../../../constants/USER_ROLES";
-import AddIconComponent from "../../library-based-components/icons/AddIconComponent";
-import QuestionIconComponent from "../../library-based-components/icons/QuestionIconComponent";
+import { useAuth } from "../../../providers/AuthProvider.js";
+import NavItem from "../NavItem.js";
+import { ADMIN_URLS, PUBLIC_URLS, USER_URLS } from "../../../constants/URLS.js";
+import EditIconComponent from "../../library-based-components/icons/EditIconComponent.js";
+import HomeIconComponent from "../../library-based-components/icons/HomeIconComponent.js";
+import { USER_ROLES } from "../../../constants/USER_ROLES.js";
+import AddIconComponent from "../../library-based-components/icons/AddIconComponent.js";
+import QuestionIconComponent from "../../library-based-components/icons/QuestionIconComponent.js";
 
 const Nav = () => {
   const auth = useAuth();

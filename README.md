@@ -1,5 +1,5 @@
 ## When You need it
-When you want to create a small project really quick and you don't want complications with deploy and hosting.
+When you want to create a small project really quickly and you don't want complications with deploy and hosting.
 This project works as a static website after you build it
 
 ## What is inside
@@ -56,5 +56,4 @@ This project is just a starting point, you can change/add yourself:
 3. Google recaptcha but it requires a server or cloud functions. Maybe Firebase reCAPTCHA?
 4. Pagination in data queries
 5. An email service for users creation
-6. Only webpack without create-react-app
-7. Better accessibility
+6. Better accessibility

@@ -1,5 +1,5 @@
 import React from "react";
-import { trimValue } from "../../helpers/validator.helper";
+import { trimValue } from "../../helpers/validator.helper.js";
 import { TextField } from "@mui/material";
 
 const TextFieldComponent = ({

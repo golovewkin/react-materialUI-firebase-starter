@@ -1,11 +1,11 @@
 import React from "react";
 import "./style.scss";
-import AvatarComponent from "../../library-based-components/AvatarComponent";
-import { useAuth } from "../../../providers/AuthProvider";
-import OffIconComponent from "../../library-based-components/icons/OffIconComponent";
-import { useMobileViewState } from "../../../providers/MobileViewStateProvider";
-import MenuClosedIconComponent from "../../library-based-components/icons/MenuClosedIconComponent";
-import MenuIconComponent from "../../library-based-components/icons/MenuIconComponent";
+import AvatarComponent from "../../library-based-components/AvatarComponent.js";
+import { useAuth } from "../../../providers/AuthProvider.js";
+import OffIconComponent from "../../library-based-components/icons/OffIconComponent.js";
+import { useMobileViewState } from "../../../providers/MobileViewStateProvider.js";
+import MenuClosedIconComponent from "../../library-based-components/icons/MenuClosedIconComponent.js";
+import MenuIconComponent from "../../library-based-components/icons/MenuIconComponent.js";
 
 const Header = () => {
   const { mobileView, mobileViewSwitch } = useMobileViewState();

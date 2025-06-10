@@ -1,17 +1,17 @@
-import { useAuth } from "../../../providers/AuthProvider";
+import { useAuth } from "../../../providers/AuthProvider.js";
 import { useState } from "react";
-import { useShowConfirm } from "../../../providers/ShowConfirmProvider";
-import { UserModel } from "../../../models/UserModel";
-import { USER_ROLES } from "../../../constants/USER_ROLES";
-import TCell from "../../../components/library-based-components/table/TCell";
-import ContentCopyIconComponent from "../../../components/library-based-components/icons/ContentCopyIconComponent";
-import DeleteIconComponent from "../../../components/library-based-components/icons/DeleteIconComponent";
-import { clone } from "../../../helpers/util.helper";
-import HomeIconComponent from "../../../components/library-based-components/icons/HomeIconComponent";
-import TableContainerComponent from "../../../components/library-based-components/table/TableContainerComponent";
-import withDataFetch from "../../../hocs/withDataFetch";
-import useSubmit from "../../../hooks/useSubmit";
-import UsersColumnsList from "./UsersColumnList";
+import { useShowConfirm } from "../../../providers/ShowConfirmProvider.js";
+import { UserModel } from "../../../models/UserModel.js";
+import { USER_ROLES } from "../../../constants/USER_ROLES.js";
+import TCell from "../../../components/library-based-components/table/TCell.js";
+import ContentCopyIconComponent from "../../../components/library-based-components/icons/ContentCopyIconComponent.js";
+import DeleteIconComponent from "../../../components/library-based-components/icons/DeleteIconComponent.js";
+import { clone } from "../../../helpers/util.helper.js";
+import HomeIconComponent from "../../../components/library-based-components/icons/HomeIconComponent.js";
+import TableContainerComponent from "../../../components/library-based-components/table/TableContainerComponent.js";
+import withDataFetch from "../../../hocs/withDataFetch.js";
+import useSubmit from "../../../hooks/useSubmit.js";
+import UsersColumnsList from "./UsersColumnList.js";
 
 const UsersList = ({ data }) => {
   const auth = useAuth();

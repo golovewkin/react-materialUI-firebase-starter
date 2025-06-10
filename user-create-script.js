@@ -1,7 +1,7 @@
-const admin = require("firebase-admin");
-const config = require("./config/config.json");
-const generator = require("generate-password");
-const { getFirestore } = require("firebase-admin/firestore");
+import admin from "firebase-admin";
+import config from "./config/config.json" with {type: "json"};
+import generator from "generate-password";
+import {getFirestore} from "firebase-admin/firestore";
 
 const randomIntFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -43,4 +43,4 @@ const createUser = async (email) => {
   }
 };
 
-createUser(process.argv[2]);
+void createUser(process.argv[2]); // eslint-disable-line no-undef

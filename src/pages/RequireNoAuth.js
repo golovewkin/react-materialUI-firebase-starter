@@ -1,8 +1,8 @@
-import { useAuth } from "../providers/AuthProvider";
+import { useAuth } from "../providers/AuthProvider.js";
 import { useLocation } from "react-router-dom";
-import { BrowserStorageService } from "../services/BrowserStorageService";
-import { COMMON } from "../constants/COMMON";
-import { isUserURL } from "../helpers/util.helper";
+import { BrowserStorageService } from "../services/BrowserStorageService.js";
+import { COMMON } from "../constants/COMMON.js";
+import { isUserURL } from "../helpers/util.helper.js";
 
 const RequireNoAuth = ({ children }) => {
   const auth = useAuth();

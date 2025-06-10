@@ -1,6 +1,6 @@
 import React from "react";
-import { PUBLIC_URLS } from "../../constants/URLS";
-import LinkComponent from "../../components/library-based-components/Link/LinkComponent";
+import { PUBLIC_URLS } from "../../constants/URLS.js";
+import LinkComponent from "../../components/library-based-components/Link/LinkComponent.js";
 
 const LandingPage = () => {
   return (

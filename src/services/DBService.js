@@ -12,7 +12,7 @@ import {
   sendPasswordResetEmail,
   auth,
   addDoc,
-} from "./firebase";
+} from "./firebase.js";
 
 export class DBService {
   static getDocumentsFromSnapshot(querySnapshot) {

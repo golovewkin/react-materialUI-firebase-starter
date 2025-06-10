@@ -1,10 +1,10 @@
 import React, { useCallback, useMemo } from "react";
-import { InquiryModel } from "../../../models/InquiryModel";
-import { INQUIRY_TYPES } from "../../../constants/INQUIRY";
-import { getInviteUrl } from "../../../helpers/util.helper";
-import ContentCopyIconComponent from "../../../components/library-based-components/icons/ContentCopyIconComponent";
-import { useShowCommonPopup } from "../../../providers/ShowCommonPopupProvider";
-import FormComponent from "../../../components/library-based-components/FormComponent";
+import { InquiryModel } from "../../../models/InquiryModel.js";
+import { INQUIRY_TYPES } from "../../../constants/INQUIRY.js";
+import { getInviteUrl } from "../../../helpers/util.helper.js";
+import ContentCopyIconComponent from "../../../components/library-based-components/icons/ContentCopyIconComponent.js";
+import { useShowCommonPopup } from "../../../providers/ShowCommonPopupProvider.js";
+import FormComponent from "../../../components/library-based-components/FormComponent.js";
 
 const CreateInvite = () => {
   const showMessage = useShowCommonPopup();

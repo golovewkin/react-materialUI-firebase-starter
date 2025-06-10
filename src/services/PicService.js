@@ -1,5 +1,5 @@
-import {makeId} from "../helpers/util.helper";
-import {storage, storageRef, getDownloadURL, uploadBytes} from "./firebase";
+import {makeId} from "../helpers/util.helper.js";
+import {storage, storageRef, getDownloadURL, uploadBytes} from "./firebase.js";
 
 export class PicService {
   static maxFileSize = 300000;

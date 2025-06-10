@@ -1,8 +1,8 @@
 import React, { useCallback, useMemo } from "react";
-import { PUBLIC_URLS } from "../../constants/URLS";
-import LinkComponent from "../../components/library-based-components/Link/LinkComponent";
-import { useAuth } from "../../providers/AuthProvider";
-import FormComponent from "../../components/library-based-components/FormComponent";
+import { PUBLIC_URLS } from "../../constants/URLS.js";
+import LinkComponent from "../../components/library-based-components/Link/LinkComponent.js";
+import { useAuth } from "../../providers/AuthProvider.js";
+import FormComponent from "../../components/library-based-components/FormComponent.js";
 
 const LoginPage = () => {
   const auth = useAuth();

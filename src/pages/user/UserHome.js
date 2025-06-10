@@ -1,10 +1,10 @@
 import React from "react";
-import { useAuth } from "../../providers/AuthProvider";
-import HomeIconComponent from "../../components/library-based-components/icons/HomeIconComponent";
-import { USER_ROLES } from "../../constants/USER_ROLES";
-import AdminHome from "../admin/AdminHome";
-import { COLLECTIONS } from "../../constants/COLLECTIONS";
-import { DBService } from "../../services/DBService";
+import { useAuth } from "../../providers/AuthProvider.js";
+import HomeIconComponent from "../../components/library-based-components/icons/HomeIconComponent.js";
+import { USER_ROLES } from "../../constants/USER_ROLES.js";
+import AdminHome from "../admin/AdminHome.js";
+import { COLLECTIONS } from "../../constants/COLLECTIONS.js";
+import { DBService } from "../../services/DBService.js";
 
 const UserHome = () => {
   const { user } = useAuth();

@@ -1,4 +1,4 @@
-import { LogService } from "./LogService";
+import { LogService } from "./LogService.js";
 
 class ClipboardService {
   static async copyToClipboard(text, successCb) {

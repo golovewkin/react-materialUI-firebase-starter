@@ -1,4 +1,4 @@
-import { DBService } from "../services/DBService";
+import { DBService } from "../services/DBService.js";
 
 export class EntityModel {
   static collection = "";
